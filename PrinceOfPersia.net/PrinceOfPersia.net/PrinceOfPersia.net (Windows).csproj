@@ -29,7 +29,7 @@
     <Thumbnail>
     </Thumbnail>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>http://www.falappi.it/POP/</PublishUrl>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -39,13 +39,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://raw.github.com/polipo/PrinceOfPersia.net/master/PrinceOfPersia.net/PrinceOfPersia.net/bin/x86/Release/app.publish/</InstallUrl>
+    <InstallUrl>https://princeofpersia.codeplex.com/releases/clickonce/</InstallUrl>
     <SupportUrl>http://princeofpersiadotnet.blogspot.it/</SupportUrl>
     <ProductName>PrinceOfPersia.net</ProductName>
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>39</ApplicationRevision>
+    <ApplicationRevision>45</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

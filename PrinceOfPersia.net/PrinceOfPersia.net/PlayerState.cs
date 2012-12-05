@@ -12,31 +12,31 @@ namespace PrinceOfPersia
     {
 
         private const int iSize = 2;
-        private Queue<StateElement> data = new Queue<StateElement>(iSize);
+        private Queue<StatePlayerElement> data = new Queue<StatePlayerElement>(iSize);
 
         public PlayerState()
         {
-            Add(new StateElement());
+            Add(new StatePlayerElement());
         }
 
-        public StateElement.State Next()
+        public StatePlayerElement.State Next()
         {
             return Next(Value().state);
         }
-        public StateElement.State Next(StateElement.State state)
-        { 
+        public StatePlayerElement.State Next(StatePlayerElement.State state)
+        {
             switch (state)
             {
-                case StateElement.State.freefall:
-                    return StateElement.State.crouch;
+                case StatePlayerElement.State.freefall:
+                    return StatePlayerElement.State.crouch;
                 default:
-                    return StateElement.State.stand;
+                    return StatePlayerElement.State.stand;
             }
         
         }
 
 
-        public void Add(StateElement.State state)
+        public void Add(StatePlayerElement.State state)
         {
             //if (Value().state == state)
             //    return;
@@ -46,72 +46,72 @@ namespace PrinceOfPersia
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state));
+            data.Enqueue(new StatePlayerElement(state));
         }
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority));
+            data.Enqueue(new StatePlayerElement(state, priority));
         }
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority, StateElement.SequenceReverse reverse)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, StateElement.SequenceReverse reverse)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority, reverse));
+            data.Enqueue(new StatePlayerElement(state, priority, reverse));
         }
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority, bool? stoppable)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority, stoppable, StateElement.SequenceReverse.Normal));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, StateElement.SequenceReverse.Normal));
         }
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority, bool? stoppable, Vector2 offSet)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, Vector2 offSet)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority, stoppable, StateElement.SequenceReverse.Normal, offSet));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, StateElement.SequenceReverse.Normal, offSet));
         }
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority, stoppable, reverse));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, reverse));
         }
 
 
-        public void Add(StateElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse, Vector2 offSet)
+        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse, Vector2 offSet)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StateElement(state, priority, stoppable, reverse, offSet));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, reverse, offSet));
         }
 
 
-        public void Add(StateElement stateElement)
+        public void Add(StatePlayerElement stateElement)
         {
             if (data.Count == iSize)
             {
@@ -121,20 +121,20 @@ namespace PrinceOfPersia
             data.Enqueue(stateElement);
         }
 
-        public StateElement Previous()
+        public StatePlayerElement Previous()
         {
             if (data.Count == 0)
             {
-                Add(new StateElement());
+                Add(new StatePlayerElement());
             }
             return data.First();
         }
 
 
-        public StateElement Value()
+        public StatePlayerElement Value()
         {
             if (data.Count == 0)
-                Add(new StateElement());
+                Add(new StatePlayerElement());
             return data.Last();
         }
 

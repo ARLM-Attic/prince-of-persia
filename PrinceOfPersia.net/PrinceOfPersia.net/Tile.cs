@@ -79,6 +79,7 @@ namespace PrinceOfPersia
         //private float Depth = 0.1f;
         public TileCollision Collision;
         public TileType Type;
+        public AnimationSequence tileAnimation = new AnimationSequence();
         
         //static for share purposes
         private static List<Sequence> tileSequence = new List<Sequence>();

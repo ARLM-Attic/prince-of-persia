@@ -48,9 +48,6 @@ namespace PrinceOfPersia
         }
         int frameIndex;
 
-   
-
-
 
         /// <summary>
         /// Gets a texture origin at the bottom center of each frame.
@@ -72,7 +69,7 @@ namespace PrinceOfPersia
         {
 
             // Start the new animation.
-            if (stateElement.priority == StateElement.PriorityState.Normal & this.IsStoppable == false)
+            if (stateElement.Priority == StateElement.PriorityState.Normal & this.IsStoppable == false)
                 return;
 
             //Check if the animation is already playing
@@ -148,23 +145,6 @@ namespace PrinceOfPersia
             this.firstTime = true;
         }
 
-
-        public void DrawNew(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
-        {
-       
-
-            // Calculate the source rectangle of the current frame.
-            Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
-
-            position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
-
-            // Draw the current frame.
-            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
-            //spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Origin, 1.0f, spriteEffects, depth);
-
-        }
-
-
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
             TimePerFrame =0.08f; //0.1
@@ -206,7 +186,7 @@ namespace PrinceOfPersia
                             });
                             sequence = result;
                             frameIndex = 0;
-                            playerState.Add(StateElement.Parse(par));
+                            playerState.Add(StatePlayerElement.Parse(par));
 
                         }
                     }
@@ -235,8 +215,21 @@ namespace PrinceOfPersia
      
 
        }
-   
 
+        public void DrawNew(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
+        {
+
+
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
+
+            position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
+
+            // Draw the current frame.
+            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+            //spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Origin, 1.0f, spriteEffects, depth);
+
+        }
     }
 
 

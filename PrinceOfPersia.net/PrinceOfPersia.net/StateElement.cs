@@ -7,9 +7,9 @@ using Microsoft.Xna.Framework;
 
 namespace PrinceOfPersia
 {
-    public class StateElement
+    public abstract class StateElement
     {
-        private State _playerState;
+        private State _state;
         private PriorityState _priorityState;
         private bool? _stoppable;
         private SequenceReverse _reverse;
@@ -33,217 +33,7 @@ namespace PrinceOfPersia
 
         public enum State
         {
-            none // my state
-            ,crouch //my state
-            ,godown //my state invert standup
-            , startrun,
-            stand,
-            standjump,
-            runjump,
-            turn,
-            runturn,
-            stepfall,
-            jumphangMed,
-            hang,
-            climbup,
-            hangdrop,
-            freefall,
-            runstop,
-            jumpup,
-            fallhang,
-            jumpbackhang,
-            softland,
-            jumpfall,
-            stepfall2
-                ,
-            medland
-                ,
-            rjumpfall
-                ,
-            hardland
-                ,
-            hangfall
-                ,
-            jumphangLong
-                ,
-            hangstraight
-                ,
-            rdiveroll
-                ,
-            sdiveroll
-                ,
-            highjump
-                ,
-            step1
-                ,
-            step2
-                ,
-            step3
-                ,
-            step4
-                ,
-            step5
-                ,
-            step6
-                ,
-            step7
-                ,
-            step8
-                ,
-            step9
-                ,
-            step10
-                ,
-            step11
-                ,
-            step12
-                ,
-            step13
-                ,
-            fullstep
-                ,
-            turnrun
-                ,
-            testfoot
-                ,
-            bumpfall
-                ,
-            hardbump
-                ,
-            bump
-                ,
-            superhijump
-                ,
-            standup
-                ,
-            stoop
-                ,
-            impale
-                ,
-            crush
-                ,
-            deadfall
-                ,
-            halve
-                ,
-            engarde
-                ,
-            advance
-                ,
-            retreat
-                ,
-            strike
-                ,
-            flee
-                ,
-            turnengarde
-                ,
-            strikeblock
-                ,
-            readyblock
-                ,
-            landengarde
-                ,
-            bumpengfwd
-                ,
-            bumpengback
-                ,
-            blocktostrike
-                ,
-            strikeadv
-                ,
-            climbdown
-                ,
-            blockedstrike
-                ,
-            climbstairs
-                ,
-            dropdead
-                ,
-            stepback
-                ,
-            climbfail
-                ,
-            stabbed
-                ,
-            faststrike
-                ,
-            strikeret
-                ,
-            alertstand
-                ,
-            drinkpotion
-                ,
-            crawl
-                ,
-            alertturn
-                ,
-            fightfall
-                ,
-            efightfall
-                ,
-            efightfallfwd
-                ,
-            running
-                ,
-            stabkill
-                ,
-            fastadvance
-                ,
-            goalertstand
-                ,
-            arise
-                ,
-            turndraw
-                ,
-            guardengarde
-                ,
-            pickupsword
-                ,
-            resheathe
-                ,
-            fastsheathe
-                ,
-            Pstand
-                ,
-            Vstand
-                ,
-            Vwalk
-                ,
-            Vstop
-                ,
-            Palert
-                ,
-            Pback
-                ,
-            Vexit
-                ,
-            Mclimb
-                ,
-            Vraise
-                ,
-            Plie
-                ,
-            patchfall
-                ,
-            Mscurry
-                ,
-            Mstop
-                ,
-            Mleave
-                ,
-            Pembrace
-                ,
-            Pwaiting
-                ,
-            Pstroke
-                ,
-            Prise
-                ,
-            Pcrouch
-                ,
-            Pslump
-                , Mraise
+            none // new derived class of this
         }
 
         public enum PriorityState
@@ -278,11 +68,11 @@ namespace PrinceOfPersia
 
         public State state
         {
-            get { return _playerState; }
-            set { _playerState = value; }
+            get { return _state; }
+            set { _state = value; }
         }
 
-        public PriorityState priority
+        public PriorityState Priority
         {
             get { return _priorityState; }
             set { _priorityState = value; }
@@ -290,7 +80,7 @@ namespace PrinceOfPersia
 
         public StateElement()
         {
-            _playerState = State.stand;
+            _state = State.none;
             _priorityState = PriorityState.Normal;
             _reverse = SequenceReverse.Normal;
             _offset = Vector2.Zero;
@@ -298,7 +88,7 @@ namespace PrinceOfPersia
 
         public StateElement(State state, PriorityState priority)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = priority;
             _reverse = SequenceReverse.Normal;
             _offset = Vector2.Zero;
@@ -306,7 +96,7 @@ namespace PrinceOfPersia
 
         public StateElement(State state, PriorityState priority, bool? stoppable)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = priority;
             _stoppable = stoppable;
             _reverse = SequenceReverse.Normal;
@@ -315,7 +105,7 @@ namespace PrinceOfPersia
 
         public StateElement(State state, PriorityState priority, SequenceReverse reverse)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = priority;
             _reverse = reverse;
             _offset = Vector2.Zero;
@@ -324,7 +114,7 @@ namespace PrinceOfPersia
 
         public StateElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = priority;
             _stoppable = stoppable;
             _reverse = reverse;
@@ -333,7 +123,7 @@ namespace PrinceOfPersia
 
         public StateElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse, Vector2 offSet)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = priority;
             _stoppable = stoppable;
             _reverse = reverse;
@@ -341,7 +131,7 @@ namespace PrinceOfPersia
         }
         public StateElement(State state)
         {
-            _playerState = state;
+            _state = state;
             _priorityState = PriorityState.Normal;
             _reverse = SequenceReverse.Normal;
             _offset = Vector2.Zero;

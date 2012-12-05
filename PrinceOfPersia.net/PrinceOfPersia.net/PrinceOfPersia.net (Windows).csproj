@@ -24,8 +24,7 @@
     <TileTitle>Platformer4</TileTitle>
     <SupportedCultures>
     </SupportedCultures>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>PoPicon.ico</ApplicationIcon>
     <Thumbnail>
     </Thumbnail>
     <IsWebBootstrapper>true</IsWebBootstrapper>
@@ -45,7 +44,7 @@
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>45</ApplicationRevision>
+    <ApplicationRevision>47</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -95,6 +94,7 @@
     <Compile Include="Accelerometer.cs" />
     <Compile Include="AnimationSequence.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="StatePlayerElement.cs" />
     <Compile Include="StateTileElement.cs" />
     <Compile Include="ExternalRefObjectContentProcessor.cs" />
     <Compile Include="Frame.cs" />
@@ -208,6 +208,9 @@
     <EmbeddedResource Include="resources\TILE_sequence.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PoPicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />

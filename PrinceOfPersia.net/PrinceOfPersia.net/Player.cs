@@ -237,7 +237,7 @@ namespace PrinceOfPersia
         public void ParseInput(StateElement.Input input)
         {
 
-            if (playerState.Value().priority == StateElement.PriorityState.Normal & sprite.IsStoppable == false)
+            if (playerState.Value().Priority == StateElement.PriorityState.Normal & sprite.IsStoppable == false)
                 return;
 
             switch (input)
@@ -245,36 +245,36 @@ namespace PrinceOfPersia
                 case StateElement.Input.none :
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.none:
-                            Stand(playerState.Value().priority);
+                        case StatePlayerElement.State.none:
+                            Stand(playerState.Value().Priority);
                             break;
-                        case StateElement.State.stand:
-                            Stand(playerState.Value().priority);
+                        case StatePlayerElement.State.stand:
+                            Stand(playerState.Value().Priority);
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             RunStop();
                             break;
-                        case StateElement.State.running:
+                        case StatePlayerElement.State.running:
                             RunStop();
                             break;
-                        case StateElement.State.step1:
+                        case StatePlayerElement.State.step1:
                             Stand();
                             break;
-                        case StateElement.State.stepfall:
+                        case StatePlayerElement.State.stepfall:
                             StepFall();
                             break;
-                        case StateElement.State.crouch:
+                        case StatePlayerElement.State.crouch:
                             StandUp();
                             break;
-                        case StateElement.State.highjump:
+                        case StatePlayerElement.State.highjump:
                             Stand();
                             break;
-                        case StateElement.State.hangstraight:
-                        case StateElement.State.hang:
+                        case StatePlayerElement.State.hangstraight:
+                        case StatePlayerElement.State.hang:
                             HangDrop();
                             break;
-                        case StateElement.State.bump:
-                            Bump(playerState.Value().priority);
+                        case StatePlayerElement.State.bump:
+                            Bump(playerState.Value().Priority);
                             break;
 
                         default:
@@ -285,32 +285,32 @@ namespace PrinceOfPersia
                 case StateElement.Input.left:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             if (flip == SpriteEffects.FlipHorizontally)
                                 turn();
                             else
                                 StartRunning();
                             break;
-                        case StateElement.State.step1:
+                        case StatePlayerElement.State.step1:
                             StartRunning();
                             break;
-                        case StateElement.State.crouch:
+                        case StatePlayerElement.State.crouch:
                             if (flip == SpriteEffects.FlipHorizontally)
                                 return;
                             Crawl();
                             break;
-                        case StateElement.State.stepfall:
+                        case StatePlayerElement.State.stepfall:
                             StepFall();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             if (flip == SpriteEffects.FlipHorizontally)
                                 RunTurn();
                             break;
-                        //case StateElement.State.hang:
+                        //case StatePlayerElement.State.hang:
                         //    HangDrop();
                         //    break;
-                        case StateElement.State.bump:
-                            Bump(playerState.Value().priority);
+                        case StatePlayerElement.State.bump:
+                            Bump(playerState.Value().Priority);
                             break;
 
                         default:
@@ -321,17 +321,17 @@ namespace PrinceOfPersia
                 case StateElement.Input.leftshift:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             if (flip == SpriteEffects.FlipHorizontally)
                                 turn();
                             else
                                 StepForward();
                             break;
-                        //case StateElement.State.hang:
+                        //case StatePlayerElement.State.hang:
                         //    Hang();
                         //    break;
-                        case StateElement.State.bump:
-                            Bump(playerState.Value().priority);
+                        case StatePlayerElement.State.bump:
+                            Bump(playerState.Value().Priority);
                             break;
 
                         default:
@@ -342,11 +342,11 @@ namespace PrinceOfPersia
                 case StateElement.Input.leftdown:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.crouch:
+                        case StatePlayerElement.State.crouch:
                             if (flip == SpriteEffects.None)
                                 Crawl();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             GoDown(new Vector2(5, 0));
                             break;
                         default:
@@ -354,13 +354,13 @@ namespace PrinceOfPersia
                     }
                     break;
                 //LEFTUP//////////////////////
-                case StateElement.Input.leftup:
+                case StatePlayerElement.Input.leftup:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             StandJump();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             RunJump();
                             break;
 
@@ -370,31 +370,31 @@ namespace PrinceOfPersia
                     break;
 
                 //RIGHT//////////////////////
-                case StateElement.Input.right:
+                case StatePlayerElement.Input.right:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             if (flip == SpriteEffects.None)
                                 turn();
                             else
                                 StartRunning();
                             break;
-                        case StateElement.State.step1:
+                        case StatePlayerElement.State.step1:
                             StartRunning();
                             break;
-                        case StateElement.State.crouch:
+                        case StatePlayerElement.State.crouch:
                             if (flip == SpriteEffects.None)
                                 return;
                             Crawl();
                             break;
-                        case StateElement.State.stepfall:
+                        case StatePlayerElement.State.stepfall:
                             StepFall();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             if (flip == SpriteEffects.None)
                                 RunTurn();
                             break;
-                        //case StateElement.State.hang:
+                        //case StatePlayerElement.State.hang:
                         //    HangDrop();
                         //    break;
 
@@ -403,16 +403,16 @@ namespace PrinceOfPersia
                     }
                     break;
                 //SHIFTRIGHT//////////////////////
-                case StateElement.Input.rightshift:
+                case StatePlayerElement.Input.rightshift:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             if (flip == SpriteEffects.None)
                                 turn();
                             else
                                 StepForward();
                             break;
-                        case StateElement.State.hang: 
+                        case StatePlayerElement.State.hang: 
                             Hang();
                             break;
 
@@ -421,17 +421,17 @@ namespace PrinceOfPersia
                     }
                     break;
                 //RIGHTDOWN//////////////////////
-                case StateElement.Input.righdown:
+                case StatePlayerElement.Input.righdown:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.crouch:
+                        case StatePlayerElement.State.crouch:
                             if (flip != SpriteEffects.None)
                                 Crawl();
                             break;
-                        case StateElement.State.hang:
+                        case StatePlayerElement.State.hang:
                             ClimbFail();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             GoDown(new Vector2(5, 0));
                             break;
                         default:
@@ -439,13 +439,13 @@ namespace PrinceOfPersia
                     }
                     break;
                 //RIGHTUP//////////////////////
-                case StateElement.Input.rightup:
+                case StatePlayerElement.Input.rightup:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             StandJump();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             RunJump();
                             break;
                         default:
@@ -454,16 +454,17 @@ namespace PrinceOfPersia
                     break;
 
                 //DOWN//////////////////////
-                case StateElement.Input.down:
+                case StatePlayerElement.Input.down:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             GoDown();
                             break;
-                        case StateElement.State.hang: case StateElement.State.hangstraight:
+                        case StatePlayerElement.State.hang:
+                        case StatePlayerElement.State.hangstraight:
                             HangDrop();
                             break;
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.startrun:
                             GoDown(new Vector2(5,0));
                             break;
 
@@ -475,16 +476,16 @@ namespace PrinceOfPersia
                 case StateElement.Input.up:
                     switch (playerState.Value().state)
                     {
-                        case StateElement.State.running:
-                        case StateElement.State.startrun:
+                        case StatePlayerElement.State.running:
+                        case StatePlayerElement.State.startrun:
                             RunStop();
                             break;
-                        case StateElement.State.stand:
+                        case StatePlayerElement.State.stand:
                             HighJump();
                             break;
-                        case StateElement.State.jumphangMed:
-                        case StateElement.State.hang: 
-                        case StateElement.State.hangstraight:
+                        case StatePlayerElement.State.jumphangMed:
+                        case StatePlayerElement.State.hang:
+                        case StatePlayerElement.State.hangstraight:
                             ClimbUp();
                             break;
 
@@ -493,13 +494,13 @@ namespace PrinceOfPersia
                     }
                     break;
                 //SHIFT/////////////////////////
-                case StateElement.Input.shift:
+                case StatePlayerElement.Input.shift:
                     switch (playerState.Value().state)
                     {
-                        //case StateElement.State.hang:
+                        //case StatePlayerElement.State.hang:
                         //    Hang();
                         //    break;
-                        case StateElement.State.jumphangMed:
+                        case StatePlayerElement.State.jumphangMed:
                             Hang();
                             break;
                         default:
@@ -525,7 +526,7 @@ namespace PrinceOfPersia
             AccelerometerState accelState, 
             DisplayOrientation orientation)
         {
-            if (playerState.Value().priority == StateElement.PriorityState.Force)
+            if (playerState.Value().Priority == StateElement.PriorityState.Force)
                 return StateElement.Input.none;
 
 
@@ -746,27 +747,27 @@ namespace PrinceOfPersia
             if (isOnGround == false)
             {
                 if (sprite.sequence.raised == false)
-                    //if (playerState.Value().state != StateElement.State.freefall &
-                    //        playerState.Value().state != StateElement.State.highjump &
-                    //        playerState.Value().state != StateElement.State.hang &
-                    //        playerState.Value().state != StateElement.State.hangstraight &
-                    //        playerState.Value().state != StateElement.State.hangdrop &
-                    //        playerState.Value().state != StateElement.State.hangfall &
-                    //        playerState.Value().state != StateElement.State.jumphangMed &
-                    //        playerState.Value().state != StateElement.State.climbdown &
-                    //    playerState.Value().state != StateElement.State.climbup
+                    //if (playerState.Value().state != StatePlayerElement.State.freefall &
+                    //        playerState.Value().state != StatePlayerElement.State.highjump &
+                    //        playerState.Value().state != StatePlayerElement.State.hang &
+                    //        playerState.Value().state != StatePlayerElement.State.hangstraight &
+                    //        playerState.Value().state != StatePlayerElement.State.hangdrop &
+                    //        playerState.Value().state != StatePlayerElement.State.hangfall &
+                    //        playerState.Value().state != StatePlayerElement.State.jumphangMed &
+                    //        playerState.Value().state != StatePlayerElement.State.climbdown &
+                    //    playerState.Value().state != StatePlayerElement.State.climbup
                     //    )
                 {
                     //SNAP TO THE GROUND
-                    playerState.Add(StateElement.State.stepfall);
+                    playerState.Add(StatePlayerElement.State.stepfall);
                 }
             }
             else
             {
-                if (playerState.Value().state == StateElement.State.freefall)
+                if (playerState.Value().state == StatePlayerElement.State.freefall)
                 {
                     _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
-                    playerState.Add(StateElement.State.crouch, StateElement.PriorityState.Force, false);
+                    playerState.Add(StatePlayerElement.State.crouch, StateElement.PriorityState.Force, false);
                 }
             }
         }
@@ -806,15 +807,15 @@ namespace PrinceOfPersia
                                 {
                                     //if (sprite.sequence.raised == false)
                                         if (sprite.sequence.raised == false)
-                                            if (playerState.Value().state != StateElement.State.freefall &
-                                            playerState.Value().state != StateElement.State.highjump &
-                                            playerState.Value().state != StateElement.State.hang &
-                                            playerState.Value().state != StateElement.State.hangstraight &
-                                            playerState.Value().state != StateElement.State.hangdrop &
-                                            playerState.Value().state != StateElement.State.hangfall &
-                                            playerState.Value().state != StateElement.State.jumphangMed &
-                                            playerState.Value().state != StateElement.State.climbup &
-                                            playerState.Value().state != StateElement.State.climbdown 
+                                            if (playerState.Value().state != StatePlayerElement.State.freefall &
+                                            playerState.Value().state != StatePlayerElement.State.highjump &
+                                            playerState.Value().state != StatePlayerElement.State.hang &
+                                            playerState.Value().state != StatePlayerElement.State.hangstraight &
+                                            playerState.Value().state != StatePlayerElement.State.hangdrop &
+                                            playerState.Value().state != StatePlayerElement.State.hangfall &
+                                            playerState.Value().state != StatePlayerElement.State.jumphangMed &
+                                            playerState.Value().state != StatePlayerElement.State.climbup &
+                                            playerState.Value().state != StatePlayerElement.State.climbdown 
                                                 )
                                     {
                                         _position.Value = new Vector2(_position.X + (depth.X - (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)), _position.Y);
@@ -830,15 +831,15 @@ namespace PrinceOfPersia
                                 if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
                                 {
                                     //if(sprite.sequence.raised == false)
-                                        if (playerState.Value().state != StateElement.State.freefall &
-                                        playerState.Value().state != StateElement.State.highjump &
-                                        playerState.Value().state != StateElement.State.hang &
-                                        playerState.Value().state != StateElement.State.hangstraight &
-                                        playerState.Value().state != StateElement.State.hangdrop &
-                                        playerState.Value().state != StateElement.State.hangfall &
-                                        playerState.Value().state != StateElement.State.jumphangMed &
-                                        playerState.Value().state != StateElement.State.climbup &
-                                        playerState.Value().state != StateElement.State.climbdown
+                                    if (playerState.Value().state != StatePlayerElement.State.freefall &
+                                        playerState.Value().state != StatePlayerElement.State.highjump &
+                                        playerState.Value().state != StatePlayerElement.State.hang &
+                                        playerState.Value().state != StatePlayerElement.State.hangstraight &
+                                        playerState.Value().state != StatePlayerElement.State.hangdrop &
+                                        playerState.Value().state != StatePlayerElement.State.hangfall &
+                                        playerState.Value().state != StatePlayerElement.State.jumphangMed &
+                                        playerState.Value().state != StatePlayerElement.State.climbup &
+                                        playerState.Value().state != StatePlayerElement.State.climbdown
                                             
                                             )
                                     {
@@ -915,9 +916,9 @@ namespace PrinceOfPersia
             else
                 flip = SpriteEffects.FlipHorizontally;
 
-            playerState.Add(StateElement.State.turn); 
+            playerState.Add(StatePlayerElement.State.turn); 
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand); 
+            playerState.Add(StatePlayerElement.State.stand); 
             
         }
 
@@ -925,9 +926,9 @@ namespace PrinceOfPersia
         { RunStop(StateElement.PriorityState.Normal); }
         public void RunStop(StateElement.PriorityState priority)
         {
-            playerState.Add(StateElement.State.runstop);
+            playerState.Add(StatePlayerElement.State.runstop);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand);
+            playerState.Add(StatePlayerElement.State.stand);
         }
 
         public void StartRunning()
@@ -945,7 +946,7 @@ namespace PrinceOfPersia
                 return;
             }
 
-            playerState.Add(StateElement.State.startrun);
+            playerState.Add(StatePlayerElement.State.startrun);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -968,9 +969,9 @@ namespace PrinceOfPersia
             }
             
 
-            playerState.Add(StateElement.State.fullstep);
+            playerState.Add(StatePlayerElement.State.fullstep);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand);
+            playerState.Add(StatePlayerElement.State.stand);
         }
 
 
@@ -993,17 +994,17 @@ namespace PrinceOfPersia
             if (priority == StateElement.PriorityState.Normal & sprite.IsStoppable == false)
                 return;
 
-            playerState.Add(StateElement.State.crouch, priority, stoppable, offset);
+            playerState.Add(StatePlayerElement.State.crouch, priority, stoppable, offset);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
 
         public void Crawl()
         {
-            //if (playerState.Previous().state == StateElement.State.crawl)
+            //if (playerState.Previous().state == StatePlayerElement.State.crawl)
             //    return;
 
-            playerState.Add(StateElement.State.crawl);
+            playerState.Add(StatePlayerElement.State.crawl);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1077,7 +1078,7 @@ namespace PrinceOfPersia
             if (sprite.IsStoppable == false)
                 return;
 
-            playerState.Add(StateElement.State.jumphangMed);
+            playerState.Add(StatePlayerElement.State.jumphangMed);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1087,7 +1088,7 @@ namespace PrinceOfPersia
             if (sprite.IsStoppable == false)
                 return;
 
-            playerState.Add(StateElement.State.climbup);
+            playerState.Add(StatePlayerElement.State.climbup);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1096,9 +1097,9 @@ namespace PrinceOfPersia
         { StandUp(StateElement.PriorityState.Normal); }
         public void StandUp(StateElement.PriorityState priority)
         {
-            playerState.Add(StateElement.State.standup, priority);
+            playerState.Add(StatePlayerElement.State.standup, priority);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand, priority);
+            playerState.Add(StatePlayerElement.State.stand, priority);
         }
 
         public void GoDown()
@@ -1109,9 +1110,9 @@ namespace PrinceOfPersia
         {GoDown(StateElement.PriorityState.Normal, Vector2.Zero); }
         public void GoDown(StateElement.PriorityState priority, Vector2 offSet)
         {
-            playerState.Add(StateElement.State.godown, priority, null, StateElement.SequenceReverse.Normal, offSet);
+            playerState.Add(StatePlayerElement.State.godown, priority, null, StateElement.SequenceReverse.Normal, offSet);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.crouch, priority);
+            playerState.Add(StatePlayerElement.State.crouch, priority);
         }
 
         public void Stand()
@@ -1134,14 +1135,14 @@ namespace PrinceOfPersia
 
             switch (playerState.Previous().state)
             {
-                case StateElement.State.freefall:
+                case StatePlayerElement.State.freefall:
                     Crouch(StateElement.PriorityState.Force);
                     return;
 
-                case StateElement.State.crouch:
+                case StatePlayerElement.State.crouch:
                     StandUp();
                     return;
-                case StateElement.State.startrun:
+                case StatePlayerElement.State.startrun:
                     RunStop();
                     return;
 
@@ -1150,9 +1151,9 @@ namespace PrinceOfPersia
             }
 
 
-            playerState.Add(StateElement.State.stand, priority);
+            playerState.Add(StatePlayerElement.State.stand, priority);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand, StateElement.PriorityState.Normal);
+            playerState.Add(StatePlayerElement.State.stand, StateElement.PriorityState.Normal);
 
         }
 
@@ -1161,7 +1162,7 @@ namespace PrinceOfPersia
         { StandJump(StateElement.PriorityState.Normal); }
         public void StandJump(StateElement.PriorityState priority)
         {
-            playerState.Add(StateElement.State.standjump, priority);
+            playerState.Add(StatePlayerElement.State.standjump, priority);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1169,9 +1170,9 @@ namespace PrinceOfPersia
         { StepFall(StateElement.PriorityState.Normal); }
         public void StepFall(StateElement.PriorityState priority)
         {
-            playerState.Add(StateElement.State.stepfall, priority);
+            playerState.Add(StatePlayerElement.State.stepfall, priority);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.freefall, priority);
+            playerState.Add(StatePlayerElement.State.freefall, priority);
         }
 
         public void HighJump()
@@ -1181,19 +1182,19 @@ namespace PrinceOfPersia
                 JumpHangMed();
                 return;
             }
-            playerState.Add(StateElement.State.highjump);
+            playerState.Add(StatePlayerElement.State.highjump);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
         public void ClimbFail()
         {
-            playerState.Add(StateElement.State.climbfail);
+            playerState.Add(StatePlayerElement.State.climbfail);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
         public void HangDrop()
         {
-            playerState.Add(StateElement.State.hangdrop);
+            playerState.Add(StatePlayerElement.State.hangdrop);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1206,7 +1207,7 @@ namespace PrinceOfPersia
             else
                 flip = SpriteEffects.FlipHorizontally;
 
-            playerState.Add(StateElement.State.runturn);
+            playerState.Add(StatePlayerElement.State.runturn);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1214,13 +1215,13 @@ namespace PrinceOfPersia
         public void Hang()
         {
             //chek what kind of hang or hangstraight
-            if (playerState.Value().state == StateElement.State.hang | playerState.Value().state == StateElement.State.hangstraight)
+            if (playerState.Value().state == StatePlayerElement.State.hang | playerState.Value().state == StatePlayerElement.State.hangstraight)
                 return;
 
             if (IsFrontOfBlock(true) == true)
-                playerState.Add(StateElement.State.hangstraight);
+                playerState.Add(StatePlayerElement.State.hangstraight);
             else
-                playerState.Add(StateElement.State.hang);
+                playerState.Add(StatePlayerElement.State.hang);
 
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }    
@@ -1237,14 +1238,14 @@ namespace PrinceOfPersia
 
         public void Bump(StateElement.PriorityState priority, StateElement.SequenceReverse reverse)
         {
-            playerState.Add(StateElement.State.bump, priority, false, reverse);
+            playerState.Add(StatePlayerElement.State.bump, priority, false, reverse);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(StateElement.State.stand, StateElement.PriorityState.Normal);
+            playerState.Add(StatePlayerElement.State.stand, StateElement.PriorityState.Normal);
         }
 
         public void RunJump()
         {
-            playerState.Add(StateElement.State.runjump);
+            playerState.Add(StatePlayerElement.State.runjump);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         } 
 

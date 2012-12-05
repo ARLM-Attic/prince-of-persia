@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace PrinceOfPersia
 {
     /// <summary>
-    /// Controls playback of an Animation.
+    /// Controls playback of an Animation
     /// </summary>
     struct AnimationSequence
     {
@@ -30,14 +30,11 @@ namespace PrinceOfPersia
             }
             //set { stoppable = value; }
         }
-        //bool stoppable;
-
 
         public List<Frame> Frames
         {
             get { return sequence.frames; }
         }
-        
 
         /// <summary>
         /// Gets the index of the current frame in the animation.
@@ -47,7 +44,6 @@ namespace PrinceOfPersia
             get { return frameIndex; }
         }
         int frameIndex;
-
 
         /// <summary>
         /// Gets a texture origin at the bottom center of each frame.
@@ -65,8 +61,8 @@ namespace PrinceOfPersia
         /// <summary>
         /// Begins or continues playback of an animation.
         /// </summary>
-        public void PlayAnimation(List<Sequence> lsequence, StateElement stateElement)
-        {
+        public void PlayAnimation(List<Sequence> lsequence, StatePlayerElement stateElement)
+        {     
 
             // Start the new animation.
             if (stateElement.Priority == StateElement.PriorityState.Normal & this.IsStoppable == false)

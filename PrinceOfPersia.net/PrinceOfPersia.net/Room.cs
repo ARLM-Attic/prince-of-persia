@@ -134,9 +134,18 @@ namespace PrinceOfPersia
             {
                 for (int x = 0; x < Width; ++x)
                 {
+                    Vector2 v ;
                     // to load each Tile.
                     char tileType = lines[y][x];
                     tiles[x, y] = LoadTile(content, tileType, x, y);
+                    Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
+                    v = new Vector2(rect.X, rect.Y);
+
+                    tiles[x, y].Position = new Position(v, v);
+                    tiles[x, y].Position.X = v.X;
+                    tiles[x, y].Position.Y = v.Y;
+
+
                 }
             }
         }
@@ -174,7 +183,7 @@ namespace PrinceOfPersia
                     return new Tile(content, TileType.torch);
 
                 case 'G':
-                    return new Tile(content, TileType.space);
+                    return new Tile(content, TileType.gate);
 
                 case 'W':
                     return new Tile(content, TileType.block);
@@ -356,8 +365,7 @@ namespace PrinceOfPersia
             if (!Player.IsAlive || TimeRemaining == TimeSpan.Zero)
             {
                 // Still want to perform physics on the player.
-                Player.HandleCollisionsNew();
-                //Player.ApplyPhysicsNew(gameTime);
+                //Player.HandleCollisionsNew(); ????
             }
             else
             {
@@ -368,6 +376,17 @@ namespace PrinceOfPersia
             // Clamp the time remaining at zero.
             if (timeRemaining < TimeSpan.Zero)
                 timeRemaining = TimeSpan.Zero;
+
+
+            for (int y = Height - 1; y >= 0; --y)
+            {
+                for (int x = 0; x < Width; ++x)
+                {
+                    tiles[x, y].Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+                }
+            }
+
+
         }
 
 
@@ -391,7 +410,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void Draw(Game g, GameTime gameTime, SpriteBatch spriteBatch)
         {
-            DrawTilesInverse(spriteBatch);
+            DrawTilesInverseNew(gameTime, spriteBatch);
             Player.Draw(gameTime, spriteBatch);
         }
 
@@ -454,6 +473,30 @@ namespace PrinceOfPersia
 
         }
 
+
+        private void DrawTilesInverseNew(GameTime gametime, SpriteBatch spriteBatch)
+        {
+            RoomLeft().DrawTilesLeft(spriteBatch);
+            Vector2 position = new Vector2(0, 0);
+            // For each Tile position
+            for (int y = Height - 1; y >= 0; --y)
+            {
+                for (int x = 0; x < Width; ++x)
+                {                    
+                    Texture2D texture = null;
+                    texture = tiles[x, y].Texture;
+                    
+
+
+                    //Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)texture.Width, (int)texture.Height);
+                    //tiles[x, y].Position = new Position(new Vector2(rect.X, rect.Y), new Vector2(rect.X, rect.Y));
+                    position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
+                    tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, Vector2.Zero, SpriteEffects.None, 0.1f);
+
+                }
+            }
+            RoomUp().DrawTilesUp(spriteBatch);
+        }
 
         /// <summary>
         /// Draws each Tile in the level inverse order

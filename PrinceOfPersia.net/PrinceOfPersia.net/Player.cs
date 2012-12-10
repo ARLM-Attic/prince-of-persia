@@ -363,7 +363,9 @@ namespace PrinceOfPersia
                         case StatePlayerElement.State.startrun:
                             RunJump();
                             break;
-
+                        case StatePlayerElement.State.stepfall:
+                            StepFall();
+                            break;
                         default:
                             break;
                     }
@@ -447,6 +449,9 @@ namespace PrinceOfPersia
                             break;
                         case StatePlayerElement.State.startrun:
                             RunJump();
+                            break;
+                        case StatePlayerElement.State.stepfall:
+                            StepFall();
                             break;
                         default:
                             break;
@@ -737,7 +742,7 @@ namespace PrinceOfPersia
             Vector2 v2 = _room.getCenterTile(playerBounds);
             Rectangle tileBounds = _room.GetBounds((int)v2.X,(int)v2.Y);
 
-            if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor | _room.GetType((int)v2.X, (int)v2.Y)  == TileType.gate)
+            if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor | _room.GetType((int)v2.X, (int)v2.Y) == TileType.gate | _room.GetType((int)v2.X, (int)v2.Y) == TileType.torch)
             {
                 if (playerBounds.Bottom >= tileBounds.Bottom)
                     isOnGround = true;
@@ -805,18 +810,17 @@ namespace PrinceOfPersia
                                 //only for x pixel 
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
                                 {
-                                    //if (sprite.sequence.raised == false)
-                                        if (sprite.sequence.raised == false)
-                                            if (playerState.Value().state != StatePlayerElement.State.freefall &
-                                            playerState.Value().state != StatePlayerElement.State.highjump &
-                                            playerState.Value().state != StatePlayerElement.State.hang &
-                                            playerState.Value().state != StatePlayerElement.State.hangstraight &
-                                            playerState.Value().state != StatePlayerElement.State.hangdrop &
-                                            playerState.Value().state != StatePlayerElement.State.hangfall &
-                                            playerState.Value().state != StatePlayerElement.State.jumphangMed &
-                                            playerState.Value().state != StatePlayerElement.State.climbup &
-                                            playerState.Value().state != StatePlayerElement.State.climbdown 
-                                                )
+    
+                                    if (playerState.Value().state != StatePlayerElement.State.freefall &
+                                        playerState.Value().state != StatePlayerElement.State.highjump &
+                                        playerState.Value().state != StatePlayerElement.State.hang &
+                                        playerState.Value().state != StatePlayerElement.State.hangstraight &
+                                        playerState.Value().state != StatePlayerElement.State.hangdrop &
+                                        playerState.Value().state != StatePlayerElement.State.hangfall &
+                                        playerState.Value().state != StatePlayerElement.State.jumphangMed &
+                                        playerState.Value().state != StatePlayerElement.State.climbup &
+                                        playerState.Value().state != StatePlayerElement.State.climbdown
+                                        )
                                     {
                                         _position.Value = new Vector2(_position.X + (depth.X - (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)), _position.Y);
                                         Bump(StateElement.PriorityState.Force);
@@ -905,7 +909,7 @@ namespace PrinceOfPersia
             //sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
 
             //DRAW SPRITE
-            sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
 
         }
 

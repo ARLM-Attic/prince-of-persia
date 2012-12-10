@@ -166,6 +166,17 @@ Content\Sprites\fire\frame7.xnb
 Content\Sprites\fire\frame8.xnb
 Content\Sprites\fire\frame9.xnb
 Content\Tiles\FloorB.xnb
+Content\Tiles\bricks01.xnb
+Content\Tiles\FloorB_1.xnb
+Content\Tiles\FloorB_2.xnb
+Content\Tiles\FloorB_3.xnb
+Content\Tiles\FloorB_4.xnb
+Content\Tiles\FloorB_5.xnb
+Content\Tiles\FloorB_6.xnb
+Content\Tiles\FloorB_7.xnb
+Content\Tiles\FloorB_8.xnb
+Content\Tiles\FloorB_9.xnb
+Content\Tiles\space.xnb
 Content\Sounds\Music.wma
 Content\Rooms\0_0_1.txt
 Content\Levels\0.txt

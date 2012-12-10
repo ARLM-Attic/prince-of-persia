@@ -61,22 +61,42 @@ namespace PrinceOfPersia
         /// <summary>
         /// Begins or continues playback of an animation.
         /// </summary>
-        public void PlayAnimation(List<Sequence> lsequence, StatePlayerElement stateElement)
-        {     
+        public void PlayAnimation(List<Sequence> lsequence, StateElement stateElement)
+        {
+            StatePlayerElement statePlayerElement;
+            StateTileElement stateTileElement;
+            string stateName = string.Empty;
+            if (typeof(StatePlayerElement) == stateElement.GetType())
+            { 
+                statePlayerElement = (StatePlayerElement) stateElement;
+                stateName = statePlayerElement.state.ToString();
+            }
+            else if (typeof(StateTileElement) == stateElement.GetType())
+            {
+                stateTileElement = (StateTileElement)stateElement;
+                stateName = stateTileElement.state.ToString();
+            }
+            else
+            {
+                stateName = stateElement.state.ToString();
+            }
+
 
             // Start the new animation.
             if (stateElement.Priority == StateElement.PriorityState.Normal & this.IsStoppable == false)
                 return;
 
             //Check if the animation is already playing
-            if (sequence != null && sequence.name == stateElement.state.ToString())
+            if (sequence != null && sequence.name == stateName)
                 return;
+
+
 
             this.lsequence = lsequence;
             //Search in the sequence the right type
             Sequence result = lsequence.Find(delegate(Sequence s)
             {
-                return s.name == stateElement.state.ToString().ToUpper();
+                return s.name == stateName.ToUpper();
             });
 
             if (result == null)
@@ -141,9 +161,10 @@ namespace PrinceOfPersia
             this.firstTime = true;
         }
 
+
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
-            TimePerFrame =0.08f; //0.1
+            TimePerFrame =0.09f; //0.1
             TotalElapsed += elapsed;
      
             if (TotalElapsed > TimePerFrame)
@@ -212,10 +233,19 @@ namespace PrinceOfPersia
 
        }
 
-        public void DrawNew(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
+        public void DrawTile(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
         {
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
+
+            // Draw the current tile.
+            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+        }
 
 
+      
+        public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
+        {
             // Calculate the source rectangle of the current frame.
             Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
 
@@ -223,7 +253,6 @@ namespace PrinceOfPersia
 
             // Draw the current frame.
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
-            //spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Origin, 1.0f, spriteEffects, depth);
 
         }
     }

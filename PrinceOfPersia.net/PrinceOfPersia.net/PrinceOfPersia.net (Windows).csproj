@@ -44,7 +44,7 @@
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>57</ApplicationRevision>
+    <ApplicationRevision>58</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -91,9 +91,10 @@
     <StartupObject>PrinceOfPersia.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Accelerometer.cs" />
+    <Compile Include="Accelerometer.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="AnimationSequence.cs" />
-    <Compile Include="Circle.cs" />
     <Compile Include="Column.cs" />
     <Compile Include="RoomNew.cs" />
     <Compile Include="RoomRow.cs" />
@@ -108,7 +109,6 @@
     <Compile Include="Frame.cs" />
     <Compile Include="PlayerState.cs" />
     <Compile Include="Position.cs" />
-    <Compile Include="Room.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="PrinceOfPersia.cs" />
     <Compile Include="Player.cs" />
@@ -219,6 +219,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PoPicon.ico" />
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_3.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\MAP_blockroom.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_2.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\LEVEL_dungeon_prison.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

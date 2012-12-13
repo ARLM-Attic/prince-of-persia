@@ -63,6 +63,7 @@ namespace PrinceOfPersia
         private bool CONFIG_DEBUG = false;
         private float CONFIG_FRAMERATE = 0.9f;
         private string CONFIG_SPRITE_KID = "KID_DOS";
+        public string CONFIG_PATH_RESOURCES = "PrinceOfPersia.resources.";
 
         public PrinceOfPersiaGame()
         {
@@ -71,6 +72,7 @@ namespace PrinceOfPersia
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
+            CONFIG_PATH_RESOURCES = ConfigurationSettings.AppSettings["CONFIG_path_resources"].ToString();
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -134,7 +136,7 @@ namespace PrinceOfPersia
 
 
             //LOAD MAZE
-            maze = new Maze(Content);
+            maze = new Maze(Content, CONFIG_PATH_RESOURCES);
 
             //NOW START
             maze.StartRoom().StartNewLife(GraphicsDevice);

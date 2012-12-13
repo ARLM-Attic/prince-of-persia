@@ -798,12 +798,6 @@ namespace PrinceOfPersia
                     switch (tileType)
                     {
                         case TileType.block:
-                            //if (isBehind(tileBounds, playerBounds) == true)
-                            //{
-                            //    _position.Value = new Vector2(_position.X, _position.Y);
-                            //    playerBounds = BoundingRectangle;
-                            //    break;
-                            //}
                             //if sx wall i will penetrate..for perspective design
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
@@ -867,7 +861,37 @@ namespace PrinceOfPersia
                 }
             }
             //???
-            previousBottom = playerBounds.Bottom;
+            //previousBottom = playerBounds.Bottom;
+            //check if out room
+            if (_position.Y >= 400)
+            { 
+                //uscito DOWN
+                RoomNew downroom = _room.maze.DownRoom(_room);
+                _room.maze.playerRoom = downroom;
+                downroom.player = _room.player;
+                _room = downroom;
+                
+                _position.Y = 0;
+            }
+            if (_position.X >= 578)
+            {
+                RoomNew righroom = _room.maze.RightRoom(_room);
+                _room.maze.playerRoom = righroom;
+                righroom.player = _room.player;
+                _room = righroom;
+
+                _position.X = 1;
+            }
+            if (_position.X <= -50)
+            {
+                RoomNew room = _room.maze.LeftRoom(_room);
+                _room.maze.playerRoom = room;
+                room.player = _room.player;
+                _room = room;
+
+                _position.X = 570;
+            }
+
         }
 
     

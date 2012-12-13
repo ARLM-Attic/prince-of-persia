@@ -60,7 +60,18 @@ namespace PrinceOfPersia
 
         }
 
-  
+        //public RoomNew UpRoom(RoomNew room)
+        //{
+        //    for (int y = 0; y < rows.Count(); y++)
+        //    {
+        //        for (int x = 0; x < rows[y].columns.Count(); x++)
+        //        {
+        //            rows[y].columns[x]. == 
+        //        }
+        //    }
+        //    return null;
+        //}
+
 
         public void Serialize()
         { 

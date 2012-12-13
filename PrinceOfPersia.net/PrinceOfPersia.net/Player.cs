@@ -16,9 +16,9 @@ using Microsoft.Xna.Framework.Input.Touch;
 namespace PrinceOfPersia
 {
 
-    class Player
+    public class Player : Sprite
     {
-        
+ 
         //Sequence static for share purpose
         private static List<Sequence> playerSequence = null;
 
@@ -49,7 +49,7 @@ namespace PrinceOfPersia
         private Position _position;
         public PlayerState playerState = new PlayerState();
 
-        private Room _room;
+        private RoomNew _room;
 
         public bool IsAlive
         {
@@ -138,7 +138,7 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Player(Room _room, Vector2 position, GraphicsDevice graphicsDevice)
+        public Player(RoomNew _room, Vector2 position, GraphicsDevice graphicsDevice)
         {
             this.graphicsDevice = graphicsDevice;
             this._room = _room;
@@ -165,7 +165,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in playerSequence)
             {
-                s.Initialize(_room.Content);
+                s.Initialize(_room.content);
             }
 
             // Calculate bounds within texture size.         
@@ -179,9 +179,9 @@ namespace PrinceOfPersia
             localBounds = new Rectangle(left, top, width, height);
 
             // Load sounds.            
-            killedSound = _room.Content.Load<SoundEffect>("Sounds/PlayerKilled");
-            jumpSound = _room.Content.Load<SoundEffect>("Sounds/PlayerJump");
-            fallSound = _room.Content.Load<SoundEffect>("Sounds/PlayerFall");
+            killedSound = _room.content.Load<SoundEffect>("Sounds/PlayerKilled");
+            jumpSound = _room.content.Load<SoundEffect>("Sounds/PlayerJump");
+            fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
         }
 
         /// <summary>

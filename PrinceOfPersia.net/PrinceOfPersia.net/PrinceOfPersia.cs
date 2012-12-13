@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Configuration;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -40,6 +41,8 @@ namespace PrinceOfPersia
         private Level[] levels = new Level[30];
         private int levelIndex = 0;
         private bool wasContinuePressed;
+        private Maze maze;
+
 
         // When the time remaining is less than the warning time, it blinks on the hud
         private static readonly TimeSpan WarningTime = TimeSpan.FromSeconds(30);
@@ -57,8 +60,18 @@ namespace PrinceOfPersia
         // or handle exceptions, both of which can add unnecessary time to level loading.
         private const int numberOfLevels = 3;
 
+        private bool CONFIG_DEBUG = false;
+        private float CONFIG_FRAMERATE = 0.9f;
+        private string CONFIG_SPRITE_KID = "KID_DOS";
+
         public PrinceOfPersiaGame()
         {
+
+            //READ APP.CONFIG for configuration settings
+            bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
+            float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
+            CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
+
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -92,11 +105,8 @@ namespace PrinceOfPersia
         protected override void LoadContent()
         {
 
+            //TEST FOR LOAD AN XML IN CONTENT --- FAILED...why?!??
             //ContentSerializerIgnoreAttribute o = new ContentSerializerIgnoreAttribute();
-
-
-            
-            
             //l = Content.Load<List<Sequence>>("Sequence/KID_sequence");
              
             // Create a new SpriteBatch, which can be used to draw textures.
@@ -104,7 +114,6 @@ namespace PrinceOfPersia
             
 
             // Load fonts
-
             hudFont = Content.Load<SpriteFont>("Fonts/Hud");
 
             // Load overlay textures
@@ -124,13 +133,11 @@ namespace PrinceOfPersia
             catch { }
 
 
-            //LOAD ALL LEVELS ALL ROOM
-            LoadLevels();
-            
-            
+            //LOAD MAZE
+            maze = new Maze(Content);
 
             //NOW START
-            levels[levelIndex].StartRoom().StartNewLife(GraphicsDevice);
+            maze.StartRoom().StartNewLife(GraphicsDevice);
             
 
         }
@@ -142,12 +149,9 @@ namespace PrinceOfPersia
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //// Handle polling for our input and handling high-level input
             HandleInput();
 
-            Room room = levels[levelIndex].StartRoom();
-            //// update our level, passing down the GameTime along with all of our input states
-            room.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+            maze.playerRoom.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
 
             base.Update(gameTime);
         }
@@ -170,40 +174,10 @@ namespace PrinceOfPersia
                 touchState.AnyTouch();
 
 
-            Room room = levels[levelIndex].StartRoom();
-
-            // Perform the appropriate action to advance the game and
-            // to get the player back to playing.
-            if (!wasContinuePressed && continuePressed)
-            {
-                if (!room.Player.IsAlive)
-                {
-                    room.StartNewLife(GraphicsDevice);
-                }
-                else if (room.TimeRemaining == TimeSpan.Zero)
-                {
-                    //if (room.ReachedExit)
-                        //LoadNextLevel();
-                    //else
-                        ReloadCurrentLevel();
-                }
-            }
-
             wasContinuePressed = continuePressed;
         }
 
         
-        
-        private void LoadLevels()
-        {
-            levels[levelIndex] = new Level(Services, levelIndex);
-        }
-
-        private void ReloadCurrentLevel()
-        {
-            //--levelIndex;
-            //LoadNextLevel();
-        }
 
         /// <summary>
         /// Draws the game from background to foreground.
@@ -213,34 +187,35 @@ namespace PrinceOfPersia
         {
             graphics.GraphicsDevice.Clear(Color.Black);
 
-
             ////spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
             spriteBatch.Begin();
-            
-            Room room = levels[levelIndex].StartRoom();
-            room.Draw(this, gameTime, spriteBatch);
-            
+
+            maze.playerRoom.Draw(this, gameTime, spriteBatch);
+
 
             DrawHud();
-            DrawDebug(room);
+            DrawDebug(maze.playerRoom);
 
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
 
-        private void DrawDebug(Room room)
+        private void DrawDebug(RoomNew room)
         {
+            if (CONFIG_DEBUG == false)
+                return;
+
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
             
-            DrawShadowedString(hudFont, "POSTION X="+ room.Player.Position.X.ToString() +" Y="+ room.Player.Position.Y.ToString(), hudLocation, Color.White);
+            DrawShadowedString(hudFont, "POSTION X="+ room.player.Position.X.ToString() +" Y="+ room.player.Position.Y.ToString(), hudLocation, Color.White);
 
-            hudLocation.Y = hudLocation.Y + 18;
-            DrawShadowedString(hudFont, "PLAYER STATE="+ room.Player.playerState.Value().state + " SEQUENCE CountOffset="+ room.Player.sprite.sequence.CountOffSet , hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
+            DrawShadowedString(hudFont, "PLAYER STATE="+ room.player.playerState.Value().state + " SEQUENCE CountOffset="+ room.player.sprite.sequence.CountOffSet , hudLocation, Color.White);
 
               // Get the player's bounding rectangle and find neighboring tiles.
-            Rectangle playerBounds = room.Player.Position.Bounding;
+            Rectangle playerBounds = room.player.Position.Bounding;
             Vector4 v4 = room.getBoundTiles(playerBounds);
 
             // For each potentially colliding Tile, warning the for check only the player row ground..W
@@ -253,7 +228,7 @@ namespace PrinceOfPersia
                     TileCollision tileCollision = room.GetCollision(x, y);
                     TileType tileType = room.GetType(x, y);
                     
-                    hudLocation.Y = hudLocation.Y + 18;
+                    hudLocation.Y = hudLocation.Y + 10;
                     DrawShadowedString(hudFont, "GRID X=" + x + " Y=" + y + " TILETYPE=" + tileType.ToString() + " BOUND X=" + tileBounds.X + " Y=" + tileBounds.Y + " DEPTH X=" + depth.X + " Y=" + depth.Y, hudLocation, Color.White);
                 }
             }
@@ -262,52 +237,53 @@ namespace PrinceOfPersia
 
         private void DrawHud()
         {
-            Room room = levels[levelIndex].StartRoom();
+            RoomNew room = maze.playerRoom;
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
             Vector2 center = new Vector2(titleSafeArea.X + titleSafeArea.Width / 2.0f,
                                          titleSafeArea.Y + titleSafeArea.Height / 2.0f);
 
-            // Draw time remaining. Uses modulo division to cause blinking when the
-            // player is running out of time.
-            string timeString = "TIME: " + room.TimeRemaining.Minutes.ToString("00") + ":" + room.TimeRemaining.Seconds.ToString("00");
-            Color timeColor;
-            if (room.TimeRemaining > WarningTime ||
-                (int)room.TimeRemaining.TotalSeconds % 2 == 0)
-            {
-                timeColor = Color.Yellow;
-            }
-            else
-            {
-                timeColor = Color.Red;
-            }
-            hudLocation.Y = hudLocation.Y + 385;
-            
-            DrawShadowedString(hudFont, timeString, hudLocation, timeColor);
+            //// Draw time remaining. Uses modulo division to cause blinking when the
+            //// player is running out of time.
+            //string timeString = "TIME: " + room.TimeRemaining.Minutes.ToString("00") + ":" + room.TimeRemaining.Seconds.ToString("00");
+            //Color timeColor;
+            //if (room.TimeRemaining > WarningTime ||
+            //    (int)room.TimeRemaining.TotalSeconds % 2 == 0)
+            //{
+            //    timeColor = Color.Yellow;
+            //}
+            //else
+            //{
+            //    timeColor = Color.Red;
+            //}
+            //hudLocation.Y = hudLocation.Y + 385;
+
+            //DrawShadowedString(hudFont, timeString, hudLocation, timeColor);
 
             // Draw score
-            hudLocation.X = hudLocation.X + 100;
-            float timeHeight = hudFont.MeasureString(timeString).Y;
-            DrawShadowedString(hudFont, "PrinceOfPersia.net alpha version: " + RetrieveLinkerTimestamp().ToShortDateString() , hudLocation, Color.White);
+            //hudLocation.X = hudLocation.X;
+            hudLocation.X =  hudLocation.X + 420;
+            //float timeHeight = hudFont.MeasureString(timeString).Y;
+            DrawShadowedString(hudFont, "PrinceOfPersia.net alpha version: " + RetrieveLinkerTimestamp().ToShortDateString(), hudLocation, Color.White);
 
             // Determine the status overlay message to show.
-            Texture2D status = null;
-            if (room.TimeRemaining == TimeSpan.Zero)
-            {
+            //Texture2D status = null;
+            //if (room.TimeRemaining == TimeSpan.Zero)
+            //{
 
-                status = loseOverlay;
-            }
-            else if (!room.Player.IsAlive)
-            {
-                status = diedOverlay;
-            }
+            //    status = loseOverlay;
+            //}
+            //else if (!room.Player.IsAlive)
+            //{
+            //    status = diedOverlay;
+            //}
 
-            if (status != null)
-            {
-                // Draw status message.
-                Vector2 statusSize = new Vector2(status.Width, status.Height);
-                spriteBatch.Draw(status, center - statusSize / 2, Color.White);
-            }
+            //if (status != null)
+            //{
+            //    // Draw status message.
+            //    Vector2 statusSize = new Vector2(status.Width, status.Height);
+            //    spriteBatch.Draw(status, center - statusSize / 2, Color.White);
+            //}
         }
 
         private void DrawShadowedString(SpriteFont font, string value, Vector2 position, Color color)

@@ -1,103 +1,73 @@
 ﻿using System;
+using System.Reflection;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
-using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
 
 namespace PrinceOfPersia
 {
-    class Level
+    public enum LevelName
+    { 
+        dungeon_prison = 1,
+		dungeon_guards = 2,
+        dungeon_skeleton = 3,
+        palace_mirror = 4,
+        palace_thief = 5,
+        palace_plunge = 6,
+        dungeon_weightless = 7,
+        dungeon_mouse = 8,
+        dungeon_twisty = 9,
+        palace_quad = 10,
+        palace_fragile = 11,
+        dungeon_tower = 12,
+        dungeon_jaffar = 13,
+        palace_rescue = 14,
+        dungeon_potions = 15,
+        dungeon_demo = 0
+    }
+
+    public class Level
     {
-        //Level dimensions x,y
-        public int levelWidth = 0;
-        public int levelHeight = 0;
+        public RoomRow[] rows;
+        public LevelName levelName = LevelName.dungeon_demo;
         
-        //array of all rooms for level
-        public Room[,] rooms;
-        
-        //actual players room
-        private Room actualRoom;
 
-        public int numberOfLevels
+        public Level()
         {
-            get { return levelHeight * levelHeight; }
-        }
+            rows = new RoomRow[10];
 
-
-        public Level(IServiceProvider serviceProvider, int levelNumber)
-        {
-            LoadLevel(serviceProvider, levelNumber);
-        }
-
-        public Room StartRoom()
-        {
-//            foreach (Room r in rooms)
-//            {
-                return rooms[0, 1];
-//            }
-        }
-
-
-        private void LoadLevel(IServiceProvider serviceProvider, int levelNumber)
-        {
-            //int levelIndex= 0;
-            int width = 0;
-            
-//            levelIndex = (++levelIndex) % numberOfLevels;
-
-            string levelPath = string.Format("Content/Levels/{0}.txt", levelNumber);
-                
-            Stream fileStream = TitleContainer.OpenStream(levelPath);
-            
-            // Load the level and ensure all of the lines are the same length.
-            List<string> lines = new List<string>();
-            using (StreamReader reader = new StreamReader(fileStream))
+            for (int x = 0; x < rows.Count(); x++)
             {
-                string line = reader.ReadLine();
-                width = line.Length;
-                while (line != null)
-                {
-                    lines.Add(line);
-                    if (line.Length != width)
-                        throw new Exception(String.Format("The length of line {0} is different from all preceeding lines.", lines.Count));
-                    line = reader.ReadLine();
-                }
+                rows[x] = new RoomRow(10);
             }
+        }
 
-            //associate level dimensions
-            levelWidth = width;
-            levelHeight = lines.Count;
+        public Level(int sizeRow, int sizeColumn)
+        {
+            rows = new RoomRow[sizeRow];
 
-            // Allocate the Room grid.
-            rooms = new Room[levelWidth, levelHeight];
-
-            // Loop over every Tile position,
-            for (int x = 0; x < levelHeight; ++x)
+            for (int x = 0; x < rows.Count(); x++)
             {
-                for (int y = 0; y < levelWidth; ++y)
-                {
-                // to load each Tile.
-                    string RoomPath;
-                    char roomType = lines[x][y];
-                    string[] par = new string[3];
-                    par[0] = levelNumber.ToString();
-                    par[1] = x.ToString();
-                    par[2] = y.ToString();
-                    if (roomType == '#')
-                    { RoomPath = string.Format("Content/Rooms/{0}_{1}_{2}.txt", par); }
-                    else
-                    { RoomPath = string.Format("Content/Rooms/blockRoom.txt", par); }
-                    fileStream = TitleContainer.OpenStream(RoomPath);
-                    rooms[x, y] = new Room(serviceProvider, fileStream, this, x, y);
-                }
+                rows[x] = new RoomRow(sizeColumn);
             }
 
         }
 
+  
+
+        public void Serialize()
+        { 
+            System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(typeof(Level));
+            TextWriter writer = new StreamWriter(@"C:\temp\LEVEL_"+ levelName.ToString() +".xml");
+            ax.Serialize(writer, this);
+        }
 
     }
 }

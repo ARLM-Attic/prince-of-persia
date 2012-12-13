@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <PublishUrlHistory>publish\|http://www.falappi.it/POP/|https://raw.github.com/polipo/PrinceOfPersia.net/master/PrinceOfPersia.net/PrinceOfPersia.net/bin/x86/Release/app.publish/</PublishUrlHistory>
     <InstallUrlHistory>https://princeofpersia.codeplex.com/releases/clickonce/|http://princeofpersia.codeplex.com/releases/clickonce/|http://PrinceOfPersia.codeplex.com/releases/clickonce/|http://PrinceOfPersia.codeplex.com/releases/ClickOnce/|http://PrinceOfPersia.codeplex.com/</InstallUrlHistory>
     <SupportUrlHistory>http://princeofpersiadotnet.blogspot.it/</SupportUrlHistory>

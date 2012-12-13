@@ -8,7 +8,7 @@ namespace PrinceOfPersia
     /// <summary>
     /// Controls playback of an Animation
     /// </summary>
-    struct AnimationSequence
+    public struct AnimationSequence
     {
         bool firstTime;
         public Sequence sequence;

@@ -94,6 +94,14 @@
     <Compile Include="Accelerometer.cs" />
     <Compile Include="AnimationSequence.cs" />
     <Compile Include="Circle.cs" />
+    <Compile Include="Column.cs" />
+    <Compile Include="RoomNew.cs" />
+    <Compile Include="RoomRow.cs" />
+    <Compile Include="RoomColumn.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="Maze.cs" />
+    <Compile Include="Row.cs" />
+    <Compile Include="Sprite.cs" />
     <Compile Include="StatePlayerElement.cs" />
     <Compile Include="StateTileElement.cs" />
     <Compile Include="ExternalRefObjectContentProcessor.cs" />
@@ -201,7 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="ClassDiagram1.cd" />
+    <None Include="drgPrinceOfPersia.cd" />
     <None Include="PrinceOfPersia.net %28Windows%29_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PoPicon.ico" />
+    <EmbeddedResource Include="resources\LEVEL_dungeon_prison.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_1.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\SPACE_sequence.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

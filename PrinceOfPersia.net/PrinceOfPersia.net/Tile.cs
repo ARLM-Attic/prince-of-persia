@@ -76,7 +76,7 @@ namespace PrinceOfPersia
 
 
 
-    class Tile
+    public class Tile
     {
         public Texture2D Texture;
         //private float Depth = 0.1f;
@@ -130,6 +130,9 @@ namespace PrinceOfPersia
 
             if (result != null)
             {
+                //AMF to be adjust....
+                result.frames[0].texture = Content.Load<Texture2D>(result.frames[0].value);
+
                 Collision = result.tileCollision;
                 Texture = result.frames[0].texture;
             }

@@ -29,6 +29,11 @@ namespace PrinceOfPersia
         public const int BOTTOM_BORDER = 16; //Bottom border for live energy and message space
         public const int TOP_BORDER = 6; // = (400 pixel - BOTTOM_BORDER % 3 ROWS)
 
+        public const int LEFT_LIMIT = 50;
+        public const int RIGHT_LIMIT = 578;
+        public const int TOP_LIMIT = -50;
+        public const int BOTTOM_LIMIT = 400;
+
         public int widthInLevel = 0;
         public int heightInLevel = 0;
 

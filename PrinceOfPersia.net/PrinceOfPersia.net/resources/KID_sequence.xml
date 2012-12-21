@@ -947,7 +947,7 @@
       <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>
-        <parameter>STAND</parameter>
+        <parameter>FREEFALL</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>
@@ -1376,7 +1376,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name>HANG1</name>
+        <name></name>
         <value>Sprites/Player/Kid_dos/Kid_92</value>
         <stoppable>true</stoppable>
       </Frame>
@@ -1665,7 +1665,7 @@
         <value>Sprites/Player/Kid_dos/Kid_148</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>6</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1673,7 +1673,7 @@
         <value>Sprites/Player/Kid_dos/Kid_145</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>26</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1681,7 +1681,7 @@
         <value>Sprites/Player/Kid_dos/Kid_144</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1697,7 +1697,7 @@
         <value>Sprites/Player/Kid_dos/Kid_142</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>8</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1705,15 +1705,7 @@
         <value>Sprites/Player/Kid_dos/Kid_141</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>Sprites/Player/Kid_dos/Kid_63</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>15</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1721,7 +1713,7 @@
         <value>Sprites/Player/Kid_dos/Kid_140</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>30</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1729,7 +1721,7 @@
         <value>Sprites/Player/Kid_dos/Kid_137</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>20</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1737,7 +1729,7 @@
         <value>Sprites/Player/Kid_dos/Kid_138</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>11</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1745,7 +1737,7 @@
         <value>Sprites/Player/Kid_dos/Kid_136</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1757,12 +1749,12 @@
       </Frame>
       <Frame>
         <type>COMMAND</type>
-        <name>GOTOSEQUENCE</name>
-        <parameter>HANG1</parameter>
+        <name>GOTOSEQUENCE|GOTOFRAME</name>
+        <parameter>HANG|HANG1</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-    <name>CLIMBFAIL</name>
+    <name>CLIMBDOWN</name>
     <raised>true</raised>
   </Sequence>
 
@@ -1774,7 +1766,7 @@
         <name>FREEFALL</name>
         <value>Sprites/Player/Kid_dos/Kid_106</value>
         <stoppable>true</stoppable>
-        <xOffSet>4</xOffSet>
+        <xOffSet>0</xOffSet>
         <yOffSet>5</yOffSet>
       </Frame>
       <Frame>
@@ -1782,7 +1774,7 @@
         <name></name>
         <value>Sprites/Player/Kid_dos/Kid_106</value>
         <stoppable>true</stoppable>
-        <xOffSet>4</xOffSet>
+        <xOffSet>0</xOffSet>
         <yOffSet>15</yOffSet>
       </Frame>
       <Frame>

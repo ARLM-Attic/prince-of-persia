@@ -4,35 +4,69 @@
     <Row>
       <columns>
         <Column>
-          <tileType>space</tileType>
+          <tileType>floor</tileType>
           <spriteType>kid</spriteType>
         </Column>
         <Column>
+          <tileType>floor</tileType>
+        </Column>
+        <Column>
           <tileType>space</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+      </columns>
+    </Row>
+    <Row>
+      <columns>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
         </Column>
       </columns>
     </Row>
@@ -42,47 +76,13 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>torch</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>torch</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-      </columns>
-    </Row>
-    <Row>
-      <columns>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>

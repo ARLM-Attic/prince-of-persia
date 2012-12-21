@@ -43,12 +43,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Rooms\0_0_1.txt">
-      <Name>0_0_1</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Processor>PassThroughProcessor</Processor>
-      <Importer>XImporter</Importer>
-    </None>
     <Compile Include="Overlays\you_died.png">
       <Name>you_died</Name>
       <Importer>TextureImporter</Importer>
@@ -193,38 +187,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Levels\0.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>0</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rooms\0_2_1.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>0_2_1</Name>
-      <Importer>XImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rooms\0_1_1.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>0_1_1</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rooms\0_2_2.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>0_2_2</Name>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Rooms\blockRoom.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <Name>blockRoom</Name>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Sprites\Player\Kid_dos\Kid_1.png">

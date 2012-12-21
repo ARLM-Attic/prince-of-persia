@@ -39,6 +39,11 @@ namespace PrinceOfPersia
         public const int BOTTOM_BORDER = 16; //Bottom border for live energy and message space
         public const int TOP_BORDER = 6; // = (400 pixel - BOTTOM_BORDER % 3 ROWS)
 
+        public const int LEFT_LIMIT = -70;
+        public const int RIGHT_LIMIT = 568;
+        public const int TOP_LIMIT = -50;
+        public const int BOTTOM_LIMIT = 400;
+
         public int widthInLevel = 0;
         public int heightInLevel = 0;
 
@@ -171,11 +176,15 @@ namespace PrinceOfPersia
                 return maze.RightRoom(this).tiles[0, y].Type;
             }
 
-            // Allow jumping past the level top and falling through the bottom.
-            if (y < 0 || y >= Height)
+            if (y >= Height)
             {
-                return TileType.block;
-            }   
+                return maze.DownRoom(this).tiles[x, 0].Type;
+            }
+
+            if (y < 0)
+            {
+                return maze.UpRoom(this).tiles[x, Height-1].Type;
+            }
 
             // Prevent escaping past the level ends.
             return tiles[x, y].Type;

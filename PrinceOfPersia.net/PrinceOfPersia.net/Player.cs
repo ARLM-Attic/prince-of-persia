@@ -763,7 +763,6 @@ namespace PrinceOfPersia
                     //    playerState.Value().state != StatePlayerElement.State.climbup
                     //    )
                 {
-                    //SNAP TO THE GROUND
                     playerState.Add(StatePlayerElement.State.stepfall);
                 }
             }
@@ -863,33 +862,38 @@ namespace PrinceOfPersia
             //???
             //previousBottom = playerBounds.Bottom;
             //check if out room
-            if (_position.Y >= 400)
+            if (_position.Y >= RoomNew.BOTTOM_LIMIT)
             { 
                 //uscito DOWN
-                RoomNew downroom = _room.maze.DownRoom(_room);
-                _room.maze.playerRoom = downroom;
-                downroom.player = _room.player;
-                _room = downroom;
-                
-                _position.Y = 0;
+                RoomNew room = _room.maze.DownRoom(_room);
+                _room.maze.playerRoom = room;
+                room.player = _room.player;
+                _room = room;
+                _position.Y = RoomNew.TOP_LIMIT-10;
             }
-            if (_position.X >= 578)
+            else if (_position.X >= RoomNew.RIGHT_LIMIT)
             {
-                RoomNew righroom = _room.maze.RightRoom(_room);
-                _room.maze.playerRoom = righroom;
-                righroom.player = _room.player;
-                _room = righroom;
-
-                _position.X = 1;
+                RoomNew room = _room.maze.RightRoom(_room);
+                _room.maze.playerRoom = room;
+                room.player = _room.player;
+                _room = room;
+                _position.X = RoomNew.LEFT_LIMIT+10;
             }
-            if (_position.X <= -50)
+            else if (_position.X <= RoomNew.LEFT_LIMIT)
             {
                 RoomNew room = _room.maze.LeftRoom(_room);
                 _room.maze.playerRoom = room;
                 room.player = _room.player;
                 _room = room;
-
-                _position.X = 570;
+                _position.X = RoomNew.RIGHT_LIMIT-10;
+            }
+            else if (_position.Y <= RoomNew.TOP_LIMIT)
+            {
+                RoomNew room = _room.maze.UpRoom(_room);
+                _room.maze.playerRoom = room;
+                room.player = _room.player;
+                _room = room;
+                _position.Y = RoomNew.BOTTOM_LIMIT + 10;
             }
 
         }
@@ -1036,6 +1040,52 @@ namespace PrinceOfPersia
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
+        /// Remnber: for example the top gate is x=3 y=1
+        /// first row bottom = 2 the top row = 0..
+        /// </summary>
+        /// <returns>
+        /// true = climbable floor
+        /// false = no climb
+        /// 
+        /// </returns>
+        private bool isClimbableDown()
+        {
+
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = _room.getCenterTile(playerBounds);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+
+            //Rectangle tileBounds = _room.GetBounds(x, y);
+            //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            //TileCollision tileCollision = _room.GetCollision(x, y);
+            TileType tileType;
+            if (flip == SpriteEffects.FlipHorizontally)
+                tileType = _room.GetType(x, y);
+            else
+                tileType = _room.GetType(x+1, y);
+
+
+            if (tileType != TileType.space)
+            {
+                return false;
+            }
+
+            //check is platform or gate forward up
+            int xOffSet = 0;
+            if (flip == SpriteEffects.FlipHorizontally)
+            { xOffSet = -Tile.REALWIDTH +(Tile.PERSPECTIVE*2); }
+            else
+            { xOffSet = -Tile.PERSPECTIVE ; }
+
+            Rectangle tileBounds = _room.GetBounds(x, y + 1);
+            _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
+            return true;
+
+        }
 
         /// <summary>
         /// Remnber: for example the top gate is x=3 y=1
@@ -1101,6 +1151,9 @@ namespace PrinceOfPersia
 
         }
 
+
+
+
         public void JumpHangMed()
         {
             if (sprite.IsStoppable == false)
@@ -1117,6 +1170,16 @@ namespace PrinceOfPersia
                 return;
 
             playerState.Add(StatePlayerElement.State.climbup);
+            sprite.PlayAnimation(playerSequence, playerState.Value());
+        }
+
+
+        public void ClimbDown()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            playerState.Add(StatePlayerElement.State.climbdown);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1138,6 +1201,11 @@ namespace PrinceOfPersia
         {GoDown(StateElement.PriorityState.Normal, Vector2.Zero); }
         public void GoDown(StateElement.PriorityState priority, Vector2 offSet)
         {
+            if (isClimbableDown() == true)
+            {
+                ClimbDown();
+                return;
+            }
             playerState.Add(StatePlayerElement.State.godown, priority, null, StateElement.SequenceReverse.Normal, offSet);
             sprite.PlayAnimation(playerSequence, playerState.Value());
             playerState.Add(StatePlayerElement.State.crouch, priority);

@@ -947,7 +947,7 @@
       <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>
-        <parameter>FREEFALL</parameter>
+        <parameter>STAND</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>
@@ -1681,7 +1681,7 @@
         <value>Sprites/Player/Kid_dos/Kid_144</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>10</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1689,7 +1689,7 @@
         <value>Sprites/Player/Kid_dos/Kid_143</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1744,13 +1744,13 @@
         <name></name>
         <value>Sprites/Player/Kid_dos/Kid_91</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>-4</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
-        <name>GOTOSEQUENCE|GOTOFRAME</name>
-        <parameter>HANG|HANG1</parameter>
+        <name>IFGOTOSEQUENCE</name>
+        <parameter>HANGSTRAIGHT|HANG</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>

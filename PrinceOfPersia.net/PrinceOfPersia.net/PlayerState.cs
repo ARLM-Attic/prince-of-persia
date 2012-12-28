@@ -49,6 +49,19 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state));
         }
 
+        public void Add(StatePlayerElement.State state, bool ifTrue)
+        {
+            //if (Value().state == state)
+            //    return;
+
+            if (data.Count == iSize)
+            {
+                data.Dequeue();
+            }
+
+            data.Enqueue(new StatePlayerElement(state, ifTrue));
+        }
+
         public void Add(StatePlayerElement.State state, StateElement.PriorityState priority)
         {
             if (data.Count == iSize)

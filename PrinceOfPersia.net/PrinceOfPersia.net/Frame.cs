@@ -34,6 +34,8 @@ namespace PrinceOfPersia
             GOTOFRAME,
             GOTOSEQUENCE,
             ABOUTFACE,
+            IFGOTOSEQUENCE,
+            IFGOTOFRAME
         }
 
         public Frame DeepCopy()

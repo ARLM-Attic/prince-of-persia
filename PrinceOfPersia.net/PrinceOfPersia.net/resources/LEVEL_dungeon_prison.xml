@@ -5,27 +5,27 @@
     <RoomRow>
       <columns>
         <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
           <RoomStart>true</RoomStart>
           <RoomIndex>1</RoomIndex>
           <FilePath>MAP_dungeon_prison_1.xml</FilePath>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
         </RoomColumn>
         <RoomColumn>
           <RoomIndex>0</RoomIndex>
@@ -41,30 +41,31 @@
     <RoomRow>
       <columns>
         <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>0</RoomIndex>
+        </RoomColumn>
+        <RoomColumn>
+          <RoomIndex>6</RoomIndex>
+          <FilePath>MAP_dungeon_prison_6.xml</FilePath>
+        </RoomColumn>
+        <RoomColumn>
           <RoomIndex>2</RoomIndex>
           <FilePath>MAP_dungeon_prison_2.xml</FilePath>
         </RoomColumn>
         <RoomColumn>
           <RoomIndex>3</RoomIndex>
           <FilePath>MAP_dungeon_prison_3.xml</FilePath>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
-        </RoomColumn>
-        <RoomColumn>
-          <RoomIndex>0</RoomIndex>
         </RoomColumn>
         <RoomColumn>
           <RoomIndex>0</RoomIndex>

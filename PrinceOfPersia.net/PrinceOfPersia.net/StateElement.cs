@@ -14,6 +14,7 @@ namespace PrinceOfPersia
         private bool? _stoppable;
         private SequenceReverse _reverse;
         private Vector2 _offset;
+        private bool _ifTrue = false;
 
         public enum Input
         {
@@ -46,6 +47,12 @@ namespace PrinceOfPersia
         {
             Normal,
             Reverse
+        }
+
+        public bool IfTrue
+        {
+            get { return _ifTrue; }
+            set { _ifTrue = value; }
         }
 
         public Vector2 OffSet

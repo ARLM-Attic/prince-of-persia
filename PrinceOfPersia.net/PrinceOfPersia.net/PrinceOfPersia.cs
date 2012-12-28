@@ -205,6 +205,10 @@ namespace PrinceOfPersia
 
         private void DrawDebug(RoomNew room)
         {
+            //if (room.player.sprite.sequence == null)
+            //    return;
+
+
             if (CONFIG_DEBUG == false)
                 return;
 

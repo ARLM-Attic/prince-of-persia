@@ -236,6 +236,9 @@ namespace PrinceOfPersia
 
         public void ParseInput(StateElement.Input input)
         {
+            //if (playerState.Value().state == StatePlayerElement.State.question)
+            //    Question();
+
 
             if (playerState.Value().Priority == StateElement.PriorityState.Normal & sprite.IsStoppable == false)
                 return;
@@ -327,9 +330,10 @@ namespace PrinceOfPersia
                             else
                                 StepForward();
                             break;
-                        //case StatePlayerElement.State.hang:
-                        //    Hang();
-                        //    break;
+                        case StatePlayerElement.State.hangstraight:
+                        case StatePlayerElement.State.hang:
+                            Hang();
+                            break;
                         case StatePlayerElement.State.bump:
                             Bump(playerState.Value().Priority);
                             break;
@@ -632,58 +636,58 @@ namespace PrinceOfPersia
 
   
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns>
-        /// null is no wall
-        /// true for bump +
-        /// false fro bump -
-        /// </returns>
-        /// 
-        private bool? IsFrontOfBlockNew(bool isForHang)
-        {
-            // Get the player's bounding rectangle and find neighboring tiles.
-            Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = _room.getCenterTile(playerBounds);
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <returns>
+        ///// null is no wall
+        ///// true for bump +
+        ///// false fro bump -
+        ///// </returns>
+        ///// 
+        //private bool? IsFrontOfBlockNew(bool isForHang)
+        //{
+        //    // Get the player's bounding rectangle and find neighboring tiles.
+        //    Rectangle playerBounds = _position.Bounding;
+        //    Vector2 v2 = _room.getCenterTile(playerBounds);
 
-            int x = (int)v2.X;
-            int y = (int)v2.Y;
-
-
-            Rectangle tileBounds = _room.GetBounds(x, y);
-            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            TileCollision tileCollision = _room.GetCollision(x, y);
-            TileType tileType = _room.GetType(x, y);
+        //    int x = (int)v2.X;
+        //    int y = (int)v2.Y;
 
 
+        //    Rectangle tileBounds = _room.GetBounds(x, y);
+        //    Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+        //    TileCollision tileCollision = _room.GetCollision(x, y);
+        //    TileType tileType = _room.GetType(x, y);
 
-            if (tileType != TileType.block)
-                return null;
 
-            if (isForHang == true)
-                return true;
 
-            if (flip == SpriteEffects.FlipHorizontally)
-            {
-                if (depth.X <= -18 & depth.X > (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)) //18*3 = 54 step forward....
-                    return true;
-                else if (depth.X <= (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                    return false;
-                else
-                    return null;
-            }
-            else
-            {
-                //if (depth.X >= 18 & depth.X <= 27) //18*3 = 54 step forward....
-                if (depth.X >= 18 & depth.X < (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //18*3 = 54 step forward....
-                    return true;
-                else if (depth.X >= (Tile.PERSPECTIVE + PLAYER_L_PENETRATION))
-                    return false;
-                else
-                    return null;
-            }
-        }
+        //    if (tileType != TileType.block)
+        //        return null;
+
+        //    if (isForHang == true)
+        //        return true;
+
+        //    if (flip == SpriteEffects.FlipHorizontally)
+        //    {
+        //        if (depth.X <= -18 & depth.X > (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)) //18*3 = 54 step forward....
+        //            return true;
+        //        else if (depth.X <= (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+        //            return false;
+        //        else
+        //            return null;
+        //    }
+        //    else
+        //    {
+        //        //if (depth.X >= 18 & depth.X <= 27) //18*3 = 54 step forward....
+        //        if (depth.X >= 18 & depth.X < (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //18*3 = 54 step forward....
+        //            return true;
+        //        else if (depth.X >= (Tile.PERSPECTIVE + PLAYER_L_PENETRATION))
+        //            return false;
+        //        else
+        //            return null;
+        //    }
+        //}
 
 
         private bool? IsFrontOfBlock(bool isForHang)
@@ -1064,7 +1068,7 @@ namespace PrinceOfPersia
             //TileCollision tileCollision = _room.GetCollision(x, y);
             TileType tileType;
             if (flip == SpriteEffects.FlipHorizontally)
-                tileType = _room.GetType(x, y);
+                tileType = _room.GetType(x-1, y);
             else
                 tileType = _room.GetType(x+1, y);
 
@@ -1179,7 +1183,12 @@ namespace PrinceOfPersia
             if (sprite.IsStoppable == false)
                 return;
 
-            playerState.Add(StatePlayerElement.State.climbdown);
+            bool isFrontOfBlock = false;
+
+            if (IsFrontOfBlock(true) == true)
+                isFrontOfBlock = true;
+
+            playerState.Add(StatePlayerElement.State.climbdown, isFrontOfBlock);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 
@@ -1343,7 +1352,16 @@ namespace PrinceOfPersia
         {
             playerState.Add(StatePlayerElement.State.runjump);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-        } 
+        }
+
+        public void Question()
+        {
+            if (playerState.Value().state == StatePlayerElement.State.hang | playerState.Value().state == StatePlayerElement.State.hangstraight)
+            {
+                Hang();
+            }
+        }
+
 
     }
 }

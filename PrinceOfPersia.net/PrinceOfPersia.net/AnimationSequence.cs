@@ -204,8 +204,24 @@ namespace PrinceOfPersia
                             sequence = result;
                             frameIndex = 0;
                             playerState.Add(StatePlayerElement.Parse(par));
-
                         }
+                        else if (aCommand[x] == Frame.TypeCommand.IFGOTOSEQUENCE.ToString())
+                        {
+                            string par = string.Empty;
+                            if (playerState.Value().IfTrue = true)
+                                par = aParameter[0];
+                            else
+                                par = aParameter[1];
+
+                            Sequence result = lsequence.Find(delegate(Sequence s)
+                            {
+                                return s.name == par;
+                            });
+                            sequence = result;
+                            frameIndex = 0;
+                            playerState.Add(StatePlayerElement.Parse(par));
+                        }
+
                     }
                 }
                 
@@ -246,6 +262,7 @@ namespace PrinceOfPersia
       
         public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, Vector2 positionArrive, SpriteEffects spriteEffects, float depth)
         {
+
             // Calculate the source rectangle of the current frame.
             Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
 

@@ -14,6 +14,7 @@ namespace PrinceOfPersia
         public new enum State
         {
             none // my state
+            ,question  //my state for interpretation
             ,crouch //my state
             ,godown //my state invert standup
             , startrun,
@@ -261,13 +262,25 @@ namespace PrinceOfPersia
             Reverse = reverse;
             OffSet = offSet;
         }
+        
         public StatePlayerElement(State state)
         {
             _state = state;
             Priority = PriorityState.Normal;
             Reverse = SequenceReverse.Normal;
             OffSet = Vector2.Zero;
+            IfTrue = false;
         }
+
+        public StatePlayerElement(State state, bool iftrue)
+        {
+            _state = state;
+            Priority = PriorityState.Normal;
+            Reverse = SequenceReverse.Normal;
+            OffSet = Vector2.Zero;
+            IfTrue = iftrue;
+        }
+
 
         public new static StatePlayerElement.State Parse(string name)
         {

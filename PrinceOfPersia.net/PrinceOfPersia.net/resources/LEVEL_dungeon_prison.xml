@@ -20,7 +20,8 @@
           <RoomIndex>0</RoomIndex>
         </RoomColumn>
         <RoomColumn>
-          <RoomIndex>0</RoomIndex>
+          <RoomIndex>5</RoomIndex>
+          <FilePath>MAP_dungeon_prison_5.xml</FilePath>
         </RoomColumn>
         <RoomColumn>
           <RoomStart>true</RoomStart>

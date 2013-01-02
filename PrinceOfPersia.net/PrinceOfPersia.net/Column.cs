@@ -9,6 +9,7 @@ namespace PrinceOfPersia
     {
         public TileType tileType;
         public SpriteType spriteType;
+        public string name = "NORMAL";
         
         public Column()
         { 

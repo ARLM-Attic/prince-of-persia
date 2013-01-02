@@ -219,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PoPicon.ico" />
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_5.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\DOOR_sequence.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\MAP_dungeon_prison_6.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

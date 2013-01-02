@@ -20,6 +20,7 @@ namespace PrinceOfPersia
         public bool raised = false;
         public TileType tileType;
         public TileCollision tileCollision;
+        //public string startup = "NORMAL"; // launch the sequence name
 
 
         /// <summary>

@@ -14,8 +14,9 @@ namespace PrinceOfPersia
         public new enum State
         {
             normal // normal state
-            ,fall
-            ,animation
+            //,fall
+            ,close
+            ,open
         }
 
         public new State state

@@ -208,7 +208,7 @@ namespace PrinceOfPersia
                         else if (aCommand[x] == Frame.TypeCommand.IFGOTOSEQUENCE.ToString())
                         {
                             string par = string.Empty;
-                            if (playerState.Value().IfTrue = true)
+                            if (playerState.Value().IfTrue == true)
                                 par = aParameter[0];
                             else
                                 par = aParameter[1];

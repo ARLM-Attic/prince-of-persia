@@ -80,7 +80,7 @@ namespace PrinceOfPersia
             {
                 foreach (Column c in r.columns)
                 {
-                    tiles[x, y] = LoadTile(c.tileType);
+                    tiles[x, y] = LoadTile(c.tileType, c.name);
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
                     Vector2 v = new Vector2(rect.X, rect.Y);
 
@@ -110,10 +110,13 @@ namespace PrinceOfPersia
         /// <returns>The new Tile.</returns>
         private Tile LoadTile(TileType tiletype)
         {
-                return new Tile(content, tiletype);
+                return new Tile(content, tiletype, "NORMAL");
         }
 
-
+        private Tile LoadTile(TileType tiletype, string name)
+        {
+            return new Tile(content, tiletype, name);
+        }
 
         /// <summary>
         /// Unloads the level content.

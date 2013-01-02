@@ -48,6 +48,7 @@ namespace PrinceOfPersia
         archtop2 = 27,
         archtop3 = 28,
         archtop4 = 29,
+        door = 30 //AMF 
     }
     
     public enum TileCollision
@@ -110,7 +111,7 @@ namespace PrinceOfPersia
         public Tile()
         {}
 
-        public Tile(ContentManager Content, TileType tileType)
+        public Tile(ContentManager Content, TileType tileType, string name)
         {
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
             Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources." + tileType.ToString().ToUpper() + "_sequence.xml");
@@ -125,7 +126,7 @@ namespace PrinceOfPersia
             Sequence result = tileSequence.Find(delegate(Sequence s)
             {
                 //return s.name == tileType.ToString().ToUpper();
-                return s.name == "NORMAL";
+                return s.name == name;
             });
 
             if (result != null)
@@ -138,6 +139,9 @@ namespace PrinceOfPersia
             }
             Type = tileType;
 
+
+            //change statetile element
+            stateTileElement.state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), name.ToLower());    
             tileAnimation.PlayAnimation(tileSequence, stateTileElement);
             
 

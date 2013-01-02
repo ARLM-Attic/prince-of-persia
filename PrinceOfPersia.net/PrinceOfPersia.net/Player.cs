@@ -690,6 +690,53 @@ namespace PrinceOfPersia
         //}
 
 
+        private bool? IsDownOfBlock(bool isForClimbDown)
+        {
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector4 v4 = _room.getBoundTiles(playerBounds);
+
+            int x, y = 0;
+
+            if (flip == SpriteEffects.FlipHorizontally)
+            { x = (int)v4.Y-1; y = (int)v4.Z+1; }
+            else
+            { x = (int)v4.X; y = (int)v4.W+1; }
+
+            Rectangle tileBounds = _room.GetBounds(x, y);
+            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            TileCollision tileCollision = _room.GetCollision(x, y);
+            TileType tileType = _room.GetType(x, y);
+
+
+
+            if (tileType != TileType.block)
+                return false;
+
+            if (isForClimbDown == true)
+                return true;
+
+            if (flip == SpriteEffects.FlipHorizontally)
+            {
+                if (depth.X <= -18 & depth.X > (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)) //18*3 = 54 step forward....
+                    return true;
+                else if (depth.X <= (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                    return false;
+                else
+                    return null;
+            }
+            else
+            {
+                //if (depth.X >= 18 & depth.X <= 27) //18*3 = 54 step forward....
+                if (depth.X >= 18 & depth.X < (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //18*3 = 54 step forward....
+                    return true;
+                else if (depth.X >= (Tile.PERSPECTIVE + PLAYER_L_PENETRATION))
+                    return false;
+                else
+                    return null;
+            }
+        }
+
         private bool? IsFrontOfBlock(bool isForHang)
         {
             // Get the player's bounding rectangle and find neighboring tiles.
@@ -1183,12 +1230,12 @@ namespace PrinceOfPersia
             if (sprite.IsStoppable == false)
                 return;
 
-            bool isFrontOfBlock = false;
+            bool isDownOfBlock = false;
 
-            if (IsFrontOfBlock(true) == true)
-                isFrontOfBlock = true;
+            if (IsDownOfBlock(true) == true)
+                isDownOfBlock = true;
 
-            playerState.Add(StatePlayerElement.State.climbdown, isFrontOfBlock);
+            playerState.Add(StatePlayerElement.State.climbdown, isDownOfBlock);
             sprite.PlayAnimation(playerSequence, playerState.Value());
         }
 

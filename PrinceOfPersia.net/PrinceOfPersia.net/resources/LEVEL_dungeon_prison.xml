@@ -54,7 +54,8 @@
           <RoomIndex>0</RoomIndex>
         </RoomColumn>
         <RoomColumn>
-          <RoomIndex>0</RoomIndex>
+          <RoomIndex>8</RoomIndex>
+          <FilePath>MAP_dungeon_prison_8.xml</FilePath>
         </RoomColumn>
         <RoomColumn>
           <RoomIndex>6</RoomIndex>

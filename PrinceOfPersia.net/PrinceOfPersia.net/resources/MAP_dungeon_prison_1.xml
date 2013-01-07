@@ -48,7 +48,8 @@
           <tileType>torch</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>pressplate</tileType>
+          <switchButton>1</switchButton>
         </Column>
         <Column>
           <tileType>space</tileType>

@@ -38,13 +38,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://princeofpersia.codeplex.com/releases/clickonce/</InstallUrl>
+    <InstallUrl>http://princeofpersia.codeplex.com/releases/clickonce/</InstallUrl>
     <SupportUrl>http://princeofpersiadotnet.blogspot.it/</SupportUrl>
     <ProductName>PrinceOfPersia.net</ProductName>
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>61</ApplicationRevision>
+    <ApplicationRevision>63</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -91,37 +91,39 @@
     <StartupObject>PrinceOfPersia.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Accelerometer.cs">
+    <Compile Include="animation\Accelerometer.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AnimationSequence.cs" />
-    <Compile Include="Column.cs" />
-    <Compile Include="RoomNew.cs" />
-    <Compile Include="RoomRow.cs" />
-    <Compile Include="RoomColumn.cs" />
-    <Compile Include="Map.cs" />
-    <Compile Include="Maze.cs" />
-    <Compile Include="Row.cs" />
-    <Compile Include="Sprite.cs" />
-    <Compile Include="StatePlayerElement.cs" />
-    <Compile Include="StateTileElement.cs" />
-    <Compile Include="ExternalRefObjectContentProcessor.cs" />
-    <Compile Include="Frame.cs" />
-    <Compile Include="PlayerState.cs" />
-    <Compile Include="Position.cs" />
-    <Compile Include="Level.cs" />
+    <Compile Include="animation\AnimationSequence.cs" />
+    <Compile Include="dungeon\Column.cs" />
+    <Compile Include="tiles\TileState.cs" />
+    <Compile Include="tiles\PressPlate.cs" />
+    <Compile Include="dungeon\RoomNew.cs" />
+    <Compile Include="dungeon\RoomRow.cs" />
+    <Compile Include="dungeon\RoomColumn.cs" />
+    <Compile Include="dungeon\Map.cs" />
+    <Compile Include="dungeon\Maze.cs" />
+    <Compile Include="dungeon\Row.cs" />
+    <Compile Include="sprite\Sprite.cs" />
+    <Compile Include="sprite\StatePlayerElement.cs" />
+    <Compile Include="tiles\StateTileElement.cs" />
+    <Compile Include="utils\ExternalRefObjectContentProcessor.cs" />
+    <Compile Include="animation\Frame.cs" />
+    <Compile Include="sprite\PlayerState.cs" />
+    <Compile Include="animation\Position.cs" />
+    <Compile Include="dungeon\Level.cs" />
     <Compile Include="PrinceOfPersia.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="sprite\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RectangleExtensions.cs" />
-    <Compile Include="Sequence.cs" />
-    <Compile Include="StateElement.cs" />
-    <Compile Include="TextureEngine.cs" />
-    <Compile Include="Tile.cs" />
-    <Compile Include="Torch.cs" />
-    <Compile Include="TouchCollectionExtensions.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="utils\RectangleExtensions.cs" />
+    <Compile Include="animation\Sequence.cs" />
+    <Compile Include="animation\StateElement.cs" />
+    <Compile Include="utils\TextureEngine.cs" />
+    <Compile Include="tiles\Tile.cs" />
+    <Compile Include="tiles\Door.cs" />
+    <Compile Include="utils\TouchCollectionExtensions.cs" />
+    <Compile Include="utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -219,6 +221,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PoPicon.ico" />
+    <EmbeddedResource Include="resources\PRESSPLATE_sequence.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_8.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\MAP_dungeon_prison_5.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>

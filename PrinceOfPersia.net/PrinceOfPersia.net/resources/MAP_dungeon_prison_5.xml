@@ -33,6 +33,7 @@
         <Column>
           <tileType>door</tileType>
           <state>close</state>
+          <switchButton>1</switchButton>
         </Column>
       </columns>
     </Row>

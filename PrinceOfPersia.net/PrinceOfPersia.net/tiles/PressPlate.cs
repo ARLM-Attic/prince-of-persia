@@ -21,9 +21,11 @@ namespace PrinceOfPersia
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
 
+        public float timeOpen = 0.3f;
+
         public StateTileElement.State State
         {
-            get { return stateTileElement.state; }
+            get { return tileState.Value().state; }
         }
 
 
@@ -59,17 +61,17 @@ namespace PrinceOfPersia
 
 
             //change statetile element
-            stateTileElement.state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            tileState.Value().state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         public void Normal()
         {
-            if (stateTileElement.state == StateTileElement.State.normal)
+            if (tileState.Value().state == StateTileElement.State.normal)
                 return;
 
-            stateTileElement.state = StateTileElement.State.normal;
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            tileState.Add(StateTileElement.State.normal);
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
 
@@ -79,8 +81,8 @@ namespace PrinceOfPersia
             //if (stateTileElement.state == StateTileElement.State.dpressplate)
             //    return;
 
-            stateTileElement.state = StateTileElement.State.dpressplate;
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            tileState.Value().state = StateTileElement.State.dpressplate;
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
 
             //i will open all door with the correct switchButton
             List<Tile> list = maze.GetTiles(TileType.door);

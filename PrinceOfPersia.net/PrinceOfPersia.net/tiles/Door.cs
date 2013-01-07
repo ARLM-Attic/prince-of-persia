@@ -20,11 +20,11 @@ namespace PrinceOfPersia
         private Maze maze;
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
-
+        public float timeOpen = 6;
 
         public StateTileElement.State State
         {
-            get { return stateTileElement.state; }
+            get { return tileState.Value().state; }
         }
 
 
@@ -61,8 +61,8 @@ namespace PrinceOfPersia
 
 
             //change statetile element
-            stateTileElement.state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            tileState.Value().state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         public void Normal()
@@ -74,19 +74,33 @@ namespace PrinceOfPersia
 
         public void Close()
         {
-            if (stateTileElement.state == StateTileElement.State.close)
+            elapsedTimeOpen = timeOpen;
+            if (tileState.Value().state == StateTileElement.State.close)
                 return;
-            stateTileElement.state = StateTileElement.State.close;
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            if (tileState.Value().state == StateTileElement.State.closed)
+                return;
+
+            if (tileState.Value().state == StateTileElement.State.open)
+                tileState.Add(StateTileElement.State.close, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.Reverse);
+            else
+                tileState.Add(StateTileElement.State.close);
+
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         public void Open()
         {
             elapsedTimeOpen = 0;
-            //if (stateTileElement.state == StateTileElement.State.open)
-            //    return;
-            stateTileElement.state = StateTileElement.State.open;
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            if (tileState.Value().state == StateTileElement.State.open)
+                return;
+            if (tileState.Value().state == StateTileElement.State.opened)
+                return;
+            if (tileState.Value().state == StateTileElement.State.close)
+                tileState.Add(StateTileElement.State.open, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.Reverse);
+            else
+                tileState.Add(StateTileElement.State.open);
+
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
     }

@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-  <!-- OPEN DOOR -->
+  <!-- OPENED DOOR -->
   <Sequence>
     <frames>
       <Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
         <value>Tiles/DoorA_1</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
@@ -19,21 +19,44 @@
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-    <name>NORMAL</name>
+    <name>OPENED</name>
+    <raised>false</raised>
+  </Sequence>
+
+
+  <!-- CLOSED DOOR -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Tiles/DoorA_13</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>CLOSED</name>
     <raised>false</raised>
   </Sequence>
 
   <!-- OPEN DOOR -->
   <Sequence>
     <frames>
-      <Frame>
+      <!--<Frame>
         <type>SPRITE</type>
         <name>OPEN</name>
         <value>Tiles/DoorA_13</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
-      </Frame>
+      </Frame>-->
       <Frame>
         <type>SPRITE</type>
         <name></name>
@@ -122,18 +145,18 @@
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
-      <Frame>
+      <!--<Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
         <value>Tiles/DoorA_1</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
-      </Frame>
+      </Frame>-->
       <Frame>
         <type>COMMAND</type>
-        <name>GOTOFRAME</name>
-        <parameter>LOOP</parameter>
+        <name>GOTOSEQUENCE</name>
+        <parameter>OPENED</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>
@@ -145,7 +168,7 @@
   <!-- CLOSE DOOR -->
   <Sequence>
     <frames>
-      <Frame>
+      <!--<Frame>
         <type>SPRITE</type>
         <name>CLOSE</name>
         <value>Tiles/DoorA_1</value>
@@ -153,7 +176,7 @@
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
-      </Frame>
+      </Frame>-->
       <Frame>
         <type>SPRITE</type>
         <name></name>
@@ -253,20 +276,19 @@
         <yOffSet>0</yOffSet>
         <delay>1</delay>
       </Frame>
-      <Frame>
+      <!--<Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
         <value>Tiles/DoorA_13</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
-      </Frame>
-
+      </Frame>-->
       <Frame>
       <type>COMMAND</type>
-      <name>GOTOFRAME</name>
-      <parameter>LOOP</parameter>
-      <stoppable>true</stoppable>
+      <name>GOTOSEQUENCE</name>
+      <parameter>CLOSED</parameter>
+      <stoppable>false</stoppable>
       </Frame>
     </frames>
     <name>CLOSE</name>

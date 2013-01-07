@@ -85,7 +85,7 @@ namespace PrinceOfPersia
         public TileType Type;
         public AnimationSequence tileAnimation = new AnimationSequence();
         public StateTileElement stateTileElement = new StateTileElement();
-        public TileState tileState = new TileState();
+        protected TileState tileState = new TileState();
 
         //static for share purposes
         private static List<Sequence> tileSequence = new List<Sequence>();
@@ -174,14 +174,14 @@ namespace PrinceOfPersia
             if (this.GetType() == typeof(Door))
             {
                 ((Door)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (((Door)this).elapsedTimeOpen > 6)
+                if (((Door)this).elapsedTimeOpen > ((Door)this).timeOpen)
                     ((Door)this).Close(); 
             }
 
             if (this.GetType() == typeof(PressPlate))
             {
                 ((PressPlate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (((PressPlate)this).elapsedTimeOpen > 0.3 & ((PressPlate)this).State == StateTileElement.State.dpressplate)
+                if (((PressPlate)this).elapsedTimeOpen > ((PressPlate)this).timeOpen & ((PressPlate)this).State == StateTileElement.State.dpressplate)
                     ((PressPlate)this).Normal();
             }
 

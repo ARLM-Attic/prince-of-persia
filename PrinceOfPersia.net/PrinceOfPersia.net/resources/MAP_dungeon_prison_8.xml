@@ -32,7 +32,8 @@
         </Column>
         <Column>
           <tileType>door</tileType>
-          <state>close</state>
+          <state>closed</state>
+          <timeOpen>6</timeOpen>
         </Column>
       </columns>
     </Row>

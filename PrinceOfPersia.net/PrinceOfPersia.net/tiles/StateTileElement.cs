@@ -15,8 +15,10 @@ namespace PrinceOfPersia
         {
             normal // normal state
             //,fall
-            ,close
-            ,open
+            ,close //close animation
+            ,closed //close
+            ,open //opening animation
+            ,opened
             ,dpressplate, //;down
             pressplate, // ;up
         }

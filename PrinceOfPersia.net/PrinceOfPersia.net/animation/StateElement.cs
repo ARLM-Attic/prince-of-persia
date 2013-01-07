@@ -46,7 +46,8 @@ namespace PrinceOfPersia
         public enum SequenceReverse
         {
             Normal,
-            Reverse
+            Reverse, //reverse all and reset frame to 0
+            FixFrame //don't reset frame counter
         }
 
         public bool IfTrue

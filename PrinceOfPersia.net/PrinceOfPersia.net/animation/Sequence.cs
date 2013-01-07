@@ -19,7 +19,7 @@ namespace PrinceOfPersia
         public string name;
         public bool raised = false;
         public TileType tileType;
-        public TileCollision tileCollision;
+        public TileCollision collision;
 
         /// <summary>
         /// Get the Total xOffset and yOffset
@@ -68,7 +68,7 @@ namespace PrinceOfPersia
             Sequence newSequence = new Sequence();
             newSequence.name = this.name;
             newSequence.raised = this.raised;
-            newSequence.tileCollision = this.tileCollision;
+            newSequence.collision = this.collision;
             newSequence.tileType = this.tileType;
 
             //newSequence.frameTime = this.frameTime;

@@ -21,6 +21,7 @@
     </frames>
     <name>NORMAL</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
   
 </ArrayOfSequence>

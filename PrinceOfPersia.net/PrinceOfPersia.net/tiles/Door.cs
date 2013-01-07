@@ -21,6 +21,7 @@ namespace PrinceOfPersia
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
         public float timeOpen = 6;
+        
 
         public StateTileElement.State State
         {
@@ -31,6 +32,7 @@ namespace PrinceOfPersia
 
         public Door(Maze maze, ContentManager Content, TileType tileType, string state, int switchButton)
         {
+            collision = TileCollision.Platform;
             this.maze = maze;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
@@ -54,7 +56,7 @@ namespace PrinceOfPersia
                 //AMF to be adjust....
                 result.frames[0].texture = Content.Load<Texture2D>(result.frames[0].value);
 
-                Collision = result.tileCollision;
+                collision = result.collision;
                 Texture = result.frames[0].texture;
             }
             Type = tileType;
@@ -67,8 +69,8 @@ namespace PrinceOfPersia
 
         public void Normal()
         {
-            stateTileElement.state = StateTileElement.State.normal;
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            tileState.Value().state = StateTileElement.State.normal;
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
 
@@ -96,7 +98,7 @@ namespace PrinceOfPersia
             if (tileState.Value().state == StateTileElement.State.opened)
                 return;
             if (tileState.Value().state == StateTileElement.State.close)
-                tileState.Add(StateTileElement.State.open, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.Reverse);
+                tileState.Add(StateTileElement.State.open, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.FixFrame);
             else
                 tileState.Add(StateTileElement.State.open);
 

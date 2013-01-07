@@ -54,7 +54,7 @@ namespace PrinceOfPersia
                 //AMF to be adjust....
                 result.frames[0].texture = Content.Load<Texture2D>(result.frames[0].value);
 
-                Collision = result.tileCollision;
+                collision = result.collision;
                 Texture = result.frames[0].texture;
             }
             Type = tileType;

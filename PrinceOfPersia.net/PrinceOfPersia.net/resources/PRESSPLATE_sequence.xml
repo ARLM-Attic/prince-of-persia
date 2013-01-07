@@ -21,6 +21,7 @@
     </frames>
     <name>NORMAL</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
   <!-- PRESS DOWN -->
@@ -43,6 +44,7 @@
     </frames>
     <name>DPRESSPLATE</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
 </ArrayOfSequence>

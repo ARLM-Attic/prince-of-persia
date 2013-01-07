@@ -21,6 +21,7 @@
     </frames>
     <name>OPENED</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
 
@@ -44,6 +45,7 @@
     </frames>
     <name>CLOSED</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
   <!-- OPEN DOOR -->
@@ -162,6 +164,7 @@
     </frames>
     <name>OPEN</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
 
@@ -181,7 +184,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_2</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -190,7 +193,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_3</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -199,7 +202,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_4</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -208,7 +211,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_5</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -217,7 +220,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_6</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -226,7 +229,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_7</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -235,7 +238,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_8</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -244,7 +247,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_9</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -253,7 +256,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_10</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -262,7 +265,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_11</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -271,7 +274,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Tiles/DoorA_12</value>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>1</delay>
@@ -288,11 +291,12 @@
       <type>COMMAND</type>
       <name>GOTOSEQUENCE</name>
       <parameter>CLOSED</parameter>
-      <stoppable>false</stoppable>
+      <stoppable>true</stoppable>
       </Frame>
     </frames>
     <name>CLOSE</name>
     <raised>false</raised>
+    <collision>Platform</collision>
   </Sequence>
 
 </ArrayOfSequence>

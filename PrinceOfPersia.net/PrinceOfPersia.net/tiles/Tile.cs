@@ -54,24 +54,20 @@ namespace PrinceOfPersia
     public enum TileCollision
     {
         /// <summary>
-        /// A passable tile is one which does not hinder player motion at all.
+        /// A passable tile is one which does not hinder player motion at all, like a space
         /// </summary>
         Passable = 0,
 
         /// <summary>
         /// An impassable tile is one which does not allow the player to move through
-        /// it at all. It is completely solid.
+        /// it at all. It is completely solid, like a wall block
         /// </summary>
         Impassable = 1,
 
         /// <summary>
-        /// A platform tile is one which behaves like a passable tile except when the
-        /// player is above it. A player can jump up through a platform as well as move
-        /// past it to the left and right, but can not fall down through the top of it.
+        /// Standard floor
         /// </summary>
         Platform = 2,
-       
-
     }
     
 
@@ -81,11 +77,11 @@ namespace PrinceOfPersia
     {
         public Texture2D Texture;
         //private float Depth = 0.1f;
-        public TileCollision Collision;
+        public TileCollision collision;
         public TileType Type;
         public AnimationSequence tileAnimation = new AnimationSequence();
-        public StateTileElement stateTileElement = new StateTileElement();
-        protected TileState tileState = new TileState();
+        //private StateTileElement stateTileElement = new StateTileElement();
+        public TileState tileState = new TileState();
 
         //static for share purposes
         private static List<Sequence> tileSequence = new List<Sequence>();
@@ -144,15 +140,17 @@ namespace PrinceOfPersia
                 //AMF to be adjust....
                 result.frames[0].texture = Content.Load<Texture2D>(result.frames[0].value);
 
-                Collision = result.tileCollision;
+                collision = result.collision;
                 Texture = result.frames[0].texture;
             }
             Type = tileType;
 
 
             //change statetile element
-            stateTileElement.state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());    
-            tileAnimation.PlayAnimation(tileSequence, stateTileElement);
+            StateTileElement stateTileElement = new StateTileElement();
+            stateTileElement.state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
+            tileState.Add(stateTileElement);
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         /// <summary>

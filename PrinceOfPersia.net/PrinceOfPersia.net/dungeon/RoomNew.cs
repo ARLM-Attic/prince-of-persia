@@ -168,7 +168,7 @@ namespace PrinceOfPersia
             if (y < 0 || y >= Height)
                 return TileCollision.Passable;
 
-            return tiles[x, y].Collision;
+            return tiles[x, y].collision;
         }
 
         public TileType GetType(int x, int y)

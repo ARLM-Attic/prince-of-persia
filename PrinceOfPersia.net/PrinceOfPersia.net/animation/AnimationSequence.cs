@@ -156,8 +156,11 @@ namespace PrinceOfPersia
             }
 
 
-            //this.time = 0.0f;
-            this.frameIndex = 0;
+            if ( stateElement.Reverse == StateElement.SequenceReverse.FixFrame)
+                this.frameIndex = this.Frames.Count - this.frameIndex;
+            else
+                this.frameIndex = 0;
+
             this.firstTime = true;
         }
 

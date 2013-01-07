@@ -158,14 +158,6 @@ Content\Sprites\Player\Kid_dos\Kid_115.xnb
 Content\Sprites\Player\Kid_dos\Kid_116.xnb
 Content\Sprites\Player\Kid_dos\Kid_117.xnb
 Content\Tiles\FloorB.xnb
-Content\Sounds\ExitReached.xnb
-Content\Sounds\GemCollected.xnb
-Content\Sounds\MonsterKilled.xnb
-Content\Sounds\Music.xnb
-Content\Sounds\PlayerFall.xnb
-Content\Sounds\PlayerJump.xnb
-Content\Sounds\PlayerKilled.xnb
-Content\Sounds\Powerup.xnb
 Content\Tiles\bricks01.xnb
 Content\Tiles\FloorB_1.xnb
 Content\Tiles\FloorB_2.xnb
@@ -192,4 +184,12 @@ Content\Tiles\DoorA_7.xnb
 Content\Tiles\DoorA_8.xnb
 Content\Tiles\DoorA_9.xnb
 Content\Tiles\FloorC.xnb
+Content\Sounds\ExitReached.xnb
+Content\Sounds\GemCollected.xnb
+Content\Sounds\MonsterKilled.xnb
+Content\Sounds\Music.xnb
+Content\Sounds\PlayerFall.xnb
+Content\Sounds\PlayerJump.xnb
+Content\Sounds\PlayerKilled.xnb
+Content\Sounds\Powerup.xnb
 Content\Sounds\Music.wma

@@ -793,11 +793,12 @@ namespace PrinceOfPersia
             Vector2 v2 = _room.getCenterTile(playerBounds);
             Rectangle tileBounds = _room.GetBounds((int)v2.X,(int)v2.Y);
 
-            if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor 
-                | _room.GetType((int)v2.X, (int)v2.Y) == TileType.gate 
-                | _room.GetType((int)v2.X, (int)v2.Y) == TileType.pressplate
-                | _room.GetType((int)v2.X, (int)v2.Y) == TileType.door
-                | _room.GetType((int)v2.X, (int)v2.Y) == TileType.torch)
+            //if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor 
+            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.gate 
+            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.pressplate
+            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.door
+            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.torch)
+            if (_room.GetCollision((int)v2.X, (int)v2.Y) != TileCollision.Passable)
             {
                 if (playerBounds.Bottom >= tileBounds.Bottom)
                     isOnGround = true;
@@ -855,12 +856,11 @@ namespace PrinceOfPersia
                             ((PressPlate)_room.GetTile(x, y)).Press();
                             break;
                         case TileType.door:
-                            //if (((Door)_room.GetTile(x, y)).State == StateTileElement.State.close)
-                            //    ((Door)_room.GetTile(x, y)).Open();
-                            //else
-                            //    ((Door)_room.GetTile(x, y)).Close();
-                            //break;
                         case TileType.block:
+                            if (tileType == TileType.door)
+                                if (((Door)_room.GetTile(x, y)).State == StateTileElement.State.opened)
+                                    break;
+
                             //if sx wall i will penetrate..for perspective design
                             if (flip == SpriteEffects.FlipHorizontally)
                             {

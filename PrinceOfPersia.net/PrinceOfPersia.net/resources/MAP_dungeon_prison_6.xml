@@ -10,8 +10,7 @@
           <tileType>torch</tileType>
         </Column>
         <Column>
-          <tileType>pressplate</tileType>
-          <switchButton>8</switchButton>
+          <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>

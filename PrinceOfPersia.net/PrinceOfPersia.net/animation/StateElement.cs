@@ -9,46 +9,13 @@ namespace PrinceOfPersia
 {
     public abstract class StateElement
     {
-        private State _state;
-        private PriorityState _priorityState;
+        private Enumeration.State _state;
+        private Enumeration.PriorityState _priorityState;
         private bool? _stoppable;
-        private SequenceReverse _reverse;
+        private Enumeration.SequenceReverse _reverse;
         private Vector2 _offset;
         private bool _ifTrue = false;
 
-        public enum Input
-        {
-            left,
-            right,
-            down,
-            up,
-            leftshift,
-            rightshift,
-            shift,
-            leftup,
-            rightup,
-            leftdown,
-            righdown,
-            none
-        }
-
-        public enum State
-        {
-            none // new derived class of this
-        }
-
-        public enum PriorityState
-        {
-            Normal,
-            Force
-        }
-
-        public enum SequenceReverse
-        {
-            Normal,
-            Reverse, //reverse all and reset frame to 0
-            FixFrame //don't reset frame counter
-        }
 
         public bool IfTrue
         {
@@ -62,7 +29,7 @@ namespace PrinceOfPersia
             set { _offset = value; }
         }
 
-        public SequenceReverse Reverse
+        public Enumeration.SequenceReverse Reverse
         {
             get { return _reverse; }
             set { _reverse = value; }
@@ -74,13 +41,13 @@ namespace PrinceOfPersia
             set { _stoppable = value; }
         }
 
-        public State state
+        public Enumeration.State state
         {
             get { return _state; }
             set { _state = value; }
         }
 
-        public PriorityState Priority
+        public Enumeration.PriorityState Priority
         {
             get { return _priorityState; }
             set { _priorityState = value; }
@@ -88,30 +55,30 @@ namespace PrinceOfPersia
 
         public StateElement()
         {
-            _state = State.none;
-            _priorityState = PriorityState.Normal;
-            _reverse = SequenceReverse.Normal;
+            _state = Enumeration.State.none;
+            _priorityState = Enumeration.PriorityState.Normal;
+            _reverse = Enumeration.SequenceReverse.Normal;
             _offset = Vector2.Zero;
         }
 
-        public StateElement(State state, PriorityState priority)
+        public StateElement(Enumeration.State state, Enumeration.PriorityState priority)
         {
             _state = state;
             _priorityState = priority;
-            _reverse = SequenceReverse.Normal;
+            _reverse = Enumeration.SequenceReverse.Normal;
             _offset = Vector2.Zero;
         }
 
-        public StateElement(State state, PriorityState priority, bool? stoppable)
+        public StateElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable)
         {
             _state = state;
             _priorityState = priority;
             _stoppable = stoppable;
-            _reverse = SequenceReverse.Normal;
+            _reverse = Enumeration.SequenceReverse.Normal;
             _offset = Vector2.Zero;
         }
 
-        public StateElement(State state, PriorityState priority, SequenceReverse reverse)
+        public StateElement(Enumeration.State state, Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             _priorityState = priority;
@@ -120,7 +87,7 @@ namespace PrinceOfPersia
         }
 
 
-        public StateElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse)
+        public StateElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             _priorityState = priority;
@@ -129,7 +96,7 @@ namespace PrinceOfPersia
             _offset = Vector2.Zero;
         }
 
-        public StateElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse, Vector2 offSet)
+        public StateElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse, Vector2 offSet)
         {
             _state = state;
             _priorityState = priority;
@@ -137,17 +104,17 @@ namespace PrinceOfPersia
             _reverse = reverse;
             _offset = offSet;
         }
-        public StateElement(State state)
+        public StateElement(Enumeration.State state)
         {
             _state = state;
-            _priorityState = PriorityState.Normal;
-            _reverse = SequenceReverse.Normal;
+            _priorityState = Enumeration.PriorityState.Normal;
+            _reverse = Enumeration.SequenceReverse.Normal;
             _offset = Vector2.Zero;
         }
 
-        public static StateTileElement.State Parse(string name)
+        public static Enumeration.StateTile Parse(string name)
         {
-            return (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), name.ToLower());
+            return (Enumeration.StateTile)Enum.Parse(typeof(Enumeration.StateTile), name.ToLower());
         }
 
 

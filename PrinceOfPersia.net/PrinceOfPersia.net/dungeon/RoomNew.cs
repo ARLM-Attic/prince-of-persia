@@ -60,6 +60,10 @@ namespace PrinceOfPersia
         {
             this.maze = maze;
 
+            //LOAD MXL CONTENT
+            //map = content.Load<Map>(filePath);
+
+            //LOAD RES CONTENT
             System.Xml.Serialization.XmlSerializer ax;
             Stream astream = this.GetType().Assembly.GetManifestResourceStream(filePath);
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Map));
@@ -108,21 +112,25 @@ namespace PrinceOfPersia
         /// The Tile collision type for the new Tile.
         /// </param>
         /// <returns>The new Tile.</returns>
-        private Tile LoadTile(TileType tiletype)
+        private Tile LoadTile(Enumeration.TileType tiletype)
         {
-            return new Tile(maze, content, tiletype, StateTileElement.State.normal.ToString());
+            return new Tile(maze, content, tiletype, Enumeration.StateTile.normal.ToString());
         }
 
-        private Tile LoadTile(TileType tiletype, string state, int switchButton)
+        private Tile LoadTile(Enumeration.TileType tiletype, string state, int switchButton)
         {
             switch (tiletype)
             {
-                case TileType.pressplate:
+                case Enumeration.TileType.pressplate:
                     return new PressPlate(maze, content, tiletype, state, switchButton);
                     break;
 
-                case TileType.door:
+                case Enumeration.TileType.door:
                     return new Door(maze, content, tiletype, state, switchButton);
+                    break;
+
+                case Enumeration.TileType.loose:
+                    return new Loose(maze, content, tiletype, state);
                     break;
 
                 default: 
@@ -159,19 +167,19 @@ namespace PrinceOfPersia
         /// impossible to escape past the left or right edges, but allowing things
         /// to jump beyond the top of the level and fall off the bottom.
         /// </summary>
-        public TileCollision GetCollision(int x, int y)
+        public Enumeration.TileCollision GetCollision(int x, int y)
         {
             // Prevent escaping past the level ends.
             if (x < 0 || x >= Width)
-                return TileCollision.Impassable;
+                return Enumeration.TileCollision.Impassable;
             // Allow jumping past the level top and falling through the bottom.
             if (y < 0 || y >= Height)
-                return TileCollision.Passable;
+                return Enumeration.TileCollision.Passable;
 
             return tiles[x, y].collision;
         }
 
-        public TileType GetType(int x, int y)
+        public Enumeration.TileType GetType(int x, int y)
         {
             if (x < 0)
             { 
@@ -219,7 +227,7 @@ namespace PrinceOfPersia
             return tiles[x, y];
         }
 
-        public List<Tile> GetTiles(TileType tileType)
+        public List<Tile> GetTiles(Enumeration.TileType tileType)
         {
             List<Tile> list = new List<Tile>();
             for (int y = Height - 1; y >= 0; --y)

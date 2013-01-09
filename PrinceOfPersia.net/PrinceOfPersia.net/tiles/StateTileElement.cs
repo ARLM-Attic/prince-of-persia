@@ -9,21 +9,9 @@ namespace PrinceOfPersia
 {
     public class StateTileElement : StateElement
     {
-        private State _state;
+        private Enumeration.StateTile _state;
 
-        public new enum State
-        {
-            normal // normal state
-            //,fall
-            ,close //close animation
-            ,closed //close
-            ,open //opening animation
-            ,opened
-            ,dpressplate, //;down
-            pressplate, // ;up
-        }
-
-        public new State state
+        public Enumeration.StateTile state
         {
             get { return _state; }
             set { _state = value; }
@@ -32,30 +20,30 @@ namespace PrinceOfPersia
 
         public StateTileElement()
         {
-            _state = State.normal;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            _state = Enumeration.StateTile.normal;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StateTileElement(State state, PriorityState priority)
+        public StateTileElement(Enumeration.StateTile state, Enumeration.PriorityState priority)
         {
             _state = state;
             Priority  = priority;
-            Reverse = SequenceReverse.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StateTileElement(State state, PriorityState priority, bool? stoppable)
+        public StateTileElement(Enumeration.StateTile state, Enumeration.PriorityState priority, bool? stoppable)
         {
             _state = state;
             Priority = priority;
             Stoppable = stoppable;
-            Reverse = SequenceReverse.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StateTileElement(State state, PriorityState priority, SequenceReverse reverse)
+        public StateTileElement(Enumeration.StateTile state, Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             Priority = priority;
@@ -64,7 +52,7 @@ namespace PrinceOfPersia
         }
 
 
-        public StateTileElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse)
+        public StateTileElement(Enumeration.StateTile state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             Priority = priority;
@@ -73,7 +61,7 @@ namespace PrinceOfPersia
             OffSet = Vector2.Zero;
         }
 
-        public StateTileElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse, Vector2 offSet)
+        public StateTileElement(Enumeration.StateTile state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse, Vector2 offSet)
         {
             _state = state;
             Priority = priority;
@@ -82,20 +70,20 @@ namespace PrinceOfPersia
             OffSet = offSet;
         }
         
-        public StateTileElement(State state)
+        public StateTileElement(Enumeration.StateTile state)
         {
             _state = state;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
             IfTrue = false;
         }
 
-        public StateTileElement(State state, bool iftrue)
+        public StateTileElement(Enumeration.StateTile state, bool iftrue)
         {
             _state = state;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
             IfTrue = iftrue;
         }

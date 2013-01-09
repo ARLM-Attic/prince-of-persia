@@ -18,8 +18,8 @@ namespace PrinceOfPersia
         public List<Frame> frames = new List<Frame>();
         public string name;
         public bool raised = false;
-        public TileType tileType;
-        public TileCollision collision;
+        public Enumeration.TileType tileType;
+        public Enumeration.TileCollision collision;
 
         /// <summary>
         /// Get the Total xOffset and yOffset

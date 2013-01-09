@@ -9,203 +9,10 @@ namespace PrinceOfPersia
 {
     public class StatePlayerElement : StateElement  
     {
-        private State _state;
-
-        public new enum State
-        {
-            none // my state
-            ,question  //my state for interpretation
-            ,crouch //my state
-            ,godown //my state invert standup
-            , startrun,
-            stand,
-            standjump,
-            runjump,
-            turn,
-            runturn,
-            stepfall,
-            jumphangMed,
-            hang,
-            climbup,
-            hangdrop,
-            freefall,
-            runstop,
-            jumpup,
-            fallhang,
-            jumpbackhang,
-            softland,
-            jumpfall,
-            stepfall2,
-            medland,
-            rjumpfall,
-            hardland,
-            hangfall,
-            jumphangLong,
-            hangstraight,
-            rdiveroll,
-            sdiveroll,
-            highjump,
-            step1,
-            step2,
-            step3,
-            step4,
-            step5,
-            step6,
-            step7,
-            step8,
-            step9,
-            step10,
-            step11,
-            step12,
-            step13,
-            fullstep
-                ,
-            turnrun
-                ,
-            testfoot
-                ,
-            bumpfall
-                ,
-            hardbump
-                ,
-            bump
-                ,
-            superhijump
-                ,
-            standup
-                ,
-            stoop
-                ,
-            impale
-                ,
-            crush
-                ,
-            deadfall
-                ,
-            halve
-                ,
-            engarde
-                ,
-            advance
-                ,
-            retreat
-                ,
-            strike
-                ,
-            flee
-                ,
-            turnengarde
-                ,
-            strikeblock
-                ,
-            readyblock
-                ,
-            landengarde
-                ,
-            bumpengfwd
-                ,
-            bumpengback
-                ,
-            blocktostrike
-                ,
-            strikeadv
-                ,
-            climbdown
-                ,
-            blockedstrike
-                ,
-            climbstairs
-                ,
-            dropdead
-                ,
-            stepback
-                ,
-            climbfail
-                ,
-            stabbed
-                ,
-            faststrike
-                ,
-            strikeret
-                ,
-            alertstand
-                ,
-            drinkpotion
-                ,
-            crawl
-                ,
-            alertturn
-                ,
-            fightfall
-                ,
-            efightfall
-                ,
-            efightfallfwd
-                ,
-            running
-                ,
-            stabkill
-                ,
-            fastadvance
-                ,
-            goalertstand
-                ,
-            arise
-                ,
-            turndraw
-                ,
-            guardengarde
-                ,
-            pickupsword
-                ,
-            resheathe
-                ,
-            fastsheathe
-                ,
-            Pstand
-                ,
-            Vstand
-                ,
-            Vwalk
-                ,
-            Vstop
-                ,
-            Palert
-                ,
-            Pback
-                ,
-            Vexit
-                ,
-            Mclimb
-                ,
-            Vraise
-                ,
-            Plie
-                ,
-            patchfall
-                ,
-            Mscurry
-                ,
-            Mstop
-                ,
-            Mleave
-                ,
-            Pembrace
-                ,
-            Pwaiting
-                ,
-            Pstroke
-                ,
-            Prise
-                ,
-            Pcrouch
-                ,
-            Pslump
-                , Mraise
-        }
+        private Enumeration.State _state;
 
 
-        public new State state
+        public Enumeration.State state
         {
             get { return _state; }
             set { _state = value; }
@@ -213,30 +20,30 @@ namespace PrinceOfPersia
 
         public StatePlayerElement()
         {
-            _state = State.stand;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            _state = Enumeration.State.stand;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StatePlayerElement(State state, PriorityState priority)
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority)
         {
             _state = state;
             Priority  = priority;
-            Reverse = SequenceReverse.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StatePlayerElement(State state, PriorityState priority, bool? stoppable)
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable)
         {
             _state = state;
             Priority = priority;
             Stoppable = stoppable;
-            Reverse = SequenceReverse.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
         }
 
-        public StatePlayerElement(State state, PriorityState priority, SequenceReverse reverse)
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             Priority = priority;
@@ -245,7 +52,7 @@ namespace PrinceOfPersia
         }
 
 
-        public StatePlayerElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse)
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse)
         {
             _state = state;
             Priority = priority;
@@ -254,7 +61,7 @@ namespace PrinceOfPersia
             OffSet = Vector2.Zero;
         }
 
-        public StatePlayerElement(State state, PriorityState priority, bool? stoppable, SequenceReverse reverse, Vector2 offSet)
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse, Vector2 offSet)
         {
             _state = state;
             Priority = priority;
@@ -262,29 +69,29 @@ namespace PrinceOfPersia
             Reverse = reverse;
             OffSet = offSet;
         }
-        
-        public StatePlayerElement(State state)
+
+        public StatePlayerElement(Enumeration.State state)
         {
             _state = state;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
             IfTrue = false;
         }
 
-        public StatePlayerElement(State state, bool iftrue)
+        public StatePlayerElement(Enumeration.State state, bool iftrue)
         {
             _state = state;
-            Priority = PriorityState.Normal;
-            Reverse = SequenceReverse.Normal;
+            Priority = Enumeration.PriorityState.Normal;
+            Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;
             IfTrue = iftrue;
         }
 
 
-        public new static StatePlayerElement.State Parse(string name)
+        public new static Enumeration.State Parse(string name)
         {
-            return (StatePlayerElement.State)Enum.Parse(typeof(StatePlayerElement.State), name.ToLower());
+            return (Enumeration.State)Enum.Parse(typeof(Enumeration.State), name.ToLower());
         }
 
 

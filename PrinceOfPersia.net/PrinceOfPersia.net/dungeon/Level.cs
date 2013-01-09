@@ -13,30 +13,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PrinceOfPersia
 {
-    public enum LevelName
-    { 
-        dungeon_prison = 1,
-		dungeon_guards = 2,
-        dungeon_skeleton = 3,
-        palace_mirror = 4,
-        palace_thief = 5,
-        palace_plunge = 6,
-        dungeon_weightless = 7,
-        dungeon_mouse = 8,
-        dungeon_twisty = 9,
-        palace_quad = 10,
-        palace_fragile = 11,
-        dungeon_tower = 12,
-        dungeon_jaffar = 13,
-        palace_rescue = 14,
-        dungeon_potions = 15,
-        dungeon_demo = 0
-    }
+
 
     public class Level
     {
         public RoomRow[] rows;
-        public LevelName levelName = LevelName.dungeon_demo;
+        public Enumeration.LevelName levelName = Enumeration.LevelName.dungeon_demo;
         
 
         public Level()

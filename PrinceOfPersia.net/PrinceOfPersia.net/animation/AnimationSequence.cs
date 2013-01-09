@@ -83,7 +83,7 @@ namespace PrinceOfPersia
 
 
             // Start the new animation.
-            if (stateElement.Priority == StateElement.PriorityState.Normal & this.IsStoppable == false)
+            if (stateElement.Priority == Enumeration.PriorityState.Normal & this.IsStoppable == false)
                 return;
 
             //Check if the animation is already playing
@@ -127,7 +127,7 @@ namespace PrinceOfPersia
             }
 
             //Check if reverse movement and reverse order and sign x,y
-            if (stateElement.Reverse == StateElement.SequenceReverse.Reverse)
+            if (stateElement.Reverse == Enumeration.SequenceReverse.Reverse)
             {
                 List<Frame> newListFrame = new List<Frame>();
                 List<Frame> newListCommand = new List<Frame>();
@@ -156,7 +156,7 @@ namespace PrinceOfPersia
             }
 
 
-            if ( stateElement.Reverse == StateElement.SequenceReverse.FixFrame)
+            if ( stateElement.Reverse == Enumeration.SequenceReverse.FixFrame)
                 this.frameIndex = this.Frames.Count - this.frameIndex;
             else
                 this.frameIndex = 0;

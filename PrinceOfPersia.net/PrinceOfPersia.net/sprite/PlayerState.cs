@@ -18,24 +18,24 @@ namespace PrinceOfPersia
             Add(new StatePlayerElement());
         }
 
-        public StatePlayerElement.State Next()
+        public Enumeration.State Next()
         {
             return Next(Value().state);
         }
-        public StatePlayerElement.State Next(StatePlayerElement.State state)
+        public Enumeration.State Next(Enumeration.State state)
         {
             switch (state)
             {
-                case StatePlayerElement.State.freefall:
-                    return StatePlayerElement.State.crouch;
+                case Enumeration.State.freefall:
+                    return Enumeration.State.crouch;
                 default:
-                    return StatePlayerElement.State.stand;
+                    return Enumeration.State.stand;
             }
         
         }
 
 
-        public void Add(StatePlayerElement.State state)
+        public void Add(Enumeration.State state)
         {
             //if (Value().state == state)
             //    return;
@@ -48,7 +48,7 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state));
         }
 
-        public void Add(StatePlayerElement.State state, bool ifTrue)
+        public void Add(Enumeration.State state, bool ifTrue)
         {
             //if (Value().state == state)
             //    return;
@@ -61,7 +61,7 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state, ifTrue));
         }
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority)
         {
             if (data.Count == iSize)
             {
@@ -71,7 +71,7 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state, priority));
         }
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, StateElement.SequenceReverse reverse)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             if (data.Count == iSize)
             {
@@ -81,27 +81,27 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state, priority, reverse));
         }
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StatePlayerElement(state, priority, stoppable, StateElement.SequenceReverse.Normal));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, Enumeration.SequenceReverse.Normal));
         }
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, Vector2 offSet)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Vector2 offSet)
         {
             if (data.Count == iSize)
             {
                 data.Dequeue();
             }
 
-            data.Enqueue(new StatePlayerElement(state, priority, stoppable, StateElement.SequenceReverse.Normal, offSet));
+            data.Enqueue(new StatePlayerElement(state, priority, stoppable, Enumeration.SequenceReverse.Normal, offSet));
         }
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse)
         {
             if (data.Count == iSize)
             {
@@ -112,7 +112,7 @@ namespace PrinceOfPersia
         }
 
 
-        public void Add(StatePlayerElement.State state, StateElement.PriorityState priority, bool? stoppable, StateElement.SequenceReverse reverse, Vector2 offSet)
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable, Enumeration.SequenceReverse reverse, Vector2 offSet)
         {
             if (data.Count == iSize)
             {

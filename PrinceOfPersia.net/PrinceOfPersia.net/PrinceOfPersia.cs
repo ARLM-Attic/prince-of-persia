@@ -11,6 +11,9 @@ using Microsoft.Xna.Framework.Content;
 
 namespace PrinceOfPersia
 {
+
+ 
+
     /// <summary>
     /// This is the main type for your game
     /// </summary>
@@ -65,6 +68,9 @@ namespace PrinceOfPersia
         private string CONFIG_SPRITE_KID = "KID_DOS";
         public string CONFIG_PATH_RESOURCES = "PrinceOfPersia.resources.";
 
+
+
+
         public PrinceOfPersiaGame()
         {
 
@@ -106,8 +112,13 @@ namespace PrinceOfPersia
         /// </summary>
         protected override void LoadContent()
         {
-
             //TEST FOR LOAD AN XML IN CONTENT --- FAILED...why?!??
+
+            //TestXML item = Content.Load<TestXML>("Maze/stringa");
+            
+
+
+
             //ContentSerializerIgnoreAttribute o = new ContentSerializerIgnoreAttribute();
             //l = Content.Load<List<Sequence>>("Sequence/KID_sequence");
              
@@ -118,10 +129,6 @@ namespace PrinceOfPersia
             // Load fonts
             hudFont = Content.Load<SpriteFont>("Fonts/Hud");
 
-            // Load overlay textures
-            winOverlay = Content.Load<Texture2D>("Overlays/you_win");
-            loseOverlay = Content.Load<Texture2D>("Overlays/you_lose");
-            diedOverlay = Content.Load<Texture2D>("Overlays/you_died");
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
             //See http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66
@@ -231,8 +238,8 @@ namespace PrinceOfPersia
                 {
                     Rectangle tileBounds = room.GetBounds(x, y);
                     Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-                    TileCollision tileCollision = room.GetCollision(x, y);
-                    TileType tileType = room.GetType(x, y);
+                    Enumeration.TileCollision tileCollision = room.GetCollision(x, y);
+                    Enumeration.TileType tileType = room.GetType(x, y);
                     
                     hudLocation.Y = hudLocation.Y + 10;
                     DrawShadowedString(hudFont, "GRID X=" + x + " Y=" + y + " TILETYPE=" + tileType.ToString() + " BOUND X=" + tileBounds.X + " Y=" + tileBounds.Y + " DEPTH X=" + depth.X + " Y=" + depth.Y, hudLocation, Color.White);

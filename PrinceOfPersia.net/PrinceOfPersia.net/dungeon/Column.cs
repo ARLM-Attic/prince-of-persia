@@ -7,9 +7,9 @@ namespace PrinceOfPersia
 {
     public class Column
     {
-        public TileType tileType;
-        public SpriteType spriteType;
-        public string state = StateTileElement.State.normal.ToString();
+        public Enumeration.TileType tileType;
+        public Enumeration.SpriteType spriteType;
+        public string state = Enumeration.StateTile.normal.ToString();
         public int switchButton = 0;
         
         public Column()

@@ -23,16 +23,16 @@ namespace PrinceOfPersia
         public float timeOpen = 6;
         
 
-        public StateTileElement.State State
+        public Enumeration.StateTile State
         {
             get { return tileState.Value().state; }
         }
 
 
 
-        public Door(Maze maze, ContentManager Content, TileType tileType, string state, int switchButton)
+        public Door(Maze maze, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
         {
-            collision = TileCollision.Platform;
+            collision = Enumeration.TileCollision.Platform;
             this.maze = maze;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
@@ -63,13 +63,13 @@ namespace PrinceOfPersia
 
 
             //change statetile element
-            tileState.Value().state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
+            tileState.Value().state = (Enumeration.StateTile)Enum.Parse(typeof(Enumeration.StateTile), state.ToLower());
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         public void Normal()
         {
-            tileState.Value().state = StateTileElement.State.normal;
+            tileState.Value().state = Enumeration.StateTile.normal;
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
@@ -77,15 +77,15 @@ namespace PrinceOfPersia
         public void Close()
         {
             elapsedTimeOpen = timeOpen;
-            if (tileState.Value().state == StateTileElement.State.close)
+            if (tileState.Value().state == Enumeration.StateTile.close)
                 return;
-            if (tileState.Value().state == StateTileElement.State.closed)
+            if (tileState.Value().state == Enumeration.StateTile.closed)
                 return;
 
-            if (tileState.Value().state == StateTileElement.State.open)
-                tileState.Add(StateTileElement.State.close, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.Reverse);
+            if (tileState.Value().state == Enumeration.StateTile.open)
+                tileState.Add(Enumeration.StateTile.close, Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Reverse);
             else
-                tileState.Add(StateTileElement.State.close);
+                tileState.Add(Enumeration.StateTile.close);
 
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
@@ -93,14 +93,14 @@ namespace PrinceOfPersia
         public void Open()
         {
             elapsedTimeOpen = 0;
-            if (tileState.Value().state == StateTileElement.State.open)
+            if (tileState.Value().state == Enumeration.StateTile.open)
                 return;
-            if (tileState.Value().state == StateTileElement.State.opened)
+            if (tileState.Value().state == Enumeration.StateTile.opened)
                 return;
-            if (tileState.Value().state == StateTileElement.State.close)
-                tileState.Add(StateTileElement.State.open, StateTileElement.PriorityState.Normal, StateElement.SequenceReverse.FixFrame);
+            if (tileState.Value().state == Enumeration.StateTile.close)
+                tileState.Add(Enumeration.StateTile.open, Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.FixFrame);
             else
-                tileState.Add(StateTileElement.State.open);
+                tileState.Add(Enumeration.StateTile.open);
 
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }

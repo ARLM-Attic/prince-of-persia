@@ -23,13 +23,13 @@ namespace PrinceOfPersia
 
         public float timeOpen = 0.3f;
 
-        public StateTileElement.State State
+        public Enumeration.StateTile State
         {
             get { return tileState.Value().state; }
         }
 
 
-        public PressPlate(Maze maze, ContentManager Content, TileType tileType, string state, int switchButton)
+        public PressPlate(Maze maze, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
         {
             this.maze = maze;
             this.switchButton = switchButton;
@@ -61,16 +61,16 @@ namespace PrinceOfPersia
 
 
             //change statetile element
-            tileState.Value().state = (StateTileElement.State)Enum.Parse(typeof(StateTileElement.State), state.ToLower());
+            tileState.Value().state = (Enumeration.StateTile)Enum.Parse(typeof(Enumeration.StateTile), state.ToLower());
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
         public void Normal()
         {
-            if (tileState.Value().state == StateTileElement.State.normal)
+            if (tileState.Value().state == Enumeration.StateTile.normal)
                 return;
 
-            tileState.Add(StateTileElement.State.normal);
+            tileState.Add(Enumeration.StateTile.normal);
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
@@ -78,14 +78,14 @@ namespace PrinceOfPersia
         public void Press()
         {
             elapsedTimeOpen = 0;
-            //if (stateTileElement.state == StateTileElement.State.dpressplate)
+            //if (stateTileElement.state == Enumeration.StateTile.dpressplate)
             //    return;
 
-            tileState.Value().state = StateTileElement.State.dpressplate;
+            tileState.Value().state = Enumeration.StateTile.dpressplate;
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
 
             //i will open all door with the correct switchButton
-            List<Tile> list = maze.GetTiles(TileType.door);
+            List<Tile> list = maze.GetTiles(Enumeration.TileType.door);
             foreach(Tile t in list)
             {
                 if (((Door)t).switchButton == this.switchButton)

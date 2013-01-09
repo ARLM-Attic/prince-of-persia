@@ -27,6 +27,9 @@ namespace PrinceOfPersia
             path_resources = path_resourcespar;
             content = contentpar;
 
+            //LOAD MXL CONTENT
+            //levels.Add(content.Load<Level>("Maze/LEVEL_dungeon_prison"));
+
             //LOAD ALL LEVEL IN LIST
             System.Xml.Serialization.XmlSerializer ax;
             Stream astream = this.GetType().Assembly.GetManifestResourceStream(path_resources + "LEVEL_dungeon_prison.xml");
@@ -45,6 +48,7 @@ namespace PrinceOfPersia
                             levels[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
 
                         RoomNew room = new RoomNew(this, path_resources + levels[z].rows[y].columns[x].FilePath);
+                        //RoomNew room = new RoomNew(this, "Maze/"+ levels[z].rows[y].columns[x].FilePath);
                         room.roomStart = levels[z].rows[y].columns[x].RoomStart;
                         room.roomName = levels[z].rows[y].columns[x].FilePath;
                         room.roomIndex = levels[z].rows[y].columns[x].RoomIndex;
@@ -57,7 +61,7 @@ namespace PrinceOfPersia
             }
         }
 
-        public List<Tile> GetTiles(TileType tileType)
+        public List<Tile> GetTiles(Enumeration.TileType tileType)
         {
             List<Tile> list = new List<Tile>();
             foreach (RoomNew r in rooms)

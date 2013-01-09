@@ -5,14 +5,7 @@ using System.Text;
 
 namespace PrinceOfPersia
 {
-    public enum SpriteType
-    {
-        nothing,
-        kid,
-        sultan,
-        guard,
-        skeleton
-    }
+
 
     public class Sprite
     {

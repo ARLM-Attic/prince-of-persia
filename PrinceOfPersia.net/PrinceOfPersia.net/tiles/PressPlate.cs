@@ -17,7 +17,6 @@ namespace PrinceOfPersia
     class PressPlate : Tile
     {
         private static List<Sequence> tileSequence = new List<Sequence>();
-        private Maze maze;
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
 
@@ -29,9 +28,9 @@ namespace PrinceOfPersia
         }
 
 
-        public PressPlate(Maze maze, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
+        public PressPlate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
         {
-            this.maze = maze;
+            base.room = room;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
             Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources." + tileType.ToString().ToUpper() + "_sequence.xml");
@@ -85,7 +84,7 @@ namespace PrinceOfPersia
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
 
             //i will open all door with the correct switchButton
-            List<Tile> list = maze.GetTiles(Enumeration.TileType.door);
+            List<Tile> list = room.maze.GetTiles(Enumeration.TileType.door);
             foreach(Tile t in list)
             {
                 if (((Door)t).switchButton == this.switchButton)

@@ -114,7 +114,7 @@ namespace PrinceOfPersia
         /// <returns>The new Tile.</returns>
         private Tile LoadTile(Enumeration.TileType tiletype)
         {
-            return new Tile(maze, content, tiletype, Enumeration.StateTile.normal.ToString());
+            return new Tile(this, content, tiletype, Enumeration.StateTile.normal.ToString());
         }
 
         private Tile LoadTile(Enumeration.TileType tiletype, string state, int switchButton)
@@ -122,19 +122,19 @@ namespace PrinceOfPersia
             switch (tiletype)
             {
                 case Enumeration.TileType.pressplate:
-                    return new PressPlate(maze, content, tiletype, state, switchButton);
+                    return new PressPlate(this, content, tiletype, state, switchButton);
                     break;
 
                 case Enumeration.TileType.door:
-                    return new Door(maze, content, tiletype, state, switchButton);
+                    return new Door(this, content, tiletype, state, switchButton);
                     break;
 
                 case Enumeration.TileType.loose:
-                    return new Loose(maze, content, tiletype, state);
+                    return new Loose(this, content, tiletype, state);
                     break;
 
-                default: 
-                    return new Tile(maze, content, tiletype, state);
+                default:
+                    return new Tile(this, content, tiletype, state);
             }
             
         }
@@ -201,6 +201,19 @@ namespace PrinceOfPersia
                 return maze.UpRoom(this).tiles[x, Height-1].Type;
             }
             return tiles[x, y].Type;
+        }
+
+
+        public Tile GetTile(Vector2 position)
+        {
+            int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
+            int y = (int)Math.Ceiling(((float)(position.Y- RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
+
+
+
+//            int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
+            //int y = (int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT)) - 1;
+            return GetTile(x, y);
         }
 
         public Tile GetTile(int x, int y)
@@ -426,7 +439,15 @@ namespace PrinceOfPersia
         }
 
 
+        public void SubsTile(Vector2 position, Enumeration.TileType tileType)
+        {
+            int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
+            int y = (int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
 
+            Tile t = new Tile(this,content, Enumeration.TileType.space, "NORMAL");
+            t.Position = tiles[x, y].Position;
+            tiles[x, y] = t;
+        }
 
         public Vector4 getBoundTiles(Rectangle playerBounds)
         {

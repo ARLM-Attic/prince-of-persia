@@ -47,7 +47,10 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>door</tileType>
+          <switchButton>6</switchButton>
+          <state>closed</state>
+          <timeOpen>6</timeOpen>
         </Column>
         <Column>
           <tileType>torch</tileType>

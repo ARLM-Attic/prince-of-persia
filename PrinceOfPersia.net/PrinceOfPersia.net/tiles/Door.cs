@@ -17,7 +17,6 @@ namespace PrinceOfPersia
     class Door : Tile
     {
         private static List<Sequence> tileSequence = new List<Sequence>();
-        private Maze maze;
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
         public float timeOpen = 6;
@@ -30,10 +29,10 @@ namespace PrinceOfPersia
 
 
 
-        public Door(Maze maze, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
+        public Door(RoomNew room, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
         {
             collision = Enumeration.TileCollision.Platform;
-            this.maze = maze;
+            base.room = room;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
             Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources." + tileType.ToString().ToUpper() + "_sequence.xml");

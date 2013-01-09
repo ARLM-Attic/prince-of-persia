@@ -45,7 +45,8 @@ namespace PrinceOfPersia
         //    set { _tileReference = value; }
         //}
 
-        private Maze maze;
+        //private Maze maze;
+        protected RoomNew room;
 
         private Position _position;
         public Position Position
@@ -58,9 +59,9 @@ namespace PrinceOfPersia
         public Tile()
         {}
 
-        public Tile(Maze maze, ContentManager Content, Enumeration.TileType tileType, string state)
+        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, string state)
         {
-            this.maze = maze;
+            this.room = room;
 
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
             Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources." + tileType.ToString().ToUpper() + "_sequence.xml");
@@ -112,6 +113,9 @@ namespace PrinceOfPersia
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
+            HandleCollision();
+
+
             if (this.GetType() == typeof(Door))
             {
                 ((Door)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -130,5 +134,17 @@ namespace PrinceOfPersia
             tileAnimation.UpdateFrameTile(elapsed, ref _position, ref flip, ref tileState);
 
         }
+
+        public void HandleCollision()
+        {
+            if (_position.Y >= RoomNew.BOTTOM_LIMIT)
+            {
+                //uscito DOWN
+                RoomNew roomDown = room.maze.DownRoom(room);
+                room = roomDown;
+                _position.Y = RoomNew.TOP_LIMIT - 10;
+            }
+        }
+
     }
 }

@@ -935,7 +935,7 @@ namespace PrinceOfPersia
                 //uscito DOWN
                 RoomNew room = _room.maze.DownRoom(_room);
                 _room.maze.playerRoom = room;
-                room.player = _room.player;
+                //room.player = _room.player;
                 _room = room;
                 _position.Y = RoomNew.TOP_LIMIT-10;
             }
@@ -943,7 +943,7 @@ namespace PrinceOfPersia
             {
                 RoomNew room = _room.maze.RightRoom(_room);
                 _room.maze.playerRoom = room;
-                room.player = _room.player;
+                //room.player = _room.player;
                 _room = room;
                 _position.X = RoomNew.LEFT_LIMIT+10;
             }
@@ -951,7 +951,7 @@ namespace PrinceOfPersia
             {
                 RoomNew room = _room.maze.LeftRoom(_room);
                 _room.maze.playerRoom = room;
-                room.player = _room.player;
+                //room.player = _room.player;
                 _room = room;
                 _position.X = RoomNew.RIGHT_LIMIT-10;
             }
@@ -959,7 +959,7 @@ namespace PrinceOfPersia
             {
                 RoomNew room = _room.maze.UpRoom(_room);
                 _room.maze.playerRoom = room;
-                room.player = _room.player;
+                //room.player = _room.player;
                 _room = room;
                 _position.Y = RoomNew.BOTTOM_LIMIT + 10;
             }

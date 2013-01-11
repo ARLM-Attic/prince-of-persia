@@ -21,6 +21,8 @@ namespace PrinceOfPersia
         public RoomNew playerRoom;
         public List<RoomNew> rooms = new List<RoomNew>();
         private string path_resources;
+        public Player player;
+
 
         public Maze(ContentManager contentpar, string path_resourcespar)
         {
@@ -163,6 +165,9 @@ namespace PrinceOfPersia
             }
             return new RoomNew(this, path_resources + "MAP_blockroom.xml");
         }
+
+
+
 
     }
 }

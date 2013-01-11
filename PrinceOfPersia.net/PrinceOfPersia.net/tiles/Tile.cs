@@ -137,14 +137,39 @@ namespace PrinceOfPersia
 
         public void HandleCollision()
         {
-            if (_position.Y >= RoomNew.BOTTOM_LIMIT)
+            if (this.Type == Enumeration.TileType.loose)
             {
-                //uscito DOWN
-                RoomNew roomDown = room.maze.DownRoom(room);
-                room = roomDown;
-                _position.Y = RoomNew.TOP_LIMIT - 10;
+                Rectangle r = new Rectangle((int)Position.X, (int) Position.Y, Tile.WIDTH, Tile.HEIGHT);
+                Vector4 v = room.getBoundTiles(r);
+
+
+                //Vector2 depth = RectangleExtensions.GetIntersectionDepth(r, this.Position);
+                //Enumeration.TileCollision tileCollision = _room.GetCollision(x, y);
+                //Enumeration.TileType tileType = _room.GetType(x, y);
+
+                if (_position.Y >= RoomNew.BOTTOM_LIMIT- Tile.HEIGHT -25)
+                {
+                    //remove tiles from tilesTemporaney
+                    lock (room.tilesTemporaney)
+                    {
+                        room.tilesTemporaney.Remove(this);
+                    }
+                    //exis from DOWN room
+                    RoomNew roomDown = room.maze.DownRoom(room);
+                    room = roomDown;
+                    _position.Y = RoomNew.TOP_LIMIT - 10;
+
+                    lock (room.tilesTemporaney)
+                    {
+                        room.tilesTemporaney.Add(this);
+                    }
+                }
+
+
+
             }
         }
 
     }
+
 }

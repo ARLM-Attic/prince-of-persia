@@ -160,8 +160,16 @@ namespace PrinceOfPersia
         {
             HandleInput();
 
-            maze.playerRoom.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+            //maze.playerRoom.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
 
+            foreach (RoomNew r in maze.rooms)
+            {
+                r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+            }
+            maze.player.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+
+             
+             
             base.Update(gameTime);
         }
 
@@ -200,7 +208,7 @@ namespace PrinceOfPersia
             spriteBatch.Begin();
 
             maze.playerRoom.Draw(this, gameTime, spriteBatch);
-
+            maze.player.Draw(gameTime, spriteBatch);
 
             DrawHud();
             DrawDebug(maze.playerRoom);
@@ -221,14 +229,14 @@ namespace PrinceOfPersia
 
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
-            
-            DrawShadowedString(hudFont, "POSTION X="+ room.player.Position.X.ToString() +" Y="+ room.player.Position.Y.ToString(), hudLocation, Color.White);
+
+            DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
 
             hudLocation.Y = hudLocation.Y + 10;
-            DrawShadowedString(hudFont, "PLAYER STATE="+ room.player.playerState.Value().state + " SEQUENCE CountOffset="+ room.player.sprite.sequence.CountOffSet , hudLocation, Color.White);
+            DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.playerState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
 
               // Get the player's bounding rectangle and find neighboring tiles.
-            Rectangle playerBounds = room.player.Position.Bounding;
+            Rectangle playerBounds = maze.player.Position.Bounding;
             Vector4 v4 = room.getBoundTiles(playerBounds);
 
             // For each potentially colliding Tile, warning the for check only the player row ground..W

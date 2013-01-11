@@ -125,8 +125,7 @@ namespace PrinceOfPersia
         {
             normal // normal state
             ,
-            fall
-                ,
+
             close //close animation
                 ,
             closed //close

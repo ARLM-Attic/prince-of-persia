@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +21,7 @@ namespace PrinceOfPersia
 
         public Maze maze;
         public Map map;
-        public Player player;
+        //public Player player;
         public bool roomStart = false;
 
         //Coordinate system
@@ -47,8 +48,16 @@ namespace PrinceOfPersia
         public int widthInLevel = 0;
         public int heightInLevel = 0;
 
+        //private List<Tile> tilesTemporaney = new List<Tile>();
+        //public ArrayList tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
+
+        //System.Collections.Concurrent. a = new System.Collections.Concurrent();
+
+        public ArrayList tilesTemporaney = new ArrayList();
+        //public ArrayList tilesTemporaney;
+
         // Key locations in the level.        
-        private Vector2 start;
+        private Vector2 start = Vector2.Zero;
 
         public ContentManager content
         {
@@ -59,6 +68,9 @@ namespace PrinceOfPersia
         public RoomNew(Maze maze, string filePath)
         {
             this.maze = maze;
+
+
+             //tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
 
             //LOAD MXL CONTENT
             //map = content.Load<Map>(filePath);
@@ -72,7 +84,8 @@ namespace PrinceOfPersia
             LoadTiles();
         }
 
-   
+
+
         private void LoadTiles()
         {
             // Allocate the Tile grid.
@@ -152,10 +165,10 @@ namespace PrinceOfPersia
         /// </summary>
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
-            if (player == null)
-                player = new Player(this, start, graphicsDevice);
+            if (maze.player == null)
+                maze.player = new Player(this, start, graphicsDevice);
             else
-                player.Reset(start);
+                maze.player.Reset(start);
         }
 
         #endregion
@@ -294,11 +307,15 @@ namespace PrinceOfPersia
 
         public void Update(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
         {
-            player.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            //THIS IS FOR NOT UPDATE THE BLOCK ROOM AND SAVE SOME CPU TIME....
+            if (this.roomName == "MAP_blockroom.xml")
+                return;
+            //player.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
 
-            maze.LeftRoom(this).UpdateTilesLeft(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            UpdateTilesTemporaney(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            //maze.LeftRoom(this).UpdateTilesLeft(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
             UpdateTiles(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
-            maze.UpRoom(this).UpdateTilesUp(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            //maze.UpRoom(this).UpdateTilesUp(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
 
             
         }
@@ -316,7 +333,7 @@ namespace PrinceOfPersia
         public void Draw(Game g, GameTime gameTime, SpriteBatch spriteBatch)
         {
             DrawTilesInverseNew(gameTime, spriteBatch);
-            player.Draw(gameTime, spriteBatch);
+            //player.Draw(gameTime, spriteBatch);
         }
 
 
@@ -350,6 +367,23 @@ namespace PrinceOfPersia
                 }
             }
         }
+
+        private void UpdateTilesTemporaney(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
+        {
+            try //workaroud to thread unsafe...?
+            {
+                lock (tilesTemporaney)
+                {
+                    foreach (Tile item in tilesTemporaney)
+                    {
+                        item.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);    // Insert your code here.
+                    }
+                }
+            }
+            catch (Exception ex)
+            { }
+        }
+
 
         private void UpdateTilesUp(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
         {
@@ -402,9 +436,20 @@ namespace PrinceOfPersia
                 texture = tiles[x, y].Texture;
                 if (texture != null)
                 {
+                    Vector2 position;
+                    Rectangle rect;
                     // Draw it in screen space.
-                    Rectangle rect = new Rectangle(x * (int)Tile.Size.X, -1 * (int)Tile.Size.Y - BOTTOM_BORDER, (int)texture.Width, (int)texture.Height);
-                    Vector2 position = new Vector2(rect.X, rect.Y);
+                    //if (tiles[x, y].Type == Enumeration.TileType.loose & tiles[x, y].tileState.Value().state == Enumeration.StateTile.loose)
+                    //{
+                    //    position.X = tiles[x, y].Position.X;
+                    //    position.Y = tiles[x, y].Position.Y;
+                    //}
+                    //else
+                    {   
+                        rect = new Rectangle(x * (int)Tile.Size.X, -1 * (int)Tile.Size.Y - BOTTOM_BORDER, (int)texture.Width, (int)texture.Height);
+                        position = new Vector2(rect.X, rect.Y);
+                    }
+                    
                     tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, Vector2.Zero, SpriteEffects.None, 0.1f);
                 }
             }
@@ -413,7 +458,9 @@ namespace PrinceOfPersia
 
         private void DrawTilesInverseNew(GameTime gametime, SpriteBatch spriteBatch)
         {
-            maze.LeftRoom(this).DrawTilesLeft(gametime, spriteBatch);
+        
+
+           maze.LeftRoom(this).DrawTilesLeft(gametime, spriteBatch);
             //RoomLeft().DrawTilesLeft(spriteBatch);
             
 
@@ -436,6 +483,15 @@ namespace PrinceOfPersia
             }
             //RoomUp().DrawTilesUp(spriteBatch);
             maze.UpRoom(this).DrawTilesUp(gametime, spriteBatch);
+
+            lock (tilesTemporaney)
+            {
+                foreach (Tile item in tilesTemporaney)
+                {
+                    Vector2 p = new Vector2(item.Position.X, item.Position.Y);
+                    item.tileAnimation.DrawTile(gametime, spriteBatch, p, Vector2.Zero, SpriteEffects.None, 0.1f);
+                }
+            }
         }
 
 
@@ -445,7 +501,10 @@ namespace PrinceOfPersia
             int y = (int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
 
             Tile t = new Tile(this,content, Enumeration.TileType.space, "NORMAL");
-            t.Position = tiles[x, y].Position;
+            Position p = new Position(tiles[x, y].Position._screenRealSize, tiles[x, y].Position._spriteRealSize);
+            p.X = tiles[x, y].Position.X;
+            p.Y = tiles[x, y].Position.Y;
+            t.Position = p;
             tiles[x, y] = t;
         }
 

@@ -141,13 +141,24 @@ namespace PrinceOfPersia
             {
                 Rectangle r = new Rectangle((int)Position.X, (int) Position.Y, Tile.WIDTH, Tile.HEIGHT);
                 Vector4 v = room.getBoundTiles(r);
+                Rectangle tileBounds = room.GetBounds((int)v.X, (int)v.W);
+
+                Vector2 depth = RectangleExtensions.GetIntersectionDepth(tileBounds, r);
+                Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
+                if (tileType == Enumeration.TileType.floor)
+                {
+                    if (depth.Y >= Tile.HEIGHT - Tile.PERSPECTIVE)
+                    {
+                        lock (room.tilesTemporaney)
+                        {
+                            room.tilesTemporaney.Remove(this);
+                        }
+                    }
+                    //room.SubsTile(this.Position, Enumeration.TileType.rubble);
+                }
 
 
-                //Vector2 depth = RectangleExtensions.GetIntersectionDepth(r, this.Position);
-                //Enumeration.TileCollision tileCollision = _room.GetCollision(x, y);
-                //Enumeration.TileType tileType = _room.GetType(x, y);
-
-                if (_position.Y >= RoomNew.BOTTOM_LIMIT- Tile.HEIGHT -25)
+                if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.HEIGHT - Tile.PERSPECTIVE)
                 {
                     //remove tiles from tilesTemporaney
                     lock (room.tilesTemporaney)

@@ -1,7 +1,4 @@
 Content\Fonts\Hud.xnb
-Content\Overlays\you_died.xnb
-Content\Overlays\you_lose.xnb
-Content\Overlays\you_win.xnb
 Content\Backgrounds\Prince_Layer0_0.xnb
 Content\Tiles\GateA.xnb
 Content\Tiles\FloorA.xnb
@@ -192,4 +189,5 @@ Content\Tiles\DoorA_7.xnb
 Content\Tiles\DoorA_8.xnb
 Content\Tiles\DoorA_9.xnb
 Content\Tiles\FloorC.xnb
+Content\Tiles\FloorD.xnb
 Content\Sounds\Music.wma

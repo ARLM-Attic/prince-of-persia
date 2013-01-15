@@ -4,29 +4,7 @@
     <Row>
       <columns>
         <Column>
-          <tileType>space</tileType>
-          <spriteType>kid</spriteType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
+          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>
@@ -34,21 +12,8 @@
         <Column>
           <tileType>block</tileType>
         </Column>
-      </columns>
-    </Row>
-    <Row>
-      <columns>
         <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
+          <tileType>space</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -82,23 +47,56 @@
           <tileType>block</tileType>
         </Column>
         <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
           <tileType>block</tileType>
         </Column>
         <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+      </columns>
+    </Row>
+    <Row>
+      <columns>
+        <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
           <tileType>floor</tileType>
-          <state>rubble</state>
         </Column>
         <Column>
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>loose</tileType>
+          <tileType>floor</tileType>
+        </Column>
+        <Column>
+          <tileType>rubble</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>

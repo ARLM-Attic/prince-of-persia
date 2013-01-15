@@ -173,7 +173,6 @@ Content\Tiles\FloorB_6.xnb
 Content\Tiles\FloorB_7.xnb
 Content\Tiles\FloorB_8.xnb
 Content\Tiles\FloorB_9.xnb
-Content\Tiles\space.xnb
 Content\Tiles\DoorA_1.xnb
 Content\Tiles\DoorA_2.xnb
 Content\Tiles\DoorA_0.xnb
@@ -190,4 +189,7 @@ Content\Tiles\DoorA_8.xnb
 Content\Tiles\DoorA_9.xnb
 Content\Tiles\FloorC.xnb
 Content\Tiles\FloorD.xnb
+Content\Tiles\SpaceA.xnb
+Content\Tiles\FloorLooseA_1.xnb
+Content\Tiles\FloorLooseA_2.xnb
 Content\Sounds\Music.wma

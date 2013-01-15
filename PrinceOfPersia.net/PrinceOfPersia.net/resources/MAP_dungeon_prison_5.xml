@@ -32,7 +32,7 @@
         </Column>
         <Column>
           <tileType>door</tileType>
-          <state>closed</state>
+          <state>closefast</state>
         </Column>
       </columns>
     </Row>

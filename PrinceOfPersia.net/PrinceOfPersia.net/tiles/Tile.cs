@@ -137,15 +137,22 @@ namespace PrinceOfPersia
 
         public void HandleCollision()
         {
+
             if (this.Type == Enumeration.TileType.loose)
             {
+                if (this.tileState.Value().state != Enumeration.StateTile.loose)
+                    return;
+
+
                 Rectangle r = new Rectangle((int)Position.X, (int) Position.Y, Tile.WIDTH, Tile.HEIGHT);
                 Vector4 v = room.getBoundTiles(r);
                 Rectangle tileBounds = room.GetBounds((int)v.X, (int)v.W);
 
                 Vector2 depth = RectangleExtensions.GetIntersectionDepth(tileBounds, r);
-                Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
-                if (tileType == Enumeration.TileType.floor)
+                //Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
+                Enumeration.TileCollision tileCollision = room.GetCollision((int)v.X, (int)v.W);
+                if (tileCollision == Enumeration.TileCollision.Platform)
+                //if (tileType == Enumeration.TileType.floor)
                 {
                     if (depth.Y >= Tile.HEIGHT - Tile.PERSPECTIVE)
                     {
@@ -153,8 +160,10 @@ namespace PrinceOfPersia
                         {
                             room.tilesTemporaney.Remove(this);
                         }
+                        Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
+                        room.SubsTile(vs, Enumeration.TileType.rubble);
                     }
-                    //room.SubsTile(this.Position, Enumeration.TileType.rubble);
+                    
                 }
 
 

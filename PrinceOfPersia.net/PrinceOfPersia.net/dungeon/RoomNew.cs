@@ -84,6 +84,14 @@ namespace PrinceOfPersia
             LoadTiles();
         }
 
+        public void LooseShake()
+        {
+            List<Tile> l = (List<Tile>)GetTiles(Enumeration.TileType.loose);
+            foreach (Loose item in l)
+            {
+                item.Shake();
+            }
+        }
 
 
         private void LoadTiles()
@@ -182,12 +190,25 @@ namespace PrinceOfPersia
         /// </summary>
         public Enumeration.TileCollision GetCollision(int x, int y)
         {
-            // Prevent escaping past the level ends.
-            if (x < 0 || x >= Width)
-                return Enumeration.TileCollision.Impassable;
-            // Allow jumping past the level top and falling through the bottom.
-            if (y < 0 || y >= Height)
-                return Enumeration.TileCollision.Passable;
+            if (x < 0)
+            {
+                return maze.LeftRoom(this).tiles[Width - 1, y].collision;
+            }
+
+            if (x >= Width)
+            {
+                return maze.RightRoom(this).tiles[0, y].collision;
+            }
+
+            if (y >= Height)
+            {
+                return maze.DownRoom(this).tiles[x, 0].collision;
+            }
+
+            if (y < 0)
+            {
+                return maze.UpRoom(this).tiles[x, Height - 1].collision;
+            }
 
             return tiles[x, y].collision;
         }
@@ -500,7 +521,7 @@ namespace PrinceOfPersia
             int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
             int y = (int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
 
-            Tile t = new Tile(this,content, Enumeration.TileType.space, "NORMAL");
+            Tile t = new Tile(this, content, tileType, Enumeration.StateTile.normal.ToString().ToUpper());
             Position p = new Position(tiles[x, y].Position._screenRealSize, tiles[x, y].Position._spriteRealSize);
             p.X = tiles[x, y].Position.X;
             p.Y = tiles[x, y].Position.Y;

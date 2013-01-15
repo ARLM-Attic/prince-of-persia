@@ -94,7 +94,7 @@ namespace PrinceOfPersia
             gate = 4,
             dpressplate = 5, //;down
             pressplate = 6,// ;up
-            panelwif = 7,// ;w/floor
+            panelwif = 7,// ;w/floor  //AMF when loose shake?!?!!?!?
             pillarbottom = 8,
             pillartop = 9,
             flask = 10,
@@ -124,20 +124,17 @@ namespace PrinceOfPersia
         public enum StateTile
         {
             normal // normal state
-            ,
-
-            close //close animation
-                ,
-            closed //close
-                ,
-            open //opening animation
-                ,
-            opened
-                ,
-            dpressplate //;down
-                ,
-            pressplate // ;up
-                , loose //loose floor
+            ,close //close animation
+            ,closefast //close fast animation
+            ,closed //close
+            ,open //opening animation
+            ,opened
+            ,dpressplate //;down
+            ,pressplate // ;up
+            ,loose //loose floor
+            ,loosefall //when loose fall
+            ,rubble  //when floor break
+            ,looseshake //when loose shake but dont fall
         }
 
 

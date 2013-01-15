@@ -820,6 +820,7 @@ namespace PrinceOfPersia
                     //    )
                 {
                     playerState.Add(Enumeration.State.stepfall);
+                    _room.LooseShake();
                 }
             }
             else
@@ -853,8 +854,17 @@ namespace PrinceOfPersia
                     switch (tileType)
                     {
                         case Enumeration.TileType.loose:
-                            ((Loose)_room.GetTile(x, y)).Press();
-                            break;
+                            if (flip == SpriteEffects.FlipHorizontally)
+                            {
+                                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                                    ((Loose)_room.GetTile(x, y)).Press();
+                            }
+                            else
+                            {
+                                if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                                    ((Loose)_room.GetTile(x, y)).Press();
+                            }
+                                break;
 
                         case Enumeration.TileType.pressplate:
                             ((PressPlate)_room.GetTile(x, y)).Press();
@@ -1129,15 +1139,19 @@ namespace PrinceOfPersia
 
             //Rectangle tileBounds = _room.GetBounds(x, y);
             //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            //TileCollision tileCollision = _room.GetCollision(x, y);
-            Enumeration.TileType tileType;
+            Enumeration.TileCollision tileCollision; // = _room.GetCollision(x, y);
+            //Enumeration.TileType tileType;
+            
             if (flip == SpriteEffects.FlipHorizontally)
-                tileType = _room.GetType(x-1, y);
+                //tileType = _room.GetType(x-1, y);
+                tileCollision = _room.GetCollision(x - 1, y);
             else
-                tileType = _room.GetType(x+1, y);
+                //tileType = _room.GetType(x+1, y);
+                tileCollision = _room.GetCollision(x + 1, y);
 
 
-            if (tileType != Enumeration.TileType.space)
+            //if (tileType != Enumeration.TileType.space)
+            if (tileCollision != Enumeration.TileCollision.Passable)
             {
                 return false;
             }
@@ -1177,35 +1191,55 @@ namespace PrinceOfPersia
 
             //Rectangle tileBounds = _room.GetBounds(x, y);
             //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            //TileCollision tileCollision = _room.GetCollision(x, y);
-            Enumeration.TileType tileType = _room.GetType(x, y - 1);
+            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y - 1);
+            Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
 
 
-            if (tileType == Enumeration.TileType.floor | tileType == Enumeration.TileType.gate)
+            //if (tileType == Enumeration.TileType.floor | tileType == Enumeration.TileType.gate)
+            if (tileCollision == Enumeration.TileCollision.Platform)
             {
                 //CHECK KID IS UNDER THE FLOOR CHECK NEXT TILE
                 if (flip == SpriteEffects.FlipHorizontally)
                 { x = x - 1; }
                 else
                 { x = x + 1; }
-                tileType = _room.GetType(x, y - 1);
-                if (tileType != Enumeration.TileType.space)
+                tileCollision = _room.GetCollision(x, y - 1);
+                //tileType = _room.GetType(x, y - 1);
+                //if (tileType != Enumeration.TileType.space)
+                if (tileCollision != Enumeration.TileCollision.Passable)
                     return false;
                 x = ((int)v2.X); //THE FLOOR FOR CLIMB UP
 
+                Tile t = _room.GetTile(new Vector2(x, y));
+                if (t.Type == Enumeration.TileType.door)
+                    if (t.tileState.Value().state != Enumeration.StateTile.opened)
+                        return false;
+
             }
-            else if (tileType == Enumeration.TileType.space)
+            //else if (tileType == Enumeration.TileType.space)
+            else if (tileCollision == Enumeration.TileCollision.Passable)
             {
                 if (flip == SpriteEffects.FlipHorizontally)
                 { x = x + 1; }
                 else
                 { x = x - 1; }
-                tileType = _room.GetType(x, y - 1);
-                if (tileType != Enumeration.TileType.floor & tileType != Enumeration.TileType.gate)
+                tileCollision = _room.GetCollision(x, y - 1);
+                //tileType = _room.GetType(x, y - 1);
+                //if (tileType != Enumeration.TileType.floor & tileType != Enumeration.TileType.gate)
+                if (tileCollision != Enumeration.TileCollision.Platform)
                     return false;
+
+                Tile t = _room.GetTile(new Vector2(x, y - 1));
+                if (t.Type == Enumeration.TileType.door)
+                    if (t.tileState.Value().state != Enumeration.StateTile.opened)
+                        return false;
+
             }
             else
                 return false;
+
+            //If is a door close isnt climbable
+            
 
             //check is platform or gate forward up
             int xOffSet=0;

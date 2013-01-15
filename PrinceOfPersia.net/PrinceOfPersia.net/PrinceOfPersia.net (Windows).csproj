@@ -44,7 +44,7 @@
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>66</ApplicationRevision>
+    <ApplicationRevision>68</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -237,6 +237,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PoPicon.ico" />
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_11.xml" />
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_7.xml" />
+    <EmbeddedResource Include="resources\Copy of MAP_dungeon_prison_1.xml" />
+    <EmbeddedResource Include="resources\RUBBLE_sequence.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\LEVEL_dungeon_prison.xml" />
     <EmbeddedResource Include="resources\MAP_blockroom.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_1.xml" />

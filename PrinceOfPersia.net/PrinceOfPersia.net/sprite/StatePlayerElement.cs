@@ -34,6 +34,14 @@ namespace PrinceOfPersia
             OffSet = Vector2.Zero;
         }
 
+        public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            _state = state;
+            Priority = priority;
+            Reverse = Enumeration.SequenceReverse.Normal;
+            OffSet = offSet;
+        }
+
         public StatePlayerElement(Enumeration.State state, Enumeration.PriorityState priority, bool? stoppable)
         {
             _state = state;

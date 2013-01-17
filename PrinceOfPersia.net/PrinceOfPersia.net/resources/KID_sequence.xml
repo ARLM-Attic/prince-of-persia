@@ -1758,7 +1758,7 @@
     <raised>true</raised>
   </Sequence>
 
-  <!-- FREEFALL -->
+  <!-- FREEFALL 0 15 25-->
   <Sequence>
     <frames>
       <Frame>
@@ -1767,7 +1767,7 @@
         <value>Sprites/Player/Kid_dos/Kid_106</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>5</yOffSet>
+        <yOffSet>5</yOffSet> 
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1796,7 +1796,7 @@
     <raised>true</raised>
   </Sequence>
 
-  <!-- STEPFALL -->
+  <!-- STEPFALL x 8 8 4 4 -->
   <Sequence>
     <frames>
       <Frame>
@@ -1805,28 +1805,28 @@
         <value>Sprites/Player/Kid_dos/Kid_102</value>
         <stoppable>false</stoppable>
         <xOffSet>8</xOffSet>
-        <yOffSet>2</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_103</value>
         <stoppable>false</stoppable>
         <xOffSet>8</xOffSet>
-        <yOffSet>2</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_104</value>
         <stoppable>false</stoppable>
         <xOffSet>4</xOffSet>
-        <yOffSet>4</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_105</value>
         <stoppable>false</stoppable>
         <xOffSet>4</xOffSet>
-        <yOffSet>5</yOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>

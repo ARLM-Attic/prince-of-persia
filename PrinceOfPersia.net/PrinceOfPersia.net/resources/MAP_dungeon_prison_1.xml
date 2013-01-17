@@ -6,6 +6,7 @@
         <Column>
           <tileType>space</tileType>
           <spriteType>kid</spriteType>
+          <spriteEffect>FlipHorizontally</spriteEffect>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -86,7 +87,6 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
-          <state>rubble</state>
         </Column>
         <Column>
           <tileType>gate</tileType>

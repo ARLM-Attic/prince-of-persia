@@ -24,6 +24,62 @@
     <collision>Platform</collision>
   </Sequence>
 
+  <!-- LOOSESHAKE FLOOR -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Tiles/FloorLooseA_1</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+        <delay>0.2</delay>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Tiles/FloorLooseA_2</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+        <delay>0.2</delay>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>true</stoppable>
+      </Frame>
+    </frames>
+    <name>LOOSE</name>
+    <raised>false</raised>
+    <collision>Platform</collision>
+  </Sequence>
+
+  <!-- LOOSEFALL -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Tiles/FloorA</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>15</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>true</stoppable>
+      </Frame>
+    </frames>
+    <name>LOOSEFALL</name>
+    <raised>false</raised>
+    <collision>Passable</collision>
+  </Sequence>
+
   <Sequence>
     <frames>
       <Frame>
@@ -56,60 +112,5 @@
     <collision>Platform</collision>
   </Sequence>
 
-
-  <Sequence>
-    <frames>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>Tiles/FloorLooseA_1</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-        <delay>0.2</delay>
-      </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>Tiles/FloorLooseA_2</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-        <delay>0.2</delay>
-      </Frame>
-      <Frame>
-        <type>COMMAND</type>
-        <name>GOTOSEQUENCE</name>
-        <parameter>LOOSEFALL</parameter>
-        <stoppable>false</stoppable>
-      </Frame>
-    </frames>
-    <name>LOOSE</name>
-    <raised>false</raised>
-    <collision>Platform</collision>
-  </Sequence>
-
-  <Sequence>
-    <frames>
-      <Frame>
-        <type>SPRITE</type>
-        <name>LOOP</name>
-        <value>Tiles/FloorA</value>
-        <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>15</yOffSet>
-      </Frame>
-      <Frame>
-        <type>COMMAND</type>
-        <name>GOTOFRAME</name>
-        <parameter>LOOP</parameter>
-        <stoppable>true</stoppable>
-      </Frame>
-    </frames>
-    <name>LOOSEFALL</name>
-    <raised>false</raised>
-    <collision>Passable</collision>
-  </Sequence>
-  
 </ArrayOfSequence>
 

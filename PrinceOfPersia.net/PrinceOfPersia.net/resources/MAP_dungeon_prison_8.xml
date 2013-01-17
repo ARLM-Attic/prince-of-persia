@@ -23,7 +23,7 @@
         </Column>
         <Column>
           <tileType>pressplate</tileType>
-          <switchButton>6</switchButton>
+          <switchButton>8</switchButton>
         </Column>
         <Column>
           <tileType>floor</tileType>

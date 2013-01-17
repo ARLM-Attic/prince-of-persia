@@ -57,7 +57,9 @@ namespace PrinceOfPersia
         //public ArrayList tilesTemporaney;
 
         // Key locations in the level.        
-        private Vector2 start = Vector2.Zero;
+        private Vector2 startPosition = Vector2.Zero;
+        private SpriteEffects spriteEffect = SpriteEffects.None;
+
 
         public ContentManager content
         {
@@ -112,6 +114,26 @@ namespace PrinceOfPersia
                     tiles[x, y].Position = new Position(v, v);
                     tiles[x, y].Position.X = v.X;
                     tiles[x, y].Position.Y = v.Y;
+
+                    if (c.spriteType == Enumeration.SpriteType.kid)
+                    {
+                        int xPlayer = (x-1) * Tile.REALWIDTH;
+                        int yPlayer = y * Tile.REALHEIGHT;
+                        //if (xPlayer  < 0)
+                        //    xPlayer = 0;
+                        //if (yPlayer  == 0)
+                        //    yPlayer = Tile.REALHEIGHT;
+
+
+                        startPosition = new Vector2(xPlayer, yPlayer);
+
+                        if (c.spriteEffect == SpriteEffects.FlipHorizontally)
+                        {
+                            spriteEffect = SpriteEffects.FlipHorizontally;
+                        }
+
+                        
+                    }
 
                     x++;
                 }
@@ -174,9 +196,9 @@ namespace PrinceOfPersia
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
             if (maze.player == null)
-                maze.player = new Player(this, start, graphicsDevice);
+                maze.player = new Player(this, startPosition, graphicsDevice, spriteEffect);
             else
-                maze.player.Reset(start);
+                maze.player.Reset(startPosition);
         }
 
         #endregion
@@ -237,16 +259,12 @@ namespace PrinceOfPersia
             return tiles[x, y].Type;
         }
 
-
-        public Tile GetTile(Vector2 position)
+      
+        public Tile GetTile(Vector2 playerPosition)
         {
-            int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
-            int y = (int)Math.Ceiling(((float)(position.Y- RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
+            int x = (int)Math.Floor((float)playerPosition.X / Tile.WIDTH);
+            int y = (int)Math.Ceiling(((float)(playerPosition.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
 
-
-
-//            int x = (int)Math.Floor((float)position.X / Tile.WIDTH);
-            //int y = (int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT)) - 1;
             return GetTile(x, y);
         }
 
@@ -535,6 +553,13 @@ namespace PrinceOfPersia
             int rightTile = (int)Math.Ceiling(((float)playerBounds.Right / Tile.WIDTH)) - 1; //tile dal bordo sx dello schermo al bordo dx del rettangolo sprite
             int topTile = (int)Math.Floor((float)(playerBounds.Top - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT); //tiles from the top screen border
             int bottomTile = (int)Math.Ceiling(((float)(playerBounds.Bottom - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT)) - 1;
+
+            if (topTile < 0)
+                topTile = 0;
+            if (bottomTile > RoomNew.pHeight-1)
+                bottomTile = 0;
+
+
             return new Vector4(leftTile,rightTile,topTile,bottomTile);
         }
 

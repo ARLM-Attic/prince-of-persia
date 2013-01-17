@@ -130,6 +130,16 @@ namespace PrinceOfPersia
                     ((PressPlate)this).Normal();
             }
 
+            if (this.GetType() == typeof(Loose))
+            {
+                if (((Loose)this).tileState.Value().state == Enumeration.StateTile.loose)
+                {
+                    ((Loose)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (((Loose)this).elapsedTimeOpen > ((Loose)this).timeFall)
+                        ((Loose)this).Fall();
+                }
+            }
+
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             tileAnimation.UpdateFrameTile(elapsed, ref _position, ref flip, ref tileState);
 
@@ -140,17 +150,17 @@ namespace PrinceOfPersia
 
             if (this.Type == Enumeration.TileType.loose)
             {
-                if (this.tileState.Value().state != Enumeration.StateTile.loose)
+                if (this.tileState.Value().state != Enumeration.StateTile.loosefall)
                     return;
-
 
                 Rectangle r = new Rectangle((int)Position.X, (int) Position.Y, Tile.WIDTH, Tile.HEIGHT);
                 Vector4 v = room.getBoundTiles(r);
                 Rectangle tileBounds = room.GetBounds((int)v.X, (int)v.W);
 
                 Vector2 depth = RectangleExtensions.GetIntersectionDepth(tileBounds, r);
-                //Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
+                Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
                 Enumeration.TileCollision tileCollision = room.GetCollision((int)v.X, (int)v.W);
+                //Tile tile = room.GetTile(new Vector2((int)v.X, (int)v.W));
                 if (tileCollision == Enumeration.TileCollision.Platform)
                 //if (tileType == Enumeration.TileType.floor)
                 {
@@ -161,7 +171,13 @@ namespace PrinceOfPersia
                             room.tilesTemporaney.Remove(this);
                         }
                         Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
-                        room.SubsTile(vs, Enumeration.TileType.rubble);
+                        if (tileType == Enumeration.TileType.loose)
+                        {
+                            Loose l = (Loose) room.GetTile((int)v.X, (int)v.W);
+                            l.Fall(true);
+                        }                        
+                        else
+                            room.SubsTile(vs, Enumeration.TileType.rubble);
                     }
                     
                 }

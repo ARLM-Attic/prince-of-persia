@@ -10,51 +10,8 @@
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
           <tileType>pressplate</tileType>
-          <switchButton>6</switchButton>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>door</tileType>
-          <state>closed</state>
-          <switchButton>8</switchButton>
-          <timeOpen>6</timeOpen>
-        </Column>
-      </columns>
-    </Row>
-    <Row>
-      <columns>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
-        </Column>
-        <Column>
-          <tileType>loose</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
+          <switchButton>7</switchButton>
         </Column>
         <Column>
           <tileType>floor</tileType>
@@ -63,11 +20,53 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>pressplate</tileType>
-          <switchButton>5</switchButton>
+          <tileType>loose</tileType>
+        </Column>
+        <Column>
+          <tileType>loose</tileType>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
+        </Column>
+        <Column>
+          <tileType>door</tileType>
+          <state>closed</state>
+          <switchButton>5</switchButton>
+          <timeOpen>6</timeOpen>
+        </Column>
+      </columns>
+    </Row>
+    <Row>
+      <columns>
+        <Column>
+          <tileType>torch</tileType>
+        </Column>
+        <Column>
+          <tileType>floor</tileType>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
+          <tileType>floor</tileType>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>
@@ -86,22 +85,22 @@
           <tileType>block</tileType>
         </Column>
         <Column>
-          <tileType>space</tileType>
+          <tileType>loose</tileType>
         </Column>
         <Column>
-          <tileType>space</tileType>
+          <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>

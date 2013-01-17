@@ -38,13 +38,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://princeofpersia.codeplex.com/releases/clickonce/</InstallUrl>
+    <InstallUrl>http://princeofpersia.codeplex.com/releases/clickonce/</InstallUrl>
     <SupportUrl>http://princeofpersiadotnet.blogspot.it/</SupportUrl>
     <ProductName>PrinceOfPersia.net</ProductName>
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>68</ApplicationRevision>
+    <ApplicationRevision>70</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>

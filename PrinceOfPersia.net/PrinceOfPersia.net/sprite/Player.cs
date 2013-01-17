@@ -45,6 +45,9 @@ namespace PrinceOfPersia
         public const int PLAYER_STAND_FLOOR_PEN = 26; //floor border penetration
         public const int PLAYER_STAND_HANG_PEN = 46; //floor border penetration for hangup
 
+        public const int PLAYER_SIZE_X = 114; //to be var
+        public const int PLAYER_SIZE_Y = 114; //to be var
+
 
         private Position _position;
         public PlayerState playerState = new PlayerState();
@@ -138,16 +141,19 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Player(RoomNew _room, Vector2 position, GraphicsDevice graphicsDevice)
+        public Player(RoomNew _room, Vector2 position, GraphicsDevice graphicsDevice, SpriteEffects spriteEffect)
         {
             this.graphicsDevice = graphicsDevice;
             this._room = _room;
             LoadContent();
-
-            _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(114,114));
-
+            
+            //TAKE PLAYER Position
+            flip = spriteEffect;
             Reset(position);
         }
+
+       
+
 
         /// <summary>
         /// Loads the player sprite sheet and sounds.
@@ -190,6 +196,7 @@ namespace PrinceOfPersia
         /// <param name="position">The position to come to life at.</param>
         public void Reset(Vector2 position)
         {
+            _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(Player.PLAYER_SIZE_X, Player.PLAYER_SIZE_Y));
             _position.X = position.X;
             _position.Y = position.Y;
             Velocity = Vector2.Zero;
@@ -202,6 +209,23 @@ namespace PrinceOfPersia
         
         }
 
+        /// <summary>
+        /// Start position the player to life.
+        /// </summary>
+        /// <param name="position">The position to come to life at.</param>
+        public void Start(Vector2 position)
+        {
+            _position.X = position.X;
+            _position.Y = position.Y;
+            Velocity = Vector2.Zero;
+            isAlive = true;
+            //sprite.IsStoppable = true;
+
+            playerState.Clear();
+
+            Stand();
+
+        }
 
 
         /// <summary>
@@ -264,7 +288,7 @@ namespace PrinceOfPersia
                             Stand();
                             break;
                         case Enumeration.State.stepfall:
-                            StepFall();
+                            StepFall(playerState.Value().Priority);
                             break;
                         case Enumeration.State.crouch:
                             StandUp();
@@ -819,15 +843,16 @@ namespace PrinceOfPersia
                     //    playerState.Value().state != Enumeration.State.climbup
                     //    )
                 {
-                    playerState.Add(Enumeration.State.stepfall);
+                    playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+                    //StepFall(Enumeration.PriorityState.Normal, new Vector2(0,15));
                     _room.LooseShake();
                 }
             }
             else
             {
+                _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
                 if (playerState.Value().state == Enumeration.State.freefall)
                 {
-                    _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
                     playerState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
                 }
             }
@@ -874,6 +899,8 @@ namespace PrinceOfPersia
                             if (tileType == Enumeration.TileType.door)
                                 if (((Door)_room.GetTile(x, y)).State == Enumeration.StateTile.opened)
                                     break;
+                            //if player are raised then not collide..
+
 
                             //if sx wall i will penetrate..for perspective design
                             if (flip == SpriteEffects.FlipHorizontally)
@@ -881,7 +908,7 @@ namespace PrinceOfPersia
                                 //only for x pixel 
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
                                 {
-    
+
                                     if (playerState.Value().state != Enumeration.State.freefall &
                                         playerState.Value().state != Enumeration.State.highjump &
                                         playerState.Value().state != Enumeration.State.hang &
@@ -899,7 +926,12 @@ namespace PrinceOfPersia
                                     }
                                 }
                                 else
+                                {
+                                    if (sprite.sequence.raised == true)
+                                        _position.Value = new Vector2(_position.X, _position.Y);
+                                    else
                                     _position.Value = new Vector2(_position.X, _position.Y);
+                                }
                             }
                             else
                             {
@@ -924,7 +956,10 @@ namespace PrinceOfPersia
                                     }
                                 }
                                 else
-                                    _position.Value = new Vector2(_position.X, _position.Y);
+                                    if (sprite.sequence.raised == true)
+                                        _position.Value = new Vector2(_position.X , _position.Y);
+                                    else
+                                        _position.Value = new Vector2(_position.X, _position.Y);
                             }
                             playerBounds = BoundingRectangle;
                             break;
@@ -1373,9 +1408,14 @@ namespace PrinceOfPersia
         { StepFall(Enumeration.PriorityState.Normal); }
         public void StepFall(Enumeration.PriorityState priority)
         {
+            Vector2 offSet = Vector2.Zero;
+            StepFall(priority, offSet);
+        }
+        public void StepFall(Enumeration.PriorityState priority, Vector2 offSet)
+        {
             playerState.Add(Enumeration.State.stepfall, priority);
             sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(Enumeration.State.freefall, priority);
+            playerState.Add(Enumeration.State.freefall, priority, offSet);
         }
 
         public void HighJump()

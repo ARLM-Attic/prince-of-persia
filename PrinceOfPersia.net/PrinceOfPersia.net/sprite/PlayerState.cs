@@ -71,6 +71,16 @@ namespace PrinceOfPersia
             data.Enqueue(new StatePlayerElement(state, priority));
         }
 
+        public void Add(Enumeration.State state, Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            if (data.Count == iSize)
+            {
+                data.Dequeue();
+            }
+
+            data.Enqueue(new StatePlayerElement(state, priority, offSet));
+        }
+
         public void Add(Enumeration.State state, Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             if (data.Count == iSize)

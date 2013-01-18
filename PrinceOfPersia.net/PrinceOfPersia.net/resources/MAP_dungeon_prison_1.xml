@@ -4,9 +4,9 @@
     <Row>
       <columns>
         <Column>
-          <tileType>space</tileType>
           <spriteType>kid</spriteType>
           <spriteEffect>FlipHorizontally</spriteEffect>
+          <tileType>space</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>

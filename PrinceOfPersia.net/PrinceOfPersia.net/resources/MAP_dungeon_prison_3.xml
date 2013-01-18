@@ -65,7 +65,7 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>gate</tileType>
         </Column>
       </columns>
     </Row>

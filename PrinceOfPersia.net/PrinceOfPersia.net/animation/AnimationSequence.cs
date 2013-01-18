@@ -17,6 +17,9 @@ namespace PrinceOfPersia
         //private float time;
         private float TimePerFrame;
 
+        public static float frameRate = 0.09f;
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -57,6 +60,9 @@ namespace PrinceOfPersia
                 return new Vector2(sequence.frames[frameIndex].texture.Width / 2.0f, 0); 
             }
         }
+
+
+
 
         /// <summary>
         /// Begins or continues playback of an animation.
@@ -167,7 +173,9 @@ namespace PrinceOfPersia
 
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
-            TimePerFrame = 0.09f + sequence.frames[frameIndex].delay; //0.1
+            TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
+            //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
+            //TimePerFrame = 1.2f + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;
      
             if (TotalElapsed > TimePerFrame)
@@ -254,7 +262,8 @@ namespace PrinceOfPersia
 
         public void UpdateFrameTile(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref TileState tileState)
         {
-            TimePerFrame = 0.09f + sequence.frames[frameIndex].delay; //0.1
+            TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
+            //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;
 
             if (TotalElapsed > TimePerFrame)

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-   <!-- STARTRUN-->
+  <!-- STARTRUN-->
   <Sequence>
     <frames>
       <Frame>
@@ -106,7 +106,7 @@
     </frames>
     <name>STARTRUN</name>
   </Sequence>
-  
+
   <!-- STAND-->
   <Sequence>
     <frames>
@@ -313,7 +313,7 @@
         <name>CRAWL</name>
         <value>Sprites/Player/Kid_dos/Kid_110</value>
         <stoppable>false</stoppable>
-        <xOffSet>4</xOffSet> 
+        <xOffSet>4</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -897,9 +897,9 @@
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-      <name>HIGHJUMP</name>
-      <raised>true</raised>
-    </Sequence>
+    <name>HIGHJUMP</name>
+    <raised>true</raised>
+  </Sequence>
 
   <!-- HANGDROP 22px y -->
   <Sequence>
@@ -1767,7 +1767,7 @@
         <value>Sprites/Player/Kid_dos/Kid_106</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>5</yOffSet> 
+        <yOffSet>5</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>

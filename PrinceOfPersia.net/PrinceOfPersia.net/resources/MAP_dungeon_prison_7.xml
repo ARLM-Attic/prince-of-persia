@@ -29,7 +29,7 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>torch</tileType>
         </Column>
         <Column>
           <tileType>door</tileType>

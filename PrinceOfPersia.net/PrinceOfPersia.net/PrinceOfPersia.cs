@@ -64,8 +64,8 @@ namespace PrinceOfPersia
         private const int numberOfLevels = 3;
 
         private bool CONFIG_DEBUG = false;
-        private float CONFIG_FRAMERATE = 0.9f;
-        private string CONFIG_SPRITE_KID = "KID_DOS";
+        private float CONFIG_FRAMERATE = 0.09f;
+        public string CONFIG_SPRITE_KID = "KID_DOS";
         public string CONFIG_PATH_RESOURCES = "PrinceOfPersia.resources.";
 
 
@@ -80,6 +80,7 @@ namespace PrinceOfPersia
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
             CONFIG_PATH_RESOURCES = ConfigurationSettings.AppSettings["CONFIG_path_resources"].ToString();
 
+            AnimationSequence.frameRate = CONFIG_FRAMERATE;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -231,6 +232,8 @@ namespace PrinceOfPersia
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
 
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
+            DrawShadowedString(hudFont, "FRAME RATE=" + AnimationSequence.frameRate.ToString(), hudLocation, Color.White);
 
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.playerState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);

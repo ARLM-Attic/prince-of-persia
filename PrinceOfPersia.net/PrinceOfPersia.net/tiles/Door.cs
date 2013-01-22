@@ -43,9 +43,6 @@ namespace PrinceOfPersia
                 s.Initialize(Content);
             }
 
-            if (state == Enumeration.StateTile.normal.ToString().ToUpper())
-                state = Enumeration.StateTile.closed.ToString().ToUpper();
-
             //Search in the sequence the right type
             Sequence result = tileSequence.Find(delegate(Sequence s)
             {

@@ -43,7 +43,7 @@ namespace PrinceOfPersia
         public const int LEFT_LIMIT = -70;
         public const int RIGHT_LIMIT = 568;
         public const int TOP_LIMIT = -50;
-        public const int BOTTOM_LIMIT = 400 - BOTTOM_BORDER;  //
+        public const int BOTTOM_LIMIT = 400;
 
         public int widthInLevel = 0;
         public int heightInLevel = 0;
@@ -100,6 +100,7 @@ namespace PrinceOfPersia
         {
             // Allocate the Tile grid.
             tiles = new Tile[map.rows[0].columns.Length, map.rows.Length];
+
             int x=0; int y = 0;
 
             foreach (Row r in map.rows)
@@ -107,7 +108,6 @@ namespace PrinceOfPersia
                 foreach (Column c in r.columns)
                 {
                     tiles[x, y] = LoadTile(c.tileType, c.state.ToUpper(), c.switchButton);
-                    //tiles[x, y].tileAnimation.fra = maze.player.sprite.frameRate_background;
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
                     Vector2 v = new Vector2(rect.X, rect.Y);
 
@@ -196,10 +196,7 @@ namespace PrinceOfPersia
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
             if (maze.player == null)
-            {
                 maze.player = new Player(this, startPosition, graphicsDevice, spriteEffect);
-                //maze.player = new Player(this, startPosition, graphicsDevice);
-            }
             else
                 maze.player.Reset(startPosition);
         }

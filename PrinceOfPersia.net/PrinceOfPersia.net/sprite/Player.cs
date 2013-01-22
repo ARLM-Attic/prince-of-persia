@@ -976,7 +976,7 @@ namespace PrinceOfPersia
             //???
             //previousBottom = playerBounds.Bottom;
             //check if out room
-            if (_position.Y > RoomNew.BOTTOM_LIMIT+10)
+            if (_position.Y >= RoomNew.BOTTOM_LIMIT)
             {
                 //uscito DOWN
                 RoomNew room = _room.maze.DownRoom(_room);
@@ -1001,7 +1001,7 @@ namespace PrinceOfPersia
                 _room = room;
                 _position.X = RoomNew.RIGHT_LIMIT - 10;
             }
-            else if (_position.Y < RoomNew.TOP_LIMIT-10)
+            else if (_position.Y <= RoomNew.TOP_LIMIT)
             {
                 RoomNew room = _room.maze.UpRoom(_room);
                 _room.maze.playerRoom = room;

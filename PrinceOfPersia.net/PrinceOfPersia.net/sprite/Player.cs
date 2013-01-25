@@ -846,6 +846,8 @@ namespace PrinceOfPersia
                     playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
                     //StepFall(Enumeration.PriorityState.Normal, new Vector2(0,15));
                     _room.LooseShake();
+                    //and for upper room...
+                    _room.maze.UpRoom(_room).LooseShake();
                 }
             }
             else
@@ -884,11 +886,15 @@ namespace PrinceOfPersia
                             {
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
                                     ((Loose)_room.GetTile(x, y)).Press();
+                                else
+                                    isLoosable();
                             }
                             else
                             {
                                 if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
                                     ((Loose)_room.GetTile(x, y)).Press();
+                                else
+                                    isLoosable();
                             }
                             break;
 
@@ -976,7 +982,7 @@ namespace PrinceOfPersia
             //???
             //previousBottom = playerBounds.Bottom;
             //check if out room
-            if (_position.Y >= RoomNew.BOTTOM_LIMIT)
+            if (_position.Y > RoomNew.BOTTOM_LIMIT+10)
             {
                 //uscito DOWN
                 RoomNew room = _room.maze.DownRoom(_room);
@@ -1001,13 +1007,13 @@ namespace PrinceOfPersia
                 _room = room;
                 _position.X = RoomNew.RIGHT_LIMIT - 10;
             }
-            else if (_position.Y <= RoomNew.TOP_LIMIT)
+            else if (_position.Y < RoomNew.TOP_LIMIT-10)
             {
                 RoomNew room = _room.maze.UpRoom(_room);
                 _room.maze.playerRoom = room;
                 //room.player = _room.player;
                 _room = room;
-                _position.Y = RoomNew.BOTTOM_LIMIT + 10;
+                _position.Y = RoomNew.BOTTOM_LIMIT - 74;
             }
 
         }
@@ -1289,7 +1295,38 @@ namespace PrinceOfPersia
 
         }
 
+        private bool isLoosable()
+        {
 
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = _room.getCenterTile(playerBounds);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+
+            //Rectangle tileBounds = _room.GetBounds(x, y);
+            //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y - 1);
+            Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
+
+
+            //if (tileType == Enumeration.TileType.floor | tileType == Enumeration.TileType.gate)
+            if (tileCollision == Enumeration.TileCollision.Platform)
+            {
+                //CHECK KID IS UNDER THE FLOOR CHECK NEXT TILE
+                Tile t = _room.GetTile(x, y-1);
+                if (t.Type != Enumeration.TileType.loose)
+                {
+                    return false;
+                }
+                ((Loose)t).Press();
+               
+
+            }
+            return false;
+        }
 
 
         public void JumpHangMed()
@@ -1428,6 +1465,8 @@ namespace PrinceOfPersia
             }
             playerState.Add(Enumeration.State.highjump);
             sprite.PlayAnimation(playerSequence, playerState.Value());
+
+            //isPressable();
         }
 
         public void ClimbFail()

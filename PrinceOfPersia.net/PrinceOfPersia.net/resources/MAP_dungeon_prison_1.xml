@@ -4,11 +4,11 @@
     <Row>
       <columns>
         <Column>
-          <spriteType>kid</spriteType>
-          <spriteEffect>FlipHorizontally</spriteEffect>
           <tileType>space</tileType>
         </Column>
         <Column>
+          <spriteType>kid</spriteType>
+          <spriteEffect>FlipHorizontally</spriteEffect>
           <tileType>space</tileType>
         </Column>
         <Column>

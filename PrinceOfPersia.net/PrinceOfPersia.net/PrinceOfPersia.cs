@@ -73,12 +73,14 @@ namespace PrinceOfPersia
 
         public PrinceOfPersiaGame()
         {
+
             //READ APP.CONFIG for configuration settings
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
             CONFIG_PATH_RESOURCES = ConfigurationSettings.AppSettings["CONFIG_path_resources"].ToString();
 
+            AnimationSequence.frameRate = CONFIG_FRAMERATE;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
@@ -86,7 +88,6 @@ namespace PrinceOfPersia
             graphics.PreferredBackBufferHeight = 400;
             graphics.IsFullScreen = false;
             //graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
-
             try
             {
                 graphics.ApplyChanges();
@@ -231,11 +232,13 @@ namespace PrinceOfPersia
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
 
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
+            DrawShadowedString(hudFont, "FRAME RATE=" + AnimationSequence.frameRate.ToString(), hudLocation, Color.White);
 
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.playerState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
 
-            // Get the player's bounding rectangle and find neighboring tiles.
+              // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = maze.player.Position.Bounding;
             Vector4 v4 = room.getBoundTiles(playerBounds);
 
@@ -248,7 +251,7 @@ namespace PrinceOfPersia
                     Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
                     Enumeration.TileCollision tileCollision = room.GetCollision(x, y);
                     Enumeration.TileType tileType = room.GetType(x, y);
-
+                    
                     hudLocation.Y = hudLocation.Y + 10;
                     DrawShadowedString(hudFont, "GRID X=" + x + " Y=" + y + " TILETYPE=" + tileType.ToString() + " BOUND X=" + tileBounds.X + " Y=" + tileBounds.Y + " DEPTH X=" + depth.X + " Y=" + depth.Y, hudLocation, Color.White);
                 }

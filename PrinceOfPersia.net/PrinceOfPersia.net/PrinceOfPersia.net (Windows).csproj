@@ -95,6 +95,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="animation\AnimationSequence.cs" />
+    <Compile Include="Game.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ScreenFactory.cs" />
     <Compile Include="dungeon\Column.cs" />
     <Compile Include="dungeon\Level.cs" />
     <Compile Include="dungeon\Map.cs" />
@@ -108,6 +112,20 @@
     <Compile Include="dungeon\RoomRow.cs" />
     <Compile Include="dungeon\Row.cs" />
     <Compile Include="Enumeration.cs" />
+    <Compile Include="screens\BackgroundScreen.cs" />
+    <Compile Include="screens\Button.cs" />
+    <Compile Include="screens\GameplayScreen.cs" />
+    <Compile Include="screens\LoadingScreen.cs" />
+    <Compile Include="screens\MainMenuScreen.cs" />
+    <Compile Include="screens\MenuEntry.cs" />
+    <Compile Include="screens\MenuScreen.cs" />
+    <Compile Include="screens\MessageBoxScreen.cs" />
+    <Compile Include="screens\OptionsMenuScreen.cs" />
+    <Compile Include="screens\PauseMenuScreen.cs" />
+    <Compile Include="screens\PhoneMainMenuScreen.cs" />
+    <Compile Include="screens\PhoneMenuScreen.cs" />
+    <Compile Include="screens\PhonePauseScreen.cs" />
+    <Compile Include="screens\PlayerIndexEventArgs.cs" />
     <Compile Include="sprite\Player.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -224,6 +242,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GameStateManagement\GameStateManagement %28Windows%29.csproj">
+      <Project>{0A551D79-F37E-4529-9CA0-3FD2E9EA715E}</Project>
+      <Name>GameStateManagement %28Windows%29</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Content\Content.contentproj">
       <Project>{2FDB7EF3-D3C4-47A3-8E75-C901A05B8574}</Project>
       <Name>Content</Name>

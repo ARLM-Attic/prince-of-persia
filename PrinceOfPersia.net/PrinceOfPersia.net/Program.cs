@@ -9,7 +9,7 @@ namespace PrinceOfPersia
         /// </summary>
         static void Main(string[] args)
         {
-            using (PrinceOfPersiaGame game = new PrinceOfPersiaGame())
+            using (Game game = new Game())
             {
                 game.Run();
             }

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
+using GameStateManagement;
 
 namespace PrinceOfPersia
 {
@@ -17,14 +18,14 @@ namespace PrinceOfPersia
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class PrinceOfPersiaGame : Microsoft.Xna.Framework.Game
+    public class PrinceOfPersiaGame : GameScreen //Microsoft.Xna.Framework.Game 
     {
 
         private Texture2D[] playerTexture = new Texture2D[128];
 
         // Resources for drawing.
-        private GraphicsDeviceManager graphics;
-        private SpriteBatch spriteBatch;
+        //private GraphicsDeviceManager graphics;
+        //private SpriteBatch spriteBatch;
 
         // Global content.
         [ContentSerializerIgnore] 
@@ -68,7 +69,20 @@ namespace PrinceOfPersia
         public string CONFIG_SPRITE_KID = "KID_DOS";
         public string CONFIG_PATH_RESOURCES = "PrinceOfPersia.resources.";
 
+        ContentManager content;
 
+        public SpriteBatch spriteBatch
+        {
+            get { return base.ScreenManager.SpriteBatch; }
+        }
+
+        public GraphicsDevice GraphicsDevice
+        {
+            get { return base.ScreenManager.GraphicsDevice; }
+        }
+
+
+        
 
 
         public PrinceOfPersiaGame()
@@ -79,56 +93,66 @@ namespace PrinceOfPersia
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
             CONFIG_PATH_RESOURCES = ConfigurationSettings.AppSettings["CONFIG_path_resources"].ToString();
-
-            AnimationSequence.frameRate = CONFIG_FRAMERATE;
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-
-            graphics.PreferredBackBufferWidth = 640;
-            graphics.PreferredBackBufferHeight = 400;
-            graphics.IsFullScreen = false;
-            //graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
-            try
-            {
-                graphics.ApplyChanges();
-            }
-            catch (Exception ex)
-            {
-                System.Console.WriteLine(ex.ToString());
-                //System.Windows.Forms.MessageBox.Show(ex.ToString());
-            }
             
-
-#if WINDOWS_PHONE
-            graphics.IsFullScreen = true;
-            TargetElapsedTime = TimeSpan.FromTicks(333333);
-#endif
+            AnimationSequence.frameRate = CONFIG_FRAMERATE;
             Accelerometer.Initialize();
         }
 
+
+
+        /// <summary>
+        /// Load graphics content for the game.
+        /// </summary>
+        public override void Activate(bool instancePreserved)
+        {
+            if (!instancePreserved)
+            {
+                if (content == null)
+                    content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+                LoadContent();
+
+                //LOAD MAZE
+                maze = new Maze(content, CONFIG_PATH_RESOURCES);
+                //NOW START
+                maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
+                
+                // once the load has finished, we use ResetElapsedTime to tell the game's
+                // timing mechanism that we have just finished a very long frame, and that
+                // it should not try to catch up.
+                ScreenManager.Game.ResetElapsedTime();
+            }
+
+        }
+
+
+        public override void Deactivate()
+        {
+            base.Deactivate();
+        }
+
+
+        /// <summary>
+        /// Unload graphics content used by the game.
+        /// </summary>
+        public override void Unload()
+        {
+            content.Unload();
+
+        }
 
         /// <summary>
         /// LoadContent will be called once per game and is the place to load
         /// all of your content.
         /// </summary>
-        protected override void LoadContent()
+        protected void LoadContent()
         {
-            //TEST FOR LOAD AN XML IN CONTENT --- FAILED...why?!??
-
-            //TestXML item = Content.Load<TestXML>("Maze/stringa");
-            
-
-
-
-            //ContentSerializerIgnoreAttribute o = new ContentSerializerIgnoreAttribute();
-            //l = Content.Load<List<Sequence>>("Sequence/KID_sequence");
-             
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+            if (content == null)
+                content = new ContentManager(ScreenManager.Game.Services, "Content");
+                
 
             // Load fonts
-            hudFont = Content.Load<SpriteFont>("Fonts/Hud");
+            hudFont = content.Load<SpriteFont>("Fonts/Hud");
 
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
@@ -143,12 +167,9 @@ namespace PrinceOfPersia
             catch { }
 
 
-            //LOAD MAZE
-            maze = new Maze(Content, CONFIG_PATH_RESOURCES);
+       
+        
 
-            //NOW START
-            maze.StartRoom().StartNewLife(GraphicsDevice);
-            
 
         }
 
@@ -157,24 +178,23 @@ namespace PrinceOfPersia
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
-            HandleInput();
+            HandleInput(gameTime, null);
 
             //maze.playerRoom.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
 
             foreach (RoomNew r in maze.rooms)
             {
-                r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+                r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
             }
-            maze.player.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
+            maze.player.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
 
-             
-             
-            base.Update(gameTime);
+
+            base.Update(gameTime, otherScreenHasFocus, false);
         }
 
-        private void HandleInput()
+        public override void HandleInput(GameTime gameTime, InputState input)
         {
             //// get all of our input states
             keyboardState = Keyboard.GetState();
@@ -182,9 +202,9 @@ namespace PrinceOfPersia
             touchState = TouchPanel.GetState();
             accelerometerState = Accelerometer.GetState();
 
-            //// Exit the game when back is pressed.
-            if (gamePadState.Buttons.Back == ButtonState.Pressed)
-                Exit();
+            // Exit the game when back is pressed.
+           ///// if (gamePadState.Buttons.Back == ButtonState.Pressed)
+               ////// Exit();
 
             bool continuePressed =
                 keyboardState.IsKeyDown(Keys.Space) ||
@@ -201,14 +221,14 @@ namespace PrinceOfPersia
         /// Draws the game from background to foreground.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        public override void Draw(GameTime gameTime) 
         {
-            graphics.GraphicsDevice.Clear(Color.Black);
+            //graphics.GraphicsDevice.Clear(Color.Black);
 
             ////spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
-            spriteBatch.Begin();
+            base.ScreenManager.SpriteBatch.Begin();
 
-            maze.playerRoom.Draw(this, gameTime, spriteBatch);
+            maze.playerRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
 
             DrawHud();
@@ -238,7 +258,7 @@ namespace PrinceOfPersia
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.playerState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
 
-              // Get the player's bounding rectangle and find neighboring tiles.
+            // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = maze.player.Position.Bounding;
             Vector4 v4 = room.getBoundTiles(playerBounds);
 
@@ -251,7 +271,7 @@ namespace PrinceOfPersia
                     Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
                     Enumeration.TileCollision tileCollision = room.GetCollision(x, y);
                     Enumeration.TileType tileType = room.GetType(x, y);
-                    
+
                     hudLocation.Y = hudLocation.Y + 10;
                     DrawShadowedString(hudFont, "GRID X=" + x + " Y=" + y + " TILETYPE=" + tileType.ToString() + " BOUND X=" + tileBounds.X + " Y=" + tileBounds.Y + " DEPTH X=" + depth.X + " Y=" + depth.Y, hudLocation, Color.White);
                 }
@@ -286,7 +306,7 @@ namespace PrinceOfPersia
 
             // Draw score
             //hudLocation.X = hudLocation.X;
-            hudLocation.X =  hudLocation.X + 420;
+            hudLocation.X = hudLocation.X + 420;
             //float timeHeight = hudFont.MeasureString(timeString).Y;
             DrawShadowedString(hudFont, "PrinceOfPersia.net alpha version: " + RetrieveLinkerTimestamp().ToShortDateString(), hudLocation, Color.White);
 

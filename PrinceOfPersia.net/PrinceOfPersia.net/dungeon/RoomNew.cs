@@ -372,7 +372,7 @@ namespace PrinceOfPersia
         /// <summary>
         /// Draw everything in the level from background to foreground.
         /// </summary>
-        public void Draw(Game g, GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             DrawTilesInverseNew(gameTime, spriteBatch);
             //player.Draw(gameTime, spriteBatch);

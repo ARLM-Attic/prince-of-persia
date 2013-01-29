@@ -99,13 +99,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Backgrounds\Prince_Layer0_0.png">
-      <Name>Prince_Layer0_0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\fire\frame1.png">
       <Name>frame1</Name>
       <Importer>TextureImporter</Importer>
@@ -1073,6 +1066,13 @@
   <ItemGroup>
     <Compile Include="Tiles\FloorLooseA_2.png">
       <Name>FloorLooseA_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backgrounds\main background.png">
+      <Name>main background</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

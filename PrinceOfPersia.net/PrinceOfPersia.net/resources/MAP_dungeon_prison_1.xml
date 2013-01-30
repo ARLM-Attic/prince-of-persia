@@ -5,23 +5,25 @@
       <columns>
         <Column>
           <tileType>space</tileType>
-        </Column>
-        <Column>
           <spriteType>kid</spriteType>
           <spriteEffect>FlipHorizontally</spriteEffect>
-          <tileType>space</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
         </Column>
         <Column>
+          <tileType>space</tileType>
+        </Column>
+        <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>floor</tileType>
@@ -40,9 +42,6 @@
     <Row>
       <columns>
         <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
           <tileType>torch</tileType>
         </Column>
         <Column>
@@ -50,6 +49,10 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -87,6 +90,7 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>rubble</state>
         </Column>
         <Column>
           <tileType>gate</tileType>
@@ -96,6 +100,7 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>floor</tileType>

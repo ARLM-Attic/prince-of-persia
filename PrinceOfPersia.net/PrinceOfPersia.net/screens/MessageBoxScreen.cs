@@ -94,7 +94,7 @@ namespace PrinceOfPersia
             if (!instancePreserved)
             {
                 ContentManager content = ScreenManager.Game.Content;
-                gradientTexture = content.Load<Texture2D>("gradient");
+                //gradientTexture = content.Load<Texture2D>("gradient");
             }
         }
 
@@ -172,7 +172,7 @@ namespace PrinceOfPersia
             spriteBatch.Begin();
 
             // Draw the background rectangle.
-            spriteBatch.Draw(gradientTexture, backgroundRectangle, color);
+            //spriteBatch.Draw(gradientTexture, backgroundRectangle, color);
 
             // Draw the message box text.
             spriteBatch.DrawString(font, message, textPosition, color);

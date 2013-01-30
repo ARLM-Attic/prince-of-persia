@@ -5,6 +5,7 @@
       <columns>
         <Column>
           <tileType>space</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -23,6 +24,7 @@
         </Column>
         <Column>
           <tileType>space</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>space</tileType>

@@ -4,34 +4,40 @@
     <Row>
       <columns>
         <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
           <tileType>torch</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>pressplate</tileType>
+          <switchButton>8</switchButton>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>torch</tileType>
+        </Column>
+        <Column>
+          <tileType>pressplate</tileType>
+          <switchButton>10</switchButton>
+        </Column>
+        <Column>
+          <tileType>door</tileType>
+          <switchButton>10</switchButton>
+          <state>close</state>
+        </Column>
+        <Column>
+          <tileType>pressplate</tileType>
+          <switchButton>9</switchButton>
         </Column>
         <Column>
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
-        </Column>
-        <Column>
           <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
         </Column>
         <Column>
           <tileType>door</tileType>
+          <switchButton>9</switchButton>
           <state>closefast</state>
         </Column>
       </columns>
@@ -48,19 +54,19 @@
           <tileType>block</tileType>
         </Column>
         <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>block</tileType>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
           <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
-        </Column>
-        <Column>
-          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>
@@ -79,22 +85,24 @@
           <tileType>block</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>torch</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>loose</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>gate</tileType>
         </Column>
         <Column>
-          <tileType>block</tileType>
+          <tileType>floor</tileType>
+          <state>rubble</state>
         </Column>
         <Column>
           <tileType>block</tileType>

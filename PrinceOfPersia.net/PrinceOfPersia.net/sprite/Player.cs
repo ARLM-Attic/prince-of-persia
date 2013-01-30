@@ -881,6 +881,10 @@ namespace PrinceOfPersia
 
                     switch (tileType)
                     {
+                        case Enumeration.TileType.spikes :
+                            ((Spikes)_room.GetTile(x, y)).Open();
+                            break;
+
                         case Enumeration.TileType.loose:
                             if (flip == SpriteEffects.FlipHorizontally)
                             {

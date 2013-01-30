@@ -82,10 +82,10 @@
           <tileType>block</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>spikes</tileType>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>spikes</tileType>
         </Column>
         <Column>
           <tileType>block</tileType>

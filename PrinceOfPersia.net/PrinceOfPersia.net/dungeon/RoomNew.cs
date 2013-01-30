@@ -164,6 +164,10 @@ namespace PrinceOfPersia
         {
             switch (tiletype)
             {
+                case Enumeration.TileType.spikes:
+                    return new Spikes(this, content, tiletype, state);
+                    break;
+
                 case Enumeration.TileType.pressplate:
                     return new PressPlate(this, content, tiletype, state, switchButton);
                     break;
@@ -217,12 +221,18 @@ namespace PrinceOfPersia
         {
             if (x < 0)
             {
-                return maze.LeftRoom(this).tiles[Width - 1, y].collision;
+                if (y < 0)
+                    return maze.LeftRoom(this).tiles[Width - 1, Height - 1].collision;
+                else
+                    return maze.LeftRoom(this).tiles[Width - 1, y].collision;
             }
 
             if (x >= Width)
             {
-                return maze.RightRoom(this).tiles[0, y].collision;
+                if (y < 0)
+                    return maze.RightRoom(this).tiles[0, Height - 1].collision;
+                else
+                    return maze.RightRoom(this).tiles[0, y].collision;
             }
 
             if (y >= Height)
@@ -241,13 +251,19 @@ namespace PrinceOfPersia
         public Enumeration.TileType GetType(int x, int y)
         {
             if (x < 0)
-            { 
-                return maze.LeftRoom(this).tiles[Width-1,y].Type;
+            {
+                if (y < 0)
+                    return maze.LeftRoom(this).tiles[Width-1, Height - 1].Type;
+                else
+                    return maze.LeftRoom(this).tiles[Width-1, y].Type;
             }
 
             if (x >= Width)
             {
-                return maze.RightRoom(this).tiles[0, y].Type;
+                if (y < 0)
+                    return maze.RightRoom(this).tiles[0, Height - 1].Type;
+                else
+                    return maze.RightRoom(this).tiles[0, y].Type;
             }
 
             if (y >= Height)

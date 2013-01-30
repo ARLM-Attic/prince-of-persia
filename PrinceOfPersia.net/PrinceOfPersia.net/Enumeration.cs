@@ -135,6 +135,7 @@ namespace PrinceOfPersia
             ,loosefall //when loose fall
             ,rubble  //when floor break
             ,looseshake //when loose shake but dont fall
+            ,brick //floor/space with brickwall
         }
 
 

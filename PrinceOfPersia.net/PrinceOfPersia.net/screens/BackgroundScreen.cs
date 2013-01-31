@@ -26,8 +26,16 @@ namespace PrinceOfPersia
     {
         #region Fields
 
+        float delay;
         ContentManager content;
+        Texture2D textureToDisplay = null;
         Texture2D backgroundTexture;
+        Texture2D titleTexture;
+        Texture2D presentsTexture;
+        Texture2D authorsTexture;
+        Texture2D copyrightTexture;
+        float TransitionAlphaTitle;
+        int numTexture = 0;
 
         #endregion
 
@@ -39,8 +47,9 @@ namespace PrinceOfPersia
         /// </summary>
         public BackgroundScreen()
         {
-            TransitionOnTime = TimeSpan.FromSeconds(0.5);
-            TransitionOffTime = TimeSpan.FromSeconds(0.5);
+            delay = 10f;
+            TransitionOnTime = TimeSpan.FromSeconds(1);
+            TransitionOffTime = TimeSpan.FromSeconds(1);
         }
 
 
@@ -58,7 +67,12 @@ namespace PrinceOfPersia
                 if (content == null)
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-                backgroundTexture = content.Load<Texture2D>("Backgrounds/main background");
+                backgroundTexture = content.Load<Texture2D>("Backgrounds/main_background");
+                presentsTexture = content.Load<Texture2D>("Backgrounds/presents");
+                authorsTexture = content.Load<Texture2D>("Backgrounds/author");
+                titleTexture = content.Load<Texture2D>("Backgrounds/main_title");
+                copyrightTexture = content.Load<Texture2D>("Backgrounds/copyright");
+
             }
         }
 
@@ -104,6 +118,40 @@ namespace PrinceOfPersia
 
             spriteBatch.Draw(backgroundTexture, fullscreen, new Color(TransitionAlpha, TransitionAlpha, TransitionAlpha));
 
+            if (delay > 0)
+            {
+                delay = delay - 0.1f;
+                if (textureToDisplay != null)
+                {
+                    TransitionAlphaTitle = TransitionAlphaTitle + 0.05f;
+                    spriteBatch.Draw(textureToDisplay, new Rectangle(fullscreen.Width / 2 - textureToDisplay.Width / 2, fullscreen.Height / 2, textureToDisplay.Width, textureToDisplay.Height), new Color(TransitionAlphaTitle, TransitionAlphaTitle, TransitionAlphaTitle));
+                }
+            }
+            else
+            {
+                numTexture++;
+                delay = 20f;
+                TransitionAlphaTitle = 0;
+                switch (numTexture)
+                {
+                    case 1:
+                        textureToDisplay = presentsTexture;
+                        break;
+                    case 2:
+                        textureToDisplay = authorsTexture;
+                        break;
+                    case 3:
+                        textureToDisplay = titleTexture;
+                        break;
+                    case 4:
+                        textureToDisplay = null;
+                        numTexture = 0;
+                        break;
+                }
+            }
+
+         
+            
             spriteBatch.End();
         }
 

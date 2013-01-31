@@ -9,7 +9,7 @@ namespace PrinceOfPersia
 
     public class Sprite
     {
-    
+        public bool isDeath = false;
 
         public Sprite()
         { }

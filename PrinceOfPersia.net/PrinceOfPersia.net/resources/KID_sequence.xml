@@ -2454,5 +2454,79 @@
     <raised>true</raised>
   </Sequence>
 
+  <!-- DEADFALL-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Sprites/Player/Kid_dos/Kid_178</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>DEADFALL</name>
+  </Sequence>
+
+  <!-- IMPALE-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_177</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>1</yOffSet>
+        <delay>0.8</delay>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_177</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>1</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_177</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>1</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_177</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>1</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Sprites/Player/Kid_dos/Kid_177</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>IMPALE</name>
+  </Sequence>
 </ArrayOfSequence>
 

@@ -25,22 +25,22 @@ namespace PrinceOfPersia
         /// Constructor fills in the menu contents.
         /// </summary>
         public MainMenuScreen()
-            : base("Prince Of Persia.net")
+            : base(string.Empty)
         {
             // Create our menu entries.
-            MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
-            MenuEntry optionsMenuEntry = new MenuEntry("Options");
-            MenuEntry exitMenuEntry = new MenuEntry("Exit");
+            MenuEntry playGameMenuEntry = new MenuEntry(string.Empty);
+            //MenuEntry optionsMenuEntry = new MenuEntry("Options");
+            //MenuEntry exitMenuEntry = new MenuEntry(string.Empty);
 
             // Hook up menu event handlers.
             playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            optionsMenuEntry.Selected += OptionsMenuEntrySelected;
-            exitMenuEntry.Selected += OnCancel;
+            //optionsMenuEntry.Selected += OptionsMenuEntrySelected;
+            //exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
             MenuEntries.Add(playGameMenuEntry);
-            MenuEntries.Add(optionsMenuEntry);
-            MenuEntries.Add(exitMenuEntry);
+            //MenuEntries.Add(optionsMenuEntry);
+            //MenuEntries.Add(exitMenuEntry);
         }
 
 

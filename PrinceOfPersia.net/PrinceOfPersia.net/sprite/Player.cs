@@ -244,6 +244,8 @@ namespace PrinceOfPersia
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
+            if (isDeath == true)
+                return;
 
             //ApplyPhysicsNew(gameTime);
             HandleCollisionsNew();
@@ -314,7 +316,7 @@ namespace PrinceOfPersia
                     {
                         case Enumeration.State.stand:
                             if (flip == SpriteEffects.FlipHorizontally)
-                                turn();
+                                Turn();
                             else
                                 StartRunning();
                             break;
@@ -350,7 +352,7 @@ namespace PrinceOfPersia
                     {
                         case Enumeration.State.stand:
                             if (flip == SpriteEffects.FlipHorizontally)
-                                turn();
+                                Turn();
                             else
                                 StepForward();
                             break;
@@ -405,7 +407,7 @@ namespace PrinceOfPersia
                     {
                         case Enumeration.State.stand:
                             if (flip == SpriteEffects.None)
-                                turn();
+                                Turn();
                             else
                                 StartRunning();
                             break;
@@ -438,7 +440,7 @@ namespace PrinceOfPersia
                     {
                         case Enumeration.State.stand:
                             if (flip == SpriteEffects.None)
-                                turn();
+                                Turn();
                             else
                                 StepForward();
                             break;
@@ -882,7 +884,13 @@ namespace PrinceOfPersia
                     switch (tileType)
                     {
                         case Enumeration.TileType.spikes :
+                            //open spike
                             ((Spikes)_room.GetTile(x, y)).Open();
+                            //if touch spike kid will die
+                            if (depth.Y >= Player.PLAYER_SIZE_Y  )
+                                Impale();
+
+
                             break;
 
                         case Enumeration.TileType.loose:
@@ -1065,7 +1073,19 @@ namespace PrinceOfPersia
 
         }
 
-        public void turn()
+        public void DeadFall()
+        {
+            playerState.Add(Enumeration.State.deadfall);
+            sprite.PlayAnimation(playerSequence, playerState.Value());
+        }
+
+        public void Impale()
+        {
+            playerState.Add(Enumeration.State.impale);
+            sprite.PlayAnimation(playerSequence, playerState.Value());
+        }
+
+        public void Turn()
         {
             if (flip == SpriteEffects.FlipHorizontally)
                 flip = SpriteEffects.None;

@@ -77,7 +77,6 @@ namespace PrinceOfPersia
         {
             // Activate the first screens.
             screenManager.AddScreen(new BackgroundScreen(), null);
-
             // We have different menus for Windows Phone to take advantage of the touch interface
 #if WINDOWS_PHONE
             screenManager.AddScreen(new PhoneMainMenuScreen(), null);

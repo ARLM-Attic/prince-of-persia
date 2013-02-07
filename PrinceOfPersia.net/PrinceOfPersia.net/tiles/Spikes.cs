@@ -20,7 +20,8 @@ namespace PrinceOfPersia
         //private RoomNew room;
         //public int switchButton = 0;
         public float elapsedTimeOpen = 0;
-        public float timeFall = 0.5f;
+        //public float timeFall = 0.5f;
+        public float timeOpen = 6;
 
         public Enumeration.StateTile State
         {
@@ -76,8 +77,13 @@ namespace PrinceOfPersia
 
         public void Open()
         {
+            elapsedTimeOpen = 0;
+
             if (tileState.Value().state == Enumeration.StateTile.open)
                 return;
+            if (tileState.Value().state == Enumeration.StateTile.opened)
+                return;
+
 
             tileState.Add(Enumeration.StateTile.open);
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
@@ -85,11 +91,14 @@ namespace PrinceOfPersia
 
         public void Close()
         {
+            elapsedTimeOpen = timeOpen;
+
             if (tileState.Value().state == Enumeration.StateTile.close)
                 return;
 
             tileState.Add(Enumeration.StateTile.close);
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+
         }
 
 

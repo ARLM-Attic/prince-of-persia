@@ -168,6 +168,7 @@ namespace PrinceOfPersia
 
             // Fade the popup alpha during transitions.
             Color color = Color.White * TransitionAlpha;
+            //Color color = Color.Red;
 
             spriteBatch.Begin();
 

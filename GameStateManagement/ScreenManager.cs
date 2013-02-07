@@ -130,7 +130,7 @@ namespace GameStateManagement
             ContentManager content = Game.Content;
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            font = content.Load<SpriteFont>("Fonts/Hud");
+            font = content.Load<SpriteFont>("Fonts/Pop");
             blankTexture = content.Load<Texture2D>("Backgrounds/main_background");
 
             // Tell each of the screens to load their content.
@@ -211,8 +211,7 @@ namespace GameStateManagement
             if (traceEnabled)
                 TraceScreens();
         }
-
-
+                
         /// <summary>
         /// Prints a list of all the screens, for debugging.
         /// </summary>

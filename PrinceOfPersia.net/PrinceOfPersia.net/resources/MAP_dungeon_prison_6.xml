@@ -20,9 +20,6 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <spriteType>kid</spriteType>
-          <spriteEffect>FlipHorizontally</spriteEffect>
-
           <tileType>floor</tileType>
         </Column>
         <Column>

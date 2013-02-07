@@ -61,6 +61,22 @@
         <delay>0.2</delay>
       </Frame>
       <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>OPENED</parameter>
+        <stoppable>true</stoppable>
+      </Frame>
+    </frames>
+    <name>OPEN</name>
+    <raised>false</raised>
+    <collision>Platform</collision>
+  </Sequence>
+
+
+  <!-- SPIKE OPENED-->
+  <Sequence>
+    <frames>
+      <Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
         <value>Tiles/SpikeA_4</value>
@@ -75,14 +91,13 @@
         <stoppable>true</stoppable>
       </Frame>
     </frames>
-    <name>OPEN</name>
+    <name>OPENED</name>
     <raised>false</raised>
     <collision>Platform</collision>
   </Sequence>
 
 
-
-  <!-- SPIKE OPEN-->
+  <!-- SPIKE CLOSE-->
   <Sequence>
     <frames>
       <Frame>
@@ -116,12 +131,19 @@
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
-        <delay>0.2</delay>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Tiles/SpikeA_1</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
-        <name>GOTOSEQUENCE</name>
-        <parameter>NORMAL</parameter>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
         <stoppable>true</stoppable>
       </Frame>
     </frames>

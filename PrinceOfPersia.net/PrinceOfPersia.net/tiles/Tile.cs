@@ -115,6 +115,13 @@ namespace PrinceOfPersia
         {
             HandleCollision();
 
+            if (this.GetType() == typeof(Spikes))
+            {
+                ((Spikes)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (((Spikes)this).elapsedTimeOpen > ((Spikes)this).timeOpen)
+                    ((Spikes)this).Close();
+            }
+
 
             if (this.GetType() == typeof(Door))
             {

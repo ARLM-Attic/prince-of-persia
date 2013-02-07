@@ -108,7 +108,7 @@ namespace GameStateManagement
         public ScreenState ScreenState
         {
             get { return screenState; }
-            protected set { screenState = value; }
+            set { screenState = value; }
         }
 
         ScreenState screenState = ScreenState.TransitionOn;
@@ -291,6 +291,11 @@ namespace GameStateManagement
             }
         }
 
+
+        public void ResetTransition ()
+        {
+            transitionPosition = 1;
+        }
 
         /// <summary>
         /// Helper for updating the screen transition position.

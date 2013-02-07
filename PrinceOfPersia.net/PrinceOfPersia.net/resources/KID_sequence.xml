@@ -2528,5 +2528,52 @@
     </frames>
     <name>IMPALE</name>
   </Sequence>
+
+  <!--  r u n n i n g   j u m p   f a l l -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_102</value>
+        <stoppable>false</stoppable>
+        <xOffSet>-30</xOffSet>
+        <yOffSet>5</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_103</value>
+        <stoppable>false</stoppable>
+        <xOffSet>-10</xOffSet>
+        <yOffSet>5</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_104</value>
+        <stoppable>false</stoppable>
+        <xOffSet>-10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_105</value>
+        <stoppable>false</stoppable>
+        <xOffSet>-10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>FREEFALL</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>RJUMPFALL</name>
+  </Sequence>
+
+
 </ArrayOfSequence>
 

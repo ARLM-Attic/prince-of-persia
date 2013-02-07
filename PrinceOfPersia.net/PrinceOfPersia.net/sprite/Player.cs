@@ -884,12 +884,31 @@ namespace PrinceOfPersia
                     switch (tileType)
                     {
                         case Enumeration.TileType.spikes :
-                            //open spike
-                            ((Spikes)_room.GetTile(x, y)).Open();
                             //if touch spike kid will die
-                            if (depth.Y >= Player.PLAYER_SIZE_Y  )
+                            if (depth.Y >= Player.PLAYER_SIZE_Y)
+                            {
+                                ((Spikes)_room.GetTile(x, y)).Open();
                                 Impale();
+                                return;
+                            }
 
+                            
+                            if (flip == SpriteEffects.FlipHorizontally)
+                            {
+                                if (depth.X < 10)
+                                    ((Spikes)_room.GetTile(x, y)).Open();
+
+                                if (depth.X <= -30 & ((Spikes)_room.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                    Impale();
+                            }
+                            else
+                            {
+                                if (depth.X > -10)
+                                    ((Spikes)_room.GetTile(x, y)).Open();
+
+                                if (depth.X >= 60 & ((Spikes)_room.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                    Impale();
+                            }
 
                             break;
 
@@ -940,7 +959,10 @@ namespace PrinceOfPersia
                                         )
                                     {
                                         _position.Value = new Vector2(_position.X + (depth.X - (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)), _position.Y);
-                                        Bump(Enumeration.PriorityState.Force);
+                                        if (sprite.sequence.raised == false)
+                                            Bump(Enumeration.PriorityState.Force);
+                                        else
+                                            RJumpFall(Enumeration.PriorityState.Force);
                                         return;
                                     }
                                 }
@@ -1549,6 +1571,25 @@ namespace PrinceOfPersia
             sprite.PlayAnimation(playerSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand, Enumeration.PriorityState.Normal);
         }
+
+
+        public void RJumpFall()
+        {
+            RJumpFall(Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void RJumpFall(Enumeration.PriorityState priority)
+        {
+            RJumpFall(priority, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void RJumpFall(Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
+        {
+            playerState.Add(Enumeration.State.rjumpfall, priority, false, reverse);
+            sprite.PlayAnimation(playerSequence, playerState.Value());
+        }
+
+
 
         public void RunJump()
         {

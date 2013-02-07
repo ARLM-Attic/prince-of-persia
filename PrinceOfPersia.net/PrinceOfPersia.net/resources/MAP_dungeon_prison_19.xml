@@ -47,18 +47,21 @@
           <tileType>torch</tileType>
         </Column>
         <Column>
-          <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>gate</tileType>
-        </Column>
-        <Column>
           <tileType>floor</tileType>
         </Column>
         <Column>
           <tileType>gate</tileType>
         </Column>
         <Column>
+          <tileType>spikes</tileType>
+        </Column>
+        <Column>
+          <tileType>gate</tileType>
+        </Column>
+        <Column>
+          <spriteType>kid</spriteType>
+          <spriteEffect>FlipHorizontally</spriteEffect>
+
           <tileType>torch</tileType>
         </Column>
         <Column>

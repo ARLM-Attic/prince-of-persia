@@ -44,9 +44,10 @@
     <PublisherName>ADF Software</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>home.html</WebPage>
-    <ApplicationRevision>83</ApplicationRevision>
+    <ApplicationRevision>93</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -89,6 +90,12 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>PrinceOfPersia.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>PrinceOfPersia.net %28Windows%29_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="animation\Accelerometer.cs">
@@ -173,6 +180,11 @@
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -273,15 +285,14 @@
     <EmbeddedResource Include="resources\MAP_dungeon_prison_17.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_21.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_10.xml" />
-    <EmbeddedResource Include="resources\MAP_dungeon_prison_19.xml" />
+    <EmbeddedResource Include="resources\MAP_dungeon_prison_19.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\MAP_dungeon_prison_12.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_9.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_4.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_20.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_14.xml" />
-    <EmbeddedResource Include="resources\Copy of KID_sequence.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="resources\MAP_dungeon_prison_11.xml" />
     <EmbeddedResource Include="resources\MAP_dungeon_prison_7.xml">
       <SubType>Designer</SubType>

@@ -59,9 +59,6 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
-          <spriteType>kid</spriteType>
-          <spriteEffect>FlipHorizontally</spriteEffect>
-
           <tileType>torch</tileType>
         </Column>
         <Column>

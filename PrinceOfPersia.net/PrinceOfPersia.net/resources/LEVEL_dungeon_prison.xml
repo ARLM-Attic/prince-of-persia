@@ -29,6 +29,7 @@
           <FilePath>MAP_dungeon_prison_5.xml</FilePath>
         </RoomColumn>
         <RoomColumn>
+          <RoomStart>true</RoomStart>
           <RoomIndex>1</RoomIndex>
           <FilePath>MAP_dungeon_prison_1.xml</FilePath>
         </RoomColumn>
@@ -93,7 +94,6 @@
           <FilePath>MAP_dungeon_prison_10.xml</FilePath>
         </RoomColumn>
         <RoomColumn>
-          <RoomStart>true</RoomStart>
           <RoomIndex>19</RoomIndex>
           <FilePath>MAP_dungeon_prison_19.xml</FilePath>
         </RoomColumn>

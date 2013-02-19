@@ -15,7 +15,7 @@ namespace PrinceOfPersia
         public string value;
         public TypeFrame type = TypeFrame.SPRITE;
         public string parameter;
-        public Texture2D texture;
+        
         //public SoundEffect soundEffect = new SoundEffect();
         public bool stoppable = false;
         public int xOffSet = 0;
@@ -23,6 +23,22 @@ namespace PrinceOfPersia
         public bool raised = false; //for check if the frame is a jump, hang raised in air
         public float delay = 0; //delay animation frame
 
+        public Texture2D texture
+        {
+            get
+            {
+                return otexture;
+            }
+        }
+        private Texture2D otexture;
+
+        public void SetTexture(Texture2D value)
+        {
+            otexture = value;
+        }
+
+        public Frame()
+        {}
 
         public enum TypeFrame
         {

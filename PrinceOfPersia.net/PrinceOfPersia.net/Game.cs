@@ -8,9 +8,15 @@
 #endregion
 
 using System;
-using GameStateManagement;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Storage;
+using Microsoft.Xna.Framework.GamerServices;
+using GameStateManagement;
+using System.Configuration;
 
 
 namespace PrinceOfPersia
@@ -27,23 +33,28 @@ namespace PrinceOfPersia
         ScreenManager screenManager;
         ScreenFactory screenFactory;
 
+        public int CONFIG_SCREEN_WIDTH = 640;
+        public int CONFIG_SCREEN_HEIGHT = 400;
+
 
         /// <summary>
         /// The main game constructor.
         /// </summary>
         public Game()
         {
-        
 
-                Content.RootDirectory = "Content";
+            int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_width"], out CONFIG_SCREEN_WIDTH);
+            int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_height"], out CONFIG_SCREEN_HEIGHT);
 
-                graphics = new GraphicsDeviceManager(this);
-                graphics.PreferredBackBufferWidth = 640;
-                graphics.PreferredBackBufferHeight = 400;
-                graphics.IsFullScreen = false;
-                graphics.PreferredDepthStencilFormat = Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24Stencil8;
+            Content.RootDirectory = "Content";
 
-                TargetElapsedTime = TimeSpan.FromTicks(333333);
+            graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = CONFIG_SCREEN_WIDTH;
+            graphics.PreferredBackBufferHeight = CONFIG_SCREEN_HEIGHT;
+            graphics.IsFullScreen = false;
+            graphics.PreferredDepthStencilFormat = Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24Stencil8;
+
+            TargetElapsedTime = TimeSpan.FromTicks(333333);
 
 
 
@@ -56,13 +67,13 @@ namespace PrinceOfPersia
             // InitializePortraitGraphics();
 #endif
 
-                // Create the screen factory and add it to the Services
-                screenFactory = new ScreenFactory();
-                Services.AddService(typeof(IScreenFactory), screenFactory);
+            // Create the screen factory and add it to the Services
+            screenFactory = new ScreenFactory();
+            Services.AddService(typeof(IScreenFactory), screenFactory);
 
-                // Create the screen manager component.
-                screenManager = new ScreenManager(this);
-                Components.Add(screenManager);
+            // Create the screen manager component.
+            screenManager = new ScreenManager(this);
+            Components.Add(screenManager);
 
 #if WINDOWS_PHONE
             // Hook events on the PhoneApplicationService so we're notified of the application's life cycle
@@ -73,10 +84,10 @@ namespace PrinceOfPersia
             Microsoft.Phone.Shell.PhoneApplicationService.Current.Deactivated += 
                 new EventHandler<Microsoft.Phone.Shell.DeactivatedEventArgs>(GameDeactivated);
 #else
-                // On Windows and Xbox we just add the initial screens
-                AddInitialScreens();
+            // On Windows and Xbox we just add the initial screens
+            AddInitialScreens();
 #endif
-       
+
 
         }
 

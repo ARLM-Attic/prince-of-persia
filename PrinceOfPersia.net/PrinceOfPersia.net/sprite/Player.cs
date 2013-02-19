@@ -52,13 +52,9 @@ namespace PrinceOfPersia
         private Position _position;
         public PlayerState playerState = new PlayerState();
 
-        private RoomNew _room;
+        private Maze _maze;
 
-        public bool IsAlive
-        {
-            get { return isAlive; }
-        }
-        bool isAlive;
+
 
         public Position Position
         {
@@ -141,10 +137,10 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Player(RoomNew _room, Vector2 position, GraphicsDevice graphicsDevice, SpriteEffects spriteEffect)
+        public Player(Maze maze, Vector2 position, GraphicsDevice graphicsDevice, SpriteEffects spriteEffect)
         {
             this.graphicsDevice = graphicsDevice;
-            this._room = _room;
+            this._maze = maze;
             LoadContent();
 
             //TAKE PLAYER Position
@@ -171,7 +167,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in playerSequence)
             {
-                s.Initialize(_room.content);
+                s.Initialize(_maze.PlayerRoom.content);
             }
 
             // Calculate bounds within texture size.         
@@ -185,9 +181,9 @@ namespace PrinceOfPersia
             localBounds = new Rectangle(left, top, width, height);
 
             // Load sounds.            
-            killedSound = _room.content.Load<SoundEffect>("Sounds/PlayerKilled");
-            jumpSound = _room.content.Load<SoundEffect>("Sounds/PlayerJump");
-            fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
+            //killedSound = _room.content.Load<SoundEffect>("Sounds/PlayerKilled");
+            //jumpSound = _room.content.Load<SoundEffect>("Sounds/PlayerJump");
+            //fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
         }
 
         /// <summary>
@@ -200,7 +196,7 @@ namespace PrinceOfPersia
             _position.X = position.X;
             _position.Y = position.Y;
             Velocity = Vector2.Zero;
-            isAlive = true;
+            IsAlive = true;
             //sprite.IsStoppable = true;
 
             playerState.Clear();
@@ -218,7 +214,7 @@ namespace PrinceOfPersia
             _position.X = position.X;
             _position.Y = position.Y;
             Velocity = Vector2.Zero;
-            isAlive = true;
+            IsAlive = true;
             //sprite.IsStoppable = true;
 
             playerState.Clear();
@@ -244,8 +240,10 @@ namespace PrinceOfPersia
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
-            if (isDeath == true)
+            if (IsAlive == false)
+            {
                 return;
+            }
 
             //ApplyPhysicsNew(gameTime);
             HandleCollisionsNew();
@@ -561,8 +559,41 @@ namespace PrinceOfPersia
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
+     
+
+
+
             if (playerState.Value().Priority == Enumeration.PriorityState.Force)
                 return Enumeration.Input.none;
+
+
+
+            ////////
+            // CHEAT DEBUG
+            /////////
+            if (PrinceOfPersia.PrinceOfPersiaGame.CONFIG_DEBUG == true)
+            {
+                if (keyboardState.IsKeyDown(Keys.NumPad8))
+                {
+                    _maze.PlayerRoom = _maze.UpRoom(_maze.PlayerRoom);
+                    return Enumeration.Input.none;
+                }
+                if (keyboardState.IsKeyDown(Keys.NumPad2))
+                {
+                    _maze.PlayerRoom = _maze.DownRoom(_maze.PlayerRoom);
+                    return Enumeration.Input.none;
+                }
+                if (keyboardState.IsKeyDown(Keys.NumPad4))
+                {
+                    _maze.PlayerRoom = _maze.LeftRoom(_maze.PlayerRoom);
+                    return Enumeration.Input.none;
+                }
+                if (keyboardState.IsKeyDown(Keys.NumPad6))
+                {
+                    _maze.PlayerRoom = _maze.RightRoom(_maze.PlayerRoom);
+                    return Enumeration.Input.none;
+                }
+            }
 
 
             //////////
@@ -720,7 +751,7 @@ namespace PrinceOfPersia
         {
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = _position.Bounding;
-            Vector4 v4 = _room.getBoundTiles(playerBounds);
+            Vector4 v4 = _maze.PlayerRoom.getBoundTiles(playerBounds);
 
             int x, y = 0;
 
@@ -729,10 +760,10 @@ namespace PrinceOfPersia
             else
             { x = (int)v4.X; y = (int)v4.W + 1; }
 
-            Rectangle tileBounds = _room.GetBounds(x, y);
+            Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y);
             Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y);
-            Enumeration.TileType tileType = _room.GetType(x, y);
+            Enumeration.TileCollision tileCollision = _maze.PlayerRoom.GetCollision(x, y);
+            Enumeration.TileType tileType = _maze.PlayerRoom.GetType(x, y);
 
 
 
@@ -767,7 +798,7 @@ namespace PrinceOfPersia
         {
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = _position.Bounding;
-            Vector4 v4 = _room.getBoundTiles(playerBounds);
+            Vector4 v4 = _maze.PlayerRoom.getBoundTiles(playerBounds);
 
             int x, y = 0;
 
@@ -776,10 +807,10 @@ namespace PrinceOfPersia
             else
             { x = (int)v4.X; y = (int)v4.W; }
 
-            Rectangle tileBounds = _room.GetBounds(x, y);
+            Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y);
             Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y);
-            Enumeration.TileType tileType = _room.GetType(x, y);
+            Enumeration.TileCollision tileCollision = _maze.PlayerRoom.GetCollision(x, y);
+            Enumeration.TileType tileType = _maze.PlayerRoom.GetType(x, y);
 
 
 
@@ -816,15 +847,15 @@ namespace PrinceOfPersia
             isOnGround = false;
 
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = _room.getCenterTile(playerBounds);
-            Rectangle tileBounds = _room.GetBounds((int)v2.X, (int)v2.Y);
+            Vector2 v2 = _maze.PlayerRoom.getCenterTile(playerBounds);
+            Rectangle tileBounds = _maze.PlayerRoom.GetBounds((int)v2.X, (int)v2.Y);
 
             //if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor 
             //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.gate 
             //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.pressplate
             //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.door
             //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.torch)
-            if (_room.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
+            if (_maze.PlayerRoom.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
             {
                 if (playerBounds.Bottom >= tileBounds.Bottom)
                     isOnGround = true;
@@ -847,9 +878,9 @@ namespace PrinceOfPersia
                 {
                     playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
                     //StepFall(Enumeration.PriorityState.Normal, new Vector2(0,15));
-                    _room.LooseShake();
+                    _maze.PlayerRoom.LooseShake();
                     //and for upper room...
-                    _room.maze.UpRoom(_room).LooseShake();
+                    _maze.PlayerRoom.maze.UpRoom(_maze.PlayerRoom).LooseShake();
                 }
             }
             else
@@ -869,44 +900,35 @@ namespace PrinceOfPersia
 
             Rectangle playerBounds = _position.Bounding;
             //Find how many tiles are near on the left
-            Vector4 v4 = _room.getBoundTiles(playerBounds);
+            Vector4 v4 = _maze.PlayerRoom.getBoundTiles(playerBounds);
 
             // For each potentially colliding Tile, warning the for check only the player row ground..W
             for (int y = (int)v4.Z; y <= (int)v4.W; ++y)
             {
                 for (int x = (int)v4.X; x <= (int)v4.Y; ++x)
                 {
-                    Rectangle tileBounds = _room.GetBounds(x, y);
+                    Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y);
                     Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-                    Enumeration.TileCollision tileCollision = _room.GetCollision(x, y);
-                    Enumeration.TileType tileType = _room.GetType(x, y);
+                    Enumeration.TileCollision tileCollision = _maze.PlayerRoom.GetCollision(x, y);
+                    Enumeration.TileType tileType = _maze.PlayerRoom.GetType(x, y);
 
                     switch (tileType)
                     {
                         case Enumeration.TileType.spikes :
-                            //if touch spike kid will die
-                            if (depth.Y >= Player.PLAYER_SIZE_Y)
-                            {
-                                ((Spikes)_room.GetTile(x, y)).Open();
-                                Impale();
-                                return;
-                            }
-
-                            
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
-                                if (depth.X < 10)
-                                    ((Spikes)_room.GetTile(x, y)).Open();
+                                if (depth.X < 10 & depth.Y >= Player.PLAYER_SIZE_Y)
+                                    ((Spikes)_maze.PlayerRoom.GetTile(x, y)).Open();
 
-                                if (depth.X <= -30 & ((Spikes)_room.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                if (depth.X <= -30 & depth.Y >= Player.PLAYER_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                     Impale();
                             }
                             else
                             {
-                                if (depth.X > -10)
-                                    ((Spikes)_room.GetTile(x, y)).Open();
+                                if (depth.X > -10 & depth.Y >= Player.PLAYER_SIZE_Y)
+                                    ((Spikes)_maze.PlayerRoom.GetTile(x, y)).Open();
 
-                                if (depth.X >= 60 & ((Spikes)_room.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                if (depth.X >= 60 & depth.Y >= Player.PLAYER_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                     Impale();
                             }
 
@@ -916,26 +938,26 @@ namespace PrinceOfPersia
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                    ((Loose)_room.GetTile(x, y)).Press();
+                                    ((Loose)_maze.PlayerRoom.GetTile(x, y)).Press();
                                 else
                                     isLoosable();
                             }
                             else
                             {
                                 if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                    ((Loose)_room.GetTile(x, y)).Press();
+                                    ((Loose)_maze.PlayerRoom.GetTile(x, y)).Press();
                                 else
                                     isLoosable();
                             }
                             break;
 
                         case Enumeration.TileType.pressplate:
-                            ((PressPlate)_room.GetTile(x, y)).Press();
+                            ((PressPlate)_maze.PlayerRoom.GetTile(x, y)).Press();
                             break;
                         case Enumeration.TileType.door:
                         case Enumeration.TileType.block:
                             if (tileType == Enumeration.TileType.door)
-                                if (((Door)_room.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                                if (((Door)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
                                     break;
                             //if player are raised then not collide..
 
@@ -1019,34 +1041,26 @@ namespace PrinceOfPersia
             if (_position.Y > RoomNew.BOTTOM_LIMIT+10)
             {
                 //uscito DOWN
-                RoomNew room = _room.maze.DownRoom(_room);
-                _room.maze.playerRoom = room;
-                //room.player = _room.player;
-                _room = room;
+                RoomNew room = _maze.DownRoom(_maze.PlayerRoom);
+                _maze.PlayerRoom = room;
                 _position.Y = RoomNew.TOP_LIMIT - 10;
             }
             else if (_position.X >= RoomNew.RIGHT_LIMIT)
             {
-                RoomNew room = _room.maze.RightRoom(_room);
-                _room.maze.playerRoom = room;
-                //room.player = _room.player;
-                _room = room;
+                RoomNew room = _maze.RightRoom(_maze.PlayerRoom);
+                _maze.PlayerRoom = room;
                 _position.X = RoomNew.LEFT_LIMIT + 10;
             }
             else if (_position.X <= RoomNew.LEFT_LIMIT)
             {
-                RoomNew room = _room.maze.LeftRoom(_room);
-                _room.maze.playerRoom = room;
-                //room.player = _room.player;
-                _room = room;
+                RoomNew room = _maze.LeftRoom(_maze.PlayerRoom);
+                _maze.PlayerRoom = room;
                 _position.X = RoomNew.RIGHT_LIMIT - 10;
             }
             else if (_position.Y < RoomNew.TOP_LIMIT-10)
             {
-                RoomNew room = _room.maze.UpRoom(_room);
-                _room.maze.playerRoom = room;
-                //room.player = _room.player;
-                _room = room;
+                RoomNew room = _maze.UpRoom(_maze.PlayerRoom);
+                _maze.PlayerRoom = room;
                 _position.Y = RoomNew.BOTTOM_LIMIT - 74;
             }
 
@@ -1105,6 +1119,7 @@ namespace PrinceOfPersia
         {
             playerState.Add(Enumeration.State.impale);
             sprite.PlayAnimation(playerSequence, playerState.Value());
+            IsAlive = false;
         }
 
         public void Turn()
@@ -1219,7 +1234,7 @@ namespace PrinceOfPersia
 
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = _room.getCenterTile(playerBounds);
+            Vector2 v2 = _maze.PlayerRoom.getCenterTile(playerBounds);
 
             int x = (int)v2.X;
             int y = (int)v2.Y;
@@ -1232,10 +1247,10 @@ namespace PrinceOfPersia
 
             if (flip == SpriteEffects.FlipHorizontally)
                 //tileType = _room.GetType(x-1, y);
-                tileCollision = _room.GetCollision(x - 1, y);
+                tileCollision = _maze.PlayerRoom.GetCollision(x - 1, y);
             else
                 //tileType = _room.GetType(x+1, y);
-                tileCollision = _room.GetCollision(x + 1, y);
+                tileCollision = _maze.PlayerRoom.GetCollision(x + 1, y);
 
 
             //if (tileType != Enumeration.TileType.space)
@@ -1251,7 +1266,7 @@ namespace PrinceOfPersia
             else
             { xOffSet = -Tile.PERSPECTIVE; }
 
-            Rectangle tileBounds = _room.GetBounds(x, y + 1);
+            Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y + 1);
             _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
             return true;
 
@@ -1271,7 +1286,7 @@ namespace PrinceOfPersia
 
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = _room.getCenterTile(playerBounds);
+            Vector2 v2 = _maze.PlayerRoom.getCenterTile(playerBounds);
 
             int x = (int)v2.X;
             int y = (int)v2.Y;
@@ -1279,7 +1294,7 @@ namespace PrinceOfPersia
 
             //Rectangle tileBounds = _room.GetBounds(x, y);
             //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y - 1);
+            Enumeration.TileCollision tileCollision = _maze.PlayerRoom.GetCollision(x, y - 1);
             Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
 
 
@@ -1291,14 +1306,14 @@ namespace PrinceOfPersia
                 { x = x - 1; }
                 else
                 { x = x + 1; }
-                tileCollision = _room.GetCollision(x, y - 1);
+                tileCollision = _maze.PlayerRoom.GetCollision(x, y - 1);
                 //tileType = _room.GetType(x, y - 1);
                 //if (tileType != Enumeration.TileType.space)
                 if (tileCollision != Enumeration.TileCollision.Passable)
                     return false;
                 x = ((int)v2.X); //THE FLOOR FOR CLIMB UP
 
-                Tile t = _room.GetTile(new Vector2(x, y));
+                Tile t = _maze.PlayerRoom.GetTile(new Vector2(x, y));
                 if (t.Type == Enumeration.TileType.door)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
                         return false;
@@ -1311,13 +1326,13 @@ namespace PrinceOfPersia
                 { x = x + 1; }
                 else
                 { x = x - 1; }
-                tileCollision = _room.GetCollision(x, y - 1);
+                tileCollision = _maze.PlayerRoom.GetCollision(x, y - 1);
                 //tileType = _room.GetType(x, y - 1);
                 //if (tileType != Enumeration.TileType.floor & tileType != Enumeration.TileType.gate)
                 if (tileCollision != Enumeration.TileCollision.Platform)
                     return false;
 
-                Tile t = _room.GetTile(new Vector2(x, y - 1));
+                Tile t = _maze.PlayerRoom.GetTile(new Vector2(x, y - 1));
                 if (t.Type == Enumeration.TileType.door)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
                         return false;
@@ -1335,7 +1350,7 @@ namespace PrinceOfPersia
             { xOffSet = -Tile.REALWIDTH + Tile.PERSPECTIVE; }
 
 
-            Rectangle tileBounds = _room.GetBounds(x, y - 1);
+            Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y - 1);
             _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
             return true;
 
@@ -1346,7 +1361,7 @@ namespace PrinceOfPersia
 
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = _room.getCenterTile(playerBounds);
+            Vector2 v2 = _maze.PlayerRoom.getCenterTile(playerBounds);
 
             int x = (int)v2.X;
             int y = (int)v2.Y;
@@ -1354,7 +1369,7 @@ namespace PrinceOfPersia
 
             //Rectangle tileBounds = _room.GetBounds(x, y);
             //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-            Enumeration.TileCollision tileCollision = _room.GetCollision(x, y - 1);
+            Enumeration.TileCollision tileCollision = _maze.PlayerRoom.GetCollision(x, y - 1);
             Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
 
 
@@ -1362,7 +1377,7 @@ namespace PrinceOfPersia
             if (tileCollision == Enumeration.TileCollision.Platform)
             {
                 //CHECK KID IS UNDER THE FLOOR CHECK NEXT TILE
-                Tile t = _room.GetTile(x, y-1);
+                Tile t = _maze.PlayerRoom.GetTile(x, y - 1);
                 if (t.Type != Enumeration.TileType.loose)
                 {
                     return false;

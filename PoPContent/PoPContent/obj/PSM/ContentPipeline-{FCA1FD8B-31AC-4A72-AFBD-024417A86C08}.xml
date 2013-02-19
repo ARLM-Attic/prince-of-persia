@@ -1,0 +1,2057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Fonts\Hud.spritefont</Source>
+      <Name>Fonts\Hud</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Fonts\Hud.xnb</Output>
+      <Time>2013-02-01T12:31:54.201409+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\PoP.spritefont</Source>
+      <Name>Fonts\PoP</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Fonts\PoP.xnb</Output>
+      <Time>2013-02-01T12:36:49.0553966+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\ExitReached.wma</Source>
+      <Name>Sounds\ExitReached</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\ExitReached.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\ExitReached.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\GemCollected.wma</Source>
+      <Name>Sounds\GemCollected</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\GemCollected.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\GemCollected.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\MonsterKilled.wma</Source>
+      <Name>Sounds\MonsterKilled</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\MonsterKilled.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\MonsterKilled.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\Music.wma</Source>
+      <Name>Sounds\Music</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\Music.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\Music.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\PlayerFall.wma</Source>
+      <Name>Sounds\PlayerFall</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerFall.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerFall.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\PlayerJump.wma</Source>
+      <Name>Sounds\PlayerJump</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerJump.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerJump.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\PlayerKilled.wma</Source>
+      <Name>Sounds\PlayerKilled</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerKilled.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\PlayerKilled.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sounds\Powerup.wma</Source>
+      <Name>Sounds\Powerup</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\Powerup.xnb</Output>
+      <Extra>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sounds\Powerup.wma</Extra>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\bottom\live_empty.png</Source>
+      <Name>Sprites\bottom\live_empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\bottom\live_empty.xnb</Output>
+      <Time>2013-02-08T13:14:10.0705927+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\bottom\live_full.png</Source>
+      <Name>Sprites\bottom\live_full</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\bottom\live_full.xnb</Output>
+      <Time>2013-02-08T13:14:22.2269067+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\bottom\splash.png</Source>
+      <Name>Sprites\bottom\splash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\bottom\splash.xnb</Output>
+      <Time>2013-02-08T13:13:38.9774269+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame1.png</Source>
+      <Name>Sprites\fire\frame1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame1.xnb</Output>
+      <Time>2012-11-30T13:40:17.0934056+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame2.png</Source>
+      <Name>Sprites\fire\frame2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame2.xnb</Output>
+      <Time>2012-11-30T13:40:28.1409848+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame3.png</Source>
+      <Name>Sprites\fire\frame3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame3.xnb</Output>
+      <Time>2012-11-30T13:40:38.7847256+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame4.png</Source>
+      <Name>Sprites\fire\frame4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame4.xnb</Output>
+      <Time>2012-11-30T13:17:38.3123659+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame5.png</Source>
+      <Name>Sprites\fire\frame5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame5.xnb</Output>
+      <Time>2012-11-30T13:17:51.6543659+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame6.png</Source>
+      <Name>Sprites\fire\frame6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame6.xnb</Output>
+      <Time>2012-11-30T13:18:04.9513659+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame7.png</Source>
+      <Name>Sprites\fire\frame7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame7.xnb</Output>
+      <Time>2012-11-30T13:18:19.4033659+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame8.png</Source>
+      <Name>Sprites\fire\frame8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame8.xnb</Output>
+      <Time>2012-11-30T13:39:52.1114024+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\fire\frame9.png</Source>
+      <Name>Sprites\fire\frame9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\fire\frame9.xnb</Output>
+      <Time>2012-11-30T13:40:04.497446+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_1.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_1.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_10.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_10.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_102.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_102</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_102.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_103.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_103</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_103.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_104.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_104</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_104.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_105.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_105</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_105.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_106.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_106</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_106.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_107.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_107</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_107.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_108.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_108</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_108.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_109.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_109</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_109.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_11.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_11.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_110.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_110</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_110.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_111.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_111</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_111.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_112.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_112</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_112.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_113.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_113</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_113.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_114.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_114</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_114.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_115.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_115</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_115.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_116.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_116</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_116.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_117.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_117</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_117.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_118.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_118</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_118.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_119.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_119</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_119.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_12.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_12.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_121.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_121</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_121.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_122.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_122</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_122.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_123.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_123</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_123.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_124.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_124</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_124.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_125.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_125</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_125.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_126.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_126</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_126.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_127.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_127</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_127.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_128.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_128</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_128.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_129.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_129</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_129.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_13.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_13.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_130.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_130</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_130.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_131.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_131</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_131.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_132.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_132</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_132.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_135.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_135</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_135.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_136.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_136</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_136.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_137.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_137</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_137.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_138.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_138</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_138.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_139.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_139</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_139.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_14.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_14.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_140.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_140</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_140.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_141.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_141</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_141.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_142.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_142</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_142.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_143.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_143</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_143.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_144.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_144</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_144.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_145.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_145</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_145.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_146.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_146</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_146.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_147.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_147</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_147.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_148.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_148</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_148.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_149.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_149</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_149.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_15.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_15.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_15_debug.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_15_debug</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_15_debug.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_16.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_16.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_17.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_17.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_177.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_177</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_177.xnb</Output>
+      <Time>2013-01-31T11:11:32.6729127+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_178.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_178</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_178.xnb</Output>
+      <Time>2013-01-31T11:12:23.4139504+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_18.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_18</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_18.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_185.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_185</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_185.xnb</Output>
+      <Time>2013-01-31T11:12:02.682029+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_19.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_19</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_19.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_2.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_2.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_20.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_20</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_20.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_21.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_21</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_21.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_22.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_22</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_22.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_23.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_23.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_24.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_24.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_25.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_25.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_26.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_26</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_26.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_27.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_27</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_27.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_28.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_28</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_28.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_29.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_29</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_29.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_3.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_3.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_30.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_30</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_30.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_31.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_31</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_31.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_32.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_32.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_33.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_33</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_33.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_34.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_34</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_34.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_35.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_35</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_35.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_36.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_36</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_36.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_37.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_37</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_37.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_38.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_38</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_38.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_39.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_39</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_39.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_4.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_4.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_40.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_40.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_41.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_41</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_41.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_42.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_42</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_42.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_43.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_43</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_43.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_44.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_44</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_44.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_45.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_45</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_45.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_46.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_46</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_46.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_47.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_47</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_47.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_48.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_48</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_48.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_49.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_49</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_49.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_5.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_5.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_50.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_50.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_51.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_51</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_51.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_52.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_52</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_52.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_53.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_53</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_53.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_54.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_54</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_54.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_55.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_55</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_55.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_56.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_56</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_56.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_57.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_57</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_57.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_58.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_58</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_58.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_59.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_59</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_59.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_6.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_6.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_60.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_60</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_60.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_61.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_61</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_61.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_62.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_62</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_62.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_63.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_63</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_63.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_64.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_64</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_64.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_65.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_65</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_65.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_67.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_67</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_67.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_68.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_68</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_68.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_69.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_69</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_69.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_7.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_7.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_70.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_70</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_70.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_71.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_71</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_71.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_72.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_72</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_72.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_73.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_73</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_73.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_74.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_74</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_74.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_75.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_75</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_75.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_76.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_76</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_76.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_77.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_77</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_77.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_78.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_78</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_78.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_79.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_79</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_79.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_8.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_8.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_80.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_80</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_80.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_81.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_81</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_81.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_82.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_82</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_82.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_83.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_83</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_83.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_84.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_84</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_84.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_87.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_87</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_87.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_88.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_88</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_88.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_89.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_89</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_89.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_9.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_9.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_90.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_90</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_90.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_91.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_91</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_91.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_92.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_92</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_92.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_93.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_93</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_93.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_94.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_94</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_94.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_95.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_95</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_95.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_96.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_96</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_96.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_97.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_97</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_97.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_98.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_98</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_98.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Sprites\Player\Kid_dos\Kid_99.png</Source>
+      <Name>Sprites\Player\Kid_dos\Kid_99</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Sprites\Player\Kid_dos\Kid_99.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\BlockA.png</Source>
+      <Name>Tiles\BlockA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\BlockA.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_0.png</Source>
+      <Name>Tiles\DoorA_0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_0.xnb</Output>
+      <Time>2013-01-15T09:43:39.3477507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_1.png</Source>
+      <Name>Tiles\DoorA_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_1.xnb</Output>
+      <Time>2013-01-15T09:43:22.0087507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_10.png</Source>
+      <Name>Tiles\DoorA_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_10.xnb</Output>
+      <Time>2013-01-15T09:44:46.4777507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_11.png</Source>
+      <Name>Tiles\DoorA_11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_11.xnb</Output>
+      <Time>2013-01-24T13:50:09.4388632+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_12.png</Source>
+      <Name>Tiles\DoorA_12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_12.xnb</Output>
+      <Time>2013-01-24T13:51:20.8551027+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_13.png</Source>
+      <Name>Tiles\DoorA_13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_13.xnb</Output>
+      <Time>2013-01-15T09:43:57.8507507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_2.png</Source>
+      <Name>Tiles\DoorA_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_2.xnb</Output>
+      <Time>2013-01-15T09:42:57.3317507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_3.png</Source>
+      <Name>Tiles\DoorA_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_3.xnb</Output>
+      <Time>2013-01-15T09:42:40.4237507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_4.png</Source>
+      <Name>Tiles\DoorA_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_4.xnb</Output>
+      <Time>2013-01-24T13:55:57.3002471+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_5.png</Source>
+      <Name>Tiles\DoorA_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_5.xnb</Output>
+      <Time>2013-01-15T09:46:19.3557507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_6.png</Source>
+      <Name>Tiles\DoorA_6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_6.xnb</Output>
+      <Time>2013-01-15T09:46:00.8467507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_7.png</Source>
+      <Name>Tiles\DoorA_7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_7.xnb</Output>
+      <Time>2013-01-15T09:45:42.6097507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_8.png</Source>
+      <Name>Tiles\DoorA_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_8.xnb</Output>
+      <Time>2013-01-15T09:45:26.2377507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\DoorA_9.png</Source>
+      <Name>Tiles\DoorA_9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\DoorA_9.xnb</Output>
+      <Time>2013-01-15T09:45:07.3747507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorA.png</Source>
+      <Name>Tiles\FloorA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorA.xnb</Output>
+      <Time>2013-01-02T09:44:41.9243266+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB.png</Source>
+      <Name>Tiles\FloorB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB.xnb</Output>
+      <Time>2013-01-29T16:07:13.1954165+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_1.png</Source>
+      <Name>Tiles\FloorB_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_1.xnb</Output>
+      <Time>2013-01-29T16:07:37.4447101+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_2.png</Source>
+      <Name>Tiles\FloorB_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_2.xnb</Output>
+      <Time>2013-01-29T16:07:53.4761871+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_3.png</Source>
+      <Name>Tiles\FloorB_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_3.xnb</Output>
+      <Time>2013-01-29T16:08:10.0503082+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_4.png</Source>
+      <Name>Tiles\FloorB_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_4.xnb</Output>
+      <Time>2013-01-29T16:08:26.8714373+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_5.png</Source>
+      <Name>Tiles\FloorB_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_5.xnb</Output>
+      <Time>2013-01-29T16:08:40.1925591+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_6.png</Source>
+      <Name>Tiles\FloorB_6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_6.xnb</Output>
+      <Time>2013-01-29T16:08:52.4435993+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_7.png</Source>
+      <Name>Tiles\FloorB_7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_7.xnb</Output>
+      <Time>2013-01-29T16:09:06.9807591+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_8.png</Source>
+      <Name>Tiles\FloorB_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_8.xnb</Output>
+      <Time>2013-01-29T16:09:20.0195189+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorB_9.png</Source>
+      <Name>Tiles\FloorB_9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorB_9.xnb</Output>
+      <Time>2013-01-29T16:09:31.9591941+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorC.png</Source>
+      <Name>Tiles\FloorC</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorC.xnb</Output>
+      <Time>2013-01-03T11:06:30.1259547+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorD.png</Source>
+      <Name>Tiles\FloorD</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorD.xnb</Output>
+      <Time>2013-01-15T09:38:44.0387507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorE.png</Source>
+      <Name>Tiles\FloorE</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorE.xnb</Output>
+      <Time>2013-01-30T09:54:07.1746777+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorLooseA_1.png</Source>
+      <Name>Tiles\FloorLooseA_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorLooseA_1.xnb</Output>
+      <Time>2013-01-15T11:16:56.3346078+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\FloorLooseA_2.png</Source>
+      <Name>Tiles\FloorLooseA_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\FloorLooseA_2.xnb</Output>
+      <Time>2013-01-15T11:19:55.7625488+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\GateA.png</Source>
+      <Name>Tiles\GateA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\GateA.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\space.png</Source>
+      <Name>Tiles\space</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\space.xnb</Output>
+      <Time>2012-12-07T13:22:46.4543958+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpaceA.png</Source>
+      <Name>Tiles\SpaceA</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpaceA.xnb</Output>
+      <Time>2013-01-15T09:39:34.8307507+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpaceB.png</Source>
+      <Name>Tiles\SpaceB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpaceB.xnb</Output>
+      <Time>2012-12-07T13:16:49.6341352+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpikeA_1.png</Source>
+      <Name>Tiles\SpikeA_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpikeA_1.xnb</Output>
+      <Time>2013-01-30T13:57:20.1305495+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpikeA_2.png</Source>
+      <Name>Tiles\SpikeA_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpikeA_2.xnb</Output>
+      <Time>2013-01-30T14:49:48.4989238+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpikeA_3.png</Source>
+      <Name>Tiles\SpikeA_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpikeA_3.xnb</Output>
+      <Time>2013-01-30T14:47:02.2517813+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpikeA_4.png</Source>
+      <Name>Tiles\SpikeA_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpikeA_4.xnb</Output>
+      <Time>2013-01-30T14:48:30.5329268+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\SpikeA_5.png</Source>
+      <Name>Tiles\SpikeA_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\SpikeA_5.xnb</Output>
+      <Time>2013-01-30T14:45:11.7824909+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\WallA0.png</Source>
+      <Name>Tiles\WallA0</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\WallA0.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Tiles\WallA1.png</Source>
+      <Name>Tiles\WallA1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Tiles\WallA1.xnb</Output>
+      <Time>1980-01-01T00:00:00+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\author.png</Source>
+      <Name>Backgrounds\author</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\author.xnb</Output>
+      <Time>2013-01-31T14:38:36.149038+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\copyright.png</Source>
+      <Name>Backgrounds\copyright</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\copyright.xnb</Output>
+      <Time>2013-02-01T10:37:55.8516846+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\credits.png</Source>
+      <Name>Backgrounds\credits</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\credits.xnb</Output>
+      <Time>2013-02-01T09:38:29.3338669+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\in_the_absence.png</Source>
+      <Name>Backgrounds\in_the_absence</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\in_the_absence.xnb</Output>
+      <Time>2013-02-01T09:38:39.6378688+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\main_background.png</Source>
+      <Name>Backgrounds\main_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\main_background.xnb</Output>
+      <Time>2013-01-29T14:33:38.1706334+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\main_title.png</Source>
+      <Name>Backgrounds\main_title</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\main_title.xnb</Output>
+      <Time>2013-01-31T12:56:10.6508705+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\marry_jaffar.png</Source>
+      <Name>Backgrounds\marry_jaffar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\marry_jaffar.xnb</Output>
+      <Time>2013-02-01T09:38:51.1644128+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\orig_copyright.png</Source>
+      <Name>Backgrounds\orig_copyright</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\orig_copyright.xnb</Output>
+      <Time>2013-01-31T14:38:46.3510213+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\presents.png</Source>
+      <Name>Backgrounds\presents</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\presents.xnb</Output>
+      <Time>2013-01-31T14:38:25.5850582+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\text_0_background.png</Source>
+      <Name>Backgrounds\text_0_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\text_0_background.xnb</Output>
+      <Time>2013-02-06T15:05:39.4305128+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\text_1_background.png</Source>
+      <Name>Backgrounds\text_1_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\text_1_background.xnb</Output>
+      <Time>2013-02-06T15:06:15.0955271+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\text_2_background.png</Source>
+      <Name>Backgrounds\text_2_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\text_2_background.xnb</Output>
+      <Time>2013-02-06T15:20:04.2447527+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Backgrounds\text_background.png</Source>
+      <Name>Backgrounds\text_background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\Backgrounds\text_background.xnb</Output>
+      <Time>2013-01-31T15:16:56.1288242+01:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{FCA1FD8B-31AC-4A72-AFBD-024417A86C08}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>PSM</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContentContent\</RootDirectory>
+      <LoggerRootDirectory>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\obj\PSM\</IntermediateDirectory>
+      <OutputDirectory>C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PoPContent\PoPContent\bin\PSM\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\MSBuild\MonoGame\v3.0\MonoGameContentProcessors.dll</Key>
+        <Value>2013-01-11T22:24:16+01:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T17:22:30+02:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-02-08T10:30:05.3374349+01:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

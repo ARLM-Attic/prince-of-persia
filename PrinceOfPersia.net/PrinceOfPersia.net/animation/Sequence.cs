@@ -4,8 +4,9 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-using System.Collections.Generic;
 using Microsoft.Xna.Framework.Content;
+using System.Collections.Generic;
+
 
 namespace PrinceOfPersia
 {
@@ -54,7 +55,7 @@ namespace PrinceOfPersia
                 {
                     if (f.value != null)
                     {
-                        f.texture = Content.Load<Texture2D>(f.value);
+                        f.SetTexture(Content.Load<Texture2D>(f.value));
                     }
                 }
                 catch (Exception ex)

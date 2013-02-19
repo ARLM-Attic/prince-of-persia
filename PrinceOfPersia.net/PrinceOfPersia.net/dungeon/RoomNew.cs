@@ -79,9 +79,12 @@ namespace PrinceOfPersia
 
             //LOAD RES CONTENT
             System.Xml.Serialization.XmlSerializer ax;
-            Stream astream = this.GetType().Assembly.GetManifestResourceStream(filePath);
+            TextReader txtReader = File.OpenText(filePath);
+
+
+            //Stream astream = this.GetType().Assembly.GetManifestResourceStream(filePath);
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Map));
-            map = ((Map)ax.Deserialize(astream));
+            map = ((Map)ax.Deserialize(txtReader));
 
             LoadTiles();
         }
@@ -201,7 +204,7 @@ namespace PrinceOfPersia
         {
             if (maze.player == null)
             {
-                maze.player = new Player(this, startPosition, graphicsDevice, spriteEffect);
+                maze.player = new Player(maze, startPosition, graphicsDevice, spriteEffect);
                 //maze.player = new Player(this, startPosition, graphicsDevice);
             }
             else

@@ -32,6 +32,8 @@ namespace PrinceOfPersia
         List<Sequence> l ;
         [ContentSerializerIgnore] 
         private SpriteFont hudFont;
+        [ContentSerializerIgnore]
+        private SpriteFont PoPFont;
         [ContentSerializerIgnore] 
         private Texture2D winOverlay;
         [ContentSerializerIgnore] 
@@ -64,10 +66,17 @@ namespace PrinceOfPersia
         // or handle exceptions, both of which can add unnecessary time to level loading.
         private const int numberOfLevels = 3;
 
-        private bool CONFIG_DEBUG = false;
-        private float CONFIG_FRAMERATE = 0.09f;
-        public string CONFIG_SPRITE_KID = "KID_DOS";
-        public string CONFIG_PATH_RESOURCES = "PrinceOfPersia.resources.";
+        public static bool CONFIG_DEBUG = false;
+        public static float CONFIG_FRAMERATE = 0.09f;
+        public static string CONFIG_SPRITE_KID = "KID_DOS";
+        //public static string CONFIG_PATH_RESOURCES = System.AppDomain.CurrentDomain.BaseDirectory + "/Content/";
+        public static string CONFIG_PATH_CONTENT = System.AppDomain.CurrentDomain.BaseDirectory + @"Content\";
+        public static string CONFIG_PATH_LEVELS = @"Levels\";
+        public static string CONFIG_PATH_ROOMS = @"Rooms\";
+        public static string CONFIG_PATH_SEQUENCES = @"Sequences\";
+
+
+        
 
         ContentManager content;
 
@@ -92,7 +101,7 @@ namespace PrinceOfPersia
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
-            CONFIG_PATH_RESOURCES = ConfigurationSettings.AppSettings["CONFIG_path_resources"].ToString();
+            //CONFIG_PATH_CONTENT = ConfigurationSettings.AppSettings["CONFIG_path_content"].ToString();
             
             AnimationSequence.frameRate = CONFIG_FRAMERATE;
             Accelerometer.Initialize();
@@ -108,12 +117,12 @@ namespace PrinceOfPersia
             if (!instancePreserved)
             {
                 if (content == null)
-                    content = new ContentManager(ScreenManager.Game.Services, "Content");
+                    content = new ContentManager(ScreenManager.Game.Services, CONFIG_PATH_CONTENT);
 
                 LoadContent();
 
                 //LOAD MAZE
-                maze = new Maze(content, CONFIG_PATH_RESOURCES);
+                maze = new Maze(content);
                 //NOW START
                 maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
                 
@@ -148,11 +157,12 @@ namespace PrinceOfPersia
         protected void LoadContent()
         {
             if (content == null)
-                content = new ContentManager(ScreenManager.Game.Services, "Content");
+                content = new ContentManager(ScreenManager.Game.Services, CONFIG_PATH_CONTENT);
                 
 
             // Load fonts
             hudFont = content.Load<SpriteFont>("Fonts/Hud");
+            PoPFont = content.Load<SpriteFont>("Fonts/PoP");
 
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
@@ -198,7 +208,7 @@ namespace PrinceOfPersia
         {
             //// get all of our input states
             keyboardState = Keyboard.GetState();
-            gamePadState = GamePad.GetState(PlayerIndex.One);
+            //gamePadState = GamePad.GetState(PlayerIndex.One);
             touchState = TouchPanel.GetState();
             accelerometerState = Accelerometer.GetState();
 
@@ -228,15 +238,28 @@ namespace PrinceOfPersia
             ////spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
             base.ScreenManager.SpriteBatch.Begin();
 
-            maze.playerRoom.Draw(gameTime, spriteBatch);
+            DrawBottom();
+
+            maze.PlayerRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
 
             DrawHud();
-            DrawDebug(maze.playerRoom);
+            DrawDebug(maze.PlayerRoom);
 
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        private void DrawBottom()
+        {
+            int width = base.ScreenManager.Game.Window.ClientBounds.Width;
+            int height = base.ScreenManager.Game.Window.ClientBounds.Height;
+            int bottomBorderHeight = RoomNew.BOTTOM_BORDER;
+
+            Vector2 hudLocation = new Vector2(0, height - bottomBorderHeight);
+
+            DrawShadowedString(PoPFont, maze.PlayerRoom.roomName, hudLocation, Color.White);
         }
 
         private void DrawDebug(RoomNew room)
@@ -250,6 +273,9 @@ namespace PrinceOfPersia
 
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
+
+            DrawShadowedString(hudFont, "ROMM NAME=" + maze.PlayerRoom.roomName, hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
 
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
@@ -281,57 +307,23 @@ namespace PrinceOfPersia
 
         private void DrawHud()
         {
-            RoomNew room = maze.playerRoom;
+            //RoomNew room = maze.playerRoom;
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
             Vector2 center = new Vector2(titleSafeArea.X + titleSafeArea.Width / 2.0f,
                                          titleSafeArea.Y + titleSafeArea.Height / 2.0f);
 
-            //// Draw time remaining. Uses modulo division to cause blinking when the
-            //// player is running out of time.
-            //string timeString = "TIME: " + room.TimeRemaining.Minutes.ToString("00") + ":" + room.TimeRemaining.Seconds.ToString("00");
-            //Color timeColor;
-            //if (room.TimeRemaining > WarningTime ||
-            //    (int)room.TimeRemaining.TotalSeconds % 2 == 0)
-            //{
-            //    timeColor = Color.Yellow;
-            //}
-            //else
-            //{
-            //    timeColor = Color.Red;
-            //}
-            //hudLocation.Y = hudLocation.Y + 385;
-
-            //DrawShadowedString(hudFont, timeString, hudLocation, timeColor);
-
             // Draw score
-            //hudLocation.X = hudLocation.X;
             hudLocation.X = hudLocation.X + 420;
-            //float timeHeight = hudFont.MeasureString(timeString).Y;
             DrawShadowedString(hudFont, "PrinceOfPersia.net alpha version: " + RetrieveLinkerTimestamp().ToShortDateString(), hudLocation, Color.White);
 
-            // Determine the status overlay message to show.
-            //Texture2D status = null;
-            //if (room.TimeRemaining == TimeSpan.Zero)
-            //{
-
-            //    status = loseOverlay;
-            //}
-            //else if (!room.Player.IsAlive)
-            //{
-            //    status = diedOverlay;
-            //}
-
-            //if (status != null)
-            //{
-            //    // Draw status message.
-            //    Vector2 statusSize = new Vector2(status.Width, status.Height);
-            //    spriteBatch.Draw(status, center - statusSize / 2, Color.White);
-            //}
+        
         }
 
         private void DrawShadowedString(SpriteFont font, string value, Vector2 position, Color color)
         {
+            if (value == null)
+                value = "MAP_blockroom.xml";
             spriteBatch.DrawString(font, value, position + new Vector2(1.0f, 1.0f), Color.Black);
             spriteBatch.DrawString(font, value, position, color);
         }
@@ -367,3 +359,4 @@ namespace PrinceOfPersia
 
     }
 }
+

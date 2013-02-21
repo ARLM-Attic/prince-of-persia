@@ -41,7 +41,7 @@ namespace GameStateManagement
 
         SpriteBatch spriteBatch;
         SpriteFont font;
-        Texture2D blankTexture;
+        Texture2D blankTexture = null;
 
         bool isInitialized;
 
@@ -130,6 +130,7 @@ namespace GameStateManagement
             ContentManager content = Game.Content;
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            //AMF how can load content??
             font = content.Load<SpriteFont>("Fonts/Pop");
             //blankTexture = content.Load<Texture2D>("Backgrounds/main_background");
 

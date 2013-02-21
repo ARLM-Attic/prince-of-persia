@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+   <!-- NORMAL BLOCK -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Tiles/BlockA</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>NORMAL</name>
+    <raised>false</raised>
+    <collision>Impassable</collision>
+  </Sequence>
+ 
+  
+</ArrayOfSequence>
+

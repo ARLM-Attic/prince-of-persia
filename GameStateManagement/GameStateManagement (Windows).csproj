@@ -74,6 +74,10 @@
     <Compile Include="ScreenManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="MonoGame.Framework.Windows, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Debug\MonoGame.Framework.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -112,9 +116,10 @@
     <None Include="PrinceOfPersia.net %28Windows%29_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
-      <Project>{7DE47032-A904-4C29-BD22-2D235E8D91BA}</Project>
-      <Name>MonoGame.Framework.Windows</Name>
+    <ProjectReference Include="..\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\PrinceOfPersiaContentContent.contentproj">
+      <Project>{84687DDF-FE54-48F9-B1C8-304CF0871BD0}</Project>
+      <Name>PrinceOfPersiaContentContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

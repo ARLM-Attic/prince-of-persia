@@ -58,8 +58,6 @@ namespace PrinceOfPersia
         //public ArrayList tilesTemporaney;
 
         // Key locations in the level.        
-        private Vector2 startPosition = Vector2.Zero;
-        private SpriteEffects spriteEffect = SpriteEffects.None;
 
 
         public ContentManager content
@@ -154,21 +152,24 @@ namespace PrinceOfPersia
                     tiles[x, y].Position.X = v.X;
                     tiles[x, y].Position.Y = v.Y;
 
-                    if (c.spriteType == Enumeration.SpriteType.kid)
+                    switch (c.spriteType)
                     {
-                        int xPlayer = (x-1) * Tile.REALWIDTH + Player.SPRITE_SIZE_X;
-                        int yPlayer = y * Tile.REALHEIGHT;
+                        case Enumeration.SpriteType.kid :
+                            int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
+                            int yPlayer = (y+1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
+                            maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, c.spriteEffect);
+                            break;
 
-
-                        startPosition = new Vector2(xPlayer, yPlayer);
-
-                        if (c.spriteEffect == SpriteEffects.FlipHorizontally)
-                        {
-                            spriteEffect = SpriteEffects.FlipHorizontally;
-                        }
-
-                        
+                        case Enumeration.SpriteType.guard :
+                            int xGuard = (x-1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
+                            int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
+                            Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, c.spriteEffect);
+                            maze.guards.Add(g);
+                            break;
+                        default:
+                            break;
                     }
+
 
                     x++;
                 }
@@ -234,13 +235,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
-
-            if (maze.player == null)
-               maze.player = new Player(maze, startPosition, graphicsDevice, spriteEffect);
-            else
-                maze.player.Reset(startPosition, spriteEffect);
-
-
+            maze.player.Reset();
         }
 
         #endregion
@@ -412,6 +407,10 @@ namespace PrinceOfPersia
             //maze.UpRoom(this).UpdateTilesUp(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
 
             UpdateItems(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+
+            //update spritesssss
+            UpdateSprites(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            
         }
 
 
@@ -481,7 +480,16 @@ namespace PrinceOfPersia
             }
         }
 
-        
+
+        private void UpdateSprites(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
+        {
+            foreach(Guard g in maze.guards)
+            {
+                g.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            }
+            
+        }
+
         private void UpdateTilesTemporaney(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
         {
             try //workaroud to thread unsafe...?

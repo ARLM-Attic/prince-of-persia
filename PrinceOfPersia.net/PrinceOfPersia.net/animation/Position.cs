@@ -15,6 +15,7 @@ namespace PrinceOfPersia
         {
             _screenRealSize = screenRealSize;
             _spriteRealSize = spriteRealSize;
+            _vector2 = Vector2.Zero;
         }
 
         /// <summary>

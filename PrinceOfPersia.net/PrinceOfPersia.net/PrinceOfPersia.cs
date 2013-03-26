@@ -132,7 +132,7 @@ namespace PrinceOfPersia
                 LoadContent();
 
                 //LOAD MAZE
-                maze = new Maze(content);
+                maze = new Maze(GraphicsDevice, content);
                 //NOW START
                 maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
                 
@@ -258,22 +258,27 @@ namespace PrinceOfPersia
             base.ScreenManager.SpriteBatch.Begin();
             
             //base.ScreenManager.SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-            
 
-            
 
-            maze.PlayerRoom.Draw(gameTime, spriteBatch);
+
+
+            maze.player.SpriteRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
 
-            
+            foreach (Guard g in maze.guards)
+            {
+                g.Draw(gameTime, spriteBatch);
+            }
+
+
 
             //now drow the mask
-            maze.PlayerRoom.DrawMask(gameTime, spriteBatch);
+            maze.player.SpriteRoom.DrawMask(gameTime, spriteBatch);
 
 
             DrawBottom();
             DrawHud();
-            DrawDebug(maze.PlayerRoom);
+            DrawDebug(maze.player.SpriteRoom);
 
             spriteBatch.End();
 
@@ -335,7 +340,7 @@ namespace PrinceOfPersia
             Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
             Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
 
-            DrawShadowedString(hudFont, "ROMM NAME=" + maze.PlayerRoom.roomName, hudLocation, Color.White);
+            DrawShadowedString(hudFont, "ROMM NAME=" + maze.player.SpriteRoom.roomName, hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
 
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
@@ -343,7 +348,7 @@ namespace PrinceOfPersia
             DrawShadowedString(hudFont, "FRAME RATE=" + AnimationSequence.frameRate.ToString(), hudLocation, Color.White);
 
             hudLocation.Y = hudLocation.Y + 10;
-            DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.playerState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
+            DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.spriteState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
 
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = maze.player.Position.Bounding;

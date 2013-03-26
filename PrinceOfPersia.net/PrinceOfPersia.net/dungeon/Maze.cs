@@ -16,34 +16,26 @@ namespace PrinceOfPersia
     public class Maze
     {
         // Level content.        
+        public GraphicsDevice graphicsDevice;
         public ContentManager content;
         public List<Level> levels = new List<Level>();
-        private RoomNew playerRoom;
         public List<RoomNew> rooms = new List<RoomNew>();
         public Player player;
+        public List<Guard> guards = new List<Guard>();
+        
+        private RoomNew playerRoom;
         private static RoomNew blockRoom;
+
 
         //List for retain and load maze tiles textures
         public static Dictionary<string, object> dTexture = null;
-
-        // Physics state
-        public RoomNew PlayerRoom
-        {
-            get 
-            { 
-                return playerRoom; 
-            }
-            set 
-            { 
-                playerRoom = value; 
-            }
-        }
-        Vector2 positionArrive;
+        public Vector2 positionArrive;
 
 
-        public Maze(ContentManager contentmanager)
+        public Maze(GraphicsDevice GraphicsDevice, ContentManager contentmanager)
         {
             content = contentmanager;
+            graphicsDevice = GraphicsDevice;
 
             LoadContent();
 

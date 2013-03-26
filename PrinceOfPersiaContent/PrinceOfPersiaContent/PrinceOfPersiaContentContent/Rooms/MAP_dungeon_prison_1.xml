@@ -97,6 +97,9 @@
           <tileType>gate</tileType>
         </Column>
         <Column>
+          <spriteType>guard</spriteType>
+          <spriteEffect>None</spriteEffect>
+
           <tileType>loose</tileType>
         </Column>
         <Column>

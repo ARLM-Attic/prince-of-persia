@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -9,7 +10,6 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
 
 
@@ -25,9 +25,9 @@ namespace PrinceOfPersia
         public AnimationSequence tileAnimation = new AnimationSequence();
         //private StateTileElement stateTileElement = new StateTileElement();
         public TileState tileState = new TileState();
+        //contains object like sword, potion...
+        public Item item = null;
 
-        //static for share purposes
-        private static List<Sequence> tileSequence = new List<Sequence>();
 
         public static int GROUND = 20; //20;//18; //Height of the floor ground
         public static int WIDTH = 64; //used for build the grid of room
@@ -36,6 +36,15 @@ namespace PrinceOfPersia
         public static int REALWIDTH = 128; //used for build view of romm
         public static int PERSPECTIVE = 26; //26 isometric shift x right
         public static readonly Vector2 Size = new Vector2(WIDTH, HEIGHT);
+
+        public static Rectangle MASK_FLOOR = new Rectangle(0, 128, 62, 20); //floor gate
+        public static Rectangle MASK_GATE = new Rectangle(0, 0, 54, 148); //mask gate
+        public static Rectangle MASK_BLOCK = new Rectangle(0, 0, 64, 148); //block gate
+        public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, 148); //block gate
+        
+
+        //(0, 128, 62, 20);
+
 
         private SpriteEffects flip = SpriteEffects.None;
         //private List<Tile> _tileReference = new List<Tile>();
@@ -56,15 +65,41 @@ namespace PrinceOfPersia
         }
 
 
+
+        public Vector2 Coordinates
+        {
+            get
+            {
+                int x = (int)Math.Floor((float)_position.X / Tile.WIDTH);
+                int y = (int)Math.Ceiling(((float)(_position.Y) - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT);
+
+                return new Vector2(x, y);
+            }
+
+        }
+
+        //static for share purposes
+        private static List<Sequence> tileSequence = new List<Sequence>();
+        public List<Sequence> TileSequence
+        {
+            get { return tileSequence; }
+        }
+
+
+
         public Tile()
         {}
 
-        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, string state)
+        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem)
         {
             this.room = room;
 
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
-            TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+            //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+
+
             tileSequence = (List<Sequence>)ax.Deserialize(txtReader);
 
             foreach (Sequence s in tileSequence)
@@ -75,8 +110,7 @@ namespace PrinceOfPersia
             //Search in the sequence the right type
             Sequence result = tileSequence.Find(delegate(Sequence s)
             {
-                //return s.name == tileType.ToString().ToUpper();
-                return s.name == state;
+                return s.name == state.ToString().ToUpper();
             });
 
             if (result != null)
@@ -92,9 +126,21 @@ namespace PrinceOfPersia
 
             //change statetile element
             StateTileElement stateTileElement = new StateTileElement();
-            stateTileElement.state = (Enumeration.StateTile)Enum.Parse(typeof(Enumeration.StateTile), state.ToLower());
+            stateTileElement.state = state;
             tileState.Add(stateTileElement);
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+
+            //load item
+            switch (eitem)
+            { 
+                case Enumeration.Items.flask:
+                    item = new Flask(Content);
+                    break;
+                case Enumeration.Items.sword:
+                    item = new Sword(Content);
+                    break;
+            }
+
         }
 
         /// <summary>
@@ -177,14 +223,14 @@ namespace PrinceOfPersia
                         {
                             room.tilesTemporaney.Remove(this);
                         }
-                        Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
+                        //Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
                         if (tileType == Enumeration.TileType.loose)
                         {
                             Loose l = (Loose) room.GetTile((int)v.X, (int)v.W);
                             l.Fall(true);
                         }                        
                         else
-                            room.SubsTile(vs, Enumeration.TileType.rubble);
+                            room.SubsTile(Coordinates, Enumeration.TileType.rubble);
                     }
                     
                 }

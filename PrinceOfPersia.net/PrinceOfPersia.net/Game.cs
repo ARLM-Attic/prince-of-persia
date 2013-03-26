@@ -15,7 +15,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.GamerServices;
-using GameStateManagement;
+
 using System.Configuration;
 
 
@@ -33,25 +33,24 @@ namespace PrinceOfPersia
         ScreenManager screenManager;
         ScreenFactory screenFactory;
 
-        public int CONFIG_SCREEN_WIDTH = 640;
-        public int CONFIG_SCREEN_HEIGHT = 400;
-
+        public static int CONFIG_SCREEN_WIDTH = 640;
+        public static int CONFIG_SCREEN_HEIGHT = 400;
 
         /// <summary>
         /// The main game constructor.
         /// </summary>
         public Game()
         {
-
+#if WINDOWS
             int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_width"], out CONFIG_SCREEN_WIDTH);
             int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_height"], out CONFIG_SCREEN_HEIGHT);
-
+#endif
             Content.RootDirectory = "Content";
 
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = CONFIG_SCREEN_WIDTH;
             graphics.PreferredBackBufferHeight = CONFIG_SCREEN_HEIGHT;
-            graphics.IsFullScreen = false;
+            //graphics.IsFullScreen = false;
             graphics.PreferredDepthStencilFormat = Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24Stencil8;
 
             TargetElapsedTime = TimeSpan.FromTicks(333333);

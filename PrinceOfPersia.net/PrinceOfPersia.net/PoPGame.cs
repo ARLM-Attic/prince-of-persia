@@ -8,7 +8,7 @@
 #endregion
 
 using System;
-using GameStateManagement;
+
 using Microsoft.Xna.Framework;
 using System.Configuration;
 
@@ -21,7 +21,7 @@ namespace PrinceOfPersia
     /// menu. This main game class is extremely simple: all the interesting
     /// stuff happens in the ScreenManager component.
     /// </summary>
-    public class PoPGame : Microsoft.Xna.Framework.Game
+    public class PoPGame : Game
     {
         GraphicsDeviceManager graphics;
         ScreenManager screenManager;
@@ -36,11 +36,16 @@ namespace PrinceOfPersia
         /// </summary>
         public PoPGame()
         {
-        
+#if ANDROID
+            CONFIG_SCREEN_WIDTH = 320;
+            CONFIG_SCREEN_HEIGHT = 200;
+#endif 
+
+#if WINDOWS       
                 int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_width"], out CONFIG_SCREEN_WIDTH);
                 int.TryParse(ConfigurationSettings.AppSettings["CONFIG_screen_height"], out CONFIG_SCREEN_HEIGHT);
-
-                Content.RootDirectory = "Content";
+#endif
+            Content.RootDirectory = "Content";
 
                 graphics = new GraphicsDeviceManager(this);
                 graphics.PreferredBackBufferWidth = CONFIG_SCREEN_WIDTH;

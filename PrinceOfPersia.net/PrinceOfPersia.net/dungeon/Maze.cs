@@ -21,6 +21,10 @@ namespace PrinceOfPersia
         private RoomNew playerRoom;
         public List<RoomNew> rooms = new List<RoomNew>();
         public Player player;
+        private static RoomNew blockRoom;
+
+        //List for retain and load maze tiles textures
+        public static Dictionary<string, object> dTexture = null;
 
         // Physics state
         public RoomNew PlayerRoom
@@ -40,16 +44,24 @@ namespace PrinceOfPersia
         public Maze(ContentManager contentmanager)
         {
             content = contentmanager;
-            
+
+            LoadContent();
+
             //LOAD MXL CONTENT
-            //string binPath = System.AppDomain.CurrentDomain.BaseDirectory;
-            TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
+            Stream txtReader;
+//#if ANDROID
+            //txtReader = Game.Activity.Assets.Open(@PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
+//#endif
+            txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
+            
+            //txtReader = (Stream) File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
 
             System.Xml.Serialization.XmlSerializer ax = null;
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Level));
             levels.Add((Level)ax.Deserialize(txtReader));
-            
-            
+
+            //Define and build a generic blockroom for usefull
+            blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
             
 
             //LOAD ALL LEVEL IN LIST
@@ -83,6 +95,16 @@ namespace PrinceOfPersia
             }
         }
 
+        //Load all texture in a dictiornary
+        private void LoadContent()
+        {
+            dTexture = Program.LoadContent<object>(content, "");
+
+
+        }
+
+
+
         public List<Tile> GetTiles(Enumeration.TileType tileType)
         {
             List<Tile> list = new List<Tile>();
@@ -106,14 +128,16 @@ namespace PrinceOfPersia
             if (x != 0)
                 x = --x;
             else
-                return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+                return blockRoom;
+                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
 
             foreach (RoomNew r in rooms)
             {
                 if (r.roomX == x & r.roomY == y & r.roomZ == z)
                     return r;
             }
-            return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return blockRoom;
+            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
         public RoomNew DownRoom(RoomNew room)
@@ -125,14 +149,16 @@ namespace PrinceOfPersia
             if (y != levels[z].rows.Count() - 1)
                 y = ++y;
             else
-                return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+                return blockRoom;
+                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
 
             foreach (RoomNew r in rooms)
             {
                 if (r.roomX == x & r.roomY == y & r.roomZ == z)
                     return r;
             }
-            return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return blockRoom;
+            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
         public RoomNew RightRoom(RoomNew room)
@@ -144,14 +170,16 @@ namespace PrinceOfPersia
             if (x != levels[z].rows[y].columns.Count() - 1)
                 x = ++x;
             else
-                return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+                return blockRoom;
+                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
 
             foreach (RoomNew r in rooms)
             {
                 if (r.roomX == x & r.roomY == y & r.roomZ == z)
                     return r;
             }
-            return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return blockRoom;
+            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
         public RoomNew UpRoom(RoomNew room)
@@ -163,14 +191,16 @@ namespace PrinceOfPersia
             if (y != levels[z].rows.Count() - 1)
                 y = --y;
             else
-                return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+                return blockRoom;
+                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
 
             foreach (RoomNew r in rooms)
             {
                 if (r.roomX == x & r.roomY == y & r.roomZ == z)
                     return r;
             }
-            return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return blockRoom;
+            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
         public RoomNew StartRoom()
@@ -183,7 +213,8 @@ namespace PrinceOfPersia
                     return r;
                 }
             }
-            return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return blockRoom;
+            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
 

@@ -46,7 +46,7 @@
     <WebPage>home.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <TrustUrlParameters>true</TrustUrlParameters>
-    <ApplicationRevision>103</ApplicationRevision>
+    <ApplicationRevision>110</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -104,6 +104,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="animation\AnimationSequence.cs" />
+    <Compile Include="items\Sword.cs" />
     <Compile Include="PoPGame.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -122,6 +123,11 @@
     <Compile Include="dungeon\RoomRow.cs" />
     <Compile Include="dungeon\Row.cs" />
     <Compile Include="Enumeration.cs" />
+    <Compile Include="screenmanager\GameScreen.cs" />
+    <Compile Include="screenmanager\InputAction.cs" />
+    <Compile Include="screenmanager\InputState.cs" />
+    <Compile Include="screenmanager\IScreenFactory.cs" />
+    <Compile Include="screenmanager\ScreenManager.cs" />
     <Compile Include="screens\BackgroundScreen.cs" />
     <Compile Include="screens\Button.cs" />
     <Compile Include="screens\LoadingScreen.cs" />
@@ -135,12 +141,15 @@
     <Compile Include="screens\PhoneMenuScreen.cs" />
     <Compile Include="screens\PhonePauseScreen.cs" />
     <Compile Include="screens\PlayerIndexEventArgs.cs" />
+    <Compile Include="items\Item.cs" />
+    <Compile Include="sprite\Guard.cs" />
     <Compile Include="sprite\Player.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="sprite\PlayerState.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="items\Flask.cs" />
     <Compile Include="sprite\Sprite.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -206,10 +215,14 @@
     <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="MonoGame.Framework.Windows, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Debug\MonoGame.Framework.Windows.dll</HintPath>
+      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Release\MonoGame.Framework.Windows.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <Private>True</Private>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Assemblies\OpenTK.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -245,10 +258,6 @@
     <Content Include="PoPicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\GameStateManagement\GameStateManagement %28Windows%29.csproj">
-      <Project>{0A551D79-F37E-4529-9CA0-3FD2E9EA715E}</Project>
-      <Name>GameStateManagement %28Windows%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\PrinceOfPersiaContentContent.contentproj">
       <Project>{84687DDF-FE54-48F9-B1C8-304CF0871BD0}</Project>
       <Name>PrinceOfPersiaContentContent %28Content%29</Name>

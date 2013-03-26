@@ -9,8 +9,9 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using System.IO;
 using Microsoft.Xna.Framework.Input.Touch;
+using System.IO;
+
 
 
 namespace PrinceOfPersia
@@ -20,21 +21,22 @@ namespace PrinceOfPersia
     {
 
         //Sequence static for share purpose
-        private static List<Sequence> playerSequence = null;
+        //private static List<Sequence> spriteSequence = null;
+        
+        //private GraphicsDevice graphicsDevice;
+        //private SpriteEffects flip = SpriteEffects.None;
+        //private Position _position;
+        //private Maze _maze;
 
-        private GraphicsDevice graphicsDevice;
-
-        private SpriteEffects flip = SpriteEffects.None;
-        //private AnimationPlayer sprite;
-        public AnimationSequence sprite;
+        //public AnimationSequence sprite;
 
         // Sounds
 
         //Player Grid
-        public const int PLAYER_GRID = 1;
-        public const int PLAYER_VELOCITY = 120;
+        //public const int PLAYER_GRID = 1;
+        //public const int PLAYER_VELOCITY = 120;
         public const int PLAYER_L_PENETRATION = 19;
-        public const int PLAYER_R_PENETRATION = 30;//30??
+        public const int PLAYER_R_PENETRATION = 30;
 
         public const int PLAYER_STAND_BORDER_FRAME = 47; //47+20player+47=114
         public const int PLAYER_STAND_FRAME = 20;
@@ -42,14 +44,11 @@ namespace PrinceOfPersia
         public const int PLAYER_STAND_FLOOR_PEN = 26; //floor border penetration
         public const int PLAYER_STAND_HANG_PEN = 46; //floor border penetration for hangup
 
-        public const int PLAYER_SIZE_X = 114; //to be var
-        public const int PLAYER_SIZE_Y = 114; //to be var
+        //public const int SPRITE_SIZE_X = 114; //to be var
+        //public const int SPRITE_SIZE_Y = 114; //to be var
 
-
-        private Position _position;
         public PlayerState playerState = new PlayerState();
 
-        private Maze _maze;
 
 
 
@@ -58,41 +57,30 @@ namespace PrinceOfPersia
             get { return _position; }
         }
 
-
-        // Physics state
-        public Vector2 PositionArrive
-        {
-            get { return positionArrive; }
-            set { positionArrive = value; }
-        }
-        Vector2 positionArrive;
-
-        private float previousBottom;
-
         public Vector2 Velocity
         {
             get { return velocity; }
             set { velocity = value; }
         }
-        Vector2 velocity;
+        private Vector2 velocity;
 
         // Constants for controling horizontal movement
-        private const float MoveAcceleration = 13000.0f;
-        private const float MaxMoveSpeed = 1750.0f;
-        private const float GroundDragFactor = 0.48f;
-        private const float AirDragFactor = 0.58f;
+        //private const float MoveAcceleration = 13000.0f;
+        //private const float MaxMoveSpeed = 1750.0f;
+        //private const float GroundDragFactor = 0.48f;
+        //private const float AirDragFactor = 0.58f;
 
         // Constants for controlling vertical movement
-        private const float MaxJumpTime = 0.35f;
-        private const float JumpLaunchVelocity = -3500.0f;
-        private const float GravityAcceleration = 3400.0f;
-        private const float MaxFallSpeed = 100f;//550.0f;
-        private const float JumpControlPower = 0.14f;
+        //private const float MaxJumpTime = 0.35f;
+        //private const float JumpLaunchVelocity = -3500.0f;
+        //private const float GravityAcceleration = 3400.0f;
+        //private const float MaxFallSpeed = 100f;//550.0f;
+        //private const float JumpControlPower = 0.14f;
 
         // Input configuration
-        private const float MoveStickScale = 1.0f;
-        private const float AccelerometerScale = 1.5f;
-        private const Buttons JumpButton = Buttons.A;
+        //private const float MoveStickScale = 1.0f;
+        //private const float AccelerometerScale = 1.5f;
+        //private const Buttons JumpButton = Buttons.A;
 
         /// <summary>
         /// Gets whether or not the player's feet are on the ground.
@@ -101,7 +89,7 @@ namespace PrinceOfPersia
         {
             get { return isOnGround; }
         }
-        bool isOnGround;
+        private bool isOnGround;
 
 
 
@@ -141,8 +129,7 @@ namespace PrinceOfPersia
             LoadContent();
 
             //TAKE PLAYER Position
-            flip = spriteEffect;
-            Reset(position);
+            Reset(position, spriteEffect);
         }
 
 
@@ -157,13 +144,17 @@ namespace PrinceOfPersia
         private void LoadContent()
         {
 
-            playerSequence = new List<Sequence>();
-            System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(playerSequence.GetType());
-            TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + "KID_sequence.xml");
-            //Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources.KID_sequence.xml");
-            playerSequence = (List<Sequence>)ax.Deserialize(txtReader);
+            spriteSequence = new List<Sequence>();
+            System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(spriteSequence.GetType());
 
-            foreach (Sequence s in playerSequence)
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + "KID_sequence.xml");
+
+
+            //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + "KID_sequence.xml");
+            //Stream astream = this.GetType().Assembly.GetManifestResourceStream("PrinceOfPersia.resources.KID_sequence.xml");
+            spriteSequence = (List<Sequence>)ax.Deserialize(txtReader);
+
+            foreach (Sequence s in spriteSequence)
             {
                 s.Initialize(_maze.PlayerRoom.content);
             }
@@ -184,18 +175,23 @@ namespace PrinceOfPersia
             //fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
         }
 
+
+
+
+
         /// <summary>
         /// Resets the player to life.
         /// </summary>
         /// <param name="position">The position to come to life at.</param>
-        public void Reset(Vector2 position)
+        public void Reset(Vector2 position, SpriteEffects spriteEffect)
         {
-            _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(Player.PLAYER_SIZE_X, Player.PLAYER_SIZE_Y));
+            _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(Player.SPRITE_SIZE_X, Player.SPRITE_SIZE_Y));
             _position.X = position.X;
             _position.Y = position.Y;
             Velocity = Vector2.Zero;
-            IsAlive = true;
-            //sprite.IsStoppable = true;
+            Energy = PrinceOfPersiaGame.CONFIG_KID_START_ENERGY;
+
+            flip = spriteEffect;
 
             playerState.Clear();
 
@@ -203,23 +199,23 @@ namespace PrinceOfPersia
 
         }
 
-        /// <summary>
-        /// Start position the player to life.
-        /// </summary>
-        /// <param name="position">The position to come to life at.</param>
-        public void Start(Vector2 position)
-        {
-            _position.X = position.X;
-            _position.Y = position.Y;
-            Velocity = Vector2.Zero;
-            IsAlive = true;
-            //sprite.IsStoppable = true;
+        ///// <summary>
+        ///// Start position the player to life.
+        ///// </summary>
+        ///// <param name="position">The position to come to life at.</param>
+        //public void Start(Vector2 position)
+        //{
+        //    _position.X = position.X;
+        //    _position.Y = position.Y;
+        //    Velocity = Vector2.Zero;
+        //    Energy = PrinceOfPersiaGame.CONFIG_KID_START_ENERGY;
+            
 
-            playerState.Clear();
+        //    playerState.Clear();
 
-            Stand();
+        //    Stand();
 
-        }
+        //}
 
 
         /// <summary>
@@ -240,7 +236,8 @@ namespace PrinceOfPersia
         {
             if (IsAlive == false)
             {
-                return;
+                DeadFall();
+                //return;
             }
 
             //ApplyPhysicsNew(gameTime);
@@ -286,7 +283,7 @@ namespace PrinceOfPersia
                             Stand();
                             break;
                         case Enumeration.State.stepfall:
-                            StepFall(playerState.Value().Priority);
+                            StepFall(playerState.Value().Priority, playerState.Value().OffSet);
                             break;
                         case Enumeration.State.crouch:
                             StandUp();
@@ -514,6 +511,7 @@ namespace PrinceOfPersia
                         case Enumeration.State.stand:
                             HighJump();
                             break;
+                        case Enumeration.State.jumphangLong:
                         case Enumeration.State.jumphangMed:
                         case Enumeration.State.hang:
                         case Enumeration.State.hangstraight:
@@ -531,10 +529,12 @@ namespace PrinceOfPersia
                         //case Enumeration.State.hang:
                         //    Hang();
                         //    break;
+                        case Enumeration.State.jumphangLong:
                         case Enumeration.State.jumphangMed:
                             Hang();
                             break;
                         default:
+                            CheckItemOnFloor();
                             break;
                     }
                     break;
@@ -591,6 +591,22 @@ namespace PrinceOfPersia
                     _maze.PlayerRoom = _maze.RightRoom(_maze.PlayerRoom);
                     return Enumeration.Input.none;
                 }
+                if (keyboardState.IsKeyDown(Keys.NumPad0))
+                {
+                    _maze.StartRoom().StartNewLife(graphicsDevice);
+                    return Enumeration.Input.none;
+                }
+                if (keyboardState.IsKeyDown(Keys.OemMinus))
+                {
+                    AnimationSequence.frameRate = AnimationSequence.frameRate - 0.1f;
+                    return Enumeration.Input.none;
+                }
+                if (keyboardState.IsKeyDown(Keys.OemPlus))
+                {
+                    AnimationSequence.frameRate = AnimationSequence.frameRate + 0.1f;
+                    return Enumeration.Input.none;
+                }
+
             }
 
 
@@ -844,56 +860,102 @@ namespace PrinceOfPersia
         {
             isOnGround = false;
 
+            RoomNew room = null;
             Rectangle playerBounds = _position.Bounding;
             Vector2 v2 = _maze.PlayerRoom.getCenterTile(playerBounds);
             Rectangle tileBounds = _maze.PlayerRoom.GetBounds((int)v2.X, (int)v2.Y);
 
-            //if (_room.GetType((int)v2.X, (int)v2.Y) == TileType.floor 
-            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.gate 
-            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.pressplate
-            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.door
-            //    | _room.GetType((int)v2.X, (int)v2.Y) == TileType.torch)
-            if (_maze.PlayerRoom.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
+            //Check if kid outside Room 
+            if (v2.X < 0)
+                room = _maze.LeftRoom(_maze.PlayerRoom);
+            else
+                room = _maze.PlayerRoom;
+
+            if (v2.Y > 2)
             {
-                if (playerBounds.Bottom >= tileBounds.Bottom)
-                    isOnGround = true;
+                isOnGround = false;
+            }
+            else if (v2.Y < 0)
+            {
+                isOnGround = false;
+            }
+            else
+            {
+                if (room.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
+                {
+                    if (playerBounds.Bottom >= tileBounds.Bottom)
+                        isOnGround = true;
+                }
             }
 
 
             if (isOnGround == false)
             {
                 if (sprite.sequence.raised == false)
-                //if (playerState.Value().state != Enumeration.State.freefall &
-                //        playerState.Value().state != Enumeration.State.highjump &
-                //        playerState.Value().state != Enumeration.State.hang &
-                //        playerState.Value().state != Enumeration.State.hangstraight &
-                //        playerState.Value().state != Enumeration.State.hangdrop &
-                //        playerState.Value().state != Enumeration.State.hangfall &
-                //        playerState.Value().state != Enumeration.State.jumphangMed &
-                //        playerState.Value().state != Enumeration.State.climbdown &
-                //    playerState.Value().state != Enumeration.State.climbup
-                //    )
                 {
-                    if (playerState.Value().state == Enumeration.State.startrun)
+                    if (playerState.Value().state == Enumeration.State.runjump)
                     {
                         playerState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
-                        sprite.PlayAnimation(playerSequence, playerState.Value());
+                        sprite.PlayAnimation(spriteSequence, playerState.Value());
                     }
-                    else    
-                        playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+                    else
+                    {
+                        if (playerState.Previous().state == Enumeration.State.runjump)
+                            playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20,15));
+                        else
+                            if (playerState.Value().state != Enumeration.State.freefall)
+                                playerState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+                    }
                     _maze.PlayerRoom.LooseShake();
                     //and for upper room...
                     _maze.PlayerRoom.maze.UpRoom(_maze.PlayerRoom).LooseShake();
                 }
+                return;
             }
-            else
+
+            
+            //IS ON GROUND!
+            if (playerState.Value().state == Enumeration.State.freefall)
             {
-                    if (playerState.Value().state == Enumeration.State.freefall)
-                    {
-                        _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
-                        playerState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
-                    }
+                //Align to tile x
+                _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
+                //CHECK IF LOOSE ENERGY...
+                int Rem = 0;
+                Rem = (int) Math.Abs(Position.Y - PositionStart.Y) / Tile.REALHEIGHT;
+
+                if (Rem > 0)
+                {
+                    Energy = Energy - Rem;
+                }
+                playerState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
             }
+            
+        }
+
+        public void CheckItemOnFloor()
+        {
+            //Rectangle playerBounds = ;
+            Vector2 v2 = _maze.PlayerRoom.getCenterTile(_position.Bounding);
+            
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+            Tile t = _maze.PlayerRoom.GetTile(x, y);
+
+            if (t.item != null)
+            {
+                if (t.item.GetType() == typeof(Flask))
+                {
+                    DrinkPotion();
+                }
+                if (t.item.GetType() == typeof(Sword))
+                {
+                    PickupSword();
+                }
+                
+                _maze.PlayerRoom.SubsTile(v2, Enumeration.TileType.floor);
+            }
+
         }
 
         public void HandleCollisionsNew()
@@ -917,20 +979,25 @@ namespace PrinceOfPersia
                     switch (tileType)
                     {
                         case Enumeration.TileType.spikes :
+                            if (IsAlive == false)
+                            { 
+                                ((Spikes)_maze.PlayerRoom.GetTile(x, y)).Open(); 
+                                return; }
+
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
-                                if (depth.X < 10 & depth.Y >= Player.PLAYER_SIZE_Y)
+                                if (depth.X < 10 & depth.Y >= Player.SPRITE_SIZE_Y)
                                     ((Spikes)_maze.PlayerRoom.GetTile(x, y)).Open();
 
-                                if (depth.X <= -30 & depth.Y >= Player.PLAYER_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                if (depth.X <= -30 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                     Impale();
                             }
                             else
                             {
-                                if (depth.X > -10 & depth.Y >= Player.PLAYER_SIZE_Y)
+                                if (depth.X > -10 & depth.Y >= Player.SPRITE_SIZE_Y)
                                     ((Spikes)_maze.PlayerRoom.GetTile(x, y)).Open();
 
-                                if (depth.X >= 60 & depth.Y >= Player.PLAYER_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                if (depth.X >= 60 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)_maze.PlayerRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                     Impale();
                             }
 
@@ -970,7 +1037,6 @@ namespace PrinceOfPersia
                                 //only for x pixel 
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
                                 {
-
                                     if (playerState.Value().state != Enumeration.State.freefall &
                                         playerState.Value().state != Enumeration.State.highjump &
                                         playerState.Value().state != Enumeration.State.hang &
@@ -978,6 +1044,7 @@ namespace PrinceOfPersia
                                         playerState.Value().state != Enumeration.State.hangdrop &
                                         playerState.Value().state != Enumeration.State.hangfall &
                                         playerState.Value().state != Enumeration.State.jumphangMed &
+                                        playerState.Value().state != Enumeration.State.jumphangLong &
                                         playerState.Value().state != Enumeration.State.climbup &
                                         playerState.Value().state != Enumeration.State.climbdown
                                         )
@@ -1010,6 +1077,7 @@ namespace PrinceOfPersia
                                         playerState.Value().state != Enumeration.State.hangdrop &
                                         playerState.Value().state != Enumeration.State.hangfall &
                                         playerState.Value().state != Enumeration.State.jumphangMed &
+                                        playerState.Value().state != Enumeration.State.jumphangLong &
                                         playerState.Value().state != Enumeration.State.climbup &
                                         playerState.Value().state != Enumeration.State.climbdown
 
@@ -1042,10 +1110,13 @@ namespace PrinceOfPersia
             //check if out room
             if (_position.Y > RoomNew.BOTTOM_LIMIT+10)
             {
-                //uscito DOWN
                 RoomNew room = _maze.DownRoom(_maze.PlayerRoom);
                 _maze.PlayerRoom = room;
-                _position.Y = RoomNew.TOP_LIMIT - 10;
+                _position.Y = RoomNew.TOP_LIMIT + 27; // Y=77
+                //For calculate height fall from damage points calculations..
+                PositionStart = new Vector2(Position.X, (Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_LIMIT - PositionStart.Y));
+
+                
             }
             else if (_position.X >= RoomNew.RIGHT_LIMIT)
             {
@@ -1063,7 +1134,7 @@ namespace PrinceOfPersia
             {
                 RoomNew room = _maze.UpRoom(_maze.PlayerRoom);
                 _maze.PlayerRoom = room;
-                _position.Y = RoomNew.BOTTOM_LIMIT - 74;
+                _position.Y = RoomNew.BOTTOM_LIMIT - 24;  //Y=270
             }
 
         }
@@ -1078,15 +1149,15 @@ namespace PrinceOfPersia
         }
 
 
-        public bool isSnapToPlayerGrid()
-        {
-            //FIX SNAP TO THE GRID
-            if (_position.X % PLAYER_GRID != 0)
-            {
-                return false;
-            }
-            return true;
-        }
+        //public bool isSnapToPlayerGrid()
+        //{
+        //    //FIX SNAP TO THE GRID
+        //    if (_position.X % PLAYER_GRID != 0)
+        //    {
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         //public void SnapToPlayerGrid()
         //{
@@ -1107,21 +1178,21 @@ namespace PrinceOfPersia
             //sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
 
             //DRAW SPRITE
-            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
 
         }
 
         public void DeadFall()
         {
-            playerState.Add(Enumeration.State.deadfall);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            playerState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         public void Impale()
         {
             playerState.Add(Enumeration.State.impale);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
-            IsAlive = false;
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
+            //Energy = 0;
         }
 
         public void Turn()
@@ -1132,7 +1203,7 @@ namespace PrinceOfPersia
                 flip = SpriteEffects.FlipHorizontally;
 
             playerState.Add(Enumeration.State.turn);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand);
 
         }
@@ -1142,7 +1213,7 @@ namespace PrinceOfPersia
         public void RunStop(Enumeration.PriorityState priority)
         {
             playerState.Add(Enumeration.State.runstop);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand);
         }
 
@@ -1162,7 +1233,7 @@ namespace PrinceOfPersia
             }
 
             playerState.Add(Enumeration.State.startrun);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         public void StepForward()
@@ -1185,7 +1256,7 @@ namespace PrinceOfPersia
 
 
             playerState.Add(Enumeration.State.fullstep);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand);
         }
 
@@ -1210,7 +1281,7 @@ namespace PrinceOfPersia
                 return;
 
             playerState.Add(Enumeration.State.crouch, priority, stoppable, offset);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1220,7 +1291,7 @@ namespace PrinceOfPersia
             //    return;
 
             playerState.Add(Enumeration.State.crawl);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         /// Remnber: for example the top gate is x=3 y=1
@@ -1283,7 +1354,7 @@ namespace PrinceOfPersia
         /// false = no climb
         /// 
         /// </returns>
-        private bool isClimbable()
+        private Enumeration.State isClimbable()
         {
 
             // Get the player's bounding rectangle and find neighboring tiles.
@@ -1312,13 +1383,13 @@ namespace PrinceOfPersia
                 //tileType = _room.GetType(x, y - 1);
                 //if (tileType != Enumeration.TileType.space)
                 if (tileCollision != Enumeration.TileCollision.Passable)
-                    return false;
+                    return Enumeration.State.none;
                 x = ((int)v2.X); //THE FLOOR FOR CLIMB UP
 
                 Tile t = _maze.PlayerRoom.GetTile(new Vector2(x, y));
                 if (t.Type == Enumeration.TileType.door)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
-                        return false;
+                        return Enumeration.State.none;
 
             }
             //else if (tileType == Enumeration.TileType.space)
@@ -1332,16 +1403,16 @@ namespace PrinceOfPersia
                 //tileType = _room.GetType(x, y - 1);
                 //if (tileType != Enumeration.TileType.floor & tileType != Enumeration.TileType.gate)
                 if (tileCollision != Enumeration.TileCollision.Platform)
-                    return false;
+                    return Enumeration.State.none;
 
                 Tile t = _maze.PlayerRoom.GetTile(new Vector2(x, y - 1));
                 if (t.Type == Enumeration.TileType.door)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
-                        return false;
+                        return Enumeration.State.none;
 
             }
             else
-                return false;
+                return Enumeration.State.none;
 
             //If is a door close isnt climbable
 
@@ -1351,10 +1422,26 @@ namespace PrinceOfPersia
             if (flip == SpriteEffects.FlipHorizontally)
             { xOffSet = -Tile.REALWIDTH + Tile.PERSPECTIVE; }
 
+            Rectangle tileBounds;
+            //if under kid there's not a platform change the point to climbup..
 
-            Rectangle tileBounds = _maze.PlayerRoom.GetBounds(x, y - 1);
+            if (flip == SpriteEffects.FlipHorizontally)
+             tileCollision = _maze.PlayerRoom.GetCollision(x - 1, y); 
+            else
+                tileCollision = _maze.PlayerRoom.GetCollision(x + 1, y);
+
+
+            if (tileCollision == Enumeration.TileCollision.Passable & flip != SpriteEffects.FlipHorizontally)
+            {
+                tileBounds = _maze.PlayerRoom.GetBounds(x, y);
+                xOffSet = -26;
+                _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
+                return Enumeration.State.jumphangMed;
+            }
+
+            tileBounds = _maze.PlayerRoom.GetBounds(x, y - 1);
             _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
-            return true;
+            return Enumeration.State.jumphangLong;
 
         }
 
@@ -1398,9 +1485,18 @@ namespace PrinceOfPersia
                 return;
 
             playerState.Add(Enumeration.State.jumphangMed);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
+
+        public void JumpHangLong()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            playerState.Add(Enumeration.State.jumphangLong);
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
+        }
 
         public void ClimbUp()
         {
@@ -1408,7 +1504,7 @@ namespace PrinceOfPersia
                 return;
 
             playerState.Add(Enumeration.State.climbup);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1423,7 +1519,7 @@ namespace PrinceOfPersia
                 isDownOfBlock = true;
 
             playerState.Add(Enumeration.State.climbdown, isDownOfBlock);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1432,7 +1528,7 @@ namespace PrinceOfPersia
         public void StandUp(Enumeration.PriorityState priority)
         {
             playerState.Add(Enumeration.State.standup, priority);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand, priority);
         }
 
@@ -1450,7 +1546,7 @@ namespace PrinceOfPersia
                 return;
             }
             playerState.Add(Enumeration.State.godown, priority, null, Enumeration.SequenceReverse.Normal, offSet);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.crouch, priority);
         }
 
@@ -1491,7 +1587,7 @@ namespace PrinceOfPersia
 
 
             playerState.Add(Enumeration.State.stand, priority);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand, Enumeration.PriorityState.Normal);
 
         }
@@ -1502,7 +1598,7 @@ namespace PrinceOfPersia
         public void StandJump(Enumeration.PriorityState priority)
         {
             playerState.Add(Enumeration.State.standjump, priority);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         public void StepFall()
@@ -1514,20 +1610,26 @@ namespace PrinceOfPersia
         }
         public void StepFall(Enumeration.PriorityState priority, Vector2 offSet)
         {
-            playerState.Add(Enumeration.State.stepfall, priority);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
-            playerState.Add(Enumeration.State.freefall, priority, offSet);
+            PositionStart = Position.Value ;
+            playerState.Add(Enumeration.State.stepfall, priority, offSet);
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
+            playerState.Add(Enumeration.State.freefall, priority);
         }
 
         public void HighJump()
         {
-            if (isClimbable() == true)
-            {
-                JumpHangMed();
-                return;
+            switch (isClimbable())
+            { 
+                case Enumeration.State.jumphangMed:
+                    JumpHangMed();
+                    return;
+                case Enumeration.State.jumphangLong:
+                    JumpHangLong();
+                    return;
             }
+
             playerState.Add(Enumeration.State.highjump);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
 
             //isPressable();
         }
@@ -1535,13 +1637,13 @@ namespace PrinceOfPersia
         public void ClimbFail()
         {
             playerState.Add(Enumeration.State.climbfail);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         public void HangDrop()
         {
             playerState.Add(Enumeration.State.hangdrop);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1554,7 +1656,7 @@ namespace PrinceOfPersia
                 flip = SpriteEffects.FlipHorizontally;
 
             playerState.Add(Enumeration.State.runturn);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1569,7 +1671,7 @@ namespace PrinceOfPersia
             else
                 playerState.Add(Enumeration.State.hang);
 
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
         public void Bump()
@@ -1585,7 +1687,7 @@ namespace PrinceOfPersia
         public void Bump(Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             playerState.Add(Enumeration.State.bump, priority, false, reverse);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
             playerState.Add(Enumeration.State.stand, Enumeration.PriorityState.Normal);
         }
 
@@ -1603,7 +1705,7 @@ namespace PrinceOfPersia
         public void RJumpFall(Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
         {
             playerState.Add(Enumeration.State.rjumpfall, priority, false, reverse);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
 
 
@@ -1611,8 +1713,22 @@ namespace PrinceOfPersia
         public void RunJump()
         {
             playerState.Add(Enumeration.State.runjump);
-            sprite.PlayAnimation(playerSequence, playerState.Value());
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
         }
+
+        public void PickupSword()
+        {
+            playerState.Add(Enumeration.State.pickupsword);
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
+        }
+
+        public void DrinkPotion()
+        {
+            playerState.Add(Enumeration.State.drinkpotion);
+            sprite.PlayAnimation(spriteSequence, playerState.Value());
+            this.Energy = this.LivePoints; 
+        }
+
 
         public void Question()
         {

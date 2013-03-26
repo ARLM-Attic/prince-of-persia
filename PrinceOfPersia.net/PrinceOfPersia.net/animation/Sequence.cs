@@ -55,11 +55,22 @@ namespace PrinceOfPersia
                 {
                     if (f.value != null)
                     {
-                        f.SetTexture(Content.Load<Texture2D>(f.value));
+
+                        Texture2D t = (Texture2D) Maze.dTexture[f.value.ToUpper()];
+                        //TexturePoP tpop = Maze.lTexture.Find(delegate(TexturePoP e) { return e.Name == "Tiles/BlockA"; });
+                        //TexturePoP em = PrinceOfPersiaGame.lTexture.Find(delegate(TexturePoP e) { return e.Name == "BlockA"; });
+
+                        
+                        //System.Console.WriteLine("INFO:Content.Load<Texture2D>" + f.value);
+                        f.SetTexture(t);
+                        //f.SetTexture(Content.Load<Texture2D>(f.value));
+                        //System.Console.WriteLine("SET:Content.Load<Texture2D>" + f.value); 
                     }
                 }
                 catch (Exception ex)
-                { System.Console.WriteLine("ERROR:Content.Load<Texture2D>" + f.value); }
+                { 
+                    System.Console.WriteLine("ERROR:Content.Load<Texture2D>" + f.value); 
+                }
             }
         }
 

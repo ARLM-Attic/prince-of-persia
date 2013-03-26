@@ -29,13 +29,16 @@ namespace PrinceOfPersia
 
 
 
-        public Door(RoomNew room, ContentManager Content, Enumeration.TileType tileType, string state, int switchButton)
+        public Door(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton)
         {
             collision = Enumeration.TileCollision.Platform;
             base.room = room;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
-            TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+
+            //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
+
             tileSequence = (List<Sequence>)ax.Deserialize(txtReader);
 
             foreach (Sequence s in tileSequence)
@@ -43,14 +46,13 @@ namespace PrinceOfPersia
                 s.Initialize(Content);
             }
 
-            if (state == Enumeration.StateTile.normal.ToString().ToUpper())
-                state = Enumeration.StateTile.closed.ToString().ToUpper();
+            if (state == Enumeration.StateTile.normal)
+                state = Enumeration.StateTile.closed;
 
             //Search in the sequence the right type
             Sequence result = tileSequence.Find(delegate(Sequence s)
             {
-                //return s.name == tileType.ToString().ToUpper();
-                return s.name == state;
+                return s.name == state.ToString().ToUpper();
             });
 
             if (result != null)
@@ -65,7 +67,7 @@ namespace PrinceOfPersia
 
 
             //change statetile element
-            tileState.Value().state = (Enumeration.StateTile)Enum.Parse(typeof(Enumeration.StateTile), state.ToLower());
+            tileState.Value().state = state;
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 

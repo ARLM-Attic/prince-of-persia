@@ -256,3 +256,4 @@ C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\Pri
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContent\bin\Android\IgnoreMe.dll
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContent\obj\Android\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContent\obj\Android\IgnoreMe.dll
+C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContent\obj\Android\PrinceOfPersiaContent.csprojResolveAssemblyReference.cache

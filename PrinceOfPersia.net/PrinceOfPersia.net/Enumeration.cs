@@ -121,6 +121,14 @@ namespace PrinceOfPersia
         }
 
 
+        public enum Items
+        { 
+            none  //nothing default value
+            ,sword
+            ,flask
+            ,potion
+        }
+
         public enum StateTile
         {
             normal // normal state
@@ -136,6 +144,9 @@ namespace PrinceOfPersia
             ,rubble  //when floor break
             ,looseshake //when loose shake but dont fall
             ,brick //floor/space with brickwall
+            ,mask //mask state
+            //,sword //sword tile now item!!
+            ,bones //bones
         }
 
 
@@ -189,42 +200,24 @@ namespace PrinceOfPersia
             step11,
             step12,
             step13,
-            fullstep
-                ,
-            turnrun
-                ,
-            testfoot
-                ,
-            bumpfall
-                ,
-            hardbump
-                ,
-            bump
-                ,
-            superhijump
-                ,
-            standup
-                ,
-            stoop
-                ,
-            impale
-                ,
-            crush
-                ,
-            deadfall
-                ,
-            halve
-                ,
-            engarde
-                ,
-            advance
-                ,
-            retreat
-                ,
-            strike
-                ,
-            flee
-                ,
+            fullstep,
+            turnrun,
+            testfoot,
+            bumpfall,
+            hardbump,
+            bump,
+            superhijump,
+            standup,
+            stoop,
+            impale,
+            crush,
+            deadfall,
+            halve,
+            engarde,
+            advance,
+            retreat,
+            strike,
+            flee,
             turnengarde
                 ,
             strikeblock

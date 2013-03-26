@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
-using GameStateManagement;
+
 
 namespace PrinceOfPersia
 {
@@ -21,31 +21,27 @@ namespace PrinceOfPersia
     public class PrinceOfPersiaGame : GameScreen
     {
 
-        private Texture2D[] playerTexture = new Texture2D[128];
+       //private Texture2D[] playerTexture = new Texture2D[128];
 
         // Resources for drawing.
         //private GraphicsDeviceManager graphics;
         //private SpriteBatch spriteBatch;
 
         // Global content.
-        [ContentSerializerIgnore] 
-        List<Sequence> l ;
-        [ContentSerializerIgnore] 
+        //[ContentSerializerIgnore] 
+        //List<Sequence> l ;
+        //[ContentSerializerIgnore] 
         private SpriteFont hudFont;
-        [ContentSerializerIgnore]
+        //[ContentSerializerIgnore]
         private SpriteFont PoPFont;
-        [ContentSerializerIgnore] 
-        private Texture2D winOverlay;
-        [ContentSerializerIgnore] 
-        private Texture2D loseOverlay;
-        [ContentSerializerIgnore] 
-        private Texture2D diedOverlay;
+        //[ContentSerializerIgnore] 
 
-     
+        private Texture2D livePoints;
+        private Texture2D energy;
 
         // Meta-level game state.
         private Level[] levels = new Level[30];
-        private int levelIndex = 0;
+        //private int levelIndex = 0;
         private bool wasContinuePressed;
         private Maze maze;
 
@@ -69,13 +65,13 @@ namespace PrinceOfPersia
         public static bool CONFIG_DEBUG = false;
         public static float CONFIG_FRAMERATE = 0.09f;
         public static string CONFIG_SPRITE_KID = "KID_DOS";
-        //public static string CONFIG_PATH_RESOURCES = System.AppDomain.CurrentDomain.BaseDirectory + "/Content/";
         public static string CONFIG_PATH_CONTENT = System.AppDomain.CurrentDomain.BaseDirectory + @"Content\";
         public static string CONFIG_PATH_LEVELS = @"Levels\";
         public static string CONFIG_PATH_ROOMS = @"Rooms\";
         public static string CONFIG_PATH_SEQUENCES = @"Sequences\";
 
-
+        public static int CONFIG_KID_START_ENERGY = 3;
+        
         
 
         ContentManager content;
@@ -97,13 +93,26 @@ namespace PrinceOfPersia
         public PrinceOfPersiaGame()
         {
 
+#if ANDROID
+            CONFIG_PATH_CONTENT = System.AppDomain.CurrentDomain.BaseDirectory + "Content/";
+            CONFIG_PATH_LEVELS = "Levels/";
+            CONFIG_PATH_ROOMS = "Rooms/";
+            CONFIG_PATH_SEQUENCES = "Sequences/";
+#endif
+
+#if WINDOWS
             //READ APP.CONFIG for configuration settings
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
             CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
-            //CONFIG_PATH_CONTENT = ConfigurationSettings.AppSettings["CONFIG_path_content"].ToString();
-            
+
+            CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
+
+            CONFIG_PATH_CONTENT = "Content/";
+#endif 
             AnimationSequence.frameRate = CONFIG_FRAMERATE;
+
+
             Accelerometer.Initialize();
         }
 
@@ -117,7 +126,8 @@ namespace PrinceOfPersia
             if (!instancePreserved)
             {
                 if (content == null)
-                    content = new ContentManager(ScreenManager.Game.Services, CONFIG_PATH_CONTENT);
+                    content = ScreenManager.content;
+                    //content = new ContentManager(ScreenManager.Game.Services, CONFIG_PATH_CONTENT);
 
                 LoadContent();
 
@@ -156,13 +166,14 @@ namespace PrinceOfPersia
         /// </summary>
         protected void LoadContent()
         {
-            if (content == null)
-                content = new ContentManager(ScreenManager.Game.Services, CONFIG_PATH_CONTENT);
                 
-
             // Load fonts
             hudFont = content.Load<SpriteFont>("Fonts/Hud");
             PoPFont = content.Load<SpriteFont>("Fonts/PoP");
+
+            //energy...
+            energy = content.Load<Texture2D>("Sprites/bottom/live_full");
+            livePoints = content.Load<Texture2D>("Sprites/bottom/live_empty");
 
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
@@ -212,6 +223,14 @@ namespace PrinceOfPersia
             touchState = TouchPanel.GetState();
             accelerometerState = Accelerometer.GetState();
 
+            if (maze.player.IsAlive == false)
+            {
+                if (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A) || touchState.AnyTouch() == true)
+                {
+                    maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
+                }
+            }
+
             // Exit the game when back is pressed.
            ///// if (gamePadState.Buttons.Back == ButtonState.Pressed)
                ////// Exit();
@@ -237,12 +256,22 @@ namespace PrinceOfPersia
 
             ////spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
             base.ScreenManager.SpriteBatch.Begin();
+            
+            //base.ScreenManager.SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
+            
 
-            DrawBottom();
+            
 
             maze.PlayerRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
 
+            
+
+            //now drow the mask
+            maze.PlayerRoom.DrawMask(gameTime, spriteBatch);
+
+
+            DrawBottom();
             DrawHud();
             DrawDebug(maze.PlayerRoom);
 
@@ -253,13 +282,45 @@ namespace PrinceOfPersia
 
         private void DrawBottom()
         {
-            int width = base.ScreenManager.Game.Window.ClientBounds.Width;
-            int height = base.ScreenManager.Game.Window.ClientBounds.Height;
-            int bottomBorderHeight = RoomNew.BOTTOM_BORDER;
+            Vector2 hudLocation = new Vector2(0, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
 
-            Vector2 hudLocation = new Vector2(0, height - bottomBorderHeight);
+            //DRAW BLACK SQUARE
+            Rectangle r = new Rectangle(0,0, Game.CONFIG_SCREEN_WIDTH, Game.CONFIG_SCREEN_HEIGHT);
+            Texture2D dummyTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
+            dummyTexture.SetData(new Color[] { Color.Black });
+            //Texture2D tx = new Texture2D(spriteBatch.GraphicsDevice, Game.CONFIG_SCREEN_WIDTH, Game.CONFIG_SCREEN_HEIGHT);
+            //Texture2D tx = livePoints;
+            spriteBatch.Draw(dummyTexture, hudLocation, r, Color.White);
+            
 
-            DrawShadowedString(PoPFont, maze.PlayerRoom.roomName, hudLocation, Color.White);
+            //check if death
+            hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH / 3, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+            if (maze.player.IsAlive == false)
+            {
+                DrawShadowedString(PoPFont, "Press Button to Continue", hudLocation, Color.White);
+            }
+
+            Rectangle source = new Rectangle(0, 0, livePoints.Width, livePoints.Height);
+
+            int offset = 1;
+            Texture2D triangle = livePoints;
+            for (int x = 1; x <= maze.player.LivePoints; x++)
+            {
+                hudLocation = new Vector2(0 + offset, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+                // Calculate the source rectangle of the current frame.
+                
+
+                if (x <= maze.player.Energy)
+                    triangle = energy;
+                else
+                    triangle = livePoints;
+
+                // Draw the current tile.
+                spriteBatch.Draw(triangle, hudLocation , source, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+                offset += livePoints.Width + 1;
+            }
+            
+            //DrawShadowedString(PoPFont, maze.PlayerRoom.roomName, hudLocation, Color.White);
         }
 
         private void DrawDebug(RoomNew room)
@@ -327,6 +388,9 @@ namespace PrinceOfPersia
             spriteBatch.DrawString(font, value, position + new Vector2(1.0f, 1.0f), Color.Black);
             spriteBatch.DrawString(font, value, position, color);
         }
+
+   
+
 
         private DateTime RetrieveLinkerTimestamp()
         {

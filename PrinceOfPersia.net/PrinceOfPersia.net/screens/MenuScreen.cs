@@ -14,7 +14,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
-using GameStateManagement;
+
 #endregion
 
 namespace PrinceOfPersia
@@ -102,6 +102,7 @@ namespace PrinceOfPersia
             // us which player actually provided the input. We pass that through to
             // OnSelectEntry and OnCancel, so they can tell which player triggered them.
             PlayerIndex playerIndex;
+
 
             // Move to the previous menu entry?
             if (menuUp.Evaluate(input, ControllingPlayer, out playerIndex))

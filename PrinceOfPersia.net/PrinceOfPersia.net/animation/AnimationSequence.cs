@@ -492,7 +492,13 @@ namespace PrinceOfPersia
 
             position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
 
+            //Maze.dEffect.Parameters["FromColor"].SetValue(Color.White);
+            //Maze.dEffect.Parameters["ToColor"].SetValue(Color.Red);
+
+            //spriteBatch.Begin(0, BlendState.Opaque, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone, Maze.dEffect);
+       
             // Draw the current frame.
+            //spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
         }

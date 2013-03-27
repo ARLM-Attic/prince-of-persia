@@ -31,6 +31,10 @@ namespace PrinceOfPersia
         public static Dictionary<string, object> dTexture = null;
         public Vector2 positionArrive;
 
+        //test
+        public static Effect dEffect = null;
+
+
 
         public Maze(GraphicsDevice GraphicsDevice, ContentManager contentmanager)
         {
@@ -38,6 +42,8 @@ namespace PrinceOfPersia
             graphicsDevice = GraphicsDevice;
 
             LoadContent();
+
+            //dEffect = content.Load<Effect>(@"Effects\SwapColor");
 
             //LOAD MXL CONTENT
             Stream txtReader;

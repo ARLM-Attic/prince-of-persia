@@ -103,6 +103,9 @@ namespace PrinceOfPersia
             //DRAW REAL COORDINATE
             //sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
 
+
+
+
             //DRAW SPRITE
             sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
 

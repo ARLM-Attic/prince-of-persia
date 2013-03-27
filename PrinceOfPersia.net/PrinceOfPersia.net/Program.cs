@@ -75,11 +75,12 @@ namespace PrinceOfPersia
 
 
                 //string type = key.Substring(0, key.IndexOf("\\"));
-
-                result[key.ToUpper()] = contentManager.Load<T>(key); 
-
-                
-                
+                try
+                {
+                    result[key.ToUpper()] = contentManager.Load<T>(key);
+                }
+                catch(Exception ex)
+                {}
                 //result[f.N.ToUpper()] = contentManager.Load<T>(sFolder + key); 
             }
  

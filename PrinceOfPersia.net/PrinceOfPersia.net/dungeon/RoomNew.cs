@@ -59,6 +59,19 @@ namespace PrinceOfPersia
 
         // Key locations in the level.        
 
+        public List<Sprite> SpritesInRoom()
+        {
+            List<Sprite> list = new List<Sprite>();
+
+            foreach(Sprite s in maze.guards)
+            {
+                if (s.SpriteRoom == this)
+                    list.Add(s);
+            }
+
+            return list;
+        }
+
 
         public ContentManager content
         {
@@ -156,13 +169,14 @@ namespace PrinceOfPersia
                     {
                         case Enumeration.SpriteType.kid :
                             int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
-                            int yPlayer = (y+1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
+                            int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
                             maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, c.spriteEffect);
                             break;
 
                         case Enumeration.SpriteType.guard :
                             int xGuard = (x-1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
-                            int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
+                            //int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
+                            int yGuard = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
                             Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, c.spriteEffect);
                             maze.guards.Add(g);
                             break;
@@ -436,6 +450,16 @@ namespace PrinceOfPersia
             DrawTilesMask(gameTime, spriteBatch);
         }
 
+        public void DrawSprites(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            foreach (Sprite s in SpritesInRoom())
+            {
+                //to be fixxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                ((Guard)s).Draw(gameTime, spriteBatch);
+            }
+            
+        }
+
 
         private void UpdateTilesLeft(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
         {
@@ -483,9 +507,9 @@ namespace PrinceOfPersia
 
         private void UpdateSprites(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)
         {
-            foreach(Guard g in maze.guards)
+            foreach(Sprite s in SpritesInRoom())
             {
-                g.Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+                    ((Guard)s).Update(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
             }
             
         }

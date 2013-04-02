@@ -59,6 +59,9 @@
           <tileType>torch</tileType>
         </Column>
         <Column>
+          <spriteType>guard</spriteType>
+          <spriteEffect>None</spriteEffect>
+
           <tileType>floor</tileType>
         </Column>
         <Column>

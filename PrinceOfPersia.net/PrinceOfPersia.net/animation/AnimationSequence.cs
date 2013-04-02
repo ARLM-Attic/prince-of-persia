@@ -491,6 +491,7 @@ namespace PrinceOfPersia
             Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
 
             position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
+            //position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y );
 
             //Maze.dEffect.Parameters["FromColor"].SetValue(Color.White);
             //Maze.dEffect.Parameters["ToColor"].SetValue(Color.Red);

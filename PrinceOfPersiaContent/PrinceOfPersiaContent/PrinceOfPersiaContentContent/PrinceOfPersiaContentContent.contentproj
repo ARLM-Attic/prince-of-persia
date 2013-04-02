@@ -146,6 +146,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Rooms\MAP_dungeon_prison_10.xml">
       <Name>MAP_dungeon_prison_10</Name>
@@ -230,6 +231,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Rooms\MAP_dungeon_prison_4.xml">
       <Name>MAP_dungeon_prison_4</Name>

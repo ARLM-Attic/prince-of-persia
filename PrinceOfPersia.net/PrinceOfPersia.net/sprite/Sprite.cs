@@ -156,6 +156,14 @@ namespace PrinceOfPersia
             }
         }
 
+
+        public bool CheckCollision(Position position)
+        {
+            if (position == Position)
+                return true;
+            return false;
+        }
+
         public Sprite()
         { 
         

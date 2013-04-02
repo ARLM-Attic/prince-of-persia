@@ -73,6 +73,19 @@ namespace PrinceOfPersia
             }
         }
 
+        public bool CheckCollision(Position p)
+        {
+            if (p.Y == Y)
+            {
+                if (p.X +10 > X & p.X -10 < X)
+                {
+                    return true;
+                }
+            }
+            return false;
+
+        }
+
 
         //53 pix total
         public Rectangle Bounding

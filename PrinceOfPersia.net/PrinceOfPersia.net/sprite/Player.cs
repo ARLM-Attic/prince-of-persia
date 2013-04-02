@@ -926,6 +926,16 @@ namespace PrinceOfPersia
         {
             isGround();
 
+            //Check Sprite collision
+            foreach (Sprite s in SpriteRoom.SpritesInRoom())
+            {
+                if (s.Position.CheckCollision(Position))
+                {
+                    Impale();
+                }
+            }
+
+
             Rectangle playerBounds = _position.Bounding;
             //Find how many tiles are near on the left
             Vector4 v4 = SpriteRoom.getBoundTiles(playerBounds);

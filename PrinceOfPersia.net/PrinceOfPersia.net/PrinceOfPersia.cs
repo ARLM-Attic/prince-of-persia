@@ -265,11 +265,8 @@ namespace PrinceOfPersia
             maze.player.SpriteRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
 
-            foreach (Guard g in maze.guards)
-            {
-                g.Draw(gameTime, spriteBatch);
-            }
-
+            //now drow sprites
+            maze.player.SpriteRoom.DrawSprites(gameTime, spriteBatch);
 
 
             //now drow the mask

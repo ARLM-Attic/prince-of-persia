@@ -926,9 +926,25 @@ namespace PrinceOfPersia
         {
             isGround();
 
-            //Check Sprite collision
+            //Check opposite sprite like guards..
             foreach (Sprite s in SpriteRoom.SpritesInRoom())
             {
+                switch(s.GetType().Name)
+                {
+                    case "Guard" :
+                    {
+                        if (s.Position.CheckOnRow(Position))
+                        {
+                            ((Guard)s).Ready();
+                            ((Guard)s).Move(Position);
+                        }
+                        else
+                            ((Guard)s).Stand();
+                        break;
+                    }
+                    default:
+                        break;
+                }
                 if (s.Position.CheckCollision(Position))
                 {
                     Impale();

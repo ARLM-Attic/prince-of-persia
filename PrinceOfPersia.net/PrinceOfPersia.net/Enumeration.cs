@@ -153,13 +153,11 @@ namespace PrinceOfPersia
         public new enum State
         {
             none // my state
-            ,
-            question  //my state for interpretation
-                ,
-            crouch //my state
-                ,
-            godown //my state invert standup
-                , startrun,
+            ,question  //my state for interpretation
+            ,crouch //my state
+            ,godown //my state invert standup
+            ,ready //guard ready my state
+            ,startrun,
             stand,
             standjump,
             runjump,

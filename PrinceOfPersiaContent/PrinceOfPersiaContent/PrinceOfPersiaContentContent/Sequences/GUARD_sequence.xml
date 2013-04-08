@@ -1,20 +1,147 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-
   <!-- STAND-->
   <Sequence>
     <frames>
       <Frame>
         <type>SPRITE</type>
         <name>STAND</name>
-        <value>Sprites/Guard/Guard_dos/Guard_158</value>
+        <value>Sprites/Guard/Guard_dos/Guard_166</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
     </frames>
     <name>STAND</name>
+  </Sequence>
+
+  <!-- ENGARDE-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>ENGARDE</name>
+        <value>Sprites/Guard/Guard_dos/Guard_207</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_208</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_209</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_210</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>READY</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>ENGARDE</name>
+  </Sequence>
+
+  <!-- READY-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>READY</name>
+        <value>Sprites/Guard/Guard_dos/Guard_158</value>
+        <stoppable>true</stoppable>
+        <delay>0.5</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_170</value>
+        <stoppable>true</stoppable>
+        <delay>0.9</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+        <Frame>
+          <type>SPRITE</type>
+          <name>LOOP</name>
+          <value>Sprites/Guard/Guard_dos/Guard_171</value>
+          <stoppable>true</stoppable>
+          <delay>0.9</delay>
+          <xOffSet>0</xOffSet>
+          <yOffSet>0</yOffSet>
+        </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>READY</name>
+  </Sequence>
+
+
+  <!-- s t e p   f o r w a r d 52px-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>FULLSTEP</name>
+        <value>Sprites/Guard/Guard_dos/Guard_121</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_122</value>
+        <stoppable>false</stoppable>
+        <xOffSet>2</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_123</value>
+        <stoppable>false</stoppable>
+        <xOffSet>10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_124</value>
+        <stoppable>false</stoppable>
+        <xOffSet>10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>STAND</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>FULLSTEP</name>
   </Sequence>
 
 

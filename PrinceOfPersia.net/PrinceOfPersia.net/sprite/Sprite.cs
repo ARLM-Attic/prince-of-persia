@@ -164,6 +164,13 @@ namespace PrinceOfPersia
             return false;
         }
 
+        public bool CheckOnRow(Position position)
+        {
+            if (position.Y == Position.Y)
+                return true;
+            return false;
+        }
+
         public Sprite()
         { 
         

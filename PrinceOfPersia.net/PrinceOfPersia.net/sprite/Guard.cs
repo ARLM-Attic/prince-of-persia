@@ -100,15 +100,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //DRAW REAL COORDINATE
-            //sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
-
-
-
-
-            //DRAW SPRITE
             sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
-
         }
 
         /// <summary>
@@ -151,8 +143,53 @@ namespace PrinceOfPersia
 
             spriteState.Add(Enumeration.State.stand, priority);
             sprite.PlayAnimation(spriteSequence, spriteState.Value());
-            spriteState.Add(Enumeration.State.stand, Enumeration.PriorityState.Normal);
+        }
+
+
+        //?? the original guard engarde is used?
+        public void Engarde()
+        {
+            Engarde(Enumeration.PriorityState.Normal, null);
+        }
+        public void Engarde(Enumeration.PriorityState priority, bool? stoppable)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == stoppable)
+                return;
+
+            spriteState.Add(Enumeration.State.engarde, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
 
         }
+
+        public void Ready()
+        {
+            Ready(Enumeration.PriorityState.Normal, null);
+        }
+        public void Ready(Enumeration.PriorityState priority, bool? stoppable)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == stoppable)
+                return;
+
+            spriteState.Add(Enumeration.State.ready, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+
+        }
+
+        public void Move(Position position)
+        {
+            if (position.X <= Position.X)
+            {
+                flip = SpriteEffects.None;
+            }
+            else
+            {
+                flip = SpriteEffects.FlipHorizontally;
+            }
+            spriteState.Add(Enumeration.State.fullstep, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+
+        }
+
+
     }
 }

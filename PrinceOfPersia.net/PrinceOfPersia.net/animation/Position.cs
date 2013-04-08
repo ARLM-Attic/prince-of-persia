@@ -83,6 +83,16 @@ namespace PrinceOfPersia
                 }
             }
             return false;
+        }
+
+
+        public bool CheckOnRow(Position p)
+        {
+            if (p.Y == Y)
+            {
+                return true;
+            }
+            return false;
 
         }
 

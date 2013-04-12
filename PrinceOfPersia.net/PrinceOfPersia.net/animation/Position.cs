@@ -96,6 +96,17 @@ namespace PrinceOfPersia
 
         }
 
+        public float CheckOnRowDistance(Position p)
+        {
+            if (p.Y == Y)
+            {
+                float distance = Math.Abs(p.X - X);
+                int ret =  ((int)distance) / Tile.WIDTH;
+                return ret;
+            }
+            return -1;
+
+        }
 
         //53 pix total
         public Rectangle Bounding

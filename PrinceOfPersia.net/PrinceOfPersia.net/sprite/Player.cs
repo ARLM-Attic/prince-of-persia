@@ -20,61 +20,6 @@ namespace PrinceOfPersia
     public class Player : Sprite
     {
 
-        //Sequence static for share purpose
-        //private static List<Sequence> spriteSequence = null;
-        
-        //private GraphicsDevice graphicsDevice;
-        //private SpriteEffects flip = SpriteEffects.None;
-        //private Position _position;
-        //private Maze Maze;
-
-        //public AnimationSequence sprite;
-
-        // Sounds
-
-        //Player Grid
-        //public const int PLAYER_GRID = 1;
-        //public const int PLAYER_VELOCITY = 120;
-        //public const int PLAYER_L_PENETRATION = 19;
-        //public const int PLAYER_R_PENETRATION = 30;
-
-        //public const int PLAYER_STAND_BORDER_FRAME = 47; //47+20player+47=114
-        //public const int PLAYER_STAND_FRAME = 20;
-        //public const int PLAYER_STAND_WALL_PEN = 30; //wall penetration
-        //public const int PLAYER_STAND_FLOOR_PEN = 26; //floor border penetration
-        //public const int PLAYER_STAND_HANG_PEN = 46; //floor border penetration for hangup
-
-        ////public const int SPRITE_SIZE_X = 114; //to be var
-        ////public const int SPRITE_SIZE_Y = 114; //to be var
-
-        //public spriteState spriteState = new spriteState();
-
-
-
-
-
-        // Constants for controling horizontal movement
-        //private const float MoveAcceleration = 13000.0f;
-        //private const float MaxMoveSpeed = 1750.0f;
-        //private const float GroundDragFactor = 0.48f;
-        //private const float AirDragFactor = 0.58f;
-
-        // Constants for controlling vertical movement
-        //private const float MaxJumpTime = 0.35f;
-        //private const float JumpLaunchVelocity = -3500.0f;
-        //private const float GravityAcceleration = 3400.0f;
-        //private const float MaxFallSpeed = 100f;//550.0f;
-        //private const float JumpControlPower = 0.14f;
-
-        // Input configuration
-        //private const float MoveStickScale = 1.0f;
-        //private const float AccelerometerScale = 1.5f;
-        //private const Buttons JumpButton = Buttons.A;
-
-        /// <summary>
-        /// Gets whether or not the player's feet are on the ground.
-        /// </summary>
-     
 
         /// <summary>
         /// Constructors a new player.
@@ -298,7 +243,10 @@ namespace PrinceOfPersia
                         case Enumeration.State.bump:
                             Bump(spriteState.Value().Priority);
                             break;
-
+                        case Enumeration.State.ready:
+                            Retreat();
+                            break;
+                        
                         default:
                             break;
                     }
@@ -320,6 +268,10 @@ namespace PrinceOfPersia
                         case Enumeration.State.bump:
                             Bump(spriteState.Value().Priority);
                             break;
+                        case Enumeration.State.ready:
+                            Strike(spriteState.Value().Priority);
+                            break;
+
 
                         default:
                             break;
@@ -383,9 +335,9 @@ namespace PrinceOfPersia
                             if (flip == SpriteEffects.None)
                                 RunTurn();
                             break;
-                        //case Enumeration.State.hang:
-                        //    HangDrop();
-                        //    break;
+                        case Enumeration.State.ready:
+                            Advance();
+                            break;
 
                         default:
                             break;
@@ -403,6 +355,9 @@ namespace PrinceOfPersia
                             break;
                         case Enumeration.State.hang:
                             Hang();
+                            break;
+                        case Enumeration.State.ready:
+                            Strike(spriteState.Value().Priority);
                             break;
 
                         default:
@@ -927,30 +882,46 @@ namespace PrinceOfPersia
             isGround();
 
             //Check opposite sprite like guards..
+            bool thereAreEnemy = false;
             foreach (Sprite s in SpriteRoom.SpritesInRoom())
             {
                 switch(s.GetType().Name)
                 {
                     case "Guard" :
                     {
+                        thereAreEnemy = true;
                         if (s.Position.CheckOnRow(Position))
                         {
-                            ((Guard)s).Ready();
-                            ((Guard)s).Move(Position);
+                            s.Alert = true;
+                            //TODO : i will fix sequence with only goto..
+                            ((Guard)s).Advance(Position);
+                            if (s.Position.CheckOnRowDistance(Position) >= 0 & s.Position.CheckOnRowDistance(Position) <= 3 & Alert == false)
+                            {
+                                Engarde();
+                                Alert = true;
+                            }
                         }
                         else
-                            ((Guard)s).Stand();
+                        {
+                            Alert = false;
+                            s.Alert = false;
+                        }
                         break;
                     }
                     default:
                         break;
                 }
+
                 if (s.Position.CheckCollision(Position))
                 {
                     Impale();
                 }
             }
-
+            if (thereAreEnemy == false & Alert == true)
+            { 
+                Alert = false;
+                Stand();
+            }
 
             Rectangle playerBounds = _position.Bounding;
             //Find how many tiles are near on the left
@@ -1251,6 +1222,30 @@ namespace PrinceOfPersia
         }
 
 
+        public void Engarde()
+        { Engarde(Enumeration.PriorityState.Normal, null); }
+
+        public void Engarde(bool? stoppable)
+        { Engarde(Enumeration.PriorityState.Normal, stoppable); }
+
+        public void Engarde(Enumeration.PriorityState priority, bool? stoppable)
+        { Engarde(Enumeration.PriorityState.Normal, stoppable, Vector2.Zero); }
+
+        public void Engarde(Enumeration.PriorityState priority, bool? stoppable, Vector2 offset)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == false)
+                return;
+            //TODO: ??? to be moved on calling routine??
+            //if (spriteState.Value().state == Enumeration.State.ready)
+            //{ return; }
+            //if (spriteState.Value().state == Enumeration.State.engarde)
+            //{ return; }
+            //if (spriteState.Value().state == Enumeration.State.advance)
+            //{ return; }
+
+            spriteState.Add(Enumeration.State.engarde, priority, stoppable, offset);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
 
 
         public void Crouch()
@@ -1719,6 +1714,31 @@ namespace PrinceOfPersia
             this.Energy = this.LivePoints; 
         }
 
+        public void Advance()
+        {
+            spriteState.Add(Enumeration.State.advance, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+
+        }
+
+
+        public void Strike()
+        {
+            Strike(Enumeration.PriorityState.Normal);
+        }
+        public void Strike(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.strike, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+      
+
+        public void Retreat()
+        {
+            spriteState.Add(Enumeration.State.retreat, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+
+        }
 
         public void Question()
         {

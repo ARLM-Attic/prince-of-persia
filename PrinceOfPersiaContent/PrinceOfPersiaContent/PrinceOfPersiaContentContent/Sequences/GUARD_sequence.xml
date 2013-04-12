@@ -16,7 +16,7 @@
     <name>STAND</name>
   </Sequence>
 
-  <!-- ENGARDE-->
+  <!-- ENGARDE
   <Sequence>
     <frames>
       <Frame>
@@ -58,6 +58,22 @@
     </frames>
     <name>ENGARDE</name>
   </Sequence>
+-->
+
+  <!-- GUARDENGARDE only for compatibility with the original macII soruce code-->
+  <Sequence>
+    <frames>
+       <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>READY</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>GUARDENGARDE</name>
+  </Sequence>
+
+
 
   <!-- READY-->
   <Sequence>
@@ -65,7 +81,7 @@
       <Frame>
         <type>SPRITE</type>
         <name>READY</name>
-        <value>Sprites/Guard/Guard_dos/Guard_158</value>
+        <value>Sprites/Guard/Guard_dos/Guard_172</value> <!-- in the original macII not found sequence frame -->
         <stoppable>true</stoppable>
         <delay>0.5</delay>
         <xOffSet>0</xOffSet>
@@ -99,37 +115,37 @@
   </Sequence>
 
 
-  <!-- s t e p   f o r w a r d 52px-->
+  <!-- ADVANCE -->
   <Sequence>
     <frames>
       <Frame>
         <type>SPRITE</type>
-        <name>FULLSTEP</name>
-        <value>Sprites/Guard/Guard_dos/Guard_121</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>Sprites/Guard/Guard_dos/Guard_122</value>
+        <name>ADVANCE</name>
+        <value>Sprites/Guard/Guard_dos/Guard_158</value>
         <stoppable>false</stoppable>
         <xOffSet>2</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
-        <value>Sprites/Guard/Guard_dos/Guard_123</value>
+        <name>ADVANCE</name>
+        <value>Sprites/Guard/Guard_dos/Guard_163</value> 
         <stoppable>false</stoppable>
-        <xOffSet>10</xOffSet>
+        <xOffSet>4</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>Sprites/Guard/Guard_dos/Guard_124</value>
+        <value>Sprites/Guard/Guard_dos/Guard_164</value>
+        <stoppable>false</stoppable>
+        <xOffSet>5</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_165</value>
         <stoppable>false</stoppable>
         <xOffSet>10</xOffSet>
         <yOffSet>0</yOffSet>
@@ -137,11 +153,11 @@
       <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>
-        <parameter>STAND</parameter>
+        <parameter>READY</parameter>
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-    <name>FULLSTEP</name>
+    <name>ADVANCE</name>
   </Sequence>
 
 

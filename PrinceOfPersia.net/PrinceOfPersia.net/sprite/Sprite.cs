@@ -43,6 +43,8 @@ namespace PrinceOfPersia
         protected Rectangle localBounds;
         protected RoomNew spriteRoom = null;
 
+        private bool alert = false; //set true when there is a enemy in the room or near
+
         public AnimationSequence sprite;
         public PlayerState spriteState = new PlayerState();
 
@@ -54,6 +56,18 @@ namespace PrinceOfPersia
             }
         }
 
+        // Alert state
+        public bool Alert
+        {
+            get
+            {
+                return alert;
+            }
+            set
+            {
+                alert = value;
+            }
+        }
 
         // Physics state
         public RoomNew SpriteRoom

@@ -92,7 +92,12 @@ namespace PrinceOfPersia
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your game logic here.
             sprite.UpdateFrame(elapsed, ref _position, ref flip, ref spriteState);
-            
+
+            if (Alert == true)
+                Ready();
+            else
+                Stand();
+
         }
 
         /// <summary>
@@ -161,6 +166,21 @@ namespace PrinceOfPersia
 
         }
 
+
+        public void GuardEngarde()
+        {
+            GuardEngarde(Enumeration.PriorityState.Normal, null);
+        }
+        public void GuardEngarde(Enumeration.PriorityState priority, bool? stoppable)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == stoppable)
+                return;
+
+            spriteState.Add(Enumeration.State.guardengarde, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+
+        }
+
         public void Ready()
         {
             Ready(Enumeration.PriorityState.Normal, null);
@@ -175,7 +195,7 @@ namespace PrinceOfPersia
 
         }
 
-        public void Move(Position position)
+        public void Advance(Position position)
         {
             if (position.X <= Position.X)
             {
@@ -185,7 +205,7 @@ namespace PrinceOfPersia
             {
                 flip = SpriteEffects.FlipHorizontally;
             }
-            spriteState.Add(Enumeration.State.fullstep, Enumeration.PriorityState.Normal);
+            spriteState.Add(Enumeration.State.advance, Enumeration.PriorityState.Normal);
             sprite.PlayAnimation(spriteSequence, spriteState.Value());
 
         }

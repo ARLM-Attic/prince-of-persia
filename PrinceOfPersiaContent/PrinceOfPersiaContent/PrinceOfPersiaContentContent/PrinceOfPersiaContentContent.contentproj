@@ -1614,44 +1614,150 @@
     <Compile Include="Sprites\Guard\Guard_dos\Guard_158.png">
       <Name>Guard_158</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
     <Compile Include="Sprites\Guard\Guard_dos\Guard_166.png">
       <Name>Guard_166</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
     <Compile Include="Sprites\Guard\Guard_dos\Guard_170.png">
       <Name>Guard_170</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
     <Compile Include="Sprites\Guard\Guard_dos\Guard_171.png">
       <Name>Guard_171</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_207.png">
+      <Name>Kid_207</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_208.png">
+      <Name>Kid_208</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_209.png">
+      <Name>Kid_209</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_210.png">
+      <Name>Kid_210</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_171.png">
+      <Name>Kid_171</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_163.png">
+      <Name>Kid_163</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_164.png">
+      <Name>Kid_164</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_165.png">
+      <Name>Kid_165</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\Guard\Guard_dos\Guard_121.png">
-      <Name>Guard_121</Name>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_163.png">
+      <Name>Guard_163</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_164.png">
+      <Name>Guard_164</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_165.png">
+      <Name>Guard_165</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_158.png">
+      <Name>Kid_158</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_170.png">
+      <Name>Kid_170</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Guard\Guard_dos\Guard_122.png">
-      <Name>Guard_122</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_172.png">
+      <Name>Guard_172</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Guard\Guard_dos\Guard_123.png">
-      <Name>Guard_123</Name>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_157.png">
+      <Name>Kid_157</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\Guard\Guard_dos\Guard_124.png">
-      <Name>Guard_124</Name>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_160.png">
+      <Name>Kid_160</Name>
       <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_151.png">
+      <Name>Kid_151</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_152.png">
+      <Name>Kid_152</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_153.png">
+      <Name>Kid_153</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_154.png">
+      <Name>Kid_154</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_155.png">
+      <Name>Kid_155</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Player\Kid_dos\Kid_156.png">
+      <Name>Kid_156</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

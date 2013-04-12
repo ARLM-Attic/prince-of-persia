@@ -274,44 +274,25 @@ namespace PrinceOfPersia
                 ,
             arise
                 ,
-            turndraw
-                ,
-            guardengarde
-                ,
-            pickupsword
-                ,
-            resheathe
-                ,
-            fastsheathe
-                ,
-            Pstand
-                ,
-            Vstand
-                ,
-            Vwalk
-                ,
-            Vstop
-                ,
-            Palert
-                ,
-            Pback
-                ,
-            Vexit
-                ,
-            Mclimb
-                ,
-            Vraise
-                ,
-            Plie
-                ,
-            patchfall
-                ,
-            Mscurry
-                ,
-            Mstop
-                ,
-            Mleave
-                ,
+            turndraw,
+            guardengarde,
+            pickupsword,
+            resheathe,
+            fastsheathe,
+            Pstand,
+            Vstand,
+            Vwalk,
+            Vstop,
+            Palert,
+            Pback,
+            Vexit,
+            Mclimb,
+            Vraise,
+            Plie,
+            patchfall,
+            Mscurry,
+            Mstop,
+            Mleave,
             Pembrace
                 ,
             Pwaiting

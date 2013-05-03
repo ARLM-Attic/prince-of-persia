@@ -36,8 +36,14 @@ namespace PrinceOfPersia
         private SpriteFont PoPFont;
         //[ContentSerializerIgnore] 
 
-        private Texture2D livePoints;
-        private Texture2D energy;
+        public static Texture2D player_livePoints;
+        public static Texture2D player_energy;
+
+        public static Texture2D enemy_livePoints;
+        public static Texture2D enemy_energy;
+
+        public static Texture2D player_splash;
+        public static Texture2D enemy_splash;
 
         // Meta-level game state.
         private Level[] levels = new Level[30];
@@ -172,8 +178,15 @@ namespace PrinceOfPersia
             PoPFont = content.Load<SpriteFont>("Fonts/PoP");
 
             //energy...
-            energy = content.Load<Texture2D>("Sprites/bottom/live_full");
-            livePoints = content.Load<Texture2D>("Sprites/bottom/live_empty");
+            player_energy = content.Load<Texture2D>("Sprites/bottom/player_live_full");
+            player_livePoints = content.Load<Texture2D>("Sprites/bottom/player_live_empty");
+            enemy_energy = content.Load<Texture2D>("Sprites/bottom/enemy_live_full");
+            enemy_livePoints = content.Load<Texture2D>("Sprites/bottom/enemy_live_empty");
+
+            //Splash
+            player_splash = content.Load<Texture2D>("Sprites/bottom/player_splash");
+            enemy_splash = content.Load<Texture2D>("Sprites/bottom/enemy_splash");
+            
 
 
             //Known issue that you get exceptions if you use Media PLayer while connected to your PC
@@ -203,13 +216,26 @@ namespace PrinceOfPersia
         {
             HandleInput(gameTime, null);
 
-            //maze.playerRoom.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Window.CurrentOrientation);
-
             foreach (RoomNew r in maze.rooms)
             {
                 r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
             }
             maze.player.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
+
+            //Other sprites update
+            foreach (Sprite s in maze.player.SpriteRoom.SpritesInRoom())
+            { 
+               switch(s.GetType().Name)
+                {
+                    case "Guard" :
+                    {
+                        ((Guard)s).Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
+                        break;
+                    }
+                    default:
+                        break;
+                }
+            }
 
 
             base.Update(gameTime, otherScreenHasFocus, false);
@@ -302,10 +328,10 @@ namespace PrinceOfPersia
                 DrawShadowedString(PoPFont, "Press Button to Continue", hudLocation, Color.White);
             }
 
-            Rectangle source = new Rectangle(0, 0, livePoints.Width, livePoints.Height);
+            Rectangle source = new Rectangle(0, 0, player_livePoints.Width, player_livePoints.Height);
 
             int offset = 1;
-            Texture2D triangle = livePoints;
+            Texture2D player_triangle = player_livePoints;
             for (int x = 1; x <= maze.player.LivePoints; x++)
             {
                 hudLocation = new Vector2(0 + offset, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
@@ -313,13 +339,45 @@ namespace PrinceOfPersia
                 
 
                 if (x <= maze.player.Energy)
-                    triangle = energy;
+                    player_triangle = player_energy;
                 else
-                    triangle = livePoints;
+                    player_triangle = player_livePoints;
 
                 // Draw the current tile.
-                spriteBatch.Draw(triangle, hudLocation , source, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
-                offset += livePoints.Width + 1;
+                spriteBatch.Draw(player_triangle, hudLocation, source, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+                offset += player_livePoints.Width + 1;
+            }
+
+
+            //Draw opponent energy
+                offset = 1;
+                foreach (Sprite s in maze.player.SpriteRoom.SpritesInRoom())
+                {
+                    switch (s.GetType().Name)
+                    {
+                        case "Guard":
+                            {
+                                offset = enemy_livePoints.Width +1;
+                                Texture2D enemy_triangle = enemy_livePoints;
+                                for (int x = 1; x <= maze.player.LivePoints; x++)
+                                {
+                                hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH - offset, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+
+                                if (x <= s.Energy)
+                                    enemy_triangle = enemy_energy;
+                                else
+                                    enemy_triangle = enemy_livePoints;
+
+                                // Draw the current tile.
+                                spriteBatch.Draw(enemy_triangle, hudLocation, source, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0);
+                                offset += enemy_livePoints.Width + 1;
+                                }
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+                
             }
             
             //DrawShadowedString(PoPFont, maze.PlayerRoom.roomName, hudLocation, Color.White);
@@ -378,7 +436,7 @@ namespace PrinceOfPersia
 
             // Draw score
             hudLocation.X = hudLocation.X + 420;
-            DrawShadowedString(hudFont, "PrinceOfPersia.net alpha version: " + RetrieveLinkerTimestamp().ToShortDateString(), hudLocation, Color.White);
+            DrawShadowedString(hudFont, "PrinceOfPersia.net beta version: " + RetrieveLinkerTimestamp().ToShortDateString(), hudLocation, Color.White);
 
         
         }

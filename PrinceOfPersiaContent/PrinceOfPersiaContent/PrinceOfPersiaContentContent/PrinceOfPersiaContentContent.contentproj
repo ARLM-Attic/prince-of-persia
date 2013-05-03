@@ -347,18 +347,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\bottom\live_empty.png">
-      <Name>live_empty</Name>
+    <Compile Include="Sprites\bottom\player_live_empty.png">
+      <Name>player_live_empty</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\bottom\live_full.png">
-      <Name>live_full</Name>
+    <Compile Include="Sprites\bottom\player_live_full.png">
+      <Name>player_live_full</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\bottom\splash.png">
-      <Name>splash</Name>
+    <Compile Include="Sprites\bottom\player_splash.png">
+      <Name>player_splash</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
     </Compile>
@@ -1758,6 +1758,132 @@
       <Name>Kid_156</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\bottom\enemy_live_empty.png">
+      <Name>enemy_live_empty</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\bottom\enemy_live_full.png">
+      <Name>enemy_live_full</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\BlockA_1.png">
+      <Name>BlockA_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\BlockA_2.png">
+      <Name>BlockA_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\BlockA_3.png">
+      <Name>BlockA_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_179.png">
+      <Name>Guard_179</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_180.png">
+      <Name>Guard_180</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_181.png">
+      <Name>Guard_181</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_182.png">
+      <Name>Guard_182</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_183.png">
+      <Name>Guard_183</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_185.png">
+      <Name>Guard_185</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_121.png">
+      <Name>Guard_121</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_151.png">
+      <Name>Guard_151</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_152.png">
+      <Name>Guard_152</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_153.png">
+      <Name>Guard_153</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_154.png">
+      <Name>Guard_154</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_155.png">
+      <Name>Guard_155</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_156.png">
+      <Name>Guard_156</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_157.png">
+      <Name>Guard_157</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_168.png">
+      <Name>Guard_168</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\bottom\enemy_splash.png">
+      <Name>enemy_splash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Guard\Guard_dos\Guard_160.png">
+      <Name>Guard_160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

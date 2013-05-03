@@ -42,7 +42,7 @@ namespace PrinceOfPersia
 
         InputState input = new InputState();
 
-        SpriteBatch spriteBatch;
+        public static SpriteBatch spriteBatch;
         SpriteFont font;
         Texture2D blankTexture = null;
 

@@ -60,14 +60,14 @@
   </Sequence>
 -->
 
-  <!-- GUARDENGARDE only for compatibility with the original macII soruce code-->
+  <!-- GUARDENGARDE only for compatibility with the original macII source code-->
   <Sequence>
     <frames>
        <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>
         <parameter>READY</parameter>
-        <stoppable>false</stoppable>
+        <stoppable>true</stoppable>
       </Frame>
     </frames>
     <name>GUARDENGARDE</name>
@@ -160,6 +160,229 @@
     <name>ADVANCE</name>
   </Sequence>
 
+  <!-- DROPDEAD -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>DROPDEAD</name>
+        <value>Sprites/Guard/Guard_dos/Guard_179</value>
+        <stoppable>false</stoppable>
+        <delay>0.8</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_180</value>
+        <stoppable>false</stoppable>
+        <delay>0.4</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_181</value>
+        <stoppable>false</stoppable>
+        <delay>0.2</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_182</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Guard/Guard_dos/Guard_183</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name>LOOP</name>
+        <value>Sprites/Guard/Guard_dos/Guard_185</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOFRAME</name>
+        <parameter>LOOP</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>DROPDEAD</name>
+  </Sequence>
+
+  <!-- STRIKE -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_168</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
+        <delay>0.4</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_151</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
+        <delay>0.3</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_152</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name><!-- THIS NAME IS USEFULL FOR BLOCK ATTACK-->
+        <delay>0.2</delay>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_153</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name><!-- THIS NAME IS USEFULL FOR BLOCK ATTACK-->
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_154</value>
+        <name>STRIKE</name><!-- THIS NAME IS USEFULL FOR TAKE THE HIT FRAME IF TOUCH ..LOOSES ENERGY -->
+        <stoppable>false</stoppable>
+        <xOffSet>10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_155</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
+        <xOffSet>5</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_155</value>
+        <name>READYBLOCK</name>
+        <stoppable>false</stoppable>
+        <xOffSet>-10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_156</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
+        <xOffSet>-5</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_157</value>
+        <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>READY</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>STRIKE</name>
+  </Sequence>
+
+
+
+  <!-- STRIKE-RETREAT-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_155</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_156</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_157</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_158</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>RETREAT</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>STRIKERET</name>
+  </Sequence>
+
+  <!-- RETREAT-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>ADVANCE</name>
+        <value>Sprites/Guard/Guard_dos/Guard_160</value>
+        <stoppable>false</stoppable>
+        <xOffSet>-4</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Guard/Guard_dos/Guard_157</value>
+        <stoppable>true</stoppable>
+        <xOffSet>-10</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>READY</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>RETREAT</name>
+  </Sequence>
 
 </ArrayOfSequence>
 

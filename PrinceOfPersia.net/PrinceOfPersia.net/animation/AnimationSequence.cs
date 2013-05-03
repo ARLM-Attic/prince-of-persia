@@ -193,6 +193,12 @@ namespace PrinceOfPersia
 
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
+            //Resetting Name
+            //playerState.Value().Name = string.Empty;
+            playerState.Value().Name = sequence.frames[frameIndex].name;
+            //System.Console.WriteLine(playerState.Value().Name.ToUpper());
+
+
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
             //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
             //TimePerFrame = 1.2f + sequence.frames[frameIndex].delay; //0.1
@@ -202,8 +208,13 @@ namespace PrinceOfPersia
             {
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
+
+                //Taking name of the frame usefull for hit combat..
+                //playerState.Value().Name = sequence.frames[frameIndex].name;
+
                 if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
                 {
+
                     //COMMAND
                     string[] aCommand = sequence.frames[frameIndex].name.Split('|');
                     string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
@@ -262,7 +273,7 @@ namespace PrinceOfPersia
 
                     }
                 }
-                
+
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
                     flip = 1;
@@ -483,7 +494,6 @@ namespace PrinceOfPersia
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, rectangleMask, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
         }
 
-      
         public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
         {
 
@@ -499,7 +509,6 @@ namespace PrinceOfPersia
             //spriteBatch.Begin(0, BlendState.Opaque, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone, Maze.dEffect);
        
             // Draw the current frame.
-            //spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
         }
@@ -511,6 +520,18 @@ namespace PrinceOfPersia
 
             // Draw the current tile.
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+        }
+
+
+        public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Texture2D texture)
+        {
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(0, 0, texture.Width, texture.Height);
+
+            position = new Vector2(position.X + Tile.PERSPECTIVE + (texture.Width/2), position.Y - Tile.GROUND + (texture.Height/2));
+
+            // Draw 
+            spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
         }
 
 

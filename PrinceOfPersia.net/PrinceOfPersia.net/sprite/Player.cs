@@ -19,7 +19,7 @@ namespace PrinceOfPersia
 
     public class Player : Sprite
     {
-
+        
 
         /// <summary>
         /// Constructors a new player.
@@ -160,6 +160,8 @@ namespace PrinceOfPersia
             // TODO: Add your game logic here.
             sprite.UpdateFrame(elapsed, ref _position, ref flip, ref spriteState);
 
+            
+
         }
 
         public void ParseInput(Enumeration.Input input)
@@ -244,7 +246,10 @@ namespace PrinceOfPersia
                             Bump(spriteState.Value().Priority);
                             break;
                         case Enumeration.State.ready:
-                            Retreat();
+                            if (flip == SpriteEffects.FlipHorizontally)
+                                Retreat();
+                            else
+                                Advance();
                             break;
                         
                         default:
@@ -336,7 +341,10 @@ namespace PrinceOfPersia
                                 RunTurn();
                             break;
                         case Enumeration.State.ready:
-                            Advance();
+                            if (flip == SpriteEffects.FlipHorizontally)
+                                Advance();
+                            else
+                                Retreat();
                             break;
 
                         default:
@@ -451,6 +459,9 @@ namespace PrinceOfPersia
                         case Enumeration.State.jumphangLong:
                         case Enumeration.State.jumphangMed:
                             Hang();
+                            break;
+                        case Enumeration.State.ready:
+                            Strike(spriteState.Value().Priority);
                             break;
                         default:
                             CheckItemOnFloor();
@@ -775,81 +786,81 @@ namespace PrinceOfPersia
         }
 
 
-        public void isGround()
-        {
-            isOnGround = false;
+        //public void isGround()
+        //{
+        //    isOnGround = false;
 
-            RoomNew room = null;
-            Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = SpriteRoom.getCenterTile(playerBounds);
-            Rectangle tileBounds = SpriteRoom.GetBounds((int)v2.X, (int)v2.Y);
+        //    RoomNew room = null;
+        //    Rectangle playerBounds = _position.Bounding;
+        //    Vector2 v2 = SpriteRoom.getCenterTile(playerBounds);
+        //    Rectangle tileBounds = SpriteRoom.GetBounds((int)v2.X, (int)v2.Y);
 
-            //Check if kid outside Room 
-            if (v2.X < 0)
-                room = Maze.LeftRoom(SpriteRoom);
-            else
-                room = SpriteRoom;
+        //    //Check if kid outside Room 
+        //    if (v2.X < 0)
+        //        room = Maze.LeftRoom(SpriteRoom);
+        //    else
+        //        room = SpriteRoom;
 
-            if (v2.Y > 2)
-            {
-                isOnGround = false;
-            }
-            else if (v2.Y < 0)
-            {
-                isOnGround = false;
-            }
-            else
-            {
-                if (room.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
-                {
-                    if (playerBounds.Bottom >= tileBounds.Bottom)
-                        isOnGround = true;
-                }
-            }
+        //    if (v2.Y > 2)
+        //    {
+        //        isOnGround = false;
+        //    }
+        //    else if (v2.Y < 0)
+        //    {
+        //        isOnGround = false;
+        //    }
+        //    else
+        //    {
+        //        if (room.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
+        //        {
+        //            if (playerBounds.Bottom >= tileBounds.Bottom)
+        //                isOnGround = true;
+        //        }
+        //    }
 
 
-            if (isOnGround == false)
-            {
-                if (sprite.sequence.raised == false)
-                {
-                    if (spriteState.Value().state == Enumeration.State.runjump)
-                    {
-                        spriteState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
-                        sprite.PlayAnimation(spriteSequence, spriteState.Value());
-                    }
-                    else
-                    {
-                        if (spriteState.Previous().state == Enumeration.State.runjump)
-                            spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20,15));
-                        else
-                            if (spriteState.Value().state != Enumeration.State.freefall)
-                                spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
-                    }
-                    SpriteRoom.LooseShake();
-                    //and for upper room...
-                    SpriteRoom.maze.UpRoom(SpriteRoom).LooseShake();
-                }
-                return;
-            }
+        //    if (isOnGround == false)
+        //    {
+        //        if (sprite.sequence.raised == false)
+        //        {
+        //            if (spriteState.Value().state == Enumeration.State.runjump)
+        //            {
+        //                spriteState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
+        //                sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        //            }
+        //            else
+        //            {
+        //                if (spriteState.Previous().state == Enumeration.State.runjump)
+        //                    spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20,15));
+        //                else
+        //                    if (spriteState.Value().state != Enumeration.State.freefall)
+        //                        spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+        //            }
+        //            SpriteRoom.LooseShake();
+        //            //and for upper room...
+        //            SpriteRoom.maze.UpRoom(SpriteRoom).LooseShake();
+        //        }
+        //        return;
+        //    }
 
             
-            //IS ON GROUND!
-            if (spriteState.Value().state == Enumeration.State.freefall)
-            {
-                //Align to tile x
-                _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
-                //CHECK IF LOOSE ENERGY...
-                int Rem = 0;
-                Rem = (int) Math.Abs(Position.Y - PositionFall.Y) / Tile.REALHEIGHT;
+        //    //IS ON GROUND!
+        //    if (spriteState.Value().state == Enumeration.State.freefall)
+        //    {
+        //        //Align to tile x
+        //        _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
+        //        //CHECK IF LOOSE ENERGY...
+        //        int Rem = 0;
+        //        Rem = (int) Math.Abs(Position.Y - PositionFall.Y) / Tile.REALHEIGHT;
 
-                if (Rem > 0)
-                {
-                    Energy = Energy - Rem;
-                }
-                spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
-            }
+        //        if (Rem > 0)
+        //        {
+        //            Energy = Energy - Rem;
+        //        }
+        //        spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
+        //    }
             
-        }
+        //}
 
         public void CheckItemOnFloor()
         {
@@ -885,40 +896,69 @@ namespace PrinceOfPersia
             bool thereAreEnemy = false;
             foreach (Sprite s in SpriteRoom.SpritesInRoom())
             {
-                switch(s.GetType().Name)
+                switch (s.GetType().Name)
                 {
-                    case "Guard" :
-                    {
-                        thereAreEnemy = true;
-                        if (s.Position.CheckOnRow(Position))
+                    case "Guard":
                         {
-                            s.Alert = true;
-                            //TODO : i will fix sequence with only goto..
-                            ((Guard)s).Advance(Position);
-                            if (s.Position.CheckOnRowDistance(Position) >= 0 & s.Position.CheckOnRowDistance(Position) <= 3 & Alert == false)
+                            if (s.IsAlive == false)
+                                break;
+
+                            thereAreEnemy = true;
+                            if (s.Position.CheckOnRow(Position))
                             {
-                                Engarde();
-                                Alert = true;
+                                //Change Flip player..
+                                if (Position.X > s.Position.X)
+                                    flip = SpriteEffects.None;
+                                else
+                                    flip = SpriteEffects.FlipHorizontally;
+
+
+                                //ENGARDE
+                                if (s.Position.CheckOnRowDistance(Position) >= 0 & s.Position.CheckOnRowDistance(Position) <= 3 & Alert == false)
+                                {
+                                    if (Sword == true)
+                                    {
+                                        Engarde(Enumeration.PriorityState.Force, true);
+                                        Alert = true;
+                                    }
+                                }
+
+                                //STRIKE/HIT
+                                if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == true & spriteState.Value().state == Enumeration.State.strike)
+                                {
+                                    if (spriteState.Value().Name == Enumeration.State.strike.ToString().ToUpper())
+                                    {
+                                        if (s.spriteState.Value().Name != Enumeration.State.readyblock.ToString().ToUpper())
+                                        {
+                                            GameTime g = null;
+                                            s.Splash(false, g);
+                                            s.Energy = s.Energy - 1;
+                                            s.StrikeRetreat();
+                                        }
+                                        else
+                                        {
+                                            System.Console.WriteLine("G->" + Enumeration.State.readyblock.ToString().ToUpper());
+                                        }
+                                    }
+
+                                    if (s.Energy == 0)
+                                    { Fastheathe(); }
+                                    
+                                }
                             }
+                            else
+                            {
+                                Alert = false;
+                            }
+                            break;
                         }
-                        else
-                        {
-                            Alert = false;
-                            s.Alert = false;
-                        }
-                        break;
-                    }
                     default:
                         break;
                 }
 
-                if (s.Position.CheckCollision(Position))
-                {
-                    Impale();
-                }
             }
             if (thereAreEnemy == false & Alert == true)
-            { 
+            {
                 Alert = false;
                 Stand();
             }
@@ -1137,17 +1177,17 @@ namespace PrinceOfPersia
         {
             //DRAW REAL COORDINATE
             //sprite.DrawNew(gameTime, spriteBatch, _position.Value, PositionArrive, flip, 0.5f);
-
+            
             //DRAW SPRITE
             sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
 
         }
 
-        public void DeadFall()
-        {
-            spriteState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
-        }
+        //public void DeadFall()
+        //{
+        //    spriteState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
+        //    sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        //}
 
         public void Impale()
         {
@@ -1171,6 +1211,7 @@ namespace PrinceOfPersia
 
         public void RunStop()
         { RunStop(Enumeration.PriorityState.Normal); }
+
         public void RunStop(Enumeration.PriorityState priority)
         {
             spriteState.Add(Enumeration.State.runstop);
@@ -1236,8 +1277,8 @@ namespace PrinceOfPersia
             if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == false)
                 return;
             //TODO: ??? to be moved on calling routine??
-            //if (spriteState.Value().state == Enumeration.State.ready)
-            //{ return; }
+            if (spriteState.Value().state == Enumeration.State.ready)
+            { return; }
             //if (spriteState.Value().state == Enumeration.State.engarde)
             //{ return; }
             //if (spriteState.Value().state == Enumeration.State.advance)
@@ -1705,6 +1746,7 @@ namespace PrinceOfPersia
         {
             spriteState.Add(Enumeration.State.pickupsword);
             sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            Sword = true;
         }
 
         public void DrinkPotion()

@@ -147,6 +147,7 @@ namespace PrinceOfPersia
             ,mask //mask state
             //,sword //sword tile now item!!
             ,bones //bones
+        
         }
 
 
@@ -211,47 +212,31 @@ namespace PrinceOfPersia
             crush,
             deadfall,
             halve,
+            //COMBAT ACTION
             engarde,
             advance,
             retreat,
             strike,
             flee,
-            turnengarde
-                ,
-            strikeblock
-                ,
-            readyblock
-                ,
-            landengarde
-                ,
-            bumpengfwd
-                ,
-            bumpengback
-                ,
-            blocktostrike
-                ,
-            strikeadv
-                ,
-            climbdown
-                ,
-            blockedstrike
-                ,
-            climbstairs
-                ,
-            dropdead
-                ,
-            stepback
-                ,
-            climbfail
-                ,
-            stabbed
-                ,
-            faststrike
-                ,
-            strikeret
-                ,
-            alertstand
-                ,
+            turnengarde,
+            strikeblock,
+            readyblock,
+            landengarde,
+            bumpengfwd,
+            bumpengback,
+            blocktostrike,
+            strikeadv,
+            climbdown,
+            blockedstrike,
+            climbstairs,
+            dropdead,
+            stepback,
+            climbfail,
+            stabbed,
+            faststrike,
+            strikeret,
+            alertstand,
+
             drinkpotion
                 ,
             crawl

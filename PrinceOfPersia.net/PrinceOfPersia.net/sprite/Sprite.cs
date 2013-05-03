@@ -17,6 +17,9 @@ namespace PrinceOfPersia
 
     public class Sprite
     {
+        private bool sword = false;
+
+
         public const int SPRITE_SIZE_X = 114; //to be var
         public const int SPRITE_SIZE_Y = 114; //to be var
 
@@ -47,6 +50,18 @@ namespace PrinceOfPersia
 
         public AnimationSequence sprite;
         public PlayerState spriteState = new PlayerState();
+
+        public bool Sword
+        {
+            set
+            {
+                sword = value;
+            }
+            get
+            {
+                return sword;
+            }
+        }
 
         public Maze Maze
         {
@@ -185,6 +200,143 @@ namespace PrinceOfPersia
             return false;
         }
 
+
+        public void isGround()
+        {
+            isOnGround = false;
+
+            RoomNew room = null;
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = SpriteRoom.getCenterTile(playerBounds);
+            Rectangle tileBounds = SpriteRoom.GetBounds((int)v2.X, (int)v2.Y);
+
+            //Check if kid outside Room 
+            if (v2.X < 0)
+                room = Maze.LeftRoom(SpriteRoom);
+            else
+                room = SpriteRoom;
+
+            if (v2.Y > 2)
+            {
+                isOnGround = false;
+            }
+            else if (v2.Y < 0)
+            {
+                isOnGround = false;
+            }
+            else
+            {
+                if (room.GetCollision((int)v2.X, (int)v2.Y) != Enumeration.TileCollision.Passable)
+                {
+                    if (playerBounds.Bottom >= tileBounds.Bottom)
+                        isOnGround = true;
+                }
+            }
+
+
+            if (isOnGround == false)
+            {
+                if (sprite.sequence.raised == false)
+                {
+                    if (spriteState.Value().state == Enumeration.State.runjump)
+                    {
+                        spriteState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
+                        sprite.PlayAnimation(spriteSequence, spriteState.Value());
+                    }
+                    else
+                    {
+                        if (spriteState.Previous().state == Enumeration.State.runjump)
+                            spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20, 15));
+                        else
+                            if (spriteState.Value().state != Enumeration.State.freefall)
+                                spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+                    }
+                    SpriteRoom.LooseShake();
+                    //and for upper room...
+                    SpriteRoom.maze.UpRoom(SpriteRoom).LooseShake();
+                }
+                return;
+            }
+
+
+            //IS ON GROUND!
+            if (spriteState.Value().state == Enumeration.State.freefall)
+            {
+                //Align to tile x
+                _position.Y = tileBounds.Bottom - _position._spriteRealSize.Y;
+                //CHECK IF LOOSE ENERGY...
+                int Rem = 0;
+                Rem = (int)Math.Abs(Position.Y - PositionFall.Y) / Tile.REALHEIGHT;
+
+                if (Rem > 0)
+                {
+                    Energy = Energy - Rem;
+                }
+                spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
+            }
+
+        }
+
+        public void DeadFall()
+        {
+            spriteState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+
+        public void DropDead()
+        {
+            if (spriteState.Value().state != Enumeration.State.dropdead)
+            {
+                spriteState.Add(Enumeration.State.dropdead, Enumeration.PriorityState.Force);
+                sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            }
+        }
+
+        public void Resheathe()
+        {
+            spriteState.Add(Enumeration.State.resheathe, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+        
+
+        public void Fastheathe()
+        {
+            spriteState.Add(Enumeration.State.fastsheathe, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+
+        public void Strike()
+        {
+            spriteState.Add(Enumeration.State.strike, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+
+        public void Retreat()
+        {
+            spriteState.Add(Enumeration.State.retreat, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+
+        public void StrikeRetreat()
+        {
+            spriteState.Add(Enumeration.State.strikeret, Enumeration.PriorityState.Force);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+        }
+
+
+        //show splash hit
+        public void Splash(bool player, GameTime gametime)
+        {
+            Texture2D texture;
+            if (player == true)
+                texture = PrinceOfPersiaGame.player_splash;
+            else
+                texture = PrinceOfPersiaGame.enemy_splash;
+
+            sprite.DrawSprite(gametime, ScreenManager.spriteBatch, Position.Value, SpriteEffects.None, 0.4f, texture);
+
+        }
+        
         public Sprite()
         { 
         

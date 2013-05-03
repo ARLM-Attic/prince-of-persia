@@ -2759,6 +2759,181 @@
   </Sequence>
 
 
+
+  <!--  resheathe -->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_229</value>
+        <stoppable>false</stoppable>
+        <delay>2.0</delay>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_230</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_231</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_232</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_233</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_234</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_235</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_236</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_237</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_238</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_239</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_240</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_241</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_242</value>
+        <stoppable>false</stoppable>
+      </Frame>
+
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>STAND</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>RESHEATHE</name>
+    <raised>true</raised>
+  </Sequence>
+
+
+  
+  <!--  fastsheathe -->
+  <Sequence>
+    <frames>
+
+      <Frame>
+        <type>SPRITE</type>
+        <name>fastsheathe</name>
+        <value>Sprites/Player/Kid_dos/Kid_234</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_235</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_236</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_237</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_238</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_239</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_240</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_241</value>
+        <stoppable>false</stoppable>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Sprites/Player/Kid_dos/Kid_242</value>
+        <stoppable>false</stoppable>
+      </Frame>
+
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>STAND</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>FASTSHEATHE</name>
+    <raised>true</raised>
+  </Sequence>
+  
+  
+  
   <!--  DRINK POTION -->
   <Sequence>
     <frames>
@@ -3038,6 +3213,49 @@
   </Sequence>
 
 
+
+
+  <!-- STRIKE-RETREAT-->
+  <Sequence>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Player/Kid_dos/Kid_155</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Player/Kid_dos/Kid_156</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Player/Kid_dos/Kid_157</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <value>Sprites/Player/Kid_dos/Kid_158</value>
+        <stoppable>true</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>RETREAT</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>STRIKERET</name>
+  </Sequence>
+  
   <!-- RETREAT-->
   <Sequence>
     <frames>
@@ -3071,9 +3289,9 @@
     <frames>
       <Frame>
         <type>SPRITE</type>
-        <name>STRIKE</name>
         <value>Sprites/Player/Kid_dos/Kid_151</value>
         <stoppable>false</stoppable>
+        <name>READYBLOCK</name>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
@@ -3081,6 +3299,7 @@
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_152</value>
         <stoppable>true</stoppable>
+        <name>READYBLOCK</name><!-- THIS NAME IS USEFULL FOR BLOCK ATTACK-->
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
@@ -3088,35 +3307,40 @@
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_153</value>
         <stoppable>true</stoppable>
+        <name>READYBLOCK</name><!-- THIS NAME IS USEFULL FOR BLOCK ATTACK-->
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_154</value>
+        <name>STRIKE</name><!-- THIS NAME IS USEFULL FOR TAKE THE HIT FRAME IF TOUCH KID..LOOSES ENERGY -->
         <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>10</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_155</value>
         <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
+        <name>READYBLOCK</name><!-- THIS NAME IS USEFULL FOR BLOCK ATTACK-->
+        <xOffSet>5</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_156</value>
         <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
+        <name>READYBLOCK</name>
+        <xOffSet>-10</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_157</value>
         <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
+        <name>READYBLOCK</name>
+        <xOffSet>-5</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
 

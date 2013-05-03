@@ -15,6 +15,19 @@ namespace PrinceOfPersia
         private Enumeration.SequenceReverse _reverse;
         private Vector2 _offset;
         private bool _ifTrue = false;
+        private string _name = string.Empty;
+
+        public string Name
+        {
+            get { return _name; }
+            set 
+            { 
+                if (value == null)
+                    _name = string.Empty; 
+                else
+                    _name = value; 
+            }
+        }
 
 
         public bool IfTrue

@@ -69,6 +69,9 @@ namespace PrinceOfPersia
                     list.Add(s);
             }
 
+            if (maze.player.SpriteRoom.roomName == this.roomName)
+                list.Add(maze.player);
+
             return list;
         }
 
@@ -230,7 +233,11 @@ namespace PrinceOfPersia
                     return new Loose(this, content, tiletype, state);
                     break;
 
-                default:
+                case Enumeration.TileType.block:
+                    return new Block(this, content, tiletype, state);
+                    break;
+
+                default: 
                     return new Tile(this, content, tiletype, state, item);
             }
             
@@ -423,7 +430,7 @@ namespace PrinceOfPersia
             UpdateItems(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
 
             //update spritesssss
-            UpdateSprites(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
+            //UpdateSprites(gameTime, keyboardState, gamePadState, touchState, accelState, orientation);
             
         }
 
@@ -454,8 +461,14 @@ namespace PrinceOfPersia
         {
             foreach (Sprite s in SpritesInRoom())
             {
-                //to be fixxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-                ((Guard)s).Draw(gameTime, spriteBatch);
+                switch (s.GetType().Name)
+                {
+                    case "Guard":
+                        ((Guard)s).Draw(gameTime, spriteBatch);
+                        break;
+                    default:
+                        break;
+                }
             }
             
         }

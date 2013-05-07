@@ -147,7 +147,10 @@ namespace PrinceOfPersia
             ,mask //mask state
             //,sword //sword tile now item!!
             ,bones //bones
-        
+            ,exit_close_left
+            ,exit_close_left_up
+            ,exit_close_right
+            ,exit_close_right_up
         }
 
 

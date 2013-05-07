@@ -194,8 +194,8 @@ namespace PrinceOfPersia
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
             //Resetting Name
-            //playerState.Value().Name = string.Empty;
-            playerState.Value().Name = sequence.frames[frameIndex].name;
+            playerState.Value().Name = string.Empty;
+            //playerState.Value().Name = sequence.frames[frameIndex].name;
             //System.Console.WriteLine(playerState.Value().Name.ToUpper());
 
 
@@ -210,7 +210,7 @@ namespace PrinceOfPersia
                 TotalElapsed -= TimePerFrame;
 
                 //Taking name of the frame usefull for hit combat..
-                //playerState.Value().Name = sequence.frames[frameIndex].name;
+                playerState.Value().Name = sequence.frames[frameIndex].name;
 
                 if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
                 {
@@ -530,8 +530,13 @@ namespace PrinceOfPersia
 
             position = new Vector2(position.X + Tile.PERSPECTIVE + (texture.Width/2), position.Y - Tile.GROUND + (texture.Height/2));
 
+            //Begin
+            spriteBatch.Begin();
+
             // Draw 
             spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+
+            spriteBatch.End();
         }
 
 

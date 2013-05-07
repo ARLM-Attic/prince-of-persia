@@ -207,7 +207,7 @@ namespace PrinceOfPersia
             {
                 if (r.roomStart == true)
                 {
-                    playerRoom = r;
+                    player.SpriteRoom = r;
                     return r;
                 }
             }

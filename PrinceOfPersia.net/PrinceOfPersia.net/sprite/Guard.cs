@@ -120,6 +120,7 @@ namespace PrinceOfPersia
                                         //check if block
                                         if (s.spriteState.Value().Name != Enumeration.State.readyblock.ToString().ToUpper())
                                         {
+                                            spriteState.Value().Name = string.Empty;
                                             s.Splash(true, gameTime);
                                             s.Energy = s.Energy - 1;
                                             s.StrikeRetreat();

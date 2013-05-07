@@ -13,13 +13,16 @@
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>space</tileType>
+          <tileType>exit</tileType>
+          <state>exit_close_left_up</state>
+        </Column>
+        <Column>
+          <tileType>exit</tileType>
+          <state>exit_close_right_up</state>
         </Column>
         <Column>
           <tileType>space</tileType>
-        </Column>
-        <Column>
-          <tileType>space</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -42,9 +45,18 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
-          <tileType>floor</tileType>
+          <tileType>torch</tileType>
+        </Column>
+        <Column>
+          <tileType>exit</tileType>
+          <state>exit_close_left</state>
+        </Column>
+        <Column>
+          <tileType>exit</tileType>
+          <state>exit_close_right</state>
         </Column>
         <Column>
           <tileType>torch</tileType>
@@ -54,12 +66,7 @@
         </Column>
         <Column>
           <tileType>floor</tileType>
-        </Column>
-        <Column>
-          <tileType>torch</tileType>
-        </Column>
-        <Column>
-          <tileType>floor</tileType>
+          <state>brick</state>
         </Column>
         <Column>
           <tileType>floor</tileType>

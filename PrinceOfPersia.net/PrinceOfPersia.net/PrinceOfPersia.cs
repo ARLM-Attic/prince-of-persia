@@ -303,9 +303,11 @@ namespace PrinceOfPersia
             DrawHud();
             DrawDebug(maze.player.SpriteRoom);
 
-            spriteBatch.End();
+            //spriteBatch.End();
 
             base.Draw(gameTime);
+
+            base.ScreenManager.SpriteBatch.End();
         }
 
         private void DrawBottom()
@@ -325,7 +327,7 @@ namespace PrinceOfPersia
             hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH / 3, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
             if (maze.player.IsAlive == false)
             {
-                DrawShadowedString(PoPFont, "Press Button to Continue", hudLocation, Color.White);
+                DrawShadowedString(PoPFont, "Press Space to Continue", hudLocation, Color.White);
             }
 
             Rectangle source = new Rectangle(0, 0, player_livePoints.Width, player_livePoints.Height);
@@ -388,13 +390,67 @@ namespace PrinceOfPersia
             //if (room.player.sprite.sequence == null)
             //    return;
 
+            Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
+            Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
+
+
+            //END OF DEVELOPMENT???????
+            if (room.roomName == "MAP_dungeon_prison_9.xml")
+            {
+                string sMessage = string.Empty;
+                sMessage = "Congratulations! Did you finish the first level of Prince of Persia.net!";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "Today 7 May of 2013,";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "I ask for help to complete the development of this project!";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Red);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "It was my intention to complete all levels and complete the";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "features that are missing, it would also be nice to bring this game on";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "other device like : Linux, Android and Apple iOS.";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+                
+                sMessage = "Unfortunately for complete Prince of Persia.net and porting to other device";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "I need your help to buy the kit developed by Xamarin ($ 999 business lic)";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "So if you liked my work to make a donation, see on my blog at:";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "http://princeofpersiadotnet.blogspot.it";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                sMessage = "http://www.falappi.it";
+                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
+                hudLocation.Y = hudLocation.Y + 30;
+
+                
+                return;
+            }
+
 
             if (CONFIG_DEBUG == false)
                 return;
 
-            Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
-            Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
-
+        
             DrawShadowedString(hudFont, "ROMM NAME=" + maze.player.SpriteRoom.roomName, hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
 

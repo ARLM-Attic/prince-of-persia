@@ -104,6 +104,7 @@ namespace PrinceOfPersia
 
             spriteState.Clear();
 
+
             Stand();
 
         }
@@ -906,13 +907,7 @@ namespace PrinceOfPersia
                             thereAreEnemy = true;
                             if (s.Position.CheckOnRow(Position))
                             {
-                                //Change Flip player..
-                                if (Position.X > s.Position.X)
-                                    flip = SpriteEffects.None;
-                                else
-                                    flip = SpriteEffects.FlipHorizontally;
-
-
+                               
                                 //ENGARDE
                                 if (s.Position.CheckOnRowDistance(Position) >= 0 & s.Position.CheckOnRowDistance(Position) <= 3 & Alert == false)
                                 {
@@ -921,15 +916,33 @@ namespace PrinceOfPersia
                                         Engarde(Enumeration.PriorityState.Force, true);
                                         Alert = true;
                                     }
+                                    else
+                                    {
+                                        if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == false)
+                                        {
+                                            Energy = 0;
+                                            return;
+                                        }
+                                    }
                                 }
 
                                 //STRIKE/HIT
-                                if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == true & spriteState.Value().state == Enumeration.State.strike)
+                                if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == true)
                                 {
+                                   
+
+                                    //Change Flip player..
+                                    if (Position.X > s.Position.X)
+                                        flip = SpriteEffects.None;
+                                    else
+                                        flip = SpriteEffects.FlipHorizontally;
+
                                     if (spriteState.Value().Name == Enumeration.State.strike.ToString().ToUpper())
                                     {
                                         if (s.spriteState.Value().Name != Enumeration.State.readyblock.ToString().ToUpper())
                                         {
+                                            //RESET STRIKE
+                                            spriteState.Value().Name = string.Empty;
                                             GameTime g = null;
                                             s.Splash(false, g);
                                             s.Energy = s.Energy - 1;
@@ -1270,7 +1283,7 @@ namespace PrinceOfPersia
         { Engarde(Enumeration.PriorityState.Normal, stoppable); }
 
         public void Engarde(Enumeration.PriorityState priority, bool? stoppable)
-        { Engarde(Enumeration.PriorityState.Normal, stoppable, Vector2.Zero); }
+        { Engarde(priority, stoppable, Vector2.Zero); }
 
         public void Engarde(Enumeration.PriorityState priority, bool? stoppable, Vector2 offset)
         {

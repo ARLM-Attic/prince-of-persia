@@ -12,6 +12,8 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 #endregion
 
@@ -44,6 +46,8 @@ namespace PrinceOfPersia
         float TransitionAlphaTitle;
         int numTexture = 0;
         int numLoops = 2;
+        public static Song music;
+        
 
         #endregion
 
@@ -75,6 +79,15 @@ namespace PrinceOfPersia
                 if (content == null)
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
 
+                //SoundEffect a = content.Load<SoundEffect>("Sounds/dos/story1");
+                //music = content.Load<Song>("Sounds/amiga/prince_of_persia_-01-_introduction");
+                music = content.Load<Song>("Songs/dos/main theme.wav");
+                // play files
+                MediaPlayer.IsRepeating = true;
+                MediaPlayer.Volume = 1.0f;
+                MediaPlayer.Play(music);
+
+
                 backgroundTexture = content.Load<Texture2D>("Backgrounds/main_background");
                 presentsTexture = content.Load<Texture2D>("Backgrounds/presents");
                 authorsTexture = content.Load<Texture2D>("Backgrounds/author");
@@ -97,6 +110,9 @@ namespace PrinceOfPersia
         /// </summary>
         public override void Unload()
         {
+            //stop music 
+            MediaPlayer.Stop();
+
             content.Unload();
         }
 

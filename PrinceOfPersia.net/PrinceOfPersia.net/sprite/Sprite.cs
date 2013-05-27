@@ -271,6 +271,11 @@ namespace PrinceOfPersia
                 if (Rem > 0)
                 {
                     Energy = Energy - Rem;
+                    ((SoundEffect)Maze.dContentRes["Sounds/dos/loosing a life falling".ToUpper()]).Play();
+                }
+                else
+                {
+                    ((SoundEffect)Maze.dContentRes["Sounds/dos/normal falling".ToUpper()]).Play();
                 }
                 spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
             }

@@ -73,11 +73,17 @@ namespace PrinceOfPersia
                 if (fileExtPos >= 0)
                     key = fileName.Substring(fileExtPos);
 
+      
 
-                //string type = key.Substring(0, key.IndexOf("\\"));
                 try
                 {
-                    result[key.ToUpper()] = contentManager.Load<T>(key);
+                    //bug in the monogame load song, i will add the wav extension??!?!?
+                    if (key.Contains("Songs/") == true)
+                    {
+                        result[key.ToUpper()] = (T)(object)contentManager.Load<Song>(key+".wav");
+                    }
+                    else
+                        result[key.ToUpper()] = contentManager.Load<T>(key);
                 }
                 catch(Exception ex)
                 {}

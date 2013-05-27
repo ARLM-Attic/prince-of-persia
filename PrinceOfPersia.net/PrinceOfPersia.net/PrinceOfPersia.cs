@@ -5,10 +5,10 @@ using System.Configuration;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
-
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace PrinceOfPersia
 {
@@ -77,6 +77,8 @@ namespace PrinceOfPersia
         public static string CONFIG_PATH_SEQUENCES = @"Sequences\";
 
         public static int CONFIG_KID_START_ENERGY = 3;
+
+
         
         
 
@@ -193,14 +195,15 @@ namespace PrinceOfPersia
             //See http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66
             //Which means its impossible to test this from VS.
             //So we have to catch the exception and throw it away
-            try
-            {
-                //MediaPlayer.IsRepeating = true;
-                //MediaPlayer.Play(Content.Load<Song>("Sounds/Music"));
-            }
-            catch { }
+            //try
+            //{
+            //    MediaPlayer.IsRepeating = true;
+            //    MediaPlayer.Play(content.Load<Song>("Sounds/dos/main theme"));
+            //}
+            //catch { }
 
-
+ 
+            
        
         
 

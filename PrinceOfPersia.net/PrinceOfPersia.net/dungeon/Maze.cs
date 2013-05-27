@@ -28,7 +28,8 @@ namespace PrinceOfPersia
 
 
         //List for retain and load maze tiles textures
-        public static Dictionary<string, object> dTexture = null;
+        public static Dictionary<string, object> dContentRes = null;
+        //public static Dictionary<string, SoundEffect> dSoundEffect = null;
         public Vector2 positionArrive;
 
         //test
@@ -96,7 +97,8 @@ namespace PrinceOfPersia
         //Load all texture in a dictiornary
         private void LoadContent()
         {
-            dTexture = Program.LoadContent<object>(content, "");
+            //dSoundEffect = Program.LoadContent<SoundEffect>(content, string.Empty);
+            dContentRes= Program.LoadContent<object>(content, string.Empty);
 
 
         }

@@ -59,6 +59,7 @@
         <name>RUNCYC3</name>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_9</value>
+        <sound>Sounds/dos/running 2</sound>
         <stoppable>true</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -87,6 +88,7 @@
         <name>RUNCYC7</name>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_13</value>
+        <sound>Sounds/dos/running 2</sound>
         <stoppable>true</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -607,6 +609,7 @@
         <name>RUNSTOP</name>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_53</value>
+        <sound>Sounds/dos/running 2</sound>
         <stoppable>false</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -619,6 +622,7 @@
       <Frame>
         <type>SPRITE</type>
         <value>Sprites/Player/Kid_dos/Kid_55</value>
+        <sound>Sounds/dos/running 2</sound>
         <stoppable>false</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -1847,12 +1851,12 @@
         <name>SOFTLAND</name>
         <value>Sprites/Player/Kid_dos/Kid_107</value>
         <stoppable>false</stoppable>
+        <sound>Sounds/dos/normal falling</sound>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <value>Sprites/Player/Kid_dos/Kid_108</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
@@ -3054,6 +3058,7 @@
         <name></name>
         <value>Sprites/Player/Kid_dos/Kid_205</value>
         <stoppable>false</stoppable>
+        <sound>Sounds/dos/drink</sound>
         <delay>2</delay>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>

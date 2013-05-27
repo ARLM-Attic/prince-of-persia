@@ -56,6 +56,7 @@
         <name></name>
         <value>Tiles/SpikeA_5</value>
         <stoppable>true</stoppable>
+        <sound>Sounds/dos/spikes</sound>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
         <delay>0.2</delay>

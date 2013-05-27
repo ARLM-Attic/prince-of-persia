@@ -213,19 +213,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\MonoGame\v3.0\Assemblies\WindowsGL\Lidgren.Network.dll</HintPath>
-    </Reference>
-    <Reference Include="MonoGame.Framework.Windows">
-      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Release\MonoGame.Framework.Windows.dll</HintPath>
+    <Reference Include="Lidgren.Network.Windows">
+      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Release\Lidgren.Network.Windows.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <Private>True</Private>
     </Reference>
     <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Assemblies\OpenTK.dll</HintPath>
+      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Release\OpenTK.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -242,12 +238,15 @@
     <Reference Include="System.Net">
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq">
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Tao.Sdl, Version=1.2.13.0, Culture=neutral, PublicKeyToken=9c7a200e36c0094e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\bin\Release\Tao.Sdl.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +260,10 @@
     <Content Include="PoPicon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MonoGame-2.5.1.0-0\mono-MonoGame-56afa04\MonoGame.Framework\MonoGame.Framework.Windows.csproj">
+      <Project>{7DE47032-A904-4C29-BD22-2D235E8D91BA}</Project>
+      <Name>MonoGame.Framework.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\PrinceOfPersiaContentContent.contentproj">
       <Project>{84687DDF-FE54-48F9-B1C8-304CF0871BD0}</Project>
       <Name>PrinceOfPersiaContentContent %28Content%29</Name>

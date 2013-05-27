@@ -276,6 +276,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Sequences\DOOR_sequence.xml">
       <Name>DOOR_sequence</Name>
@@ -1919,6 +1920,322 @@
       <Name>ExitA_RightUp</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Songs\dos\arrived to princess.wav">
+      <Name>arrived to princess</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\death 1.wav">
+      <Name>death 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\death 2.wav">
+      <Name>death 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\end level with shadow.wav">
+      <Name>end level with shadow</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\guard death 1.wav">
+      <Name>guard death 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\guard death 2.wav">
+      <Name>guard death 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\large presentation.wav">
+      <Name>large presentation</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\low weight.wav">
+      <Name>low weight</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\main theme.wav">
+      <Name>main theme</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\potion 1.wav">
+      <Name>potion 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\potion 2.wav">
+      <Name>potion 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\presentation.wav">
+      <Name>presentation</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\princess waiting 1.wav">
+      <Name>princess waiting 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\princess waiting 3.wav">
+      <Name>princess waiting 3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\story1.wav">
+      <Name>story1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\story2 jaffar and clock apprearing.wav">
+      <Name>story2 jaffar and clock apprearing</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\story3.wav">
+      <Name>story3</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\time and presentation.wav">
+      <Name>time and presentation</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\time over.wav">
+      <Name>time over</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\time.wav">
+      <Name>time</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\title princess waiting 2.wav">
+      <Name>title princess waiting 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Songs\dos\winning theme.wav">
+      <Name>winning theme</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>MGSongProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\dos\chopper.wav">
+      <Name>chopper</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing fast.wav">
+      <Name>door gate closing fast</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing slow 1.wav">
+      <Name>door gate closing slow 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing slow 2.wav">
+      <Name>door gate closing slow 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate opening 1.wav">
+      <Name>door gate opening 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\door tile pressed 1.wav">
+      <Name>door tile pressed 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\drinking potion.wav">
+      <Name>drinking potion</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\drinking.wav">
+      <Name>drinking</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\falling.wav">
+      <Name>falling</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\loosing a life falling.wav">
+      <Name>loosing a life falling</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\loosing a life from the enemy.wav">
+      <Name>loosing a life from the enemy</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\mirror.wav">
+      <Name>mirror</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\normal falling.wav">
+      <Name>normal falling</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\prince crashing into the floor.wav">
+      <Name>prince crashing into the floor</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\res10014.wav">
+      <Name>res10014</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\res10051.wav">
+      <Name>res10051</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\running 1.wav">
+      <Name>running 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\running 2.wav">
+      <Name>running 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\skel alive.wav">
+      <Name>skel alive</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\something chopped.wav">
+      <Name>something chopped</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\something spiked.wav">
+      <Name>something spiked</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\spikes.wav">
+      <Name>spikes</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\sword moving.wav">
+      <Name>sword moving</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\sword vs sword.wav">
+      <Name>sword vs sword</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\taking a life to the enemy.wav">
+      <Name>taking a life to the enemy</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\taking out the sword.wav">
+      <Name>taking out the sword</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\tile crashing into the floor.wav">
+      <Name>tile crashing into the floor</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\tile moving 1.wav">
+      <Name>tile moving 1</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\tile moving 2.wav">
+      <Name>tile moving 2</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Sounds\dos\touching a wall.wav">
+      <Name>touching a wall</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

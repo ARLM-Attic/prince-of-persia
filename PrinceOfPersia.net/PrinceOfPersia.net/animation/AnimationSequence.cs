@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace PrinceOfPersia
 {
@@ -209,6 +211,13 @@ namespace PrinceOfPersia
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
 
+                //Play Sound
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
+
+
                 //Taking name of the frame usefull for hit combat..
                 playerState.Value().Name = sequence.frames[frameIndex].name;
 
@@ -281,6 +290,10 @@ namespace PrinceOfPersia
                     flip = -1;
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
+
+              
+
+
             }
             else if (firstTime == true )
             {
@@ -292,6 +305,8 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
                 firstTime = false;
+
+
             }
        }
 
@@ -305,6 +320,13 @@ namespace PrinceOfPersia
             {
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
+
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
+
+
                 if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
                 {
                     //COMMAND
@@ -392,6 +414,14 @@ namespace PrinceOfPersia
             {
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
+
+                //Play Sound
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
+
+
                 if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
                 {
                     //COMMAND
@@ -511,6 +541,7 @@ namespace PrinceOfPersia
             // Draw the current frame.
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
+
         }
 
         public void DrawItem(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
@@ -537,6 +568,7 @@ namespace PrinceOfPersia
             spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
             spriteBatch.End();
+
         }
 
 

@@ -32,6 +32,7 @@
         <name>LOOP</name>
         <value>Tiles/FloorA</value>
         <stoppable>true</stoppable>
+        <sound>Sounds/dos/door tile pressed 1</sound>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>

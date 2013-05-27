@@ -5,9 +5,10 @@ using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace PrinceOfPersia
 {
@@ -256,6 +257,18 @@ namespace PrinceOfPersia
         /// </summary>
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
+            //Play Sound presentation
+            //((SoundEffect)Maze.dContentRes["Sounds/dos/presentation"]).Play();
+            Song music = ((Song)Maze.dContentRes["Songs/dos/presentation".ToUpper()]);
+
+            //Song music = content.Load<Song>("Sounds/dos/presentation.wav");
+            // play files
+            MediaPlayer.IsRepeating = false;
+            MediaPlayer.Volume = 1.0f;
+            MediaPlayer.Play(music);
+
+
+
             maze.player.Reset();
         }
 

@@ -23,6 +23,15 @@ namespace PrinceOfPersia
         public bool raised = false; //for check if the frame is a jump, hang raised in air
         public float delay = 0; //delay animation frame
 
+        public SoundEffect soundeffect
+        {
+            get
+            {
+                return osoundeffect;
+            }
+        }
+        private SoundEffect osoundeffect;
+
         public Texture2D texture
         {
             get
@@ -31,6 +40,12 @@ namespace PrinceOfPersia
             }
         }
         private Texture2D otexture;
+
+
+        public void SetSound(SoundEffect value)
+        {
+            osoundeffect = value;
+        }
 
         public void SetTexture(Texture2D value)
         {

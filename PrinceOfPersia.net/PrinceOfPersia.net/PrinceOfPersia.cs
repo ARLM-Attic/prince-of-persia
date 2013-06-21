@@ -70,7 +70,15 @@ namespace PrinceOfPersia
 
         public static bool CONFIG_DEBUG = false;
         public static float CONFIG_FRAMERATE = 0.09f;
-        public static string CONFIG_SPRITE_KID = "KID_DOS";
+        public static string CONFIG_SPRITE_KID;
+        public static string CONFIG_SPRITE_GUARD;
+        public static string CONFIG_SONGS;
+        public static string CONFIG_SOUNDS;
+        public static string CONFIG_TILES;
+        public static string CONFIG_ITEMS;
+
+
+
         public static string CONFIG_PATH_CONTENT = System.AppDomain.CurrentDomain.BaseDirectory + @"Content\";
         public static string CONFIG_PATH_LEVELS = @"Levels\";
         public static string CONFIG_PATH_ROOMS = @"Rooms\";
@@ -112,7 +120,16 @@ namespace PrinceOfPersia
             //READ APP.CONFIG for configuration settings
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_debug"], out CONFIG_DEBUG);
             float.TryParse(ConfigurationSettings.AppSettings["CONFIG_framerate"], out CONFIG_FRAMERATE);
-            CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString();
+
+            //READ CONTENT RESOURCES PATH
+            CONFIG_SPRITE_KID = ConfigurationSettings.AppSettings["CONFIG_sprite_kid"].ToString().ToUpper();
+            CONFIG_SPRITE_GUARD = ConfigurationSettings.AppSettings["CONFIG_sprite_guard"].ToString().ToUpper();
+            CONFIG_SOUNDS = ConfigurationSettings.AppSettings["CONFIG_sound"].ToString().ToUpper();
+            CONFIG_SONGS = ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper();
+            CONFIG_TILES = ConfigurationSettings.AppSettings["CONFIG_tiles"].ToString().ToUpper();
+            CONFIG_ITEMS = ConfigurationSettings.AppSettings["CONFIG_items"].ToString().ToUpper();
+            CONFIG_PATH_SEQUENCES = ConfigurationSettings.AppSettings["CONFIG_path_Sequences"].ToString().ToUpper();
+
 
             CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
 

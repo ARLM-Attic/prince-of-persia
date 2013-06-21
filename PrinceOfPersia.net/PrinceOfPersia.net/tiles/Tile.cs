@@ -116,7 +116,7 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture(Content.Load<Texture2D>(result.frames[0].value));
+                result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
 
                 collision = result.collision;
                 Texture = result.frames[0].texture;
@@ -226,24 +226,28 @@ namespace PrinceOfPersia
                         //Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
                         if (tileType == Enumeration.TileType.loose)
                         {
-                            Loose l = (Loose) room.GetTile((int)v.X, (int)v.W);
+                            Loose l = (Loose)room.GetTile((int)v.X, (int)v.W);
                             l.Fall(true);
-                        }                        
+                        }
                         else
+                        {
+                            ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS +"tile crashing into the floor".ToUpper()]).Play();
                             room.SubsTile(Coordinates, Enumeration.TileType.rubble);
+                        }
                     }
                     
                 }
 
 
-                if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.HEIGHT - Tile.PERSPECTIVE)
+                //if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.HEIGHT - Tile.PERSPECTIVE)
+                if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.PERSPECTIVE)
                 {
                     //remove tiles from tilesTemporaney
                     lock (room.tilesTemporaney)
                     {
                         room.tilesTemporaney.Remove(this);
                     }
-                    //exis from DOWN room
+                    //exit from DOWN room
                     RoomNew roomDown = room.maze.DownRoom(room);
                     room = roomDown;
                     _position.Y = RoomNew.TOP_LIMIT - 10;

@@ -1620,6 +1620,9 @@ namespace PrinceOfPersia
                     RunStop();
                     return;
 
+                case Enumeration.State.stand:
+                    return;
+
                 default:
                     break;
             }
@@ -1760,6 +1763,7 @@ namespace PrinceOfPersia
             spriteState.Add(Enumeration.State.pickupsword);
             sprite.PlayAnimation(spriteSequence, spriteState.Value());
             Sword = true;
+            ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS+ "presentation".ToUpper()]).Play();
         }
 
         public void DrinkPotion()

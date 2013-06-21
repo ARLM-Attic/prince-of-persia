@@ -81,7 +81,7 @@ namespace PrinceOfPersia
 
                 //SoundEffect a = content.Load<SoundEffect>("Sounds/dos/story1");
                 //music = content.Load<Song>("Sounds/amiga/prince_of_persia_-01-_introduction");
-                music = content.Load<Song>("Songs/dos/main theme.wav");
+                music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "main theme.wav");
                 // play files
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Volume = 1.0f;

@@ -16,6 +16,8 @@ namespace PrinceOfPersia
         private const int FRAME_HEIGHT = 114;
         //public const float FRAME_TIME = 0.1f;
 
+        public string config_type;
+
         public List<Frame> frames = new List<Frame>();
         public string name;
         public bool raised = false;
@@ -56,19 +58,19 @@ namespace PrinceOfPersia
                     //loading texture
                     if (f.value != null)
                     {
-                        Texture2D t = (Texture2D)Maze.dContentRes[f.value.ToUpper()];
+                        Texture2D t = (Texture2D)Maze.dContentRes[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString().ToUpper() + f.value.ToUpper()];
                         f.SetTexture(t);
                     }
                     //loading sound
                     if (f.sound != null)
                     {
-                        SoundEffect s = (SoundEffect)Maze.dContentRes[f.sound.ToUpper()];
+                        SoundEffect s = (SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound.ToUpper()];
                         f.SetSound(s);
                     }
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine("ERROR:Content.Load<dContentRes>" + f.value); 
+                    System.Console.WriteLine("ERROR:Content.Load<dContentRes>" + config_type.ToUpper() + f.value); 
                 }
             }
         }

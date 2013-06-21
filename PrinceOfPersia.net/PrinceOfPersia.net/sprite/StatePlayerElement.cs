@@ -20,7 +20,7 @@ namespace PrinceOfPersia
 
         public StatePlayerElement()
         {
-            _state = Enumeration.State.stand;
+            _state = Enumeration.State.none;
             Priority = Enumeration.PriorityState.Normal;
             Reverse = Enumeration.SequenceReverse.Normal;
             OffSet = Vector2.Zero;

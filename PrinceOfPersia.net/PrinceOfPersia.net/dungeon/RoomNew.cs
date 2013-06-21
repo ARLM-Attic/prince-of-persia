@@ -258,17 +258,7 @@ namespace PrinceOfPersia
         public void StartNewLife(GraphicsDevice graphicsDevice)
         {
             //Play Sound presentation
-            //((SoundEffect)Maze.dContentRes["Sounds/dos/presentation"]).Play();
-            Song music = ((Song)Maze.dContentRes["Songs/dos/presentation".ToUpper()]);
-
-            //Song music = content.Load<Song>("Sounds/dos/presentation.wav");
-            // play files
-            MediaPlayer.IsRepeating = false;
-            MediaPlayer.Volume = 1.0f;
-            MediaPlayer.Play(music);
-
-
-
+            ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + "presentation".ToUpper()]).Play();
             maze.player.Reset();
         }
 

@@ -42,7 +42,7 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture(Content.Load<Texture2D>(result.frames[0].value));
+                result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_ITEMS + result.frames[0].value));
 
                 Texture = result.frames[0].texture;
             }

@@ -9,7 +9,7 @@ namespace PrinceOfPersia
 {
     public abstract class StateElement
     {
-        private Enumeration.State _state;
+        private Enumeration.State _state = Enumeration.State.none;
         private Enumeration.PriorityState _priorityState;
         private bool? _stoppable;
         private Enumeration.SequenceReverse _reverse;

@@ -308,6 +308,80 @@ Content\Tiles\ExitA_RightUp.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\PoP.xnb
 Content\Effects\SwapColor.xnb
+Content\Sounds\dos\chopper.xnb
+Content\Sounds\dos\door gate closing fast.xnb
+Content\Sounds\dos\door gate closing slow 1.xnb
+Content\Sounds\dos\door gate closing slow 2.xnb
+Content\Sounds\dos\door gate opening 1.xnb
+Content\Sounds\dos\door tile pressed 1.xnb
+Content\Sounds\dos\drinking potion.xnb
+Content\Sounds\dos\drinking.xnb
+Content\Sounds\dos\falling.xnb
+Content\Sounds\dos\loosing a life falling.xnb
+Content\Sounds\dos\loosing a life from the enemy.xnb
+Content\Sounds\dos\mirror.xnb
+Content\Sounds\dos\normal falling.xnb
+Content\Sounds\dos\prince crashing into the floor.xnb
+Content\Sounds\dos\res10014.xnb
+Content\Sounds\dos\res10051.xnb
+Content\Sounds\dos\running 1.xnb
+Content\Sounds\dos\running 2.xnb
+Content\Sounds\dos\skel alive.xnb
+Content\Sounds\dos\something chopped.xnb
+Content\Sounds\dos\something spiked.xnb
+Content\Sounds\dos\spikes.xnb
+Content\Sounds\dos\sword moving.xnb
+Content\Sounds\dos\sword vs sword.xnb
+Content\Sounds\dos\taking a life to the enemy.xnb
+Content\Sounds\dos\taking out the sword.xnb
+Content\Sounds\dos\tile crashing into the floor.xnb
+Content\Sounds\dos\tile moving 1.xnb
+Content\Sounds\dos\tile moving 2.xnb
+Content\Sounds\dos\touching a wall.xnb
+Content\Sounds\dos\arrived to princess.xnb
+Content\Sounds\dos\death 1.xnb
+Content\Sounds\dos\death 2.xnb
+Content\Sounds\dos\end level with shadow.xnb
+Content\Sounds\dos\guard death 1.xnb
+Content\Sounds\dos\guard death 2.xnb
+Content\Sounds\dos\large presentation.xnb
+Content\Sounds\dos\low weight.xnb
+Content\Sounds\dos\main theme.xnb
+Content\Sounds\dos\potion 1.xnb
+Content\Sounds\dos\potion 2.xnb
+Content\Sounds\dos\presentation.xnb
+Content\Sounds\dos\princess waiting 1.xnb
+Content\Sounds\dos\princess waiting 3.xnb
+Content\Sounds\dos\story1.xnb
+Content\Sounds\dos\story2 jaffar and clock apprearing.xnb
+Content\Sounds\dos\story3.xnb
+Content\Sounds\dos\time and presentation.xnb
+Content\Sounds\dos\time over.xnb
+Content\Sounds\dos\time.xnb
+Content\Sounds\dos\title princess waiting 2.xnb
+Content\Sounds\dos\winning theme.xnb
+Content\Songs\dos\arrived to princess.wav
+Content\Songs\dos\death 1.wav
+Content\Songs\dos\death 2.wav
+Content\Songs\dos\end level with shadow.wav
+Content\Songs\dos\guard death 1.wav
+Content\Songs\dos\guard death 2.wav
+Content\Songs\dos\large presentation.wav
+Content\Songs\dos\low weight.wav
+Content\Songs\dos\main theme.wav
+Content\Songs\dos\potion 1.wav
+Content\Songs\dos\potion 2.wav
+Content\Songs\dos\presentation.wav
+Content\Songs\dos\princess waiting 1.wav
+Content\Songs\dos\princess waiting 3.wav
+Content\Songs\dos\story1.wav
+Content\Songs\dos\story2 jaffar and clock apprearing.wav
+Content\Songs\dos\story3.wav
+Content\Songs\dos\time and presentation.wav
+Content\Songs\dos\time over.wav
+Content\Songs\dos\time.wav
+Content\Songs\dos\title princess waiting 2.wav
+Content\Songs\dos\winning theme.wav
 Content\Levels\LEVEL_dungeon_prison.xml
 Content\Rooms\MAP_blockroom.xml
 Content\Rooms\MAP_dungeon_prison_1.xml

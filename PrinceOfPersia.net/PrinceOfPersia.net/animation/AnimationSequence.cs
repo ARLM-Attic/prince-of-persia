@@ -17,7 +17,7 @@ namespace PrinceOfPersia
         public List<Sequence> lsequence;
         private float TotalElapsed;
         //private float time;
-        private float TimePerFrame;
+       
 
         public static float frameRate = 0.09f;
 
@@ -196,6 +196,7 @@ namespace PrinceOfPersia
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
             //Resetting Name
+            float TimePerFrame = 0;
             playerState.Value().Name = string.Empty;
             //playerState.Value().Name = sequence.frames[frameIndex].name;
             //System.Console.WriteLine(playerState.Value().Name.ToUpper());
@@ -312,6 +313,7 @@ namespace PrinceOfPersia
 
         public void UpdateFrameTile(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref TileState tileState)
         {
+            float TimePerFrame = 0;
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
             //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;
@@ -406,6 +408,7 @@ namespace PrinceOfPersia
 
         public void UpdateFrameItem(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref TileState itemState)
         {
+            float TimePerFrame = 0;
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
             //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;

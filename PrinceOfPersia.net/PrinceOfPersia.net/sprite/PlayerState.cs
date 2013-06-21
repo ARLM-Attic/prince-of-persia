@@ -149,6 +149,7 @@ namespace PrinceOfPersia
             {
                 Add(new StatePlayerElement());
             }
+            
             return data.First();
         }
 

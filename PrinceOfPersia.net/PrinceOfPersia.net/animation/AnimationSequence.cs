@@ -51,6 +51,10 @@ namespace PrinceOfPersia
                
                 return frameIndex; 
             }
+            set
+            {
+                frameIndex = value;
+            }
         }
         int frameIndex;
 
@@ -80,7 +84,7 @@ namespace PrinceOfPersia
             int frameSprite = 0;
             foreach (Frame f in this.Frames)
             {
-                if (f.type == Frame.TypeFrame.SPRITE)
+                if (f.type == Enumeration.TypeFrame.SPRITE)
                     frameSprite++;
             }
             return frameSprite;
@@ -129,8 +133,8 @@ namespace PrinceOfPersia
 
             if (result == null)
             {
+                //will be an error 
                 return;
-
             }
 
             //cloning for avoid reverse pemanently...
@@ -162,7 +166,7 @@ namespace PrinceOfPersia
 
                 foreach (Frame f in sequence.frames)
                 {
-                    if (f.type == Frame.TypeFrame.COMMAND)
+                    if (f.type == Enumeration.TypeFrame.COMMAND)
                     {
                         newListCommand.Add(f);
                     }
@@ -209,20 +213,19 @@ namespace PrinceOfPersia
      
             if (TotalElapsed > TimePerFrame)
             {
-                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
-                TotalElapsed -= TimePerFrame;
-
                 //Play Sound
                 if (sequence.frames[frameIndex].sound != null)
                 {
                     sequence.frames[frameIndex].soundeffect.Play();
                 }
 
+                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+                TotalElapsed -= TimePerFrame;
 
                 //Taking name of the frame usefull for hit combat..
                 playerState.Value().Name = sequence.frames[frameIndex].name;
 
-                if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
+                if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
                 {
 
                     //COMMAND
@@ -230,14 +233,14 @@ namespace PrinceOfPersia
                     string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
                     for (int x = 0; x < aCommand.Length; x++)
                     {
-                        if (aCommand[x] == Frame.TypeCommand.ABOUTFACE.ToString())
+                        if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
                         {
                             if (spriteEffects == SpriteEffects.FlipHorizontally)
                                 spriteEffects = SpriteEffects.None;
                             else
                                 spriteEffects = SpriteEffects.FlipHorizontally;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOFRAME.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
                         {
                             string par = aParameter[x];
                             int result = sequence.frames.FindIndex(delegate(Frame f)
@@ -246,7 +249,7 @@ namespace PrinceOfPersia
                             });
                             frameIndex = result;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
                         {
                             string[] par = aParameter[x].Split(':');
                             Sequence result = lsequence.Find(delegate(Sequence s)
@@ -264,7 +267,7 @@ namespace PrinceOfPersia
                             else
                                 playerState.Add(StatePlayerElement.Parse(par[0]));
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.IFGOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
                         {
                             string par = string.Empty;
                             if (playerState.Value().IfTrue == true)
@@ -280,6 +283,10 @@ namespace PrinceOfPersia
                             frameIndex = 0;
                             playerState.Add(StatePlayerElement.Parse(par));
                         }
+                        else if (aCommand[x] == Enumeration.TypeCommand.DELETE.ToString())
+                        {
+                            playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
+                        }
 
                     }
                 }
@@ -292,12 +299,18 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
 
-              
 
+             
 
             }
-            else if (firstTime == true )
+            else if (firstTime == true & TotalElapsed > TimePerFrame)
             {
+                //Play Sound
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
+
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
                     flip = 1;
@@ -307,7 +320,7 @@ namespace PrinceOfPersia
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
                 firstTime = false;
 
-
+            
             }
        }
 
@@ -320,30 +333,32 @@ namespace PrinceOfPersia
 
             if (TotalElapsed > TimePerFrame)
             {
-                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
-                TotalElapsed -= TimePerFrame;
-
                 if (sequence.frames[frameIndex].sound != null)
                 {
                     sequence.frames[frameIndex].soundeffect.Play();
                 }
 
+                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+                TotalElapsed -= TimePerFrame;
 
-                if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
+              
+
+
+                if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
                 {
                     //COMMAND
                     string[] aCommand = sequence.frames[frameIndex].name.Split('|');
                     string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
                     for (int x = 0; x < aCommand.Length; x++)
                     {
-                        if (aCommand[x] == Frame.TypeCommand.ABOUTFACE.ToString())
+                        if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
                         {
                             if (spriteEffects == SpriteEffects.FlipHorizontally)
                                 spriteEffects = SpriteEffects.None;
                             else
                                 spriteEffects = SpriteEffects.FlipHorizontally;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOFRAME.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
                         {
                             string par = aParameter[x];
                             int result = sequence.frames.FindIndex(delegate(Frame f)
@@ -352,7 +367,7 @@ namespace PrinceOfPersia
                             });
                             frameIndex = result;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
                         {
                             string par = aParameter[x];
                             Sequence result = lsequence.Find(delegate(Sequence s)
@@ -363,7 +378,7 @@ namespace PrinceOfPersia
                             frameIndex = 0;
                             tileState.Add(StateTileElement.Parse(par));
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.IFGOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
                         {
                             string par = string.Empty;
                             if (tileState.Value().IfTrue == true)
@@ -391,7 +406,7 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
             }
-            else if (firstTime == true)
+            else if (firstTime == true & TotalElapsed > TimePerFrame)
             {
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
@@ -401,6 +416,11 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
                 firstTime = false;
+
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
             }
 
         }
@@ -415,8 +435,6 @@ namespace PrinceOfPersia
 
             if (TotalElapsed > TimePerFrame)
             {
-                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
-                TotalElapsed -= TimePerFrame;
 
                 //Play Sound
                 if (sequence.frames[frameIndex].sound != null)
@@ -424,22 +442,27 @@ namespace PrinceOfPersia
                     sequence.frames[frameIndex].soundeffect.Play();
                 }
 
+                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+                TotalElapsed -= TimePerFrame;
 
-                if (sequence.frames[frameIndex].type != Frame.TypeFrame.SPRITE)
+                
+
+
+                if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
                 {
                     //COMMAND
                     string[] aCommand = sequence.frames[frameIndex].name.Split('|');
                     string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
                     for (int x = 0; x < aCommand.Length; x++)
                     {
-                        if (aCommand[x] == Frame.TypeCommand.ABOUTFACE.ToString())
+                        if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
                         {
                             if (spriteEffects == SpriteEffects.FlipHorizontally)
                                 spriteEffects = SpriteEffects.None;
                             else
                                 spriteEffects = SpriteEffects.FlipHorizontally;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOFRAME.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
                         {
                             string par = aParameter[x];
                             int result = sequence.frames.FindIndex(delegate(Frame f)
@@ -448,7 +471,7 @@ namespace PrinceOfPersia
                             });
                             frameIndex = result;
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.GOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
                         {
                             string par = aParameter[x];
                             Sequence result = lsequence.Find(delegate(Sequence s)
@@ -459,7 +482,7 @@ namespace PrinceOfPersia
                             frameIndex = 0;
                             itemState.Add(StateTileElement.Parse(par));
                         }
-                        else if (aCommand[x] == Frame.TypeCommand.IFGOTOSEQUENCE.ToString())
+                        else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
                         {
                             string par = string.Empty;
                             if (itemState.Value().IfTrue == true)
@@ -487,8 +510,14 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
             }
-            else if (firstTime == true)
+            else if (firstTime == true & TotalElapsed > TimePerFrame)
             {
+                //Play Sound
+                if (sequence.frames[frameIndex].sound != null)
+                {
+                    sequence.frames[frameIndex].soundeffect.Play();
+                }
+
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
                     flip = 1;
@@ -527,6 +556,17 @@ namespace PrinceOfPersia
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, rectangleMask, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
         }
 
+
+        public void DrawItem(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
+        {
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Width, sequence.frames[frameIndex].texture.Height);
+
+            // Draw the current tile.
+            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+        }
+
+
         public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
         {
 
@@ -547,15 +587,6 @@ namespace PrinceOfPersia
 
         }
 
-        public void DrawItem(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
-        {
-            // Calculate the source rectangle of the current frame.
-            Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Width, sequence.frames[frameIndex].texture.Height);
-
-            // Draw the current tile.
-            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
-        }
-
 
         public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Texture2D texture)
         {
@@ -565,12 +596,12 @@ namespace PrinceOfPersia
             position = new Vector2(position.X + Tile.PERSPECTIVE + (texture.Width/2), position.Y - Tile.GROUND + (texture.Height/2));
 
             //Begin
-            spriteBatch.Begin();
+            //spriteBatch.Begin();
 
             // Draw 
             spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
-            spriteBatch.End();
+            //spriteBatch.End();
 
         }
 

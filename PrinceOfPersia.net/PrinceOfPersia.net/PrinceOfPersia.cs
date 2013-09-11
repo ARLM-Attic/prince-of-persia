@@ -42,8 +42,8 @@ namespace PrinceOfPersia
         public static Texture2D enemy_livePoints;
         public static Texture2D enemy_energy;
 
-        public static Texture2D player_splash;
-        public static Texture2D enemy_splash;
+        //public static Texture2D player_splash;
+        //public static Texture2D enemy_splash;
 
         // Meta-level game state.
         private Level[] levels = new Level[30];
@@ -72,6 +72,7 @@ namespace PrinceOfPersia
         public static float CONFIG_FRAMERATE = 0.09f;
         public static string CONFIG_SPRITE_KID;
         public static string CONFIG_SPRITE_GUARD;
+        public static string CONFIG_SPRITE_EFFECTS;
         public static string CONFIG_SONGS;
         public static string CONFIG_SOUNDS;
         public static string CONFIG_TILES;
@@ -129,6 +130,7 @@ namespace PrinceOfPersia
             CONFIG_TILES = ConfigurationSettings.AppSettings["CONFIG_tiles"].ToString().ToUpper();
             CONFIG_ITEMS = ConfigurationSettings.AppSettings["CONFIG_items"].ToString().ToUpper();
             CONFIG_PATH_SEQUENCES = ConfigurationSettings.AppSettings["CONFIG_path_Sequences"].ToString().ToUpper();
+            CONFIG_SPRITE_EFFECTS = ConfigurationSettings.AppSettings["CONFIG_sprite_effects"].ToString().ToUpper();
 
 
             CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
@@ -203,8 +205,8 @@ namespace PrinceOfPersia
             enemy_livePoints = content.Load<Texture2D>("Sprites/bottom/enemy_live_empty");
 
             //Splash
-            player_splash = content.Load<Texture2D>("Sprites/bottom/player_splash");
-            enemy_splash = content.Load<Texture2D>("Sprites/bottom/enemy_splash");
+            //player_splash = content.Load<Texture2D>("Sprites/bottom/player_splash");
+            //enemy_splash = content.Load<Texture2D>("Sprites/bottom/enemy_splash");
             
 
 
@@ -242,18 +244,35 @@ namespace PrinceOfPersia
             }
             maze.player.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
 
+            
+
+
             //Other sprites update
             foreach (Sprite s in maze.player.SpriteRoom.SpritesInRoom())
-            { 
-               switch(s.GetType().Name)
+            {
+   
+                switch (s.GetType().Name)
                 {
-                    case "Guard" :
-                    {
-                        ((Guard)s).Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
-                        break;
-                    }
+                    case "Guard":
+                        {
+                            ((Guard)s).Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
+                            break;
+                        }
+
+                    case "Splash":
+                        {
+                            ((Splash)s).Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
+                            break;
+                        }
+
                     default:
                         break;
+                }
+                //delete object in state == delete
+                if (s.spriteState.Value().state == Enumeration.State.delete)
+                {
+                    maze.sprites.Remove(s);
+                    //s.sprite.FrameIndex = 0;
                 }
             }
 
@@ -310,6 +329,7 @@ namespace PrinceOfPersia
 
             maze.player.SpriteRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
+            
 
             //now drow sprites
             maze.player.SpriteRoom.DrawSprites(gameTime, spriteBatch);
@@ -317,6 +337,7 @@ namespace PrinceOfPersia
 
             //now drow the mask
             maze.player.SpriteRoom.DrawMask(gameTime, spriteBatch);
+
 
 
             DrawBottom();

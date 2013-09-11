@@ -80,8 +80,9 @@ namespace PrinceOfPersia
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
 
                 //SoundEffect a = content.Load<SoundEffect>("Sounds/dos/story1");
-                //music = content.Load<Song>("Sounds/amiga/prince_of_persia_-01-_introduction");
-                music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "main theme.wav");
+                //SoundEffect  a  = content.Load<SoundEffect>("SONGS/DOS/story1");
+                music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "main theme");
+                //music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "1");
                 // play files
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Volume = 1.0f;

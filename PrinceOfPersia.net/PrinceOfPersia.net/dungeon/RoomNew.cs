@@ -50,6 +50,7 @@ namespace PrinceOfPersia
         public int widthInLevel = 0;
         public int heightInLevel = 0;
 
+        public List<Sprite> elements = new List<Sprite>();
         //private List<Tile> tilesTemporaney = new List<Tile>();
         //public ArrayList tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
 
@@ -64,11 +65,12 @@ namespace PrinceOfPersia
         {
             List<Sprite> list = new List<Sprite>();
 
-            foreach(Sprite s in maze.guards)
+            foreach(Sprite s in maze.sprites)
             {
                 if (s.SpriteRoom == this)
                     list.Add(s);
             }
+
 
             if (maze.player.SpriteRoom.roomName == this.roomName)
                 list.Add(maze.player);
@@ -182,8 +184,10 @@ namespace PrinceOfPersia
                             //int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
                             int yGuard = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
                             Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, c.spriteEffect);
-                            maze.guards.Add(g);
+                            maze.sprites.Add(g);
                             break;
+
+
                         default:
                             break;
                     }
@@ -469,6 +473,11 @@ namespace PrinceOfPersia
                     case "Guard":
                         ((Guard)s).Draw(gameTime, spriteBatch);
                         break;
+
+                    case "Splash":
+                        ((Splash)s).Draw(gameTime, spriteBatch);
+                        break;
+                    
                     default:
                         break;
                 }

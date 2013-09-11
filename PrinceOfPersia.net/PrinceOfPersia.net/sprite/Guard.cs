@@ -122,6 +122,9 @@ namespace PrinceOfPersia
                                         {
                                             spriteState.Value().Name = string.Empty;
                                             s.Splash(true, gameTime);
+                                            //Splash splash = new Splash(SpriteRoom, Position.Value, graphicsDevice, SpriteEffects.None, true);
+                                            //Maze.sprites.Add(splash);
+
                                             s.Energy = s.Energy - 1;
                                             s.StrikeRetreat();
                                         }

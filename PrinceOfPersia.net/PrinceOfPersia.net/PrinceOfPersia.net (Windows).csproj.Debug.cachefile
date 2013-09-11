@@ -13,7 +13,6 @@ Content\Backgrounds\text_2_background.xnb
 Content\Backgrounds\text_background.xnb
 Content\Sprites\bottom\player_live_empty.xnb
 Content\Sprites\bottom\player_live_full.xnb
-Content\Sprites\bottom\player_splash.xnb
 Content\Sprites\fire\frame1.xnb
 Content\Sprites\fire\frame2.xnb
 Content\Sprites\fire\frame3.xnb
@@ -248,7 +247,6 @@ Content\Sprites\Guard\Guard_dos\Guard_155.xnb
 Content\Sprites\Guard\Guard_dos\Guard_156.xnb
 Content\Sprites\Guard\Guard_dos\Guard_157.xnb
 Content\Sprites\Guard\Guard_dos\Guard_168.xnb
-Content\Sprites\bottom\enemy_splash.xnb
 Content\Sprites\Guard\Guard_dos\Guard_160.xnb
 Content\Sprites\Player\Kid_flash\Kid_1.xnb
 Content\Sprites\Player\Kid_flash\Kid_10.xnb
@@ -788,6 +786,9 @@ Content\Tiles\lion\SpikeA_4.xnb
 Content\Tiles\lion\SpikeA_5.xnb
 Content\Tiles\lion\WallA0.xnb
 Content\Tiles\lion\WallA1.xnb
+Content\Sprites\Effects\dos\enemy_splash.xnb
+Content\Sprites\Effects\dos\player_splash.xnb
+Content\Sprites\Effects\dos\none.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\PoP.xnb
 Content\Effects\SwapColor.xnb
@@ -843,28 +844,50 @@ Content\Sounds\dos\time over.xnb
 Content\Sounds\dos\time.xnb
 Content\Sounds\dos\title princess waiting 2.xnb
 Content\Sounds\dos\winning theme.xnb
-Content\Songs\dos\arrived to princess.wav
-Content\Songs\dos\death 1.wav
-Content\Songs\dos\death 2.wav
-Content\Songs\dos\end level with shadow.wav
-Content\Songs\dos\guard death 1.wav
-Content\Songs\dos\guard death 2.wav
-Content\Songs\dos\large presentation.wav
-Content\Songs\dos\low weight.wav
-Content\Songs\dos\main theme.wav
-Content\Songs\dos\potion 1.wav
-Content\Songs\dos\potion 2.wav
-Content\Songs\dos\presentation.wav
-Content\Songs\dos\princess waiting 1.wav
-Content\Songs\dos\princess waiting 3.wav
-Content\Songs\dos\story1.wav
-Content\Songs\dos\story2 jaffar and clock apprearing.wav
-Content\Songs\dos\story3.wav
-Content\Songs\dos\time and presentation.wav
-Content\Songs\dos\time over.wav
-Content\Songs\dos\time.wav
-Content\Songs\dos\title princess waiting 2.wav
-Content\Songs\dos\winning theme.wav
+Content\Songs\dos\arrived to princess.xnb
+Content\Songs\dos\death 1.xnb
+Content\Songs\dos\death 2.xnb
+Content\Songs\dos\end level with shadow.xnb
+Content\Songs\dos\guard death 1.xnb
+Content\Songs\dos\guard death 2.xnb
+Content\Songs\dos\large presentation.xnb
+Content\Songs\dos\low weight.xnb
+Content\Songs\dos\main theme.xnb
+Content\Songs\dos\potion 1.xnb
+Content\Songs\dos\potion 2.xnb
+Content\Songs\dos\presentation.xnb
+Content\Songs\dos\princess waiting 1.xnb
+Content\Songs\dos\princess waiting 3.xnb
+Content\Songs\dos\story1.xnb
+Content\Songs\dos\story2 jaffar and clock apprearing.xnb
+Content\Songs\dos\story3.xnb
+Content\Songs\dos\time and presentation.xnb
+Content\Songs\dos\time over.xnb
+Content\Songs\dos\time.xnb
+Content\Songs\dos\title princess waiting 2.xnb
+Content\Songs\dos\winning theme.xnb
+Content\Songs\dos\arrived to princess.wma
+Content\Songs\dos\death 1.wma
+Content\Songs\dos\death 2.wma
+Content\Songs\dos\end level with shadow.wma
+Content\Songs\dos\guard death 1.wma
+Content\Songs\dos\guard death 2.wma
+Content\Songs\dos\large presentation.wma
+Content\Songs\dos\low weight.wma
+Content\Songs\dos\main theme.wma
+Content\Songs\dos\potion 1.wma
+Content\Songs\dos\potion 2.wma
+Content\Songs\dos\presentation.wma
+Content\Songs\dos\princess waiting 1.wma
+Content\Songs\dos\princess waiting 3.wma
+Content\Songs\dos\story1.wma
+Content\Songs\dos\story2 jaffar and clock apprearing.wma
+Content\Songs\dos\story3.wma
+Content\Songs\dos\time and presentation.wma
+Content\Songs\dos\time over.wma
+Content\Songs\dos\time.wma
+Content\Songs\dos\title princess waiting 2.wma
+Content\Songs\dos\winning theme.wma
 Content\Levels\LEVEL_dungeon_prison.xml
 Content\Rooms\MAP_blockroom.xml
 Content\Rooms\MAP_dungeon_prison_1.xml
@@ -920,3 +943,4 @@ Content\Sequences\lion\SPACE_sequence.xml
 Content\Sequences\lion\SPIKES_sequence.xml
 Content\Sequences\lion\SWORD_sequence.xml
 Content\Sequences\lion\TORCH_sequence.xml
+Content\Sequences\dos\SPLASH_sequence.xml

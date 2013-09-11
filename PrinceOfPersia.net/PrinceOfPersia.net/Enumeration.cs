@@ -160,7 +160,7 @@ namespace PrinceOfPersia
             ,question  //my state for interpretation
             ,crouch //my state
             ,godown //my state invert standup
-            ,ready //guard ready my state
+            ,ready //my state guard ready 
             ,startrun,
             stand,
             standjump,
@@ -239,29 +239,17 @@ namespace PrinceOfPersia
             faststrike,
             strikeret,
             alertstand,
-
-            drinkpotion
-                ,
-            crawl
-                ,
-            alertturn
-                ,
-            fightfall
-                ,
-            efightfall
-                ,
-            efightfallfwd
-                ,
-            running
-                ,
-            stabkill
-                ,
-            fastadvance
-                ,
-            goalertstand
-                ,
-            arise
-                ,
+            drinkpotion,
+            crawl,
+            alertturn,
+            fightfall,
+            efightfall,
+            efightfallfwd,
+            running,
+            stabkill,
+            fastadvance,
+            goalertstand,
+            arise,
             turndraw,
             guardengarde,
             pickupsword,
@@ -281,18 +269,16 @@ namespace PrinceOfPersia
             Mscurry,
             Mstop,
             Mleave,
-            Pembrace
-                ,
-            Pwaiting
-                ,
-            Pstroke
-                ,
-            Prise
-                ,
-            Pcrouch
-                ,
-            Pslump
-                , Mraise
+            Pembrace,
+            Pwaiting,
+            Pstroke,
+            Prise,
+            Pcrouch,
+            Pslump, 
+            Mraise,
+            splash_player, // my state PoP.net 
+            splash_enemy, // my state PoP.net
+            delete //my state for delete and disrupt a object from memory
         }
 
         public enum TypeFrame
@@ -306,7 +292,8 @@ namespace PrinceOfPersia
             GOTOSEQUENCE,
             ABOUTFACE,
             IFGOTOSEQUENCE,
-            IFGOTOFRAME
+            IFGOTOFRAME,
+            DELETE //delete the sprite.. future implementation..??!?
         }
 
         public enum SpriteEffects

@@ -13,7 +13,7 @@ namespace PrinceOfPersia
         public string name;
         public string sound;
         public string value;
-        public TypeFrame type = TypeFrame.SPRITE;
+        public Enumeration.TypeFrame type = Enumeration.TypeFrame.SPRITE;
         public string parameter;
         
         //public SoundEffect soundEffect = new SoundEffect();
@@ -55,20 +55,11 @@ namespace PrinceOfPersia
         public Frame()
         {}
 
-        public enum TypeFrame
-        {
-            SPRITE,
-            COMMAND,
-        }
-
-        public enum TypeCommand
-        {
-            GOTOFRAME,
-            GOTOSEQUENCE,
-            ABOUTFACE,
-            IFGOTOSEQUENCE,
-            IFGOTOFRAME
-        }
+        //public enum TypeFrame
+        //{
+        //    SPRITE,
+        //    COMMAND,
+        //}
 
         public Frame DeepCopy()
         {

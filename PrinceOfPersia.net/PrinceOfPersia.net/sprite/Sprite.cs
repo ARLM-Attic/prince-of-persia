@@ -19,7 +19,6 @@ namespace PrinceOfPersia
     {
         private bool sword = false;
 
-
         public const int SPRITE_SIZE_X = 114; //to be var
         public const int SPRITE_SIZE_Y = 114; //to be var
 
@@ -332,13 +331,9 @@ namespace PrinceOfPersia
         //show splash hit
         public void Splash(bool player, GameTime gametime)
         {
-            Texture2D texture;
-            if (player == true)
-                texture = PrinceOfPersiaGame.player_splash;
-            else
-                texture = PrinceOfPersiaGame.enemy_splash;
-
-            sprite.DrawSprite(gametime, ScreenManager.spriteBatch, Position.Value, SpriteEffects.None, 0.4f, texture);
+            
+            Splash splash = new Splash(Maze.player.SpriteRoom, Position.Value, graphicsDevice, SpriteEffects.None, player);
+            Maze.sprites.Add(splash);
 
         }
         

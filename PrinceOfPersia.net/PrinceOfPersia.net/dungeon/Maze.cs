@@ -21,8 +21,10 @@ namespace PrinceOfPersia
         public List<Level> levels = new List<Level>();
         public List<RoomNew> rooms = new List<RoomNew>();
         public Player player;
-        public List<Guard> guards = new List<Guard>();
         
+        public List<Sprite> sprites = new List<Sprite>();
+        
+
         private RoomNew playerRoom;
         private static RoomNew blockRoom;
 

@@ -537,7 +537,14 @@ namespace PrinceOfPersia
                     AnimationSequence.frameRate = AnimationSequence.frameRate + 0.1f;
                     return Enumeration.Input.none;
                 }
-
+                if (keyboardState.IsKeyDown(Keys.NumPad5))
+                {
+                    //Maze.player.Resheathe();
+                    Maze.player.Sword = true;
+                    Maze.player.LivePoints = 15;
+                    Maze.player.Energy = 15;
+                    return Enumeration.Input.none;
+                }
             }
 
 
@@ -945,6 +952,10 @@ namespace PrinceOfPersia
                                             spriteState.Value().Name = string.Empty;
                                             GameTime g = null;
                                             s.Splash(false, g);
+
+                                            //Splash splash = new Splash(SpriteRoom, Position.Value, graphicsDevice, SpriteEffects.None, false);
+                                            //Maze.sprites.Add(splash);
+
                                             s.Energy = s.Energy - 1;
                                             s.StrikeRetreat();
                                         }
@@ -1193,8 +1204,11 @@ namespace PrinceOfPersia
             
             //DRAW SPRITE
             sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
-
+            
         }
+
+
+
 
         //public void DeadFall()
         //{

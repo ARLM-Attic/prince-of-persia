@@ -359,11 +359,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
     </Compile>
-    <Compile Include="Sprites\bottom\player_splash.png">
-      <Name>player_splash</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>MGTextureProcessor</Processor>
-    </Compile>
     <Compile Include="Sprites\fire\frame1.png">
       <Name>frame1</Name>
       <Importer>TextureImporter</Importer>
@@ -1610,13 +1605,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sprites\bottom\enemy_splash.png">
-      <Name>enemy_splash</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>MGTextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Guard\Guard_dos\Guard_160.png">
       <Name>Guard_160</Name>
       <Importer>TextureImporter</Importer>
@@ -1630,140 +1618,6 @@
       <Name>EXIT_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Songs\dos\arrived to princess.wav">
-      <Name>arrived to princess</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\death 1.wav">
-      <Name>death 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\death 2.wav">
-      <Name>death 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\end level with shadow.wav">
-      <Name>end level with shadow</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\guard death 1.wav">
-      <Name>guard death 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\guard death 2.wav">
-      <Name>guard death 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\large presentation.wav">
-      <Name>large presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\low weight.wav">
-      <Name>low weight</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\main theme.wav">
-      <Name>main theme</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\potion 1.wav">
-      <Name>potion 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\potion 2.wav">
-      <Name>potion 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\presentation.wav">
-      <Name>presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\princess waiting 1.wav">
-      <Name>princess waiting 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\princess waiting 3.wav">
-      <Name>princess waiting 3</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\story1.wav">
-      <Name>story1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\story2 jaffar and clock apprearing.wav">
-      <Name>story2 jaffar and clock apprearing</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\story3.wav">
-      <Name>story3</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\time and presentation.wav">
-      <Name>time and presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\time over.wav">
-      <Name>time over</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\time.wav">
-      <Name>time</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\title princess waiting 2.wav">
-      <Name>title princess waiting 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Songs\dos\winning theme.wav">
-      <Name>winning theme</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>MGSongProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -4865,6 +4719,146 @@
       <Name>WallA1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Sequences\dos\SPLASH_sequence.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Name>SPLASH_sequence</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Songs\dos\arrived to princess.mp3">
+      <Name>arrived to princess</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\death 1.mp3">
+      <Name>death 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\death 2.mp3">
+      <Name>death 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\end level with shadow.mp3">
+      <Name>end level with shadow</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\guard death 1.mp3">
+      <Name>guard death 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\guard death 2.mp3">
+      <Name>guard death 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\large presentation.mp3">
+      <Name>large presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\low weight.mp3">
+      <Name>low weight</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\main theme.mp3">
+      <Name>main theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\potion 1.mp3">
+      <Name>potion 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\potion 2.mp3">
+      <Name>potion 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\presentation.mp3">
+      <Name>presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\princess waiting 1.mp3">
+      <Name>princess waiting 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\princess waiting 3.mp3">
+      <Name>princess waiting 3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\story1.mp3">
+      <Name>story1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\story2 jaffar and clock apprearing.mp3">
+      <Name>story2 jaffar and clock apprearing</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\story3.mp3">
+      <Name>story3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\time and presentation.mp3">
+      <Name>time and presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\time over.mp3">
+      <Name>time over</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\time.mp3">
+      <Name>time</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\title princess waiting 2.mp3">
+      <Name>title princess waiting 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+    <Compile Include="Songs\dos\winning theme.mp3">
+      <Name>winning theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Effects\dos\enemy_splash.png">
+      <Name>enemy_splash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Sprites\Effects\dos\player_splash.png">
+      <Name>player_splash</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sprites\Effects\dos\none.png">
+      <Name>none</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>MGTextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

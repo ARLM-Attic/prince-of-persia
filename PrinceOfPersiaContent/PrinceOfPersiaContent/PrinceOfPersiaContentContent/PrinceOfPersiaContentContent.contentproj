@@ -256,6 +256,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Rooms\MAP_dungeon_prison_8.xml">
       <Name>MAP_dungeon_prison_8</Name>
@@ -1621,270 +1622,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sounds\dos\chopper.wav">
-      <Name>chopper</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\door gate closing fast.wav">
-      <Name>door gate closing fast</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\door gate closing slow 1.wav">
-      <Name>door gate closing slow 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\door gate closing slow 2.wav">
-      <Name>door gate closing slow 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\door gate opening 1.wav">
-      <Name>door gate opening 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\door tile pressed 1.wav">
-      <Name>door tile pressed 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\drinking potion.wav">
-      <Name>drinking potion</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\drinking.wav">
-      <Name>drinking</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\falling.wav">
-      <Name>falling</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\loosing a life falling.wav">
-      <Name>loosing a life falling</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\loosing a life from the enemy.wav">
-      <Name>loosing a life from the enemy</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\mirror.wav">
-      <Name>mirror</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\normal falling.wav">
-      <Name>normal falling</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\prince crashing into the floor.wav">
-      <Name>prince crashing into the floor</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\res10014.wav">
-      <Name>res10014</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\res10051.wav">
-      <Name>res10051</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\running 1.wav">
-      <Name>running 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\running 2.wav">
-      <Name>running 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\skel alive.wav">
-      <Name>skel alive</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\something chopped.wav">
-      <Name>something chopped</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\something spiked.wav">
-      <Name>something spiked</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\spikes.wav">
-      <Name>spikes</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\sword moving.wav">
-      <Name>sword moving</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\sword vs sword.wav">
-      <Name>sword vs sword</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\taking a life to the enemy.wav">
-      <Name>taking a life to the enemy</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\taking out the sword.wav">
-      <Name>taking out the sword</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\tile crashing into the floor.wav">
-      <Name>tile crashing into the floor</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\tile moving 1.wav">
-      <Name>tile moving 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\tile moving 2.wav">
-      <Name>tile moving 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\touching a wall.wav">
-      <Name>touching a wall</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Sounds\dos\arrived to princess.wav">
-      <Name>arrived to princess</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\death 1.wav">
-      <Name>death 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\death 2.wav">
-      <Name>death 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\end level with shadow.wav">
-      <Name>end level with shadow</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\guard death 1.wav">
-      <Name>guard death 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\guard death 2.wav">
-      <Name>guard death 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\large presentation.wav">
-      <Name>large presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\low weight.wav">
-      <Name>low weight</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\main theme.wav">
-      <Name>main theme</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\potion 1.wav">
-      <Name>potion 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\potion 2.wav">
-      <Name>potion 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\presentation.wav">
-      <Name>presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\princess waiting 1.wav">
-      <Name>princess waiting 1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\princess waiting 3.wav">
-      <Name>princess waiting 3</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\story1.wav">
-      <Name>story1</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\story2 jaffar and clock apprearing.wav">
-      <Name>story2 jaffar and clock apprearing</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\story3.wav">
-      <Name>story3</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\time and presentation.wav">
-      <Name>time and presentation</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\time over.wav">
-      <Name>time over</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\time.wav">
-      <Name>time</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\title princess waiting 2.wav">
-      <Name>title princess waiting 2</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-    <Compile Include="Sounds\dos\winning theme.wav">
-      <Name>winning theme</Name>
-      <Importer>WavImporter</Importer>
-      <Processor>SoundEffectProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Sprites\Player\Kid_flash\Kid_1.png">
       <Name>Kid_1</Name>
       <Importer>TextureImporter</Importer>
@@ -2842,26 +2579,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tiles\dos\BlockA.png">
-      <Name>BlockA</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\dos\BlockA_1.png">
-      <Name>BlockA_1</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\dos\BlockA_2.png">
-      <Name>BlockA_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\dos\BlockA_3.png">
-      <Name>BlockA_3</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="Tiles\dos\DoorA_0.png">
       <Name>DoorA_0</Name>
       <Importer>TextureImporter</Importer>
@@ -3084,16 +2801,6 @@
     </Compile>
     <Compile Include="Tiles\dos\SpikeA_5.png">
       <Name>SpikeA_5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\dos\WallA0.png">
-      <Name>WallA0</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="Tiles\dos\WallA1.png">
-      <Name>WallA1</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -4859,6 +4566,318 @@
       <Name>none</Name>
       <Importer>TextureImporter</Importer>
       <Processor>MGTextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\dos\Block_centre.png">
+      <Name>Block_centre</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\dos\Block_left.png">
+      <Name>Block_left</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\dos\Block_right.png">
+      <Name>Block_right</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Tiles\dos\Block_single.png">
+      <Name>Block_single</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\dos\Block_random.png">
+      <Name>Block_random</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\dos\Block_divider.png">
+      <Name>Block_divider</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Tiles\dos\Block_divider2.png">
+      <Name>Block_divider2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\dos\YouMustRescue.mp3">
+      <Name>YouMustRescue</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Sounds\dos\arrived to princess.mp3">
+      <Name>arrived to princess</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\chopper.mp3">
+      <Name>chopper</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\death 1.mp3">
+      <Name>death 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\death 2.mp3">
+      <Name>death 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing fast.mp3">
+      <Name>door gate closing fast</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing slow 1.mp3">
+      <Name>door gate closing slow 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate closing slow 2.mp3">
+      <Name>door gate closing slow 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\door gate opening 1.mp3">
+      <Name>door gate opening 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\door tile pressed 1.mp3">
+      <Name>door tile pressed 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\drinking potion.mp3">
+      <Name>drinking potion</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\drinking.mp3">
+      <Name>drinking</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\end level with shadow.mp3">
+      <Name>end level with shadow</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\falling.mp3">
+      <Name>falling</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\guard death 1.mp3">
+      <Name>guard death 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\guard death 2.mp3">
+      <Name>guard death 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\large presentation.mp3">
+      <Name>large presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\loosing a life falling.mp3">
+      <Name>loosing a life falling</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\loosing a life from the enemy.mp3">
+      <Name>loosing a life from the enemy</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\low weight.mp3">
+      <Name>low weight</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\main theme.mp3">
+      <Name>main theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\mirror.mp3">
+      <Name>mirror</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\normal falling.mp3">
+      <Name>normal falling</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\potion 1.mp3">
+      <Name>potion 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\potion 2.mp3">
+      <Name>potion 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\presentation.mp3">
+      <Name>presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\prince crashing into the floor.mp3">
+      <Name>prince crashing into the floor</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\princess waiting 1.mp3">
+      <Name>princess waiting 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\princess waiting 3.mp3">
+      <Name>princess waiting 3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\falling echo.mp3">
+      <Name>falling echo</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\open door.mp3">
+      <Name>open door</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\running 1.mp3">
+      <Name>running 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\running 2.mp3">
+      <Name>running 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\skel alive.mp3">
+      <Name>skel alive</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\something chopped.mp3">
+      <Name>something chopped</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\something spiked.mp3">
+      <Name>something spiked</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\spikes.mp3">
+      <Name>spikes</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\story1.mp3">
+      <Name>story1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\story2 jaffar and clock apprearing.mp3">
+      <Name>story2 jaffar and clock apprearing</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\story3.mp3">
+      <Name>story3</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\sword moving.mp3">
+      <Name>sword moving</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\sword vs sword.mp3">
+      <Name>sword vs sword</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\taking a life to the enemy.mp3">
+      <Name>taking a life to the enemy</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\taking out the sword.mp3">
+      <Name>taking out the sword</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\tile crashing into the floor.mp3">
+      <Name>tile crashing into the floor</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\tile moving 1.mp3">
+      <Name>tile moving 1</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\tile moving 2.mp3">
+      <Name>tile moving 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\time and presentation.mp3">
+      <Name>time and presentation</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\time over.mp3">
+      <Name>time over</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\time.mp3">
+      <Name>time</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\title princess waiting 2.mp3">
+      <Name>title princess waiting 2</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\touching a wall.mp3">
+      <Name>touching a wall</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
+    </Compile>
+    <Compile Include="Sounds\dos\winning theme.mp3">
+      <Name>winning theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>MGSoundEffectProcessor</Processor>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />

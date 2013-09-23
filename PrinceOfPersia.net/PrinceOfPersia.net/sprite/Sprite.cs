@@ -202,6 +202,9 @@ namespace PrinceOfPersia
 
         public void isGround()
         {
+            if (IsAlive == false)
+                return;
+
             isOnGround = false;
 
             RoomNew room = null;
@@ -250,7 +253,7 @@ namespace PrinceOfPersia
                             if (spriteState.Value().state != Enumeration.State.freefall)
                                 spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
                     }
-                    SpriteRoom.LooseShake();
+                    //SpriteRoom.LooseShake();
                     //and for upper room...
                     SpriteRoom.maze.UpRoom(SpriteRoom).LooseShake();
                 }
@@ -267,16 +270,23 @@ namespace PrinceOfPersia
                 int Rem = 0;
                 Rem = (int)Math.Abs(Position.Y - PositionFall.Y) / Tile.REALHEIGHT;
 
-                if (Rem > 0)
+                if (Rem == 0)
                 {
-                    Energy = Energy - Rem;
+                    ((SoundEffect)Maze.dContentRes["Sounds/dos/falling echo".ToUpper()]).Play();
+                }
+                else if (Rem >= 1 & Rem < 3)
+                {
                     ((SoundEffect)Maze.dContentRes["Sounds/dos/loosing a life falling".ToUpper()]).Play();
                 }
                 else
                 {
-                    ((SoundEffect)Maze.dContentRes["Sounds/dos/normal falling".ToUpper()]).Play();
+                    ((SoundEffect)Maze.dContentRes["Sounds/dos/falling".ToUpper()]).Play();
+                    //you should dead!!!
+                    DeadFall();                    
                 }
+                Energy = Energy - Rem;
                 spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
+                SpriteRoom.LooseShake();
             }
 
         }

@@ -50,7 +50,7 @@ namespace PrinceOfPersia
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = CONFIG_SCREEN_WIDTH;
             graphics.PreferredBackBufferHeight = CONFIG_SCREEN_HEIGHT;
-            //graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
             graphics.PreferredDepthStencilFormat = Microsoft.Xna.Framework.Graphics.DepthFormat.Depth24Stencil8;
 
             TargetElapsedTime = TimeSpan.FromTicks(333333);

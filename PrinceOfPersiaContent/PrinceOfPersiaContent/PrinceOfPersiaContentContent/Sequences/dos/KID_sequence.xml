@@ -61,6 +61,7 @@
         <type>SPRITE</type>
         <value>Kid_9</value>
         <sound>running 2</sound>
+        <soundLoop>true</soundLoop>
         <stoppable>true</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -90,6 +91,7 @@
         <type>SPRITE</type>
         <value>Kid_13</value>
         <sound>running 2</sound>
+        <soundLoop>true</soundLoop>
         <stoppable>true</stoppable>
         <xOffSet>15</xOffSet>
       </Frame>
@@ -549,6 +551,45 @@
       </Frame>
     </frames>
     <name>GODOWN</name>
+  </Sequence>
+
+
+  <!-- STOOP-->
+  <Sequence>
+    <config_type>CONFIG_sprite_kid</config_type>
+    <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>STOOP</name>
+        <value>Kid_107</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Kid_108</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Kid_109</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>GOTOSEQUENCE</name>
+        <parameter>CROUCH</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>STOOP</name>
   </Sequence>
 
 
@@ -2152,6 +2193,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Kid_51</value>
+        <sound>touching a wall</sound>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
@@ -2332,6 +2374,7 @@
         <type>SPRITE</type>
         <value>Kid_27</value>
         <stoppable>false</stoppable>
+        <sound>Running 2</sound>
         <xOffSet>35</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
@@ -2346,6 +2389,7 @@
         <type>SPRITE</type>
         <value>Kid_29</value>
         <stoppable>false</stoppable>
+        <sound>Running 2</sound>
         <xOffSet>10</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
@@ -2396,6 +2440,7 @@
         <type>SPRITE</type>
         <name>RUNJUMP</name>
         <value>Kid_34</value>
+        <sound>running 2</sound>
         <stoppable>false</stoppable>
         <xOffSet>15</xOffSet>
         <yOffSet>0</yOffSet>
@@ -2428,6 +2473,7 @@
         <type>SPRITE</type>
         <name>STANDJUMP</name>
         <value>Kid_38</value>
+        <sound>running 2</sound>
         <stoppable>false</stoppable>
         <xOffSet>30</xOffSet>
         <yOffSet>0</yOffSet>
@@ -2475,6 +2521,7 @@
         <type>SPRITE</type>
         <name>RJLANDRUN</name>
         <value>Kid_44</value>
+        <sound>running 2</sound>
         <stoppable>false</stoppable>
         <xOffSet>15</xOffSet>
         <yOffSet>0</yOffSet>
@@ -2618,9 +2665,34 @@
   <Sequence>
     <config_type>CONFIG_sprite_kid</config_type>
     <frames>
+      <Frame>
+        <type>SPRITE</type>
+        <name>STOOP</name>
+        <value>Kid_107</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Kid_108</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Kid_109</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>0</yOffSet>
+      </Frame>
+      <!--
         <Frame>
           <type>SPRITE</type>
-          <name>GODOWN</name>
+          <name>STOOP</name>
           <value>Kid_119</value>
           <stoppable>false</stoppable>
           <xOffSet>0</xOffSet>
@@ -2698,6 +2770,7 @@
           <xOffSet>0</xOffSet>
           <yOffSet>0</yOffSet>
       </Frame>
+      -->
       <Frame>
         <type>SPRITE</type>
         <name></name>

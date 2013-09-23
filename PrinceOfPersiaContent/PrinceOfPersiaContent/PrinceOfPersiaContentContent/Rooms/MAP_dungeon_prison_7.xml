@@ -35,7 +35,7 @@
           <tileType>door</tileType>
           <state>closed</state>
           <switchButton>5</switchButton>
-          <timeOpen>6</timeOpen>
+          <timeOpen>10</timeOpen>
         </Column>
       </columns>
     </Row>

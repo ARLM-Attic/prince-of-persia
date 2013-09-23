@@ -62,7 +62,7 @@ namespace PrinceOfPersia
             levels.Add((Level)ax.Deserialize(txtReader));
 
             //Define and build a generic blockroom for usefull
-            blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
             
 
             //LOAD ALL LEVEL IN LIST
@@ -75,6 +75,7 @@ namespace PrinceOfPersia
             //load all room
             for (int z = 0; z < levels.Count(); z++)
             {
+                //int newX = 1;
                 for (int y = 0; y < levels[z].rows.Count(); y++)
                 {
                     for (int x = 0; x < levels[z].rows[y].columns.Count(); x++)
@@ -82,15 +83,15 @@ namespace PrinceOfPersia
                         if (levels[z].rows[y].columns[x].FilePath == string.Empty)
                             levels[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
 
-                        RoomNew room = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levels[z].rows[y].columns[x].FilePath);
+                        RoomNew room = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levels[z].rows[y].columns[x].FilePath, levels[z].rows[y].columns[x].RoomIndex);
                         //RoomNew room = new RoomNew(this, "Maze/"+ levels[z].rows[y].columns[x].FilePath);
                         room.roomStart = levels[z].rows[y].columns[x].RoomStart;
                         room.roomName = levels[z].rows[y].columns[x].FilePath;
-                        room.roomIndex = levels[z].rows[y].columns[x].RoomIndex;
                         room.roomZ = z;
                         room.roomX = x;
                         room.roomY = y;
                         rooms.Add(room);
+                        //newX++;
                     }
                 }
             }

@@ -18,6 +18,8 @@ namespace PrinceOfPersia
 
     public class Tile
     {
+        public Enumeration.TileType nextTileType = Enumeration.TileType.space;
+
         public Texture2D Texture;
         //private float Depth = 0.1f;
         public Enumeration.TileCollision collision;
@@ -64,6 +66,13 @@ namespace PrinceOfPersia
             set { _position = value; }
         }
 
+        //to determine how to draw walls, calculate in room construction algorithm
+        private int _panelInfo;
+        public int panelInfo
+        {
+            get { return _panelInfo; }
+            set { _panelInfo = value; }
+        }
 
 
         public Vector2 Coordinates
@@ -90,9 +99,10 @@ namespace PrinceOfPersia
         public Tile()
         {}
 
-        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem)
+        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
         {
             this.room = room;
+            nextTileType = NextTileType;
 
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
 
@@ -180,7 +190,7 @@ namespace PrinceOfPersia
             {
                 ((PressPlate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (((PressPlate)this).elapsedTimeOpen > ((PressPlate)this).timeOpen & ((PressPlate)this).State == Enumeration.StateTile.dpressplate)
-                    ((PressPlate)this).Normal();
+                    ((PressPlate)this).DePress();
             }
 
             if (this.GetType() == typeof(Loose))

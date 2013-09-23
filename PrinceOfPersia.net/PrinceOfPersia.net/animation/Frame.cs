@@ -12,6 +12,8 @@ namespace PrinceOfPersia
     {
         public string name;
         public string sound;
+        public bool soundLoop = false;
+        public bool soundFirstTime = false; //for determine if already sounded for single loop purpose
         public string value;
         public Enumeration.TypeFrame type = Enumeration.TypeFrame.SPRITE;
         public string parameter;
@@ -22,6 +24,25 @@ namespace PrinceOfPersia
         public int yOffSet = 0;
         public bool raised = false; //for check if the frame is a jump, hang raised in air
         public float delay = 0; //delay animation frame
+
+
+        public void PlaySound()
+        {
+            //Play Sound
+            if (sound != null)
+            {
+                if (soundLoop == false)
+                {
+                    if (soundFirstTime == false)
+                    {
+                        soundeffect.Play();
+                        soundFirstTime = true;
+                    }
+                }
+                else
+                    soundeffect.Play();
+            }
+        }
 
         public SoundEffect soundeffect
         {

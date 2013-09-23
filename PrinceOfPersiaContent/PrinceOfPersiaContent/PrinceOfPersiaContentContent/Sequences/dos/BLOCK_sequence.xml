@@ -8,7 +8,7 @@
       <Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
-        <value>BlockA</value>
+        <value>Block_single</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
@@ -25,6 +25,6 @@
     <collision>Impassable</collision>
   </Sequence>
 
-
+  
 </ArrayOfSequence>
 

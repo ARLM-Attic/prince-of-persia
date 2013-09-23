@@ -208,6 +208,7 @@
         <type>SPRITE</type>
         <name></name>
         <value>Guard_183</value>
+        <sound>guard death 1</sound>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>

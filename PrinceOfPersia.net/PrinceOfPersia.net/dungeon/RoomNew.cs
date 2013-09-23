@@ -85,10 +85,10 @@ namespace PrinceOfPersia
         }
         #region Loading
 
-        public RoomNew(Maze maze, string filePath)
+        public RoomNew(Maze maze, string filePath, int roomIndex)
         {
             this.maze = maze;
-
+            this.roomIndex = roomIndex;
 
             //tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
             //LOAD MXL CONTENT
@@ -156,13 +156,17 @@ namespace PrinceOfPersia
         {
             // Allocate the Tile grid.
             tiles = new Tile[map.rows[0].columns.Length, map.rows.Length];
-            int x=0; int y = 0;
+            int x = 0; int y = 0; int newX = 0;
 
             foreach (Row r in map.rows)
             {
-                foreach (Column c in r.columns)
+                for (int ix = 0; ix < r.columns.Length; ix++ )
                 {
-                    tiles[x, y] = LoadTile(c.tileType, c.state, c.switchButton, c.item);
+                    Enumeration.TileType nextTileType = Enumeration.TileType.space;
+                    if (ix+1 < r.columns.Length)
+                        nextTileType = r.columns[ix+1].tileType;
+
+                    tiles[x, y] = LoadTile(r.columns[ix].tileType, r.columns[ix].state, r.columns[ix].switchButton, r.columns[ix].item, nextTileType);
                     //tiles[x, y].tileAnimation.fra = maze.player.sprite.frameRate_background;
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
                     Vector2 v = new Vector2(rect.X, rect.Y);
@@ -171,19 +175,22 @@ namespace PrinceOfPersia
                     tiles[x, y].Position.X = v.X;
                     tiles[x, y].Position.Y = v.Y;
 
-                    switch (c.spriteType)
+                    //x+1 for avoid base zero x array, WALL POSITION 0-29
+                    tiles[x, y].panelInfo = newX + roomIndex;
+
+                    switch (r.columns[ix].spriteType)
                     {
                         case Enumeration.SpriteType.kid :
                             int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
                             int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
-                            maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, c.spriteEffect);
+                            maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, r.columns[ix].spriteEffect);
                             break;
 
                         case Enumeration.SpriteType.guard :
                             int xGuard = (x-1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
                             //int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
                             int yGuard = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
-                            Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, c.spriteEffect);
+                            Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, r.columns[ix].spriteEffect);
                             maze.sprites.Add(g);
                             break;
 
@@ -194,6 +201,7 @@ namespace PrinceOfPersia
 
 
                     x++;
+                    newX++;
                 }
                 x = 0;
                 y++;
@@ -215,35 +223,35 @@ namespace PrinceOfPersia
         /// <returns>The new Tile.</returns>
         private Tile LoadTile(Enumeration.TileType tiletype)
         {
-            return new Tile(this, content, tiletype, Enumeration.StateTile.normal, Enumeration.Items.none);
+            return new Tile(this, content, tiletype, Enumeration.StateTile.normal, Enumeration.Items.none, Enumeration.TileType.space);
         }
 
-        private Tile LoadTile(Enumeration.TileType tiletype, Enumeration.StateTile state, int switchButton, Enumeration.Items item)
+        private Tile LoadTile(Enumeration.TileType tiletype, Enumeration.StateTile state, int switchButton, Enumeration.Items item, Enumeration.TileType nextTileType)
         {
             switch (tiletype)
             {
                 case Enumeration.TileType.spikes:
-                    return new Spikes(this, content, tiletype, state);
+                    return new Spikes(this, content, tiletype, state, nextTileType);
                     break;
 
                 case Enumeration.TileType.pressplate:
-                    return new PressPlate(this, content, tiletype, state, switchButton);
+                    return new PressPlate(this, content, tiletype, state, switchButton, nextTileType);
                     break;
 
                 case Enumeration.TileType.door:
-                    return new Door(this, content, tiletype, state, switchButton);
+                    return new Door(this, content, tiletype, state, switchButton, nextTileType);
                     break;
 
                 case Enumeration.TileType.loose:
-                    return new Loose(this, content, tiletype, state);
+                    return new Loose(this, content, tiletype, state, nextTileType);
                     break;
 
                 case Enumeration.TileType.block:
-                    return new Block(this, content, tiletype, state);
+                    return new Block(this, content, tiletype, state, nextTileType);
                     break;
 
-                default: 
-                    return new Tile(this, content, tiletype, state, item);
+                default:
+                    return new Tile(this, content, tiletype, state, item, nextTileType);
             }
             
         }
@@ -264,6 +272,8 @@ namespace PrinceOfPersia
             //Play Sound presentation
             ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + "presentation".ToUpper()]).Play();
             maze.player.Reset();
+            ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + "YouMustRescue".ToUpper()]).Play();
+
         }
 
         #endregion
@@ -462,6 +472,7 @@ namespace PrinceOfPersia
         public void DrawMask(GameTime gameTime, SpriteBatch spriteBatch)
         {
             DrawTilesMask(gameTime, spriteBatch);
+            DrawTilesBlocks(gameTime, spriteBatch);
         }
 
         public void DrawSprites(GameTime gameTime, SpriteBatch spriteBatch)
@@ -652,6 +663,69 @@ namespace PrinceOfPersia
 
         }
 
+        private void DrawTilesBlocks(GameTime gametime, SpriteBatch spriteBatch)
+        {
+            Texture2D texture = null;
+            //Rectangle rectangleMask = new Rectangle();
+
+            Vector2 position = new Vector2(0, 0);
+            // For each Tile position
+            for (int y = Height - 1; y >= 0; --y)
+            {
+                for (int x = 0; x < Width; ++x)
+                {
+                    if (tiles[x, y].Type == Enumeration.TileType.block)
+                    {
+
+                        if (x > 0 && (tiles[x-1, y].Type == Enumeration.TileType.space | tiles[x-1, y].Type == Enumeration.TileType.floor))
+                        {
+                            position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
+                            texture = maze.content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + "Block_left");
+                            tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f, texture);
+
+                            //divider
+                            position = new Vector2(tiles[x, y].Position.X+16, tiles[x, y].Position.Y+64);
+                            texture = maze.content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + "Block_divider2");
+                            tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f, texture);
+
+                        }
+
+                        if (tiles[x, y].nextTileType == Enumeration.TileType.block)
+                        {
+                            for (int s = 0; s< Block.seed_graystone.GetLength(1); s++)
+                            {
+                                if (Block.seed_graystone[0, s] == tiles[x, y].panelInfo)
+                                {
+                                    position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y+21);
+                                    texture = maze.content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + "Block_random");
+                                    tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f, texture);
+                                }
+                                if (Block.seed_left_top[2, s] == ((Block)tiles[x, y]).panelInfo)
+                                {
+                                    position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
+                                    texture = maze.content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + "Block_left");
+                                    tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f, texture);
+
+                                    //divider
+                                    position = new Vector2(tiles[x, y].Position.X + 22, tiles[x, y].Position.Y + 64);
+                                    texture = maze.content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + "Block_divider");
+                                    tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f, texture);
+
+                                }
+
+
+                            }
+
+                            
+
+                        }
+                    }
+                }
+            }
+
+            maze.UpRoom(this).DrawTilesUp(gametime, spriteBatch);
+        }
+
         private void DrawTilesMask(GameTime gametime, SpriteBatch spriteBatch)
         {
             Rectangle rectangleMask = new Rectangle();
@@ -718,6 +792,8 @@ namespace PrinceOfPersia
                     position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
                     tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f);
 
+                
+
                 }
             }
             //RoomUp().DrawTilesUp(spriteBatch);
@@ -739,7 +815,7 @@ namespace PrinceOfPersia
             int x = (int)coordinate.X;// (int)Math.Floor((float)position.X / Tile.WIDTH);
             int y = (int)coordinate.Y;  //(int)Math.Ceiling(((float)(position.Y - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT));
 
-            Tile t = new Tile(this, content, tileType, Enumeration.StateTile.normal, Enumeration.Items.none);
+            Tile t = new Tile(this, content, tileType, Enumeration.StateTile.normal, Enumeration.Items.none, Enumeration.TileType.space);
             Position p = new Position(tiles[x, y].Position._screenRealSize, tiles[x, y].Position._spriteRealSize);
             p.X = tiles[x, y].Position.X;
             p.Y = tiles[x, y].Position.Y;

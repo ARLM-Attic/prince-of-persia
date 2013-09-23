@@ -144,25 +144,22 @@ namespace PrinceOfPersia
             AccelerometerState accelState,
             DisplayOrientation orientation)
         {
-            if (IsAlive == false)
+            Enumeration.Input input = GetInput(keyboardState, gamePadState, touchState, accelState, orientation);
+            ParseInput(input);
+
+            if (IsAlive == false & isOnGround == true)
             {
                 DeadFall();
-                //return;
+                return;
             }
 
             //ApplyPhysicsNew(gameTime);
             HandleCollisionsNew();
 
-            Enumeration.Input input = GetInput(keyboardState, gamePadState, touchState, accelState, orientation);
-
-            ParseInput(input);
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your game logic here.
             sprite.UpdateFrame(elapsed, ref _position, ref flip, ref spriteState);
-
-            
-
         }
 
         public void ParseInput(Enumeration.Input input)
@@ -292,7 +289,7 @@ namespace PrinceOfPersia
                                 Crawl();
                             break;
                         case Enumeration.State.startrun:
-                            GoDown(new Vector2(5, 0));
+                            Stoop(new Vector2(5, 0));
                             break;
                         default:
                             break;
@@ -385,7 +382,7 @@ namespace PrinceOfPersia
                             ClimbFail();
                             break;
                         case Enumeration.State.startrun:
-                            GoDown(new Vector2(5, 0));
+                            Stoop(new Vector2(5, 0));
                             break;
                         default:
                             break;
@@ -414,14 +411,14 @@ namespace PrinceOfPersia
                     switch (spriteState.Value().state)
                     {
                         case Enumeration.State.stand:
-                            GoDown();
+                            Stoop();
                             break;
                         case Enumeration.State.hang:
                         case Enumeration.State.hangstraight:
                             HangDrop();
                             break;
                         case Enumeration.State.startrun:
-                            GoDown(new Vector2(5, 0));
+                            Stoop(new Vector2(5, 0));
                             break;
 
                         default:
@@ -1007,46 +1004,90 @@ namespace PrinceOfPersia
                             if (IsAlive == false)
                             {
                                 ((Spikes)SpriteRoom.GetTile(x, y)).Open(); 
-                                return; }
-
-                            if (flip == SpriteEffects.FlipHorizontally)
-                            {
-                                if (depth.X < 10 & depth.Y >= Player.SPRITE_SIZE_Y)
-                                    ((Spikes)SpriteRoom.GetTile(x, y)).Open();
-
-                                if (depth.X <= -30 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
-                                    Impale();
+                                return; 
                             }
-                            else
-                            {
-                                if (depth.X > -10 & depth.Y >= Player.SPRITE_SIZE_Y)
-                                    ((Spikes)SpriteRoom.GetTile(x, y)).Open();
 
-                                if (depth.X >= 60 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
-                                    Impale();
-                            }
+                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
+                                ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION - Player.PLAYER_STAND_FRAME)) //45
+                                ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+
+                             if (depth.Y >= 0)
+                             {
+                                if (SpriteRoom.GetTile(x, y).tileState.Value().state == Enumeration.StateTile.open)
+                                {
+                                    if (this.spriteState.Value().state == Enumeration.State.stand & this.spriteState.Previous().state == Enumeration.State.bump)
+                                        Impale(Enumeration.PriorityState.Normal);
+                                }
+                                if (SpriteRoom.GetTile(x, y).tileState.Value().state == Enumeration.StateTile.opened)
+                                {
+                                    if (this.spriteState.Value().state == Enumeration.State.startrun)
+                                        Impale(Enumeration.PriorityState.Normal);
+                                }
+                             }
+                            //if (flip == SpriteEffects.FlipHorizontally)
+                            //{
+                            //    if (depth.X < 10 & depth.Y >= Player.SPRITE_SIZE_Y)
+                            //    {
+                            //        ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                            //        if (depth.Y >= Player.SPRITE_SIZE_Y & (this.spriteState.Value().state == Enumeration.State.crouch | this.spriteState.Value().state == Enumeration.State.startrun))
+                            //            Impale();
+                            //    }
+                            //}
+                            //else
+                            //{
+                            //    if (depth.X < -10 & depth.Y <= Player.SPRITE_SIZE_Y)
+                            //    {
+                            //        ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                            //        if (this.spriteState.Value().state == Enumeration.State.crouch)
+                            //            Impale();
+                            //        if (this.spriteState.Value().state == Enumeration.State.startrun)
+                            //            Impale();
+
+                            //    }
+                            //}
 
                             break;
 
                         case Enumeration.TileType.loose:
-                            if (flip == SpriteEffects.FlipHorizontally)
-                            {
-                                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                    ((Loose)SpriteRoom.GetTile(x, y)).Press();
-                                else
-                                    isLoosable();
-                            }
+                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
+                                ((Loose)SpriteRoom.GetTile(x, y)).Press();
+                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION - Player.PLAYER_STAND_FRAME)) //45
+                                ((Loose)SpriteRoom.GetTile(x, y)).Press();
                             else
-                            {
-                                if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                    ((Loose)SpriteRoom.GetTile(x, y)).Press();
-                                else
-                                    isLoosable();
-                            }
+                                isLoosable();
+                            //if (flip == SpriteEffects.FlipHorizontally)
+                            //{
+
+                            //    if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
+                            //        ((Loose)SpriteRoom.GetTile(x, y)).Press();
+                            //    else
+                            //        isLoosable();
+                            //}
+                            //else
+                            //{
+                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                            //        ((Loose)SpriteRoom.GetTile(x, y)).Press();
+                            //    else
+                            //        isLoosable();
+                            //}
                             break;
 
                         case Enumeration.TileType.pressplate:
-                            ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            //if (flip == SpriteEffects.FlipHorizontally)
+                            //{
+                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                                ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                                    ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            //}
+                            //else
+                            //{
+                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                            //        ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                            //         ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            //}
                             break;
                         case Enumeration.TileType.door:
                         case Enumeration.TileType.block:
@@ -1215,12 +1256,17 @@ namespace PrinceOfPersia
         //    spriteState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
         //    sprite.PlayAnimation(spriteSequence, spriteState.Value());
         //}
+        
+        public void Impale(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.impale, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            Energy = 0;
+        }
 
         public void Impale()
         {
-            spriteState.Add(Enumeration.State.impale);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
-            //Energy = 0;
+            Impale(Enumeration.PriorityState.Normal);
         }
 
         public void Turn()
@@ -1584,6 +1630,25 @@ namespace PrinceOfPersia
             sprite.PlayAnimation(spriteSequence, spriteState.Value());
             spriteState.Add(Enumeration.State.stand, priority);
         }
+
+        public void Stoop()
+        { Stoop(Enumeration.PriorityState.Normal); }
+        public void Stoop(Vector2 offSet)
+        { Stoop(Enumeration.PriorityState.Normal, offSet); }
+        public void Stoop(Enumeration.PriorityState priority)
+        { Stoop(Enumeration.PriorityState.Normal, Vector2.Zero); }
+        public void Stoop(Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            if (isClimbableDown() == true)
+            {
+                ClimbDown();
+                return;
+            }
+            spriteState.Add(Enumeration.State.stoop, priority, null, Enumeration.SequenceReverse.Normal, offSet);
+            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            spriteState.Add(Enumeration.State.crouch, priority);
+        }
+
 
         public void GoDown()
         { GoDown(Enumeration.PriorityState.Normal); }

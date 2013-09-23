@@ -214,10 +214,8 @@ namespace PrinceOfPersia
             if (TotalElapsed > TimePerFrame)
             {
                 //Play Sound
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                sequence.frames[frameIndex].PlaySound();
+
 
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
@@ -292,7 +290,7 @@ namespace PrinceOfPersia
                 }
 
                 int flip;
-                if (spriteEffects == SpriteEffects.FlipHorizontally)
+                if (spriteEffects == SpriteEffects.FlipHorizontally) //& TotalElapsed > TimePerFrame) skip first frame =!==!=?!?bug
                     flip = 1;
                 else
                     flip = -1;
@@ -303,13 +301,10 @@ namespace PrinceOfPersia
              
 
             }
-            else if (firstTime == true & TotalElapsed > TimePerFrame)
+            else if (firstTime == true)
             {
                 //Play Sound
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                sequence.frames[frameIndex].PlaySound();
 
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
@@ -333,10 +328,9 @@ namespace PrinceOfPersia
 
             if (TotalElapsed > TimePerFrame)
             {
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                //Play Sound
+                sequence.frames[frameIndex].PlaySound();
+
 
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
@@ -406,7 +400,7 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
             }
-            else if (firstTime == true & TotalElapsed > TimePerFrame)
+            else if (firstTime == true)
             {
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
@@ -417,10 +411,9 @@ namespace PrinceOfPersia
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
                 firstTime = false;
 
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                //Play Sound
+                sequence.frames[frameIndex].PlaySound();
+
             }
 
         }
@@ -437,10 +430,8 @@ namespace PrinceOfPersia
             {
 
                 //Play Sound
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                sequence.frames[frameIndex].PlaySound();
+
 
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
@@ -510,13 +501,11 @@ namespace PrinceOfPersia
 
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
             }
-            else if (firstTime == true & TotalElapsed > TimePerFrame)
+            else if (firstTime == true)
             {
                 //Play Sound
-                if (sequence.frames[frameIndex].sound != null)
-                {
-                    sequence.frames[frameIndex].soundeffect.Play();
-                }
+                sequence.frames[frameIndex].PlaySound();
+
 
                 int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
@@ -532,6 +521,14 @@ namespace PrinceOfPersia
 
 
 
+        public void DrawTile(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Texture2D texture)
+        {
+            // Calculate the source rectangle of the current frame.
+            Rectangle source = new Rectangle(0, 0, texture.Width, texture.Height);
+
+            // Draw the current tile.
+            spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+        }
 
 
         public void DrawTile(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
@@ -541,6 +538,15 @@ namespace PrinceOfPersia
 
             // Draw the current tile.
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+        }
+
+
+        public void DrawTile(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Rectangle rectangleMask, Texture2D texture)
+        {
+
+            // Draw the current tile.
+            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, rectangleMask, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+
         }
 
         public void DrawTileMask(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Rectangle rectangleMask)

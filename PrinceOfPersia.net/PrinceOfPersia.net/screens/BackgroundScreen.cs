@@ -85,9 +85,10 @@ namespace PrinceOfPersia
                 //music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "1");
                 // play files
                 MediaPlayer.IsRepeating = true;
-                MediaPlayer.Volume = 1.0f;
+                MediaPlayer.Volume= 1.0f;
                 MediaPlayer.Play(music);
-
+                
+                 
 
                 backgroundTexture = content.Load<Texture2D>("Backgrounds/main_background");
                 presentsTexture = content.Load<Texture2D>("Backgrounds/presents");

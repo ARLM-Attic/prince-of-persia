@@ -28,9 +28,11 @@ namespace PrinceOfPersia
         }
 
 
-        public Loose(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state)
+        public Loose(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
         {
             base.room = room;
+            nextTileType = NextTileType;
+
             //this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
 

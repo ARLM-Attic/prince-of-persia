@@ -19,7 +19,6 @@ namespace PrinceOfPersia
         private static List<Sequence> tileSequence = new List<Sequence>();
         public int switchButton = 0;
         public float elapsedTimeOpen = 0;
-
         public float timeOpen = 0.3f;
 
         public Enumeration.StateTile State
@@ -27,10 +26,10 @@ namespace PrinceOfPersia
             get { return tileState.Value().state; }
         }
 
-
-        public PressPlate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton)
+        public PressPlate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
         {
             base.room = room;
+            nextTileType = NextTileType;
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
 
@@ -75,12 +74,20 @@ namespace PrinceOfPersia
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
         }
 
+        public void DePress()
+        {
+            if (tileState.Value().state == Enumeration.StateTile.pressplate)
+                return;
+
+            tileState.Add(Enumeration.StateTile.pressplate);
+            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+        }
 
         public void Press()
         {
             elapsedTimeOpen = 0;
-            //if (stateTileElement.state == Enumeration.StateTile.dpressplate)
-            //    return;
+            if (tileState.Value().state == Enumeration.StateTile.dpressplate)
+                return;
 
             tileState.Value().state = Enumeration.StateTile.dpressplate;
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());

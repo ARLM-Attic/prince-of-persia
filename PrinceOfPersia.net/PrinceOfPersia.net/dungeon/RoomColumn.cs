@@ -7,7 +7,7 @@ namespace PrinceOfPersia
 {
     public class RoomColumn
     {
-        public int RoomIndex = 0;
+        public int RoomIndex = 1;
         public bool RoomStart = false;
         public string FilePath = string.Empty;
         

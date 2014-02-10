@@ -87,7 +87,19 @@ namespace PrinceOfPersia
         {
             elapsedTimeOpen = 0;
             if (tileState.Value().state == Enumeration.StateTile.dpressplate)
+            {
+                List<Tile> listNew = room.maze.GetTiles(Enumeration.TileType.gate);
+                foreach (Tile t in listNew)
+                {
+                    if (((Gate)t).switchButton == this.switchButton)
+                        ((Gate)t).Open();
+                }
+
+
                 return;
+            }
+            
+            
 
             tileState.Value().state = Enumeration.StateTile.dpressplate;
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());

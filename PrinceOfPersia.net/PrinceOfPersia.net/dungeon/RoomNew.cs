@@ -166,7 +166,7 @@ namespace PrinceOfPersia
                     if (ix+1 < r.columns.Length)
                         nextTileType = r.columns[ix+1].tileType;
 
-                    tiles[x, y] = LoadTile(r.columns[ix].tileType, r.columns[ix].state, r.columns[ix].switchButton, r.columns[ix].item, nextTileType);
+                    tiles[x, y] = LoadTile(r.columns[ix].tileType, r.columns[ix].state, r.columns[ix].switchButton, r.columns[ix].item, nextTileType, r.columns[ix].timeOpen);
                     //tiles[x, y].tileAnimation.fra = maze.player.sprite.frameRate_background;
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
                     Vector2 v = new Vector2(rect.X, rect.Y);
@@ -226,7 +226,7 @@ namespace PrinceOfPersia
             return new Tile(this, content, tiletype, Enumeration.StateTile.normal, Enumeration.Items.none, Enumeration.TileType.space);
         }
 
-        private Tile LoadTile(Enumeration.TileType tiletype, Enumeration.StateTile state, int switchButton, Enumeration.Items item, Enumeration.TileType nextTileType)
+        private Tile LoadTile(Enumeration.TileType tiletype, Enumeration.StateTile state, int switchButton, Enumeration.Items item, Enumeration.TileType nextTileType, float timeOpen)
         {
             switch (tiletype)
             {
@@ -239,7 +239,7 @@ namespace PrinceOfPersia
                     break;
 
                 case Enumeration.TileType.gate:
-                    return new Gate(this, content, tiletype, state, switchButton, nextTileType);
+                    return new Gate(this, content, tiletype, state, switchButton, nextTileType, timeOpen);
                     break;
 
                 case Enumeration.TileType.loose:

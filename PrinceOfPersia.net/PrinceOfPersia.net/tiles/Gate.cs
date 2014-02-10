@@ -29,12 +29,12 @@ namespace PrinceOfPersia
 
 
 
-        public Gate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
+        public Gate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType, float TimeOpen)
         {
             collision = Enumeration.TileCollision.Platform;
             base.room = room;
             nextTileType = NextTileType;
-            
+            timeOpen = TimeOpen;
 
             this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
@@ -101,9 +101,13 @@ namespace PrinceOfPersia
         {
             elapsedTimeOpen = 0;
             if (tileState.Value().state == Enumeration.StateTile.open)
+            {
                 return;
+            }
             if (tileState.Value().state == Enumeration.StateTile.opened)
+            {
                 return;
+            }
             if (tileState.Value().state == Enumeration.StateTile.close)
                 tileState.Add(Enumeration.StateTile.open, Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.FixFrame);
             else

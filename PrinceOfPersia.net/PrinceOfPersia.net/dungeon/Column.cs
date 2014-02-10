@@ -13,6 +13,7 @@ namespace PrinceOfPersia
         public SpriteEffects spriteEffect;
         public Enumeration.StateTile state = Enumeration.StateTile.normal;
         public int switchButton = 0;
+        public float timeOpen = 0;
         public Enumeration.Items item = Enumeration.Items.none;
         
         public Column()

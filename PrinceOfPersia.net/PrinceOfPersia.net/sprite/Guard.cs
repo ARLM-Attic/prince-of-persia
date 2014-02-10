@@ -367,10 +367,10 @@ namespace PrinceOfPersia
                         case Enumeration.TileType.pressplate:
                             ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
                             break;
-                        case Enumeration.TileType.door:
+                        case Enumeration.TileType.gate:
                         case Enumeration.TileType.block:
-                            if (tileType == Enumeration.TileType.door)
-                                if (((Door)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                            if (tileType == Enumeration.TileType.gate)
+                                if (((Gate)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
                                     break;
                             //if player are raised then not collide..
 

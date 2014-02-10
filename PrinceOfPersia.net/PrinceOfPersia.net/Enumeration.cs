@@ -103,8 +103,8 @@ namespace PrinceOfPersia
             mirror = 13,
             rubble = 14,
             upressplate = 15,
-            exit = 16,
-            exit2 = 17,
+            exit = 16, //left door portion
+            exit2 = 17, //right door portion
             slicer = 18,
             torch = 19,
             block = 20,
@@ -117,9 +117,132 @@ namespace PrinceOfPersia
             archtop2 = 27,
             archtop3 = 28,
             archtop4 = 29,
-            door = 30 //AMF 
+            tile_torch_rubble = 30, //taked from apoplexy norbert
+            tile_loose = 43,  //taked from apoplexy norbert
+            //door = 100 //changed from apoplexy norbert
         }
 
+        //first 4 byte are element type the rest is the modifier, _x tells the result formula
+        public enum Tile
+        {
+            space_1   = 0x00000000,
+            space_2   = 0x00000001,
+            space_3   = 0x00000002,
+            space_4   = 0x00000003,
+            space_5   = 0x000000FF, 
+
+            floor_6   = 0x00010000,
+            floor_7   = 0x00010001,
+            floor_8   = 0x00010002,
+            floor_9   = 0x00010003,
+            floor_10  = 0x000100FF,
+
+            spike_11  = 0x00020000,
+            spike_12  = 0x00020001,
+            spike_13  = 0x00020002,
+            spike_14  = 0x00020003,
+            spike_15  = 0x00020004,
+            spike_16  = 0x00020005,
+            spike_17  = 0x00020006,
+            spike_18  = 0x00020007,
+            spike_19  = 0x00020008,
+            spike_20  = 0x00020009,
+
+            posts_21  = 0x00030000,
+            
+            gate_22   = 0x00040000,
+            gate_23   = 0x00040001,
+
+            dpressplate_24 = 0x00050000,
+
+            pressplate_25 = 0x00060000,
+
+            panelwif_26 = 0x00070000,
+            panelwif_27 = 0x00070001,
+            panelwif_28 = 0x00070002,
+            panelwif_29 = 0x00070003,
+
+            pillarbottom_30 = 0x00080000,
+
+            pillartop_31 = 0x00090001,
+
+            flask_32 = 0x00100000,
+            flask_33 = 0x00100001,
+            flask_34 = 0x00100002,
+            flask_35 = 0x00100003,
+            flask_36 = 0x00100004,
+            flask_37 = 0x00100005,
+            flask_38 = 0x00100006,
+
+            loose_39 = 0x00110000,
+
+            panelwof_40 = 0x00120000,
+            panelwof_41 = 0x00120001,
+            panelwof_42 = 0x00120002,
+            panelwof_43 = 0x00120003,
+            panelwof_44 = 0x00120004,
+            panelwof_45 = 0x00120005,
+            panelwof_46 = 0x00120006,
+            panelwof_47 = 0x00120007,
+
+            mirror_48 = 0x00130000,
+
+            rubble_49 = 0x00140000,
+
+            upressplate_50 = 0x00150000,
+
+            exit_51 = 0x00160000,
+            exit2_52 = 0x00170000,
+
+            slicer_53 = 0x00180000,
+            slicer_54 = 0x00180001,
+            slicer_55 = 0x00180002,
+            slicer_56 = 0x00180003,
+            slicer_57 = 0x00180004,
+            slicer_58 = 0x00180005,
+
+            torch_59 = 0x00190000,
+
+            block_60 = 0x00200000,
+            block_61 = 0x00200001,
+
+            bones_62 = 0x00210000,
+
+            sword_63 = 0x00220000,
+
+            window_64 = 0x00230000,
+            window2_65 = 0x00240000,
+
+            archbot_66 = 0x00250000,
+            archtop1_67 = 0x00260000,
+            archtop2_68 = 0x00270000,
+            archtop3_69 = 0x00280000,
+            archtop4_70 = 0x00290000,
+
+            tile_torch_rubble_71 = 0x00300000,
+            tile_loose_72 = 0x00430000,
+            
+            //Dog = 0x00010000,
+            //Cat = 0x00020000,
+            //Alsation = Dog | 0x00000001,
+            //Greyhound = Dog | 0x00000002,
+            //Siamese = Cat | 0x00000001
+        }
+
+        public enum Modifier
+        { 
+            none = 0,
+            one = 1,
+            two = 2,
+            three = 3,
+            four = 4,
+            five = 5,
+            six = 6,
+            seven = 7,
+            eight = 8,
+            nine = 9,
+            all = 255
+        }
 
         public enum Items
         { 
@@ -154,7 +277,7 @@ namespace PrinceOfPersia
         }
 
 
-        public new enum State
+        public enum State
         {
             none // my state
             ,question  //my state for interpretation

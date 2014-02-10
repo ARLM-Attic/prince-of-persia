@@ -238,8 +238,8 @@ namespace PrinceOfPersia
                     return new PressPlate(this, content, tiletype, state, switchButton, nextTileType);
                     break;
 
-                case Enumeration.TileType.door:
-                    return new Door(this, content, tiletype, state, switchButton, nextTileType);
+                case Enumeration.TileType.gate:
+                    return new Gate(this, content, tiletype, state, switchButton, nextTileType);
                     break;
 
                 case Enumeration.TileType.loose:
@@ -739,10 +739,10 @@ namespace PrinceOfPersia
 
                     switch(tiles[x, y].Type)
                     {
-                        case Enumeration.TileType.gate:
-                            rectangleMask = Tile.MASK_GATE;
+                        case Enumeration.TileType.posts:
+                            rectangleMask = Tile.MASK_POSTS;
                             break;
-                        case Enumeration.TileType.door :
+                        case Enumeration.TileType.gate:
                             position.X = position.X + 50;
                             rectangleMask = Tile.MASK_DOOR;
                             break;

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
 using System.Collections.Generic;
-
+using System.Configuration;
 
 namespace PrinceOfPersia
 {
@@ -58,8 +58,18 @@ namespace PrinceOfPersia
                     //loading texture
                     if (f.value != null)
                     {
-                        Texture2D t = (Texture2D)Maze.dContentRes[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString().ToUpper() + f.value.ToUpper()];
-                        f.SetTexture(t);
+						Texture2D t = null;
+#if WINDOWS   
+                        t = (Texture2D)Maze.dContentRes[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString().ToUpper() + f.value.ToUpper()];
+
+#endif
+#if ANDROID
+
+#endif
+                        if (t == null)
+                            f.SetTexture(null);
+                        else
+                            f.SetTexture(t);
                     }
                     //loading sound
                     if (f.sound != null)
@@ -70,7 +80,7 @@ namespace PrinceOfPersia
                 }
                 catch (Exception ex)
                 {
-                    System.Console.WriteLine("ERROR:Content.Load<dContentRes>" + config_type.ToUpper() + f.value); 
+                    System.Console.WriteLine("ERROR:Content.Load<dContentRes>"+ ex.ToString() + config_type.ToUpper() + f.value); 
                 }
             }
         }

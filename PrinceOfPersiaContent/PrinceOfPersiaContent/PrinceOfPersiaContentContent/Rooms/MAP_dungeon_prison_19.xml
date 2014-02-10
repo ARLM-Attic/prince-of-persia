@@ -38,7 +38,7 @@
     <Row>
       <columns>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>torch</tileType>
@@ -50,13 +50,13 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>spikes</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>torch</tileType>
@@ -65,7 +65,7 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
       </columns>
     </Row>

@@ -39,10 +39,10 @@ namespace PrinceOfPersia
         public static int PERSPECTIVE = 26; //26 isometric shift x right
         public static readonly Vector2 Size = new Vector2(WIDTH, HEIGHT);
 
-        public static Rectangle MASK_FLOOR = new Rectangle(0, 128, 62, 20); //floor gate
-        public static Rectangle MASK_GATE = new Rectangle(0, 0, 54, 148); //mask gate
-        public static Rectangle MASK_BLOCK = new Rectangle(0, 0, 64, 148); //block gate
-        public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, 148); //block gate
+        public static Rectangle MASK_FLOOR = new Rectangle(0, 128, 62, 20); //floor 
+        public static Rectangle MASK_POSTS = new Rectangle(0, 0, 54, 148); //gate
+        public static Rectangle MASK_BLOCK = new Rectangle(0, 0, 64, 148); //block 
+        public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, 148); //door
         
 
         //(0, 128, 62, 20);
@@ -179,11 +179,11 @@ namespace PrinceOfPersia
             }
 
 
-            if (this.GetType() == typeof(Door))
+            if (this.GetType() == typeof(Gate))
             {
-                ((Door)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (((Door)this).elapsedTimeOpen > ((Door)this).timeOpen)
-                    ((Door)this).Close(); 
+                ((Gate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (((Gate)this).elapsedTimeOpen > ((Gate)this).timeOpen)
+                    ((Gate)this).Close(); 
             }
 
             if (this.GetType() == typeof(PressPlate))

@@ -38,23 +38,32 @@ namespace PrinceOfPersia
         public static Effect dEffect = null;
 
 
-
-        public Maze(GraphicsDevice GraphicsDevice, ContentManager contentmanager)
+        private void Apoplexy()
         {
-            content = contentmanager;
-            graphicsDevice = GraphicsDevice;
+            //
+            LevelApoplexy ap = new LevelApoplexy();
+            ap.Serialize();
 
-            LoadContent();
+            Stream txtReader;
+            txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY + "Level1.xml");
 
-            //dEffect = content.Load<Effect>(@"Effects\SwapColor");
+            List<LevelApoplexy> levelsApoplexy = new List<LevelApoplexy>();
+
+            System.Xml.Serialization.XmlSerializer ax = null;
+            ax = new System.Xml.Serialization.XmlSerializer(typeof(Level));
+            levelsApoplexy.Add((LevelApoplexy)ax.Deserialize(txtReader));
+        }
+
+        private void PopNet()
+        {
 
             //LOAD MXL CONTENT
             Stream txtReader;
-//#if ANDROID
+            //#if ANDROID
             //txtReader = Game.Activity.Assets.Open(@PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
-//#endif
+            //#endif
             txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
-            
+
             //txtReader = (Stream) File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
 
             System.Xml.Serialization.XmlSerializer ax = null;
@@ -63,7 +72,7 @@ namespace PrinceOfPersia
 
             //Define and build a generic blockroom for usefull
             blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
-            
+
 
             //LOAD ALL LEVEL IN LIST
             //System.Xml.Serialization.XmlSerializer ax;
@@ -71,7 +80,7 @@ namespace PrinceOfPersia
             //ax = new System.Xml.Serialization.XmlSerializer(typeof(Level));
             //levels.Add((Level)ax.Deserialize(astream));
 
-  
+
             //load all room
             for (int z = 0; z < levels.Count(); z++)
             {
@@ -95,6 +104,26 @@ namespace PrinceOfPersia
                     }
                 }
             }
+        }
+
+
+
+        public Maze(GraphicsDevice GraphicsDevice, ContentManager contentmanager)
+        {
+            content = contentmanager;
+            graphicsDevice = GraphicsDevice;
+
+            LoadContent();
+
+            //dEffect = content.Load<Effect>(@"Effects\SwapColor");
+
+            //if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            //    Apoplexy();
+            //else
+                PopNet();
+
+
+      
         }
 
         //Load all texture in a dictiornary

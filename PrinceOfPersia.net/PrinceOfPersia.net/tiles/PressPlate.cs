@@ -93,11 +93,11 @@ namespace PrinceOfPersia
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
 
             //i will open all door with the correct switchButton
-            List<Tile> list = room.maze.GetTiles(Enumeration.TileType.door);
+            List<Tile> list = room.maze.GetTiles(Enumeration.TileType.gate);
             foreach(Tile t in list)
             {
-                if (((Door)t).switchButton == this.switchButton)
-                    ((Door)t).Open();
+                if (((Gate)t).switchButton == this.switchButton)
+                    ((Gate)t).Open();
             }
 
 

@@ -53,7 +53,7 @@
           <state>brick</state>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -94,7 +94,7 @@
           <state>rubble</state>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>loose</tileType>

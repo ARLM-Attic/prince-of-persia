@@ -1089,10 +1089,10 @@ namespace PrinceOfPersia
                             //         ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
                             //}
                             break;
-                        case Enumeration.TileType.door:
+                        case Enumeration.TileType.gate:
                         case Enumeration.TileType.block:
-                            if (tileType == Enumeration.TileType.door)
-                                if (((Door)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                            if (tileType == Enumeration.TileType.gate)
+                                if (((Gate)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
                                     break;
                             //if player are raised then not collide..
 
@@ -1486,7 +1486,7 @@ namespace PrinceOfPersia
                 x = ((int)v2.X); //THE FLOOR FOR CLIMB UP
 
                 Tile t = SpriteRoom.GetTile(new Vector2(x, y));
-                if (t.Type == Enumeration.TileType.door)
+                if (t.Type == Enumeration.TileType.gate)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
                         return Enumeration.State.none;
 
@@ -1505,7 +1505,7 @@ namespace PrinceOfPersia
                     return Enumeration.State.none;
 
                 Tile t = SpriteRoom.GetTile(new Vector2(x, y - 1));
-                if (t.Type == Enumeration.TileType.door)
+                if (t.Type == Enumeration.TileType.gate)
                     if (t.tileState.Value().state != Enumeration.StateTile.opened)
                         return Enumeration.State.none;
 

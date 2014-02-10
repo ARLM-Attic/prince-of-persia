@@ -1,18 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\animation\Sequence.cs">
     <Files>
-      <File FileName="PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.cs" Line="176" Column="20" />
-      <File FileName="PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Map.cs" Line="1" Column="1" />
-      <File FileName="PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Maze.cs" Line="42" Column="1" />
-      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs" Line="115" Column="1" />
+      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\animation\Sequence.cs" Line="80" Column="95" />
+      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\screens\LoadingScreen.cs" Line="1" Column="1" />
+      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\Enumeration.cs" Line="1" Column="1" />
+      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs" Line="1" Column="1" />
+      <File FileName="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\screens\BackgroundScreen.cs" Line="1" Column="1" />
+      <File FileName="PrinceOfPersia.net\PrinceOfPersia.net\PoPGame.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Maze.cs" line="42" />
-      <Breakpoint file="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs" line="115" />
-      <Breakpoint file="C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.cs" line="164" />
+      <Breakpoint file="C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Maze.cs" line="42" column="1" />
+      <Breakpoint file="c:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs" line="115" column="1" />
+      <Breakpoint file="C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.cs" line="164" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>

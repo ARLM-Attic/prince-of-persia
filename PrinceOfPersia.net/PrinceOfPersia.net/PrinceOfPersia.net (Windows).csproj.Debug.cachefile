@@ -474,8 +474,8 @@ Content\Tiles\dos\FloorE.xnb
 Content\Tiles\dos\FloorF.xnb
 Content\Tiles\dos\FloorLooseA_1.xnb
 Content\Tiles\dos\FloorLooseA_2.xnb
-Content\Tiles\dos\GateA.xnb
-Content\Tiles\dos\GateA_mask.xnb
+Content\Tiles\dos\PostsA.xnb
+Content\Tiles\dos\PostsA_mask.xnb
 Content\Tiles\dos\space.xnb
 Content\Tiles\dos\SpaceA.xnb
 Content\Tiles\dos\SpaceB.xnb
@@ -783,9 +783,16 @@ Content\Tiles\lion\WallA1.xnb
 Content\Sprites\Effects\dos\enemy_splash.xnb
 Content\Sprites\Effects\dos\player_splash.xnb
 Content\Sprites\Effects\dos\none.xnb
+Content\Tiles\dos\Block_centre.xnb
+Content\Tiles\dos\Block_left.xnb
+Content\Tiles\dos\Block_right.xnb
+Content\Tiles\dos\Block_single.xnb
+Content\Tiles\dos\Block_random.xnb
+Content\Tiles\dos\Block_divider.xnb
+Content\Tiles\dos\Block_divider2.xnb
 Content\Fonts\Hud.xnb
 Content\Fonts\PoP.xnb
-Content\Effects\SwapColor.xnb
+Content\Sounds\dos\winning theme.xnb
 Content\Songs\dos\arrived to princess.xnb
 Content\Songs\dos\death 1.xnb
 Content\Songs\dos\death 2.xnb
@@ -808,13 +815,6 @@ Content\Songs\dos\time over.xnb
 Content\Songs\dos\time.xnb
 Content\Songs\dos\title princess waiting 2.xnb
 Content\Songs\dos\winning theme.xnb
-Content\Tiles\dos\Block_centre.xnb
-Content\Tiles\dos\Block_left.xnb
-Content\Tiles\dos\Block_right.xnb
-Content\Tiles\dos\Block_single.xnb
-Content\Tiles\dos\Block_random.xnb
-Content\Tiles\dos\Block_divider.xnb
-Content\Tiles\dos\Block_divider2.xnb
 Content\Sounds\dos\YouMustRescue.xnb
 Content\Sounds\dos\arrived to princess.xnb
 Content\Sounds\dos\chopper.xnb
@@ -844,6 +844,8 @@ Content\Sounds\dos\presentation.xnb
 Content\Sounds\dos\prince crashing into the floor.xnb
 Content\Sounds\dos\princess waiting 1.xnb
 Content\Sounds\dos\princess waiting 3.xnb
+Content\Sounds\dos\falling echo.xnb
+Content\Sounds\dos\open door.xnb
 Content\Sounds\dos\running 1.xnb
 Content\Sounds\dos\running 2.xnb
 Content\Sounds\dos\skel alive.xnb
@@ -865,9 +867,8 @@ Content\Sounds\dos\time over.xnb
 Content\Sounds\dos\time.xnb
 Content\Sounds\dos\title princess waiting 2.xnb
 Content\Sounds\dos\touching a wall.xnb
-Content\Sounds\dos\winning theme.xnb
-Content\Sounds\dos\falling echo.xnb
-Content\Sounds\dos\open door.xnb
+Content\Effects\SwapColor.xnb
+Content\Sounds\dos\winning theme.wma
 Content\Songs\dos\arrived to princess.wma
 Content\Songs\dos\death 1.wma
 Content\Songs\dos\death 2.wma
@@ -914,9 +915,9 @@ Content\Rooms\MAP_dungeon_prison_7.xml
 Content\Rooms\MAP_dungeon_prison_8.xml
 Content\Rooms\MAP_dungeon_prison_9.xml
 Content\Sequences\dos\BLOCK_sequence.xml
-Content\Sequences\dos\DOOR_sequence.xml
-Content\Sequences\dos\FLOOR_sequence.xml
 Content\Sequences\dos\GATE_sequence.xml
+Content\Sequences\dos\FLOOR_sequence.xml
+Content\Sequences\dos\POSTS_sequence.xml
 Content\Sequences\dos\KID_sequence.xml
 Content\Sequences\dos\LEVEL_dungeon_prison.xml
 Content\Sequences\dos\LOOSE_sequence.xml
@@ -946,3 +947,4 @@ Content\Sequences\lion\SPIKES_sequence.xml
 Content\Sequences\lion\SWORD_sequence.xml
 Content\Sequences\lion\TORCH_sequence.xml
 Content\Sequences\dos\SPLASH_sequence.xml
+Content\Apoplexy\level1.xml

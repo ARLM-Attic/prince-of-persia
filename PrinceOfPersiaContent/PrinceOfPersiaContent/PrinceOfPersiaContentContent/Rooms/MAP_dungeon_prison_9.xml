@@ -41,7 +41,7 @@
     <Row>
       <columns>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>

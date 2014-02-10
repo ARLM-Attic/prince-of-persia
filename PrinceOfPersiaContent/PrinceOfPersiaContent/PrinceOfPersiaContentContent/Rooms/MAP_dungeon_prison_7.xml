@@ -17,7 +17,7 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>loose</tileType>
@@ -26,13 +26,13 @@
           <tileType>loose</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>torch</tileType>
         </Column>
         <Column>
-          <tileType>door</tileType>
+          <tileType>gate</tileType>
           <state>closed</state>
           <switchButton>5</switchButton>
           <timeOpen>10</timeOpen>
@@ -48,13 +48,13 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -88,7 +88,7 @@
           <tileType>loose</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
@@ -97,7 +97,7 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>

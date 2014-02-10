@@ -20,13 +20,13 @@
           <tileType>floor</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>rubble</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -67,7 +67,7 @@
           <tileType>rubble</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
       </columns>
     </Row>

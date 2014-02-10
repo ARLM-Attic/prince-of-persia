@@ -18,7 +18,8 @@
     <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -38,7 +39,6 @@
     <DefineConstants>TRACE;ANDROID</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
@@ -54,163 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\Accelerometer.cs">
-      <Link>animation\Accelerometer.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\AnimationSequence.cs">
-      <Link>animation\AnimationSequence.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\Frame.cs">
-      <Link>animation\Frame.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\Position.cs">
-      <Link>animation\Position.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\Sequence.cs">
-      <Link>animation\Sequence.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\animation\StateElement.cs">
-      <Link>animation\StateElement.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Column.cs">
-      <Link>dungeon\Column.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Level.cs">
-      <Link>dungeon\Level.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Map.cs">
-      <Link>dungeon\Map.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Maze.cs">
-      <Link>dungeon\Maze.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomColumn.cs">
-      <Link>dungeon\RoomColumn.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomNew.cs">
-      <Link>dungeon\RoomNew.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\RoomRow.cs">
-      <Link>dungeon\RoomRow.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\dungeon\Row.cs">
-      <Link>dungeon\Row.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\Enumeration.cs">
-      <Link>Enumeration.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\Game.cs">
-      <Link>Game.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\PoPGame.cs">
-      <Link>PoPGame.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.cs">
-      <Link>PrinceOfPersia.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\Program.cs">
-      <Link>Program.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\ScreenFactory.cs">
-      <Link>ScreenFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screenmanager\GameScreen.cs">
-      <Link>screemanager\GameScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screenmanager\InputAction.cs">
-      <Link>screemanager\InputAction.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screenmanager\InputState.cs">
-      <Link>screemanager\InputState.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screenmanager\IScreenFactory.cs">
-      <Link>screemanager\IScreenFactory.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screenmanager\ScreenManager.cs">
-      <Link>screemanager\ScreenManager.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\BackgroundScreen.cs">
-      <Link>screens\BackgroundScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\Button.cs">
-      <Link>screens\Button.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\GameplayScreen.cs">
-      <Link>screens\GameplayScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\LoadingScreen.cs">
-      <Link>screens\LoadingScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\MainMenuScreen.cs">
-      <Link>screens\MainMenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\MenuEntry.cs">
-      <Link>screens\MenuEntry.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\MenuScreen.cs">
-      <Link>screens\MenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\MessageBoxScreen.cs">
-      <Link>screens\MessageBoxScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\OptionsMenuScreen.cs">
-      <Link>screens\OptionsMenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\PauseMenuScreen.cs">
-      <Link>screens\PauseMenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\PhoneMainMenuScreen.cs">
-      <Link>screens\PhoneMainMenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\PhoneMenuScreen.cs">
-      <Link>screens\PhoneMenuScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\PhonePauseScreen.cs">
-      <Link>screens\PhonePauseScreen.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\screens\PlayerIndexEventArgs.cs">
-      <Link>screens\PlayerIndexEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\sprite\Player.cs">
-      <Link>sprite\Player.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\sprite\PlayerState.cs">
-      <Link>sprite\PlayerState.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\sprite\Sprite.cs">
-      <Link>sprite\Sprite.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\sprite\StatePlayerElement.cs">
-      <Link>sprite\StatePlayerElement.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\Door.cs">
-      <Link>tiles\Door.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\Loose.cs">
-      <Link>tiles\Loose.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\PressPlate.cs">
-      <Link>tiles\PressPlate.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\Spikes.cs">
-      <Link>tiles\Spikes.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\StateTileElement.cs">
-      <Link>tiles\StateTileElement.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\Tile.cs">
-      <Link>tiles\Tile.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\tiles\TileState.cs">
-      <Link>tiles\TileState.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\utils\RectangleExtensions.cs">
-      <Link>utils\RectangleExtensions.cs</Link>
-    </Compile>
-    <Compile Include="..\PrinceOfPersia.net\PrinceOfPersia.net\utils\TouchCollectionExtensions.cs">
-      <Link>utils\TouchCollectionExtensions.cs</Link>
-    </Compile>
     <Compile Include="Activity1.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -1035,9 +880,6 @@
     <AndroidResource Include="Resources\Values\Styles.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\PrinceOfPersia.net\PrinceOfPersia.net\PoPicon.ico">
-      <Link>PoPicon.ico</Link>
-    </Content>
     <AndroidAsset Include="..\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContent\bin\Android\Content\Levels\LEVEL_dungeon_prison.xml">
       <Link>Assets\Content\Levels\LEVEL_dungeon_prison.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1178,6 +1020,7 @@
       <Link>Assets\Content\Sequences\TORCH_sequence.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AndroidAsset>
+    <Content Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

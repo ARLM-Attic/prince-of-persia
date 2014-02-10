@@ -1,27 +1,28 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Android.App;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PrinceOfPersia.net (Android)")]
-[assembly: AssemblyProduct("PrinceOfPersia.net (Android)")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTitle("PrinceOfPersia.net")]
+[assembly: AssemblyProduct("PrinceOfPersia.net")]
+[assembly: AssemblyDescription("Porting of the famous Prince of Persia old classic game")]
+[assembly: AssemblyCompany("ADF Software")]
+[assembly: AssemblyCopyright("Copyright © ADF Software 2012")]
+[assembly: AssemblyTrademark("www.falappi.it")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
-// COM, set the ComVisible attribute to true on that type.
+// COM, set the ComVisible attribute to true on that type. Only Windows
+// assemblies support COM.
 [assembly: ComVisible(false)]
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c82cd1ef-cb0b-465f-bc65-9323ba0b24af")]
+// On Windows, the following GUID is for the ID of the typelib if this
+// project is exposed to COM. On other platforms, it unique identifies the
+// title storage container when deploying this assembly to the device.
+[assembly: Guid("e43a8e48-5f7f-4c98-9c2e-57d13f38c7c1")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -30,12 +31,4 @@ using Android.App;
 //      Build Number
 //      Revision
 //
-// You can specify all the values or you can default the Build and Revision Numbers 
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-
-// Add some common permissions, these can be removed if not needed
-[assembly: UsesPermission(Android.Manifest.Permission.Internet)]
-[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]

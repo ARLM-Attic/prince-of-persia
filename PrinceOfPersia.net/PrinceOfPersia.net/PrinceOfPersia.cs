@@ -81,6 +81,7 @@ namespace PrinceOfPersia
 
 
         public static string CONFIG_PATH_CONTENT = System.AppDomain.CurrentDomain.BaseDirectory + @"Content\";
+        public static string CONFIG_PATH_APOPLEXY = @"Apoplexy\";
         public static string CONFIG_PATH_LEVELS = @"Levels\";
         public static string CONFIG_PATH_ROOMS = @"Rooms\";
         public static string CONFIG_PATH_SEQUENCES = @"Sequences\";

@@ -19,7 +19,7 @@
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>floor</tileType>
@@ -40,7 +40,7 @@
     <Row>
       <columns>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -75,7 +75,7 @@
     <Row>
       <columns>
         <Column>
-          <tileType>gate</tileType>
+          <tileType>posts</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>

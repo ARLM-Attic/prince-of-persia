@@ -81,8 +81,10 @@ namespace PrinceOfPersia
 
                 //SoundEffect a = content.Load<SoundEffect>("Sounds/dos/story1");
                 //SoundEffect  a  = content.Load<SoundEffect>("SONGS/DOS/story1");
+#if WINDOWS   
                 music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "main theme");
-                //music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "1");
+#endif
+				//music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString().ToUpper() + "1");
                 // play files
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Volume= 1.0f;

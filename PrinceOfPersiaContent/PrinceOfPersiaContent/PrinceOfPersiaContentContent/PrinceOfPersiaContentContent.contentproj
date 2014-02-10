@@ -132,6 +132,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -279,8 +280,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Sequences\dos\DOOR_sequence.xml">
-      <Name>DOOR_sequence</Name>
+    <None Include="Sequences\dos\GATE_sequence.xml">
+      <Name>GATE_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -292,8 +293,8 @@
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\GATE_sequence.xml">
-      <Name>GATE_sequence</Name>
+    <None Include="Sequences\dos\POSTS_sequence.xml">
+      <Name>POSTS_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -350,6 +351,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sounds\dos\winning theme.mp3">
+      <Name>winning theme</Name>
+      <Importer>Mp3Importer</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
     <Compile Include="Sprites\bottom\player_live_empty.png">
       <Name>player_live_empty</Name>
       <Importer>TextureImporter</Importer>
@@ -2754,13 +2760,13 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\dos\GateA.png">
-      <Name>GateA</Name>
+    <Compile Include="Tiles\dos\PostsA.png">
+      <Name>PostsA</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\dos\GateA_mask.png">
-      <Name>GateA_mask</Name>
+    <Compile Include="Tiles\dos\PostsA_mask.png">
+      <Name>PostsA_mask</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -4874,11 +4880,15 @@
       <Importer>Mp3Importer</Importer>
       <Processor>MGSoundEffectProcessor</Processor>
     </Compile>
-    <Compile Include="Sounds\dos\winning theme.mp3">
-      <Name>winning theme</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>MGSoundEffectProcessor</Processor>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Apoplexy\level1.xml">
+      <Name>level1</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--

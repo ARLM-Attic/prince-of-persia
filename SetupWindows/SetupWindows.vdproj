@@ -141,18 +141,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_088FE020B2DA094B751F868F943144D0"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_088FE020B2DA094B751F868F943144D0"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_090AA783CB5A43E38AA3E532F074BC0A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -363,18 +351,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_113A9BBB6A8316595C4CEA798528D403"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_113A9BBB6A8316595C4CEA798528D403"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_11631F2F90C843C9A9663662A599349D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -581,30 +557,6 @@
         {
         "MsmKey" = "8:_1A9FECD0D22640358AC8D69D77496AD5"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
-        "OwnerKey" = "8:_C87F533D5716AC3EA8AEF78D37004099"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
-        "OwnerKey" = "8:_A760D6BF69A56A5A8D1A0B28F27FD40A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1107,18 +1059,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2F512126DF54E52B74A1B8580A073E6B"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2F512126DF54E52B74A1B8580A073E6B"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2F6F6C67E7FE4151A346955A3AEBB40F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1187,6 +1127,18 @@
         {
         "MsmKey" = "8:_317A4BBBEF4D477A8A38AA7CD645F946"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_31BEA4D38868C35BAA9050E59A58D4ED"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_31BEA4D38868C35BAA9050E59A58D4ED"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1485,6 +1437,30 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
+        "OwnerKey" = "8:_89C2EDD944957CB31431886BC3A5BC6F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
+        "OwnerKey" = "8:_847C1D8325FE9B627AF15948FC1E4A9E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_40D07ABD3C5E428F9F9254A6E925903E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1511,6 +1487,18 @@
         {
         "MsmKey" = "8:_410D0BD9414F425CB4BD465653A0EE40"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_410EBD9EBE3AA385336E2CBF7133AFED"
+        "OwnerKey" = "8:_F6E878CEE3A642D7707F2AE2D8360ECC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_410EBD9EBE3AA385336E2CBF7133AFED"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2169,18 +2157,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_5D5351B244FB4FB929BC2389347937F4"
-        "OwnerKey" = "8:_088FE020B2DA094B751F868F943144D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5D5351B244FB4FB929BC2389347937F4"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_5D613A6589584C9EA8B09F38C93DCD65"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -2715,6 +2691,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_72FB7A5C475591EA7F5C6F192EC4BA28"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_72FB7A5C475591EA7F5C6F192EC4BA28"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7309BE6E506C435890C0A4C423F06617"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -2776,6 +2764,12 @@
         "Entry"
         {
         "MsmKey" = "8:_756F92CCCA784F1DB10F6D72674C2C92"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7639492EFECB48DFA42C78EEFF09BFC8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -2903,6 +2897,18 @@
         {
         "MsmKey" = "8:_7CDAD0F46FA3463A9137659A90F4ACE2"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7D9648EABEE975FE810437502241FCE9"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7D9648EABEE975FE810437502241FCE9"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -3075,6 +3081,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_847C1D8325FE9B627AF15948FC1E4A9E"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_847C1D8325FE9B627AF15948FC1E4A9E"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_84813858F7A949869869A79D6A02DD8E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -3149,6 +3167,18 @@
         {
         "MsmKey" = "8:_8902E46A17AF44CF89BC2EA5EC7F1B72"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_89C2EDD944957CB31431886BC3A5BC6F"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_89C2EDD944957CB31431886BC3A5BC6F"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -3263,12 +3293,6 @@
         {
         "MsmKey" = "8:_9084A6D0E9D4485F823B5E7254B60F20"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -3729,12 +3753,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A4648535E5E24819B63BB6ED13C36E63"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -3815,18 +3833,6 @@
         {
         "MsmKey" = "8:_A760D3C00DE343AEB8E714A256286C72"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A760D6BF69A56A5A8D1A0B28F27FD40A"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A760D6BF69A56A5A8D1A0B28F27FD40A"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -4101,18 +4107,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B276C26E7E10AB81FAFFEDDFD30D8720"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B276C26E7E10AB81FAFFEDDFD30D8720"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B3AB0C57F74D4D97980B4475D0970F38"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -4265,66 +4259,6 @@
         {
         "MsmKey" = "8:_B8D071667F92463A9CBB300AF866D9F6"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_C87F533D5716AC3EA8AEF78D37004099"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_B276C26E7E10AB81FAFFEDDFD30D8720"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_113A9BBB6A8316595C4CEA798528D403"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_2F512126DF54E52B74A1B8580A073E6B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_088FE020B2DA094B751F868F943144D0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_5D5351B244FB4FB929BC2389347937F4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_A760D6BF69A56A5A8D1A0B28F27FD40A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
-        "OwnerKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -4695,18 +4629,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C87F533D5716AC3EA8AEF78D37004099"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C87F533D5716AC3EA8AEF78D37004099"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C89B9CA9EA324136B03154D1C99506B1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -4929,6 +4851,66 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_89C2EDD944957CB31431886BC3A5BC6F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_7D9648EABEE975FE810437502241FCE9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_D2540A5FFA6A164F923C4BA8B15C60DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_31BEA4D38868C35BAA9050E59A58D4ED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_F6E878CEE3A642D7707F2AE2D8360ECC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_410EBD9EBE3AA385336E2CBF7133AFED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_847C1D8325FE9B627AF15948FC1E4A9E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
+        "OwnerKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_D13A793EB38A49DEAA74F3B92CCE5FE9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -4943,6 +4925,18 @@
         {
         "MsmKey" = "8:_D243AA5AC02B46CDBBBCAF94A76B815A"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D2540A5FFA6A164F923C4BA8B15C60DC"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_D2540A5FFA6A164F923C4BA8B15C60DC"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -5421,6 +5415,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EC73751AEEBF47C9B2F58B6CBF15330E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -5553,6 +5553,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "OwnerKey" = "8:_7639492EFECB48DFA42C78EEFF09BFC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_F2C4C692042449E68D4C11169D8E8202"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -5669,6 +5681,18 @@
         {
         "MsmKey" = "8:_F6318B2FA7F84BCDAF8515F5CBEFB809"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F6E878CEE3A642D7707F2AE2D8360ECC"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F6E878CEE3A642D7707F2AE2D8360ECC"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -5896,13 +5920,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
+        "OwnerKey" = "8:_3B19B864E78B45078D3654810BD6D298"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7639492EFECB48DFA42C78EEFF09BFC8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_96494B8F16B547CA9156F71C9E9A3F2F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_72FB7A5C475591EA7F5C6F192EC4BA28"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -5932,67 +5968,67 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3B19B864E78B45078D3654810BD6D298"
+        "OwnerKey" = "8:_EC54071771C3426F9261AE1708A74622"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_90A110999E1295799084EDEE6DA024E1"
+        "OwnerKey" = "8:_F2BE5B6641F703DE64060D50D92E5C40"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B276C26E7E10AB81FAFFEDDFD30D8720"
+        "OwnerKey" = "8:_7D9648EABEE975FE810437502241FCE9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_113A9BBB6A8316595C4CEA798528D403"
+        "OwnerKey" = "8:_D2540A5FFA6A164F923C4BA8B15C60DC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2F512126DF54E52B74A1B8580A073E6B"
+        "OwnerKey" = "8:_31BEA4D38868C35BAA9050E59A58D4ED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_088FE020B2DA094B751F868F943144D0"
+        "OwnerKey" = "8:_F6E878CEE3A642D7707F2AE2D8360ECC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5D5351B244FB4FB929BC2389347937F4"
+        "OwnerKey" = "8:_410EBD9EBE3AA385336E2CBF7133AFED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A760D6BF69A56A5A8D1A0B28F27FD40A"
+        "OwnerKey" = "8:_847C1D8325FE9B627AF15948FC1E4A9E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C87F533D5716AC3EA8AEF78D37004099"
+        "OwnerKey" = "8:_89C2EDD944957CB31431886BC3A5BC6F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1AAA9417D2AD086E160A142D074E064A"
+        "OwnerKey" = "8:_40D0539D1ED6A8315C94915CB9CDFBCD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B8F705522FE77A9505374BC5E982DC40"
+        "OwnerKey" = "8:_D0E4857CD723FAB6DC4D5C1405965DE0"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -6518,37 +6554,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_088FE020B2DA094B751F868F943144D0"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.MediaFoundation, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_088FE020B2DA094B751F868F943144D0"
-                    {
-                    "Name" = "8:SharpDX.MediaFoundation.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.MediaFoundation.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_090AA783CB5A43E38AA3E532F074BC0A"
@@ -7251,37 +7256,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_113A9BBB6A8316595C4CEA798528D403"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.XAudio2, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_113A9BBB6A8316595C4CEA798528D403"
-                    {
-                    "Name" = "8:SharpDX.XAudio2.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.XAudio2.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_11631F2F90C843C9A9663662A599349D"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_dos\\Kid_89.xnb"
@@ -7980,37 +7954,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1AAA9417D2AD086E160A142D074E064A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.DXGI, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1AAA9417D2AD086E160A142D074E064A"
-                    {
-                    "Name" = "8:SharpDX.DXGI.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.DXGI.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B1DCB2A754B433FB16F8CB4EEDFA3DA"
@@ -9673,37 +9616,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2F512126DF54E52B74A1B8580A073E6B"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.RawInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_2F512126DF54E52B74A1B8580A073E6B"
-                    {
-                    "Name" = "8:SharpDX.RawInput.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.RawInput.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2F6F6C67E7FE4151A346955A3AEBB40F"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sounds\\dos\\tile moving 1.xnb"
@@ -9942,6 +9854,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_31BEA4D38868C35BAA9050E59A58D4ED"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.RawInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_31BEA4D38868C35BAA9050E59A58D4ED"
+                    {
+                    "Name" = "8:SharpDX.RawInput.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.RawInput.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3205975D249E4322B0598A57AD9F19DB"
@@ -10935,6 +10878,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_40D0539D1ED6A8315C94915CB9CDFBCD"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.DXGI, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_40D0539D1ED6A8315C94915CB9CDFBCD"
+                    {
+                    "Name" = "8:SharpDX.DXGI.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.DXGI.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_40D07ABD3C5E428F9F9254A6E925903E"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_lion\\Kid_153.xnb"
@@ -11044,6 +11018,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_410EBD9EBE3AA385336E2CBF7133AFED"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.Direct3D9, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_410EBD9EBE3AA385336E2CBF7133AFED"
+                    {
+                    "Name" = "8:SharpDX.Direct3D9.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.Direct3D9.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_412B644502554BFFA433C79837C095D0"
@@ -13226,37 +13231,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5D5351B244FB4FB929BC2389347937F4"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.Direct3D9, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_5D5351B244FB4FB929BC2389347937F4"
-                    {
-                    "Name" = "8:SharpDX.Direct3D9.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.Direct3D9.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D613A6589584C9EA8B09F38C93DCD65"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_dos\\Kid_26.xnb"
@@ -15070,6 +15044,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_72FB7A5C475591EA7F5C6F192EC4BA28"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Lidgren.Network, Version=2011.3.12.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_72FB7A5C475591EA7F5C6F192EC4BA28"
+                    {
+                    "Name" = "8:Lidgren.Network.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Lidgren.Network.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7309BE6E506C435890C0A4C423F06617"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_flash\\Kid_209.xnb"
@@ -15276,6 +15281,37 @@
             "TargetName" = "8:Kid_148.xnb"
             "Tag" = "8:"
             "Folder" = "8:_8159504C810649CE9FDA55E838088CDB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7639492EFECB48DFA42C78EEFF09BFC8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:PrinceOfPersia, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_7639492EFECB48DFA42C78EEFF09BFC8"
+                    {
+                    "Name" = "8:PrinceOfPersia.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\PrinceOfPersia.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -15708,6 +15744,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7D9648EABEE975FE810437502241FCE9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.XInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_7D9648EABEE975FE810437502241FCE9"
+                    {
+                    "Name" = "8:SharpDX.XInput.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.XInput.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D9EFB8CAC2A4906A202B8591689C487"
@@ -16270,6 +16337,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_847C1D8325FE9B627AF15948FC1E4A9E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.Direct3D11, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_847C1D8325FE9B627AF15948FC1E4A9E"
+                    {
+                    "Name" = "8:SharpDX.Direct3D11.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.Direct3D11.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84813858F7A949869869A79D6A02DD8E"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Tiles\\dos\\SpikeA_4.xnb"
@@ -16528,6 +16626,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_89C2EDD944957CB31431886BC3A5BC6F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.Direct2D1, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_89C2EDD944957CB31431886BC3A5BC6F"
+                    {
+                    "Name" = "8:SharpDX.Direct2D1.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.Direct2D1.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_89CAE16615AF4FCE831088F78DE87324"
@@ -16908,37 +17037,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_90A110999E1295799084EDEE6DA024E1"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MonoGame.Framework, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_90A110999E1295799084EDEE6DA024E1"
-                    {
-                    "Name" = "8:MonoGame.Framework.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MonoGame.Framework.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90E475585C4A4BF783F0C460E6FC3707"
@@ -18752,37 +18850,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A760D6BF69A56A5A8D1A0B28F27FD40A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.Direct3D11, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A760D6BF69A56A5A8D1A0B28F27FD40A"
-                    {
-                    "Name" = "8:SharpDX.Direct3D11.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.Direct3D11.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A85B49029F734529B7CC849748FD662D"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_flash\\Kid_117.xnb"
@@ -19683,37 +19750,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B276C26E7E10AB81FAFFEDDFD30D8720"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.XInput, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_B276C26E7E10AB81FAFFEDDFD30D8720"
-                    {
-                    "Name" = "8:SharpDX.XInput.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.XInput.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B3AB0C57F74D4D97980B4475D0970F38"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_flash\\Kid_4.xnb"
@@ -20232,37 +20268,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B8F705522FE77A9505374BC5E982DC40"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_B8F705522FE77A9505374BC5E982DC40"
-                    {
-                    "Name" = "8:SharpDX.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B962BEC7E5A24401AFC9797E8082884C"
@@ -21485,37 +21490,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C87F533D5716AC3EA8AEF78D37004099"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:SharpDX.Direct2D1, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C87F533D5716AC3EA8AEF78D37004099"
-                    {
-                    "Name" = "8:SharpDX.Direct2D1.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:SharpDX.Direct2D1.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C89B9CA9EA324136B03154D1C99506B1"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_dos\\Kid_59.xnb"
@@ -22256,6 +22230,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D0E4857CD723FAB6DC4D5C1405965DE0"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D0E4857CD723FAB6DC4D5C1405965DE0"
+                    {
+                    "Name" = "8:SharpDX.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D13A793EB38A49DEAA74F3B92CCE5FE9"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Sprites\\Player\\Kid_dos\\Kid_63.xnb"
@@ -22314,6 +22319,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D2540A5FFA6A164F923C4BA8B15C60DC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.XAudio2, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D2540A5FFA6A164F923C4BA8B15C60DC"
+                    {
+                    "Name" = "8:SharpDX.XAudio2.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.XAudio2.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D330B6BEDBB74BC49800005DDA2AF823"
@@ -24336,6 +24372,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F2BE5B6641F703DE64060D50D92E5C40"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F2BE5B6641F703DE64060D50D92E5C40"
+                    {
+                    "Name" = "8:MonoGame.Framework.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MonoGame.Framework.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2C4C692042449E68D4C11169D8E8202"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\bin\\x86\\Debug\\Content\\Tiles\\lion\\GateA_mask.xnb"
@@ -24734,6 +24801,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F6E878CEE3A642D7707F2AE2D8360ECC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:SharpDX.MediaFoundation, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F6E878CEE3A642D7707F2AE2D8360ECC"
+                    {
+                    "Name" = "8:SharpDX.MediaFoundation.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:SharpDX.MediaFoundation.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F6ECF26B07ED48CD834D3499393915A0"
@@ -26008,18 +26106,18 @@
             "Icon" = "8:"
             "Feature" = "8:"
             }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F4E406E30E91428AA0D1BAB18E3130CA"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_8FA9046821EA42E5A7DDAABEA5FD3E03"
             {
-            "Name" = "8:PrinceOfPersia.net"
+            "Name" = "8:Shortcut to PrinceOfPersia.exe"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_A3F18B30B9DC405EA08DA918A3A381E0"
+            "Target" = "8:_7639492EFECB48DFA42C78EEFF09BFC8"
             "Folder" = "8:_3FAD6109483B4EF4BDE07DDD1864A3D7"
             "WorkingFolder" = "8:_6C59437E4CB84FB1B967576CAEBCA9A3"
-            "Icon" = "8:_92B713CD2A494210964FFFE7303AF210"
+            "Icon" = "8:"
             "Feature" = "8:"
             }
         }
@@ -26421,7 +26519,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A3F18B30B9DC405EA08DA918A3A381E0"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_EC54071771C3426F9261AE1708A74622"
             {
             "SourcePath" = "8:..\\PrinceOfPersia.net\\PrinceOfPersia.net\\obj\\x86\\Debug\\PrinceOfPersia.exe"
             "TargetName" = "8:"
@@ -26441,7 +26539,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
+            "OutputConfiguration" = "8:Debug|x86"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{932C3D56-99F8-4A20-AD55-D46BE7DA09C8}"
             "ShowKeyOutput" = "11:TRUE"

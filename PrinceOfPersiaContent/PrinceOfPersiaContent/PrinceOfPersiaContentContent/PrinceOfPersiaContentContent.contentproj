@@ -264,6 +264,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Rooms\MAP_dungeon_prison_9.xml">
       <Name>MAP_dungeon_prison_9</Name>
@@ -351,6 +352,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Songs\dos\main theme.mp3">
+      <Name>main theme</Name>
+      <Importer>WmaImporter</Importer>
+      <Processor>SongProcessor</Processor>
+    </Compile>
     <Compile Include="Sounds\dos\winning theme.mp3">
       <Name>winning theme</Name>
       <Importer>Mp3Importer</Importer>
@@ -4481,11 +4487,6 @@
     </Compile>
     <Compile Include="Songs\dos\low weight.mp3">
       <Name>low weight</Name>
-      <Importer>Mp3Importer</Importer>
-      <Processor>SongProcessor</Processor>
-    </Compile>
-    <Compile Include="Songs\dos\main theme.mp3">
-      <Name>main theme</Name>
       <Importer>Mp3Importer</Importer>
       <Processor>SongProcessor</Processor>
     </Compile>

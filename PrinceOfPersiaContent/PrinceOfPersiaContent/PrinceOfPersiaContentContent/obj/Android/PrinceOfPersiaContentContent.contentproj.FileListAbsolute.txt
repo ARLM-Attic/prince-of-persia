@@ -1,0 +1,2 @@
+c:\users\a.falappi\documents\visual studio 2012\Projects\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\obj\Android\PrinceOfPersiaContentContent.contentprojResolveAssemblyReference.cache
+C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia.net\PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\obj\Android\PrinceOfPersiaContentContent.contentprojResolveAssemblyReference.cache

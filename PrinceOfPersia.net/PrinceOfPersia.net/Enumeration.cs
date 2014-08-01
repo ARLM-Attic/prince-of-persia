@@ -120,6 +120,8 @@ namespace PrinceOfPersia
             tile_torch_rubble = 30, //taked from apoplexy norbert
             tile_loose = 43,  //taked from apoplexy norbert
             //door = 100 //changed from apoplexy norbert
+
+            
         }
 
         //first 4 byte are element type the rest is the modifier, _x tells the result formula
@@ -254,7 +256,7 @@ namespace PrinceOfPersia
 
         public enum StateTile
         {
-            normal // normal state
+            normal = 0  // normal state
             ,close //close animation
             ,closefast //close fast animation
             ,closed //close
@@ -274,6 +276,13 @@ namespace PrinceOfPersia
             ,exit_close_left_up
             ,exit_close_right
             ,exit_close_right_up
+
+            //apoplexy xml
+            ,back_wall
+            ,window
+            ,stuck
+            ,palace_pattern
+            ,empty //flask
         }
 
 

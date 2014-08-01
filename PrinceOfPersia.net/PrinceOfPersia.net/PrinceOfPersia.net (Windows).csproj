@@ -104,11 +104,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="animation\AnimationSequence.cs" />
-    <Compile Include="dungeon\apoplexy\LinksApoplexy.cs" />
-    <Compile Include="dungeon\apoplexy\GuardApoplexy.cs" />
-    <Compile Include="dungeon\apoplexy\TileApoplexy.cs" />
-    <Compile Include="dungeon\apoplexy\RoomApoplexy.cs" />
-    <Compile Include="dungeon\apoplexy\LevelApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\prince.cs" />
+    <Compile Include="dungeon\apoplexy\field.cs" />
+    <Compile Include="dungeon\apoplexy\userdata.cs" />
+    <Compile Include="dungeon\apoplexy\event.cs" />
+    <Compile Include="dungeon\apoplexy\links.cs" />
+    <Compile Include="dungeon\apoplexy\guard.cs" />
+    <Compile Include="dungeon\apoplexy\tile.cs" />
+    <Compile Include="dungeon\apoplexy\room.cs" />
+    <Compile Include="dungeon\apoplexy\level.cs" />
     <Compile Include="items\Sword.cs" />
     <Compile Include="PoPGame.cs">
       <SubType>Code</SubType>
@@ -195,6 +199,7 @@
     <Compile Include="utils\TouchCollectionExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">

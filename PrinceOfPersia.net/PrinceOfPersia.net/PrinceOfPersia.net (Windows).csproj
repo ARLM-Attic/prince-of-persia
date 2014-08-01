@@ -104,9 +104,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="animation\AnimationSequence.cs" />
-    <Compile Include="dungeon\TileApoplexy.cs" />
-    <Compile Include="dungeon\RoomApoplexy.cs" />
-    <Compile Include="dungeon\LevelApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\LinksApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\GuardApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\TileApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\RoomApoplexy.cs" />
+    <Compile Include="dungeon\apoplexy\LevelApoplexy.cs" />
     <Compile Include="items\Sword.cs" />
     <Compile Include="PoPGame.cs">
       <SubType>Code</SubType>

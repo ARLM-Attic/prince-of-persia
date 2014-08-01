@@ -90,24 +90,97 @@ namespace PrinceOfPersia
             this.maze = maze;
             this.roomIndex = roomIndex;
 
-            //tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
-            //LOAD MXL CONTENT
-            //map = content.Load<Map>(filePath);
 
             //LOAD RES CONTENT
             System.Xml.Serialization.XmlSerializer ax;
 
             Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(filePath);
 
-            //TextReader txtReader = File.OpenText(filePath);
-
-
             //Stream astream = this.GetType().Assembly.GetManifestResourceStream(filePath);
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Map));
             map = ((Map)ax.Deserialize(txtReader));
 
             LoadTiles();
-            //LoadTilesMask();
+        }
+
+
+        Apoplexy.tile[] myTiles;
+        public RoomNew(Maze maze, Apoplexy.tile[] tiles, string name)
+        {
+            this.maze = maze;
+            roomName = name;
+
+            myTiles = tiles;
+            LoadTilesApoplexy();
+        }
+
+        public void LoadTilesApoplexy()
+        {
+            int ix = 0;
+            tiles = new Tile[10, 3]; //30 fix...sorry
+            Enumeration.Items item = Enumeration.Items.none;
+            for (int x = 0; x < 10; x++)
+            {
+                for (int y = 0; y < 3; y++)
+                {
+                    ix = 10 * y + x;
+
+                    Enumeration.TileType nextTileType = Enumeration.TileType.space;
+                    Enumeration.TileType myTileType = Enumeration.TileType.space;
+                    Enumeration.StateTile myStateTile = Enumeration.StateTile.normal;
+                    //convert TileType to 
+                    myTileType = Utils.ParseTileType(myTiles[ix].element);
+                    myStateTile = Utils.ParseStateType(myTileType , myTiles[ix].modifier);
+
+
+     
+
+                    if (myTileType == Enumeration.TileType.flask)
+                    {
+                        myTileType = Enumeration.TileType.floor;
+                        myStateTile = Enumeration.StateTile.normal;
+                        item = Enumeration.Items.flask;
+                    }
+                    else if (myTileType == Enumeration.TileType.sword)
+                    {
+                        myTileType = Enumeration.TileType.floor;
+                        myStateTile = Enumeration.StateTile.normal;
+                        item = Enumeration.Items.sword;
+                    }
+                    else
+                        item = Enumeration.Items.none;
+
+
+                 
+
+
+
+                    tiles[x, y] = LoadTile(myTileType, myStateTile, 0, item, nextTileType);
+
+                    //*
+                    Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
+                    Vector2 v = new Vector2(rect.X, rect.Y);
+
+                    tiles[x, y].Position = new Position(v, v);
+                    tiles[x, y].Position.X = v.X;
+                    tiles[x, y].Position.Y = v.Y;
+
+                    //x+1 for avoid base zero x array, WALL POSITION 0-29
+                    //tiles[x, y].panelInfo = newX + roomIndex;
+                    //*
+
+                    if (roomName == "1" & maze.player == null)
+                    {
+                        int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
+                        int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
+                        maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, SpriteEffects.None);
+                    }
+
+                   
+                }
+            }
+
+
         }
 
 

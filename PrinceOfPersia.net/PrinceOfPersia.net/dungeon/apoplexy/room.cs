@@ -23,7 +23,7 @@ namespace PrinceOfPersia.Apoplexy
         public guard[] guard;
 
         [XmlElement]
-        public links[] links;
+        public links links;
 
         
         [XmlAttribute("number")]

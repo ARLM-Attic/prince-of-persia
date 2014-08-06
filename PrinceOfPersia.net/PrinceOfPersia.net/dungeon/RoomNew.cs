@@ -32,6 +32,11 @@ namespace PrinceOfPersia
         public int roomX;
         public int roomY;
 
+        //Apoplext coordinate system
+        public Apoplexy.links link = null;
+        public Apoplexy.guard[] guard = null;
+        public Apoplexy.@event[] events = null;
+
         // Physical structure of the level.
         private Tile[,] tiles;
         //private Tile[,] tilesMask;
@@ -105,10 +110,14 @@ namespace PrinceOfPersia
 
 
         Apoplexy.tile[] myTiles;
-        public RoomNew(Maze maze, Apoplexy.tile[] tiles, string name)
+        public RoomNew(Maze maze, Apoplexy.tile[] tiles, string name, Apoplexy.links link, Apoplexy.guard[] guard, Apoplexy.@event[] events)
         {
             this.maze = maze;
             roomName = name;
+            this.link = link;
+            this.events = events;
+
+            this.guard = guard;
 
             myTiles = tiles;
             LoadTilesApoplexy();
@@ -132,8 +141,7 @@ namespace PrinceOfPersia
                     myTileType = Utils.ParseTileType(myTiles[ix].element);
                     myStateTile = Utils.ParseStateType(myTileType , myTiles[ix].modifier);
 
-
-     
+                 
 
                     if (myTileType == Enumeration.TileType.flask)
                     {
@@ -177,9 +185,45 @@ namespace PrinceOfPersia
                     }
 
                    
+
+
+
+                }
+            }
+            //LOAD GUARD
+            foreach(Apoplexy.guard g in guard)
+            {
+                if (g.location != "0")
+                {
+                    int iLocation = int.Parse(g.location);
+
+                    int xGuard = iLocation % 10 -1;
+                    int yGuard = iLocation / 10 +1;
+
+                    xGuard = xGuard * Tile.WIDTH + Player.SPRITE_SIZE_X;
+                    yGuard = (yGuard * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + RoomNew.TOP_BORDER;
+                    Guard guardSprite = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, SpriteEffects.None); //to be fixed direction
+                    maze.sprites.Add(guardSprite);
                 }
             }
 
+            //ASSOCIATE EVENTS
+            int switchButton = 0; //events
+            foreach(Apoplexy.@event e in events)
+            {
+                if (e.room == roomName)
+                {
+                    foreach (Tile t in tiles)
+                    {
+                        float tileLocation = 10 *  t.Coordinates.Y + t.Coordinates.X ;
+                        if (tileLocation == float.Parse(e.location))
+                        {
+
+                            switchButton = 1;
+                        }
+                    }
+                }
+            }
 
         }
 

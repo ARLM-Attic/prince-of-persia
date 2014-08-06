@@ -1,4 +1,6 @@
-﻿using System;
+﻿/**/
+
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,16 +47,7 @@ namespace PrinceOfPersia
         public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, 148); //door
         
 
-        //(0, 128, 62, 20);
-
-
         private SpriteEffects flip = SpriteEffects.None;
-        //private List<Tile> _tileReference = new List<Tile>();
-        //protected List<Tile> tileReference
-        //{
-        //    get { return _tileReference; }
-        //    set { _tileReference = value; }
-        //}
 
         //private Maze maze;
         protected RoomNew room;

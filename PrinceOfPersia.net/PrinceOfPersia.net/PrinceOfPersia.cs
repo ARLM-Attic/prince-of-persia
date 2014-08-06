@@ -137,6 +137,7 @@ namespace PrinceOfPersia
             CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
 
             CONFIG_PATH_CONTENT = "Content/";
+            CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_PATH_APOPLEXY"].ToString().ToUpper();
 #endif 
             AnimationSequence.frameRate = CONFIG_FRAMERATE;
 

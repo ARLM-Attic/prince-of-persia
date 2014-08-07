@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!-- PoP1 level, exported 2014-08-01 15:35:15 with apoplexy v2.3.1 (July 2014). -->
+<!-- PoP1 level, exported 2014-08-07 09:13:15 with apoplexy v2.4 (August 2014). -->
 <level number="1">
   <rooms>
     <room number="1">
@@ -13,7 +13,6 @@
       <tile element="33" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-
       <tile element="51" modifier="0" />
       <tile element="51" modifier="0" />
       <tile element="33" modifier="1" />
@@ -21,13 +20,9 @@
       <tile element="0" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="20" modifier="0" />
-
       <tile element="20" modifier="0" />
-
       <tile element="20" modifier="0" />
       <tile element="52" modifier="0" />
-
-
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="52" modifier="0" />
@@ -38,7 +33,7 @@
       <tile element="1" modifier="1" />
       <tile element="33" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="5" right="0" up="0" down="2" />
     </room>
     <room number="2">
@@ -72,7 +67,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="6" right="3" up="1" down="0" />
     </room>
     <room number="3">
@@ -106,7 +101,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="18" direction="1" skill="0" colors="2" />
+      <guard location="18" direction="2" skill="0" colors="2" />
       <links left="2" right="9" up="0" down="0" />
     </room>
     <room number="4">
@@ -140,7 +135,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="1" skill="1" colors="255" />
+      <guard location="0" direction="2" skill="1" colors="255" />
       <links left="19" right="14" up="20" down="0" />
     </room>
     <room number="5">
@@ -174,7 +169,7 @@
       <tile element="14" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="21" right="1" up="0" down="6" />
     </room>
     <room number="6">
@@ -208,7 +203,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="8" right="2" up="5" down="0" />
     </room>
     <room number="7">
@@ -242,7 +237,7 @@
       <tile element="3" modifier="0" />
       <tile element="1" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="20" right="8" up="17" down="14" />
     </room>
     <room number="8">
@@ -276,7 +271,7 @@
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="7" right="6" up="21" down="11" />
     </room>
     <room number="9">
@@ -310,7 +305,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="0" colors="255" />
+      <guard location="0" direction="1" skill="0" colors="255" />
       <links left="3" right="0" up="0" down="0" />
     </room>
     <room number="10">
@@ -344,7 +339,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="1" colors="255" />
+      <guard location="0" direction="1" skill="1" colors="255" />
       <links left="0" right="19" up="15" down="0" />
     </room>
     <room number="11">
@@ -378,7 +373,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="14" right="0" up="8" down="0" />
     </room>
     <room number="12">
@@ -391,9 +386,7 @@
       <tile element="33" modifier="1" />
       <tile element="35" modifier="0" />
       <tile element="33" modifier="0" />
-
       <tile element="36" modifier="2" />
-
       <tile element="35" modifier="0" />
       <tile element="33" modifier="0" />
       <tile element="33" modifier="0" />
@@ -414,7 +407,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="15" right="20" up="16" down="19" />
     </room>
     <room number="13">
@@ -448,7 +441,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="1" colors="255" />
+      <guard location="0" direction="1" skill="1" colors="255" />
       <links left="22" right="16" up="0" down="18" />
     </room>
     <room number="14">
@@ -482,7 +475,7 @@
       <tile element="2" modifier="0" />
       <tile element="2" modifier="0" />
       <tile element="3" modifier="0" />
-      <guard location="0" direction="2" skill="1" colors="255" />
+      <guard location="0" direction="1" skill="1" colors="255" />
       <links left="4" right="11" up="7" down="0" />
     </room>
     <room number="15">
@@ -516,7 +509,7 @@
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="0" right="12" up="22" down="10" />
     </room>
     <room number="16">
@@ -550,7 +543,7 @@
       <tile element="33" modifier="1" />
       <tile element="11" modifier="0" />
       <tile element="33" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="22" right="23" up="0" down="12" />
     </room>
     <room number="17">
@@ -584,7 +577,7 @@
       <tile element="52" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="1" colors="255" />
+      <guard location="0" direction="1" skill="1" colors="255" />
       <links left="23" right="21" up="0" down="7" />
     </room>
     <room number="18">
@@ -618,7 +611,7 @@
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="15" right="12" up="13" down="19" />
     </room>
     <room number="19">
@@ -652,7 +645,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="10" right="4" up="12" down="0" />
     </room>
     <room number="20">
@@ -686,7 +679,7 @@
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-      <guard location="0" direction="2" skill="1" colors="255" />
+      <guard location="0" direction="1" skill="1" colors="255" />
       <links left="12" right="7" up="23" down="4" />
     </room>
     <room number="21">
@@ -720,7 +713,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="7" direction="1" skill="0" colors="2" />
+      <guard location="7" direction="2" skill="0" colors="2" />
       <links left="17" right="5" up="0" down="8" />
     </room>
     <room number="22">
@@ -754,7 +747,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="1" skill="255" colors="255" />
+      <guard location="0" direction="2" skill="255" colors="255" />
       <links left="0" right="16" up="0" down="15" />
     </room>
     <room number="23">
@@ -788,7 +781,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="16" right="17" up="0" down="20" />
     </room>
     <room number="24">
@@ -822,7 +815,7 @@
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
-      <guard location="0" direction="2" skill="255" colors="255" />
+      <guard location="0" direction="1" skill="255" colors="255" />
       <links left="9" right="0" up="0" down="0" />
     </room>
   </rooms>
@@ -1087,13 +1080,13 @@
   <prince room="1" location="1" direction="2" />
   <userdata fields="9">
     <field key="Editor Name" value="apoplexy" />
-    <field key="Editor Version" value="v2.3.1 (July 2014)" />
+    <field key="Editor Version" value="v2.4 (August 2014)" />
     <field key="Level Author" value="apoplexy user" />
     <field key="Level Title" value="Level 1" />
     <field key="Level Description" value="" />
     <field key="Original Filename" value=".///levels/level1.plv" />
-    <field key="Time Created" value="2014-08-01 13:35:15" />
-    <field key="Time Last Modified" value="2014-08-01 15:35:15" />
+    <field key="Time Created" value="2014-08-07 07:13:15" />
+    <field key="Time Last Modified" value="2014-08-07 09:13:15" />
     <field key="Original Level Number" value="1" />
   </userdata>
 </level>

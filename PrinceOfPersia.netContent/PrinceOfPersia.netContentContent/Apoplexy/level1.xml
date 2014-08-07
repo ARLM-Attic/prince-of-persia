@@ -13,7 +13,7 @@
       <tile element="33" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="52" modifier="0" />
-      
+
       <tile element="51" modifier="0" />
       <tile element="51" modifier="0" />
       <tile element="33" modifier="1" />
@@ -21,13 +21,13 @@
       <tile element="0" modifier="0" />
       <tile element="52" modifier="0" />
       <tile element="20" modifier="0" />
-      
+
       <tile element="20" modifier="0" />
-      
+
       <tile element="20" modifier="0" />
       <tile element="52" modifier="0" />
-      
-      
+
+
       <tile element="20" modifier="0" />
       <tile element="20" modifier="0" />
       <tile element="52" modifier="0" />
@@ -391,9 +391,9 @@
       <tile element="33" modifier="1" />
       <tile element="35" modifier="0" />
       <tile element="33" modifier="0" />
-      
+
       <tile element="36" modifier="2" />
-      
+
       <tile element="35" modifier="0" />
       <tile element="33" modifier="0" />
       <tile element="33" modifier="0" />

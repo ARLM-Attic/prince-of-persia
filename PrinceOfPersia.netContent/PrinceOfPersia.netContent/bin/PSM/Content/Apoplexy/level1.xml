@@ -247,7 +247,9 @@
       <tile element="0" modifier="0" />
       <tile element="0" modifier="0" />
       <tile element="0" modifier="1" />
+      
       <tile element="47" modifier="5" />
+      
       <tile element="1" modifier="1" />
       <tile element="1" modifier="0" />
       <tile element="36" modifier="2" />
@@ -824,7 +826,9 @@
     <event number="2" room="12" location="10" next="0" />
     <event number="3" room="12" location="10" next="0" />
     <event number="4" room="9" location="14" next="0" />
+    
     <event number="5" room="7" location="10" next="0" />
+    
     <event number="6" room="8" location="10" next="0" />
     <event number="7" room="7" location="10" next="0" />
     <event number="8" room="8" location="10" next="0" />
@@ -833,7 +837,10 @@
     <event number="11" room="5" location="6" next="0" />
     <event number="12" room="5" location="10" next="0" />
     <event number="13" room="5" location="10" next="0" />
+    
     <event number="14" room="8" location="10" next="0" />
+    
+    
     <event number="15" room="5" location="10" next="0" />
     <event number="16" room="5" location="10" next="1" />
     <event number="17" room="5" location="6" next="0" />

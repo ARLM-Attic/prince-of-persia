@@ -126,6 +126,8 @@ namespace PrinceOfPersia
         public void LoadTilesApoplexy()
         {
             int ix = 0;
+            int switchButton = 0;
+
             tiles = new Tile[10, 3]; //30 fix...sorry
             Enumeration.Items item = Enumeration.Items.none;
             for (int x = 0; x < 10; x++)
@@ -140,7 +142,7 @@ namespace PrinceOfPersia
                     //convert TileType to 
                     myTileType = Utils.ParseTileType(myTiles[ix].element);
                     myStateTile = Utils.ParseStateType(myTileType , myTiles[ix].modifier);
-
+                    switchButton = Utils.ParseSwitchButton(myTileType, myTiles[ix].modifier);
                  
 
                     if (myTileType == Enumeration.TileType.flask)
@@ -159,11 +161,7 @@ namespace PrinceOfPersia
                         item = Enumeration.Items.none;
 
 
-                 
-
-
-
-                    tiles[x, y] = LoadTile(myTileType, myStateTile, 0, item, nextTileType);
+                    tiles[x, y] = LoadTile(myTileType, myStateTile, switchButton, item, nextTileType);
 
                     //*
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);

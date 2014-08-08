@@ -123,7 +123,7 @@ namespace PrinceOfPersia
 
             if (tileType == (Enumeration.TileType.pressplate & Enumeration.TileType.upressplate))
             {
-                return iModifier;
+                return iModifier+1;
             }
 
             return 0;

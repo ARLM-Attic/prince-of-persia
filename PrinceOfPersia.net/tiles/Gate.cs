@@ -17,26 +17,34 @@ namespace PrinceOfPersia
     class Gate : Tile
     {
         private static List<Sequence> tileSequence = new List<Sequence>();
-        public int switchButton = 0;
+        private int[] switchButton = new int[100]; //al max 100 event
         public float elapsedTimeOpen = 0;
         public float timeOpen = 6;
-        
+        private int xSwitchButton = 0;
 
         public Enumeration.StateTile State
         {
             get { return tileState.Value().state; }
         }
 
+        public int[] GetSwitchButtons()
+        {
+            return switchButton;
+        }
 
+        public int SwitchButton
+        { 
+            set { switchButton[xSwitchButton++] = value; }
+        }
 
         public Gate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
         {
             collision = Enumeration.TileCollision.Platform;
             base.room = room;
             nextTileType = NextTileType;
-            
 
-            this.switchButton = switchButton;
+
+            SwitchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
             Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString().ToUpper() + "_sequence.xml");
 

@@ -83,7 +83,7 @@ namespace PrinceOfPersia
                                     {
                                         if (eventPrec == null)
                                         {
-                                            ((Gate)t).switchButton = int.Parse(e.number);
+                                            ((Gate)t).SwitchButton = int.Parse(e.number);
                                             if (e.next == "1")
                                             {
                                                 eventPrec = e;
@@ -91,13 +91,34 @@ namespace PrinceOfPersia
                                         }
                                         else
                                         {
-                                            ((Gate)t).switchButton = int.Parse(eventPrec.number);
+                                            ((Gate)t).SwitchButton = int.Parse(eventPrec.number);
                                             if (e.next != "1")
                                             {
                                                 eventPrec = null;
                                             }
                                         }
                                     }
+                                    else if (t.Type == Enumeration.TileType.exit)
+                                    {
+                                        //if (eventPrec == null)
+                                        //{
+                                        //    ((Exit)t).switchButton = int.Parse(e.number);
+                                        //    if (e.next == "1")
+                                        //    {
+                                        //        eventPrec = e;
+                                        //    }
+                                        //}
+                                        //else
+                                        //{
+                                        //    ((Exit)t).switchButton = int.Parse(eventPrec.number);
+                                        //    if (e.next != "1")
+                                        //    {
+                                        //        eventPrec = null;
+                                        //    }
+                                        //}
+                                    }
+
+
                                 }
                             }
                         }

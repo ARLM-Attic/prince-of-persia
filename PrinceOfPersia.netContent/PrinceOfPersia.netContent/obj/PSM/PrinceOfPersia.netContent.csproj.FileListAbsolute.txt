@@ -952,6 +952,6 @@ C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\Pri
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\bin\PSM\Content\Sequences\lion\SWORD_sequence.xml
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\bin\PSM\Content\Sequences\lion\TORCH_sequence.xml
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\bin\PSM\IgnoreMe.dll
+C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\obj\PSM\PrinceOfPersia.netContent.csprojResolveAssemblyReference.cache
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\obj\PSM\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\obj\PSM\IgnoreMe.dll
-C:\_PERSONALE\Google Drive\PROJECTS\PrinceOfPersia\PrinceOfPersia.netContent\PrinceOfPersia.netContent\obj\PSM\PrinceOfPersia.netContent.csprojResolveAssemblyReference.cache

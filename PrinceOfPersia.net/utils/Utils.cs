@@ -101,6 +101,14 @@ namespace PrinceOfPersia
 
                     break;
 
+                case Enumeration.TileType.pressplate:
+                    stateTile = Enumeration.StateTile.normal;
+                    break;
+                
+                case Enumeration.TileType.upressplate:
+                    stateTile = Enumeration.StateTile.dpressplate;
+
+                    break;
                 default:
                     break;
             
@@ -109,6 +117,16 @@ namespace PrinceOfPersia
             return stateTile;
         }
 
-        
+        public static int ParseSwitchButton(Enumeration.TileType tileType, string modifier)
+        {
+            int iModifier = int.Parse(modifier);
+
+            if (tileType == (Enumeration.TileType.pressplate & Enumeration.TileType.upressplate))
+            {
+                return iModifier;
+            }
+
+            return 0;
+        }
     }
 }

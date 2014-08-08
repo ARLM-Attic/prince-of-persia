@@ -162,7 +162,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="drgPrinceOfPersia.cd" />
-    <None Include="PrinceOfPersia.net_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">

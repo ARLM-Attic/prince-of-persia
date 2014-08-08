@@ -86,6 +86,8 @@ namespace PrinceOfPersia
         public static string CONFIG_PATH_ROOMS = @"Rooms\";
         public static string CONFIG_PATH_SEQUENCES = @"Sequences\";
 
+        public static bool LEVEL_APOPLEXY = false;
+
         public static int CONFIG_KID_START_ENERGY = 3;
 
 
@@ -138,6 +140,8 @@ namespace PrinceOfPersia
 
             CONFIG_PATH_CONTENT = "Content/";
             CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_PATH_APOPLEXY"].ToString().ToUpper();
+
+            LEVEL_APOPLEXY = bool.Parse(ConfigurationSettings.AppSettings["LEVEL_APOPLEXY"].ToString());
 #endif 
             AnimationSequence.frameRate = CONFIG_FRAMERATE;
 

@@ -43,9 +43,6 @@ namespace PrinceOfPersia
         {
             Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY + "/level1.xml");
 
-   ;
-
-
             levelsApoplexy = new List<Apoplexy.level>();
             System.Xml.Serialization.XmlSerializer ax = null;
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
@@ -67,9 +64,51 @@ namespace PrinceOfPersia
                         room.roomY = 0;
                         rooms.Add(room);
                 }
+
+                //i will associate events
+                //ASSOCIATE EVENTS
+                Apoplexy.@event eventPrec = null;
+                foreach (Apoplexy.@event e in levelsApoplexy[z].events)
+                {
+                    foreach(RoomNew r in rooms)
+                    {
+                        if (r.roomName == e.room)
+                        {
+                            foreach (Tile t in r.tiles)
+                            {
+                                float tileLocation = 10 * t.Coordinates.Y + t.Coordinates.X + 1;
+                                if (tileLocation == float.Parse(e.location))
+                                {
+                                    if (t.Type == Enumeration.TileType.gate)
+                                    {
+                                        if (eventPrec == null)
+                                        {
+                                            ((Gate)t).switchButton = int.Parse(e.number);
+                                            if (e.next == "1")
+                                            {
+                                                eventPrec = e;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ((Gate)t).switchButton = int.Parse(eventPrec.number);
+                                            if (e.next != "1")
+                                            {
+                                                eventPrec = null;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+
             }
 
-            //i will associate events
+
+
 
         }
         
@@ -134,7 +173,7 @@ namespace PrinceOfPersia
 
             //dEffect = content.Load<Effect>(@"Effects\SwapColor");
 
-            if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 Apoplexy();
             else
                 PopNet();
@@ -176,7 +215,7 @@ namespace PrinceOfPersia
 
             string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
             {
                 if (room.link == null)
                     return blockRoom;
@@ -193,7 +232,7 @@ namespace PrinceOfPersia
             }
             foreach (RoomNew r in rooms)
             {
-                if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
                     if (r.roomName == roomNext)
                         return r;
@@ -216,7 +255,7 @@ namespace PrinceOfPersia
 
             string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
             {
                 if (room.link == null)
                     return blockRoom;
@@ -234,7 +273,7 @@ namespace PrinceOfPersia
 
             foreach (RoomNew r in rooms)
             {
-                if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
                     if (room.link == null)
                         return blockRoom;
@@ -260,7 +299,7 @@ namespace PrinceOfPersia
 
             string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
             {
                 if (room.link == null)
                     return blockRoom;
@@ -277,7 +316,7 @@ namespace PrinceOfPersia
             }
             foreach (RoomNew r in rooms)
             {
-                if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
                     if (r.roomName == roomNext)
                         return r;
@@ -300,7 +339,7 @@ namespace PrinceOfPersia
 
             string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
             {
                 if (room.link == null)
                     return blockRoom;
@@ -317,7 +356,7 @@ namespace PrinceOfPersia
             }
             foreach (RoomNew r in rooms)
             {
-                if (PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY != string.Empty)
+                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
                     if (r.roomName == roomNext)
                         return r;

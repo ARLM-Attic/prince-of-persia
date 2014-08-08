@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersia.net", "PrinceOfPersia.net\PrinceOfPersia.net.csproj", "{399E21FA-88E0-4F1D-9B14-2367EF2EC59C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersia.netContent", "PrinceOfPersia.netContent\PrinceOfPersia.netContent\PrinceOfPersia.netContent.csproj", "{16CFDA6C-1305-4D92-AFCF-F22587E47E0A}"
 EndProject
-Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "PrinceOfPersia.netContentContent", "PrinceOfPersia.netContent\PrinceOfPersia.netContentContent\PrinceOfPersia.netContentContent.contentproj", "{492C5D6F-160A-4317-91DF-E6720E341583}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersia.netContentContent", "PrinceOfPersia.netContent\PrinceOfPersia.netContentContent\PrinceOfPersia.netContentContent.contentproj", "{492C5D6F-160A-4317-91DF-E6720E341583}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

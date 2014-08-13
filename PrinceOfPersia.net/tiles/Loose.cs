@@ -28,7 +28,7 @@ namespace PrinceOfPersia
         }
 
 
-        public Loose(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
+        public Loose(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
         {
             base.room = room;
             nextTileType = NextTileType;

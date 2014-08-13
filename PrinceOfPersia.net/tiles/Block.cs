@@ -35,7 +35,7 @@ namespace PrinceOfPersia
         }
 
 
-        public Block(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
+        public Block(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
         {
             this.nextTileType = NextTileType;
             collision = Enumeration.TileCollision.Platform;

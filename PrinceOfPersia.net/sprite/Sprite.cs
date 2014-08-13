@@ -43,7 +43,7 @@ namespace PrinceOfPersia
         protected Vector2 velocity;
         protected bool isOnGround;
         protected Rectangle localBounds;
-        protected RoomNew spriteRoom = null;
+        protected Room spriteRoom = null;
 
         private bool alert = false; //set true when there is a enemy in the room or near
 
@@ -84,7 +84,7 @@ namespace PrinceOfPersia
         }
 
         // Physics state
-        public RoomNew SpriteRoom
+        public Room SpriteRoom
         {
             get
             {
@@ -207,7 +207,7 @@ namespace PrinceOfPersia
 
             isOnGround = false;
 
-            RoomNew room = null;
+            Room room = null;
             Rectangle playerBounds = _position.Bounding;
             Vector2 v2 = SpriteRoom.getCenterTile(playerBounds);
             Rectangle tileBounds = SpriteRoom.GetBounds((int)v2.X, (int)v2.Y);

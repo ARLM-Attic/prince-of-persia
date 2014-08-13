@@ -21,7 +21,7 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Splash(RoomNew room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect, bool player)
+        public Splash(Room room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect, bool player)
         {
             _player = player;
             graphicsDevice = GraphicsDevice;

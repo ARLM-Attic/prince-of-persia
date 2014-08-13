@@ -37,7 +37,7 @@ namespace PrinceOfPersia
             set { switchButton[xSwitchButton++] = value; }
         }
 
-        public Gate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
+        public Gate(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
         {
             collision = Enumeration.TileCollision.Platform;
             base.room = room;

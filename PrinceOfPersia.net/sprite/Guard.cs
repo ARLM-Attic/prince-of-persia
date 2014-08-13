@@ -20,7 +20,7 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Guard(RoomNew room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect)
+        public Guard(Room room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect)
         {
             graphicsDevice = GraphicsDevice;
             spriteRoom = room;
@@ -452,33 +452,33 @@ namespace PrinceOfPersia
             //???
             //previousBottom = playerBounds.Bottom;
             //check if out room
-            if (_position.Y > RoomNew.BOTTOM_LIMIT + 10)
+            if (_position.Y > Room.BOTTOM_LIMIT + 10)
             {
-                RoomNew room = Maze.DownRoom(SpriteRoom);
+                Room room = Maze.DownRoom(SpriteRoom);
                 SpriteRoom = room;
-                _position.Y = RoomNew.TOP_LIMIT + 27; // Y=77
+                _position.Y = Room.TOP_LIMIT + 27; // Y=77
                 //For calculate height fall from damage points calculations..
-                PositionFall = new Vector2(Position.X, (Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_LIMIT - PositionFall.Y));
+                PositionFall = new Vector2(Position.X, (Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_LIMIT - PositionFall.Y));
 
 
             }
-            else if (_position.X >= RoomNew.RIGHT_LIMIT)
+            else if (_position.X >= Room.RIGHT_LIMIT)
             {
-                RoomNew room = Maze.RightRoom(SpriteRoom);
+                Room room = Maze.RightRoom(SpriteRoom);
                 SpriteRoom = room;
-                _position.X = RoomNew.LEFT_LIMIT + 10;
+                _position.X = Room.LEFT_LIMIT + 10;
             }
-            else if (_position.X <= RoomNew.LEFT_LIMIT)
+            else if (_position.X <= Room.LEFT_LIMIT)
             {
-                RoomNew room = Maze.LeftRoom(SpriteRoom);
+                Room room = Maze.LeftRoom(SpriteRoom);
                 SpriteRoom = room;
-                _position.X = RoomNew.RIGHT_LIMIT - 10;
+                _position.X = Room.RIGHT_LIMIT - 10;
             }
-            else if (_position.Y < RoomNew.TOP_LIMIT - 10)
+            else if (_position.Y < Room.TOP_LIMIT - 10)
             {
-                RoomNew room = Maze.UpRoom(SpriteRoom);
+                Room room = Maze.UpRoom(SpriteRoom);
                 SpriteRoom = room;
-                _position.Y = RoomNew.BOTTOM_LIMIT - 24;  //Y=270
+                _position.Y = Room.BOTTOM_LIMIT - 24;  //Y=270
             }
 
         }

@@ -50,7 +50,7 @@ namespace PrinceOfPersia
         private SpriteEffects flip = SpriteEffects.None;
 
         //private Maze maze;
-        protected RoomNew room;
+        protected Room room;
 
         private Position _position;
         public Position Position
@@ -73,7 +73,7 @@ namespace PrinceOfPersia
             get
             {
                 int x = (int)Math.Floor((float)_position.X / Tile.WIDTH);
-                int y = (int)Math.Ceiling(((float)(_position.Y) - RoomNew.BOTTOM_BORDER) / Tile.HEIGHT);
+                int y = (int)Math.Ceiling(((float)(_position.Y) - Room.BOTTOM_BORDER) / Tile.HEIGHT);
 
                 return new Vector2(x, y);
             }
@@ -92,7 +92,7 @@ namespace PrinceOfPersia
         public Tile()
         {}
 
-        public Tile(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
+        public Tile(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
         {
             this.room = room;
             nextTileType = NextTileType;
@@ -243,7 +243,7 @@ namespace PrinceOfPersia
 
 
                 //if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.HEIGHT - Tile.PERSPECTIVE)
-                if (_position.Y >= RoomNew.BOTTOM_LIMIT - Tile.PERSPECTIVE)
+                if (_position.Y >= Room.BOTTOM_LIMIT - Tile.PERSPECTIVE)
                 {
                     //remove tiles from tilesTemporaney
                     lock (room.tilesTemporaney)
@@ -251,9 +251,9 @@ namespace PrinceOfPersia
                         room.tilesTemporaney.Remove(this);
                     }
                     //exit from DOWN room
-                    RoomNew roomDown = room.maze.DownRoom(room);
+                    Room roomDown = room.maze.DownRoom(room);
                     room = roomDown;
-                    _position.Y = RoomNew.TOP_LIMIT - 10;
+                    _position.Y = Room.TOP_LIMIT - 10;
 
                     lock (room.tilesTemporaney)
                     {

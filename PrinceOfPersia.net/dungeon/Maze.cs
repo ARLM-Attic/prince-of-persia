@@ -20,14 +20,14 @@ namespace PrinceOfPersia
         public ContentManager content;
         public List<Level> levels = new List<Level>();
         public List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
-        public List<RoomNew> rooms = new List<RoomNew>();
+        public List<Room> rooms = new List<Room>();
         public Player player;
         
         public List<Sprite> sprites = new List<Sprite>();
         
 
-        private RoomNew playerRoom;
-        private static RoomNew blockRoom;
+        private Room playerRoom;
+        private static Room blockRoom;
 
 
         //List for retain and load maze tiles textures
@@ -48,7 +48,7 @@ namespace PrinceOfPersia
             ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
             levelsApoplexy.Add((Apoplexy.level)ax.Deserialize(txtReader));
 
-            blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
+            blockRoom = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
 
 
             //load all room
@@ -57,7 +57,7 @@ namespace PrinceOfPersia
                 //int newX = 1;
                 for (int y = 0; y < levelsApoplexy[z].rooms.Count(); y++)
                 {
-                    RoomNew room = new RoomNew(this, levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events);
+                    Room room = new Room(this, levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events);
                         room.roomStart = false;
                         room.roomZ = 0;
                         room.roomX = 0;
@@ -70,7 +70,7 @@ namespace PrinceOfPersia
                 Apoplexy.@event eventPrec = null;
                 foreach (Apoplexy.@event e in levelsApoplexy[z].events)
                 {
-                    foreach(RoomNew r in rooms)
+                    foreach(Room r in rooms)
                     {
                         if (r.roomName == e.room)
                         {
@@ -146,7 +146,7 @@ namespace PrinceOfPersia
 
 
             //Define and build a generic blockroom for usefull
-            blockRoom = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
+            blockRoom = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
 
 
             //LOAD ALL LEVEL IN LIST
@@ -166,7 +166,7 @@ namespace PrinceOfPersia
                         if (levels[z].rows[y].columns[x].FilePath == string.Empty)
                             levels[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
 
-                        RoomNew room = new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levels[z].rows[y].columns[x].FilePath, levels[z].rows[y].columns[x].RoomIndex);
+                        Room room = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levels[z].rows[y].columns[x].FilePath, levels[z].rows[y].columns[x].RoomIndex);
                         room.roomStart = levels[z].rows[y].columns[x].RoomStart;
                         room.roomName = levels[z].rows[y].columns[x].FilePath;
                         room.roomZ = z;
@@ -217,7 +217,7 @@ namespace PrinceOfPersia
         public List<Tile> GetTiles(Enumeration.TileType tileType)
         {
             List<Tile> list = new List<Tile>();
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 foreach (Tile t in r.GetTiles(tileType))
                 {
@@ -228,7 +228,7 @@ namespace PrinceOfPersia
             return list;
         }
 
-        public RoomNew LeftRoom(RoomNew room)
+        public Room LeftRoom(Room room)
         {
             int x = room.roomX;
             int y = room.roomY;
@@ -251,7 +251,7 @@ namespace PrinceOfPersia
                     return blockRoom;
                 //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
             }
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
@@ -268,7 +268,7 @@ namespace PrinceOfPersia
             //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
-        public RoomNew DownRoom(RoomNew room)
+        public Room DownRoom(Room room)
         {
             int x = room.roomX;
             int y = room.roomY;
@@ -292,7 +292,7 @@ namespace PrinceOfPersia
                 //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
             }
 
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
@@ -312,7 +312,7 @@ namespace PrinceOfPersia
             //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
-        public RoomNew RightRoom(RoomNew room)
+        public Room RightRoom(Room room)
         {
             int x = room.roomX;
             int y = room.roomY;
@@ -335,7 +335,7 @@ namespace PrinceOfPersia
                     return blockRoom;
                 //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
             }
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
@@ -352,7 +352,7 @@ namespace PrinceOfPersia
             //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
-        public RoomNew UpRoom(RoomNew room)
+        public Room UpRoom(Room room)
         {
             int x = room.roomX;
             int y = room.roomY;
@@ -375,7 +375,7 @@ namespace PrinceOfPersia
                     return blockRoom;
                 //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
             }
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
                 {
@@ -393,9 +393,9 @@ namespace PrinceOfPersia
             //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
         }
 
-        public RoomNew StartRoom()
+        public Room StartRoom()
         {
-            foreach (RoomNew r in rooms)
+            foreach (Room r in rooms)
             {
                 if (r.roomStart == true)
                 {
@@ -408,7 +408,7 @@ namespace PrinceOfPersia
         }
 
 
-        public RoomNew FindRoom(string roomName)
+        public Room FindRoom(string roomName)
         {
             return null;
         }

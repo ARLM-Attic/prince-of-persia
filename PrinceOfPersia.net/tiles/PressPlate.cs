@@ -26,7 +26,7 @@ namespace PrinceOfPersia
             get { return tileState.Value().state; }
         }
 
-        public PressPlate(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
+        public PressPlate(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, int switchButton, Enumeration.TileType NextTileType)
         {
             base.room = room;
             nextTileType = NextTileType;

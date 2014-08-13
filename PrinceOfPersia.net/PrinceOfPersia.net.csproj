@@ -87,7 +87,7 @@
     <Compile Include="dungeon\Map.cs" />
     <Compile Include="dungeon\Maze.cs" />
     <Compile Include="dungeon\RoomColumn.cs" />
-    <Compile Include="dungeon\RoomNew.cs" />
+    <Compile Include="dungeon\Room.cs" />
     <Compile Include="dungeon\RoomRow.cs" />
     <Compile Include="dungeon\Row.cs" />
     <Compile Include="Enumeration.cs" />

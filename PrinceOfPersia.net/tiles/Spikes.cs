@@ -29,7 +29,7 @@ namespace PrinceOfPersia
         }
 
 
-        public Spikes(RoomNew room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
+        public Spikes(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
         {
             base.room = room;
 

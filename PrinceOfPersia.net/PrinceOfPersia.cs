@@ -244,7 +244,7 @@ namespace PrinceOfPersia
         {
             HandleInput(gameTime, null);
 
-            foreach (RoomNew r in maze.rooms)
+            foreach (Room r in maze.rooms)
             {
                 r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
             }
@@ -359,7 +359,7 @@ namespace PrinceOfPersia
 
         private void DrawBottom()
         {
-            Vector2 hudLocation = new Vector2(0, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+            Vector2 hudLocation = new Vector2(0, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
 
             //DRAW BLACK SQUARE
             Rectangle r = new Rectangle(0,0, Game.CONFIG_SCREEN_WIDTH, Game.CONFIG_SCREEN_HEIGHT);
@@ -371,7 +371,7 @@ namespace PrinceOfPersia
             
 
             //check if death
-            hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH / 3, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+            hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH / 3, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
             if (maze.player.IsAlive == false)
             {
                 DrawShadowedString(PoPFont, "Press Space to Continue", hudLocation, Color.White);
@@ -383,7 +383,7 @@ namespace PrinceOfPersia
             Texture2D player_triangle = player_livePoints;
             for (int x = 1; x <= maze.player.LivePoints; x++)
             {
-                hudLocation = new Vector2(0 + offset, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+                hudLocation = new Vector2(0 + offset, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
                 // Calculate the source rectangle of the current frame.
                 
 
@@ -410,7 +410,7 @@ namespace PrinceOfPersia
                                 Texture2D enemy_triangle = enemy_livePoints;
                                 for (int x = 1; x <= maze.player.LivePoints; x++)
                                 {
-                                hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH - offset, Game.CONFIG_SCREEN_HEIGHT - RoomNew.BOTTOM_BORDER);
+                                hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH - offset, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
 
                                 if (x <= s.Energy)
                                     enemy_triangle = enemy_energy;
@@ -432,7 +432,7 @@ namespace PrinceOfPersia
             //DrawShadowedString(PoPFont, maze.PlayerRoom.roomName, hudLocation, Color.White);
         }
 
-        private void DrawDebug(RoomNew room)
+        private void DrawDebug(Room room)
         {
             //if (room.player.sprite.sequence == null)
             //    return;

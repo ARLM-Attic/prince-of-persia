@@ -30,8 +30,7 @@
       <tile element="46" modifier="0" />
       <tile element="35" modifier="0" />
       <tile element="11" modifier="0" />
-      <tile element="1" modifier="1" />
-      <tile element="33" modifier="0" />
+      <tile element="1" modifier="1" /><tile element="33" modifier="0" />
       <tile element="52" modifier="0" />
       <guard location="0" direction="2" skill="255" colors="255" />
       <links left="5" right="0" up="0" down="2" />

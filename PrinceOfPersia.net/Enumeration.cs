@@ -428,12 +428,12 @@ namespace PrinceOfPersia
             DELETE //delete the sprite.. future implementation..??!?
         }
 
-        public enum SpriteEffects
-        {
-            None = 0,
-            FlipHorizontally = 1,
-            FlipVertically = 2,
-        }
+        //public enum SpriteEffects
+        //{
+        //    None = 0,
+        //    FlipHorizontally = 1,
+        //    FlipVertically = 2,
+        //}
 
 
     }

@@ -48,17 +48,14 @@ namespace PrinceOfPersia
             DirectoryInfo dir = new DirectoryInfo(contentManager.RootDirectory + "/" + contentFolder);
             if (!dir.Exists)
                 throw new DirectoryNotFoundException();
-            
-            
 
 
-            var files = (from file in Directory.EnumerateFiles(contentManager.RootDirectory + "/" + contentFolder, "*.xnb", SearchOption.AllDirectories)
-                        select new
-                        {
-                            File = file
-                        }).ToList();
-            
-            
+
+            var files = Directory
+            .GetFiles(contentManager.RootDirectory + "/" + contentFolder, "*.xnb", SearchOption.AllDirectories)
+            //.Where(file => file.ToLower().EndsWith("xnb") || file.ToLower().EndsWith("xml"))
+            .ToList();
+
 
             foreach (object f in files)
             {

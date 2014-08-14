@@ -19,20 +19,10 @@ namespace PrinceOfPersia
         public GraphicsDevice graphicsDevice;
         public ContentManager content;
         public List<Level> levels = new List<Level>();
-        public List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
-        public List<Room> rooms = new List<Room>();
         public Player player;
         
-        public List<Sprite> sprites = new List<Sprite>();
-        
-
-        private Room playerRoom;
-        private static Room blockRoom;
-
-
         //List for retain and load maze tiles textures
         public static Dictionary<string, object> dContentRes = null;
-        //public static Dictionary<string, SoundEffect> dSoundEffect = null;
         public Vector2 positionArrive;
 
         //test
@@ -41,28 +31,33 @@ namespace PrinceOfPersia
 
         private void Apoplexy()
         {
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY + "/level1.xml");
+            List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
+            levels = new List<Level>();
 
-            levelsApoplexy = new List<Apoplexy.level>();
-            System.Xml.Serialization.XmlSerializer ax = null;
-            ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
-            levelsApoplexy.Add((Apoplexy.level)ax.Deserialize(txtReader));
+            var files = Directory
+            .GetFiles(content.RootDirectory + "/" + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY+"/", "*.xml")
+                //.Where(file => file.ToLower().EndsWith("xnb") || file.ToLower().EndsWith("xml"))
+            .ToList();
 
-            blockRoom = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
-
+            foreach (object f in files)
+            {
+                Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(f.ToString());
+                
+                System.Xml.Serialization.XmlSerializer ax = null;
+                ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
+                levelsApoplexy.Add((Apoplexy.level)ax.Deserialize(txtReader));
+            }
 
             //load all room
             for (int z = 0; z < levelsApoplexy.Count(); z++)
             {
+                Level level = new Level(this, levelsApoplexy[z].number);
+                
                 //int newX = 1;
                 for (int y = 0; y < levelsApoplexy[z].rooms.Count(); y++)
                 {
-                    Room room = new Room(this, levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events);
-                        room.roomStart = false;
-                        room.roomZ = 0;
-                        room.roomX = 0;
-                        room.roomY = 0;
-                        rooms.Add(room);
+                    Room room = new Room(this, level, levelsApoplexy[z], levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events, levelsApoplexy[z].prince);
+                    level.rooms.Add(room);
                 }
 
                 //i will associate events
@@ -70,7 +65,7 @@ namespace PrinceOfPersia
                 Apoplexy.@event eventPrec = null;
                 foreach (Apoplexy.@event e in levelsApoplexy[z].events)
                 {
-                    foreach(Room r in rooms)
+                    foreach (Room r in level.rooms)
                     {
                         if (r.roomName == e.room)
                         {
@@ -83,7 +78,7 @@ namespace PrinceOfPersia
                                     {
                                         if (eventPrec == null)
                                         {
-                                            ((Gate)t).SwitchButton = int.Parse(e.number);
+                                            ((Gate)t).switchButtons.Add(int.Parse(e.number));
                                             if (e.next == "1")
                                             {
                                                 eventPrec = e;
@@ -91,7 +86,7 @@ namespace PrinceOfPersia
                                         }
                                         else
                                         {
-                                            ((Gate)t).SwitchButton = int.Parse(eventPrec.number);
+                                            ((Gate)t).switchButtons.Add(int.Parse(eventPrec.number));
                                             if (e.next != "1")
                                             {
                                                 eventPrec = null;
@@ -125,10 +120,10 @@ namespace PrinceOfPersia
                     }
                 }
 
-
+                levels.Add(level);
             }
 
-
+          
 
 
         }
@@ -136,44 +131,45 @@ namespace PrinceOfPersia
 
         private void PopNet()
         {
+            List<PopNet.Level> levelsPopNet = new List<PopNet.Level>();
+            levels = new List<Level>();
 
-            //LOAD MXL CONTENT
-            Stream txtReader;
-            //#if ANDROID
-            //txtReader = Game.Activity.Assets.Open(@PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
-            //#endif
-            txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "LEVEL_dungeon_prison.xml");
+            var files = Directory
+            .GetFiles(content.RootDirectory + "/" + PrinceOfPersiaGame.CONFIG_PATH_LEVELS+ "/", "*.xml")
+            .ToList();
+
+            foreach (object f in files)
+            {
+
+                Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(f.ToString());
+
+                System.Xml.Serialization.XmlSerializer ax = null;
+                ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
+                levelsPopNet.Add((PopNet.Level)ax.Deserialize(txtReader));
 
 
-            //Define and build a generic blockroom for usefull
-            blockRoom = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
-
-
-            //LOAD ALL LEVEL IN LIST
-            System.Xml.Serialization.XmlSerializer ax = null;
-            ax = new System.Xml.Serialization.XmlSerializer(typeof(Level));
-            levels.Add((Level)ax.Deserialize(txtReader));
+            }
 
 
             //load all room
-            for (int z = 0; z < levels.Count(); z++)
+            for (int z = 0; z < levelsPopNet.Count(); z++)
             {
-                //int newX = 1;
-                for (int y = 0; y < levels[z].rows.Count(); y++)
+                Level level = new Level(this, levelsPopNet[z].levelName.ToString());
+                for (int y = 0; y < levelsPopNet[z].rows.Count(); y++)
                 {
-                    for (int x = 0; x < levels[z].rows[y].columns.Count(); x++)
+                    for (int x = 0; x < levelsPopNet[z].rows[y].columns.Count(); x++)
                     {
-                        if (levels[z].rows[y].columns[x].FilePath == string.Empty)
-                            levels[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
+                        if (levelsPopNet[z].rows[y].columns[x].FilePath == string.Empty)
+                            levelsPopNet[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
 
-                        Room room = new Room(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levels[z].rows[y].columns[x].FilePath, levels[z].rows[y].columns[x].RoomIndex);
-                        room.roomStart = levels[z].rows[y].columns[x].RoomStart;
-                        room.roomName = levels[z].rows[y].columns[x].FilePath;
+                        Room room = new Room(this, level, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levelsPopNet[z].rows[y].columns[x].FilePath, levelsPopNet[z].rows[y].columns[x].RoomIndex);
+                        room.roomStart = levelsPopNet[z].rows[y].columns[x].RoomStart;
+                        room.roomName = levelsPopNet[z].rows[y].columns[x].FilePath;
                         room.roomZ = z;
                         room.roomX = x;
                         room.roomY = y;
-                        rooms.Add(room);
-                        //newX++;
+                        level.rooms.Add(room);
+
                     }
                 }
             }
@@ -217,7 +213,7 @@ namespace PrinceOfPersia
         public List<Tile> GetTiles(Enumeration.TileType tileType)
         {
             List<Tile> list = new List<Tile>();
-            foreach (Room r in rooms)
+            foreach (Room r in player.MyLevel.rooms)
             {
                 foreach (Tile t in r.GetTiles(tileType))
                 {
@@ -228,190 +224,178 @@ namespace PrinceOfPersia
             return list;
         }
 
-        public Room LeftRoom(Room room)
-        {
-            int x = room.roomX;
-            int y = room.roomY;
-            int z = room.roomZ;
+        //public Room LeftRoom(Room room)
+        //{
+        //    int x = room.roomX;
+        //    int y = room.roomY;
+        //    int z = room.roomZ;
 
-            string roomNext = string.Empty;
+        //    string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-            {
-                if (room.link == null)
-                    return blockRoom;
+        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //    {
+        //        if (room.link == null)
+        //            return blockRoom;
 
-                roomNext = room.link.left ;
-            }
-            else
-            {
-                if (x != 0)
-                    x = --x;
-                else
-                    return blockRoom;
-                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-            }
-            foreach (Room r in rooms)
-            {
-                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                {
-                    if (r.roomName == roomNext)
-                        return r;
-                }
-                else
-                {
-                    if (r.roomX == x & r.roomY == y & r.roomZ == z)
-                        return r;
-                }
-            }
-            return blockRoom;
-            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        }
+        //        roomNext = room.link.left ;
+        //    }
+        //    else
+        //    {
+        //        if (x != 0)
+        //            x = --x;
+        //        else
+        //            return blockRoom;
+        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //    }
+        //    foreach (Room r in player.SpriteLevel.rooms)
+        //    {
+        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //        {
+        //            if (r.roomName == roomNext)
+        //                return r;
+        //        }
+        //        else
+        //        {
+        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
+        //                return r;
+        //        }
+        //    }
+        //    return blockRoom;
+        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //}
 
-        public Room DownRoom(Room room)
-        {
-            int x = room.roomX;
-            int y = room.roomY;
-            int z = room.roomZ;
+        //public Room DownRoom(Room room)
+        //{
+        //    int x = room.roomX;
+        //    int y = room.roomY;
+        //    int z = room.roomZ;
 
-            string roomNext = string.Empty;
+        //    string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-            {
-                if (room.link == null)
-                    return blockRoom;
+        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //    {
+        //        if (room.link == null)
+        //            return blockRoom;
 
-                roomNext = room.link.down;
-            }
-            else
-            {
-                if (y != levels[z].rows.Count() - 1)
-                    y = ++y;
-                else
-                    return blockRoom;
-                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-            }
+        //        roomNext = room.link.down;
+        //    }
+        //    else
+        //    {
+        //        if (y != levels[z].rooms.Count() - 1)
+        //            y = ++y;
+        //        else
+        //            return blockRoom;
+        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //    }
 
-            foreach (Room r in rooms)
-            {
-                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                {
-                    if (room.link == null)
-                        return blockRoom;
+        //    foreach (Room r in player.SpriteLevel.rooms)
+        //    {
+        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //        {
+        //            if (room.link == null)
+        //                return blockRoom;
 
-                    if (r.roomName == roomNext)
-                        return r;
-                }
-                else
-                {
-                    if (r.roomX == x & r.roomY == y & r.roomZ == z)
-                        return r;
-                }
-            }
-            return blockRoom;
-            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        }
+        //            if (r.roomName == roomNext)
+        //                return r;
+        //        }
+        //        else
+        //        {
+        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
+        //                return r;
+        //        }
+        //    }
+        //    return blockRoom;
+        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //}
 
-        public Room RightRoom(Room room)
-        {
-            int x = room.roomX;
-            int y = room.roomY;
-            int z = room.roomZ;
+        //public Room RightRoom(Room room)
+        //{
+        //    int x = room.roomX;
+        //    int y = room.roomY;
+        //    int z = room.roomZ;
 
-            string roomNext = string.Empty;
+        //    string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-            {
-                if (room.link == null)
-                    return blockRoom;
+        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //    {
+        //        if (room.link == null)
+        //            return blockRoom;
 
-                roomNext = room.link.right;
-            }
-            else
-            {
-                if (x != levels[z].rows[y].columns.Count() - 1)
-                    x = ++x;
-                else
-                    return blockRoom;
-                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-            }
-            foreach (Room r in rooms)
-            {
-                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                {
-                    if (r.roomName == roomNext)
-                        return r;
-                }
-                else
-                {
-                    if (r.roomX == x & r.roomY == y & r.roomZ == z)
-                        return r;
-                }
-            }
-            return blockRoom;
-            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        }
+        //        roomNext = room.link.right;
+        //    }
+        //    else
+        //    {
+        //        //AAAHAHAHA TO BE CHANGERSSSS
+        //        //if (x != levels[z].rows[y].columns.Count() - 1)
+        //        //    x = ++x;
+        //        //else
+        //        //    return blockRoom;
+        //    }
+        //    foreach (Room r in player.SpriteLevel.rooms)
+        //    {
+        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //        {
+        //            if (r.roomName == roomNext)
+        //                return r;
+        //        }
+        //        else
+        //        {
+        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
+        //                return r;
+        //        }
+        //    }
+        //    return blockRoom;
+        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //}
 
-        public Room UpRoom(Room room)
-        {
-            int x = room.roomX;
-            int y = room.roomY;
-            int z = room.roomZ;
+        //public Room UpRoom(Room room)
+        //{
+        //    int x = room.roomX;
+        //    int y = room.roomY;
+        //    int z = room.roomZ;
 
-            string roomNext = string.Empty;
+        //    string roomNext = string.Empty;
 
-            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-            {
-                if (room.link == null)
-                    return blockRoom;
+        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //    {
+        //        if (room.link == null)
+        //            return blockRoom;
 
-                roomNext = room.link.up;
-            }
-            else
-            {
-                if (y != levels[z].rows.Count() - 1)
-                    y = --y;
-                else
-                    return blockRoom;
-                //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-            }
-            foreach (Room r in rooms)
-            {
-                if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                {
-                    if (r.roomName == roomNext)
-                        return r;
-                }
-                else
-                {
+        //        roomNext = room.link.up;
+        //    }
+        //    else
+        //    {
+        //        if (y != levels[z].rooms.Count() - 1)
+        //            y = --y;
+        //        else
+        //            return blockRoom;
+        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //    }
+        //    foreach (Room r in player.SpriteLevel.rooms)
+        //    {
+        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+        //        {
+        //            if (r.roomName == roomNext)
+        //                return r;
+        //        }
+        //        else
+        //        {
 
-                    if (r.roomX == x & r.roomY == y & r.roomZ == z)
-                        return r;
-                }
-            }
-            return blockRoom;
-            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        }
+        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
+        //                return r;
+        //        }
+        //    }
+        //    return blockRoom;
+        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+        //}
 
         public Room StartRoom()
         {
-            foreach (Room r in rooms)
-            {
-                if (r.roomStart == true)
-                {
-                    player.SpriteRoom = r;
-                    return r;
-                }
-            }
-            return blockRoom;
-            //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
+            return player.MyLevel.StartRoom();
         }
 
 
-        public Room FindRoom(string roomName)
-        {
-            return null;
-        }
+
 
     }
 }

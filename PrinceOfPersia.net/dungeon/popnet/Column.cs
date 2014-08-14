@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using PrinceOfPersia.PopNet;
 
-namespace PrinceOfPersia
+namespace PrinceOfPersia.PopNet
 {
     public class Column
     {

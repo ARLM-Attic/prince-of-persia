@@ -166,8 +166,10 @@ namespace PrinceOfPersia
 
                 //LOAD MAZE
                 maze = new Maze(GraphicsDevice, content);
-                //NOW START
-                maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
+                
+                //NOW START FROM 1'LEVEL
+                maze.player = new Player(maze.levels[1].StartRoom(), maze.levels[1].StartRoom().roomStartPosition, this.GraphicsDevice, maze.levels[1].StartRoom().roomStartDirection);
+                maze.player.MyRoom.StartNewLife(ScreenManager.GraphicsDevice);
                 
                 // once the load has finished, we use ResetElapsedTime to tell the game's
                 // timing mechanism that we have just finished a very long frame, and that
@@ -244,7 +246,7 @@ namespace PrinceOfPersia
         {
             HandleInput(gameTime, null);
 
-            foreach (Room r in maze.rooms)
+            foreach (Room r in maze.player.MyLevel.rooms)
             {
                 r.Update(gameTime, keyboardState, gamePadState, touchState, accelerometerState, Microsoft.Xna.Framework.DisplayOrientation.Default);
             }
@@ -254,7 +256,7 @@ namespace PrinceOfPersia
 
 
             //Other sprites update
-            foreach (Sprite s in maze.player.SpriteRoom.SpritesInRoom())
+            foreach (Sprite s in maze.player.MyRoom.SpritesInRoom())
             {
    
                 switch (s.GetType().Name)
@@ -277,7 +279,7 @@ namespace PrinceOfPersia
                 //delete object in state == delete
                 if (s.spriteState.Value().state == Enumeration.State.delete)
                 {
-                    maze.sprites.Remove(s);
+                    maze.player.MyLevel.sprites.Remove(s);
                     //s.sprite.FrameIndex = 0;
                 }
             }
@@ -333,22 +335,22 @@ namespace PrinceOfPersia
 
 
 
-            maze.player.SpriteRoom.Draw(gameTime, spriteBatch);
+            maze.player.MyRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
             
 
             //now drow sprites
-            maze.player.SpriteRoom.DrawSprites(gameTime, spriteBatch);
+            maze.player.MyRoom.DrawSprites(gameTime, spriteBatch);
 
 
             //now drow the mask
-            maze.player.SpriteRoom.DrawMask(gameTime, spriteBatch);
+            maze.player.MyRoom.DrawMask(gameTime, spriteBatch);
 
 
 
             DrawBottom();
             DrawHud();
-            DrawDebug(maze.player.SpriteRoom);
+            DrawDebug(maze.player.MyRoom);
 
             //spriteBatch.End();
 
@@ -400,7 +402,7 @@ namespace PrinceOfPersia
 
             //Draw opponent energy
                 offset = 1;
-                foreach (Sprite s in maze.player.SpriteRoom.SpritesInRoom())
+                foreach (Sprite s in maze.player.MyRoom.SpritesInRoom())
                 {
                     switch (s.GetType().Name)
                     {
@@ -497,8 +499,11 @@ namespace PrinceOfPersia
             if (CONFIG_DEBUG == false)
                 return;
 
+
+            DrawShadowedString(hudFont, "LEVEL NAME=" + maze.player.MyLevel.levelName, hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
         
-            DrawShadowedString(hudFont, "ROMM NAME=" + maze.player.SpriteRoom.roomName, hudLocation, Color.White);
+            DrawShadowedString(hudFont, "ROOM NAME=" + maze.player.MyRoom.roomName, hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
 
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);

@@ -41,6 +41,39 @@ namespace PrinceOfPersia
             //NOT IMPLEMENTED TEXTURE... EXIT2
             if (iElement == 17)
             { iElement = 16; }
+            
+            
+            //NOT IMPLEMENTED TEXTURE... SLICER
+            if (iElement == 18)
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE... PILLARTOP
+            if (iElement == 9)
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE... pillarbottom
+            if (iElement == 8)
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE... PANELWIF
+            if (iElement == 7)
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE...panelwof
+            if (iElement == 12)
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE...archtop...
+            if ((iElement >= 26) & (iElement <= 29))
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE...some...
+            if ((iElement >= 23) & (iElement <= 25))
+            { iElement = 1; }
+
+            //NOT IMPLEMENTED TEXTURE...??...
+            if (iElement >= 32)
+            { iElement = 1; }
 
             return (Enumeration.TileType)Enum.Parse(typeof(Enumeration.TileType), iElement.ToString());
         }

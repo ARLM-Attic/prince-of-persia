@@ -43,12 +43,12 @@ namespace PrinceOfPersia.Apoplexy
 
         public level()
         {
-            rooms = new room[10];
+            //rooms = new room[10];
 
-            for (int x = 0; x < rooms.Count(); x++)
-            {
-                rooms[x] = new room();
-            }
+            //for (int x = 0; x < rooms.Count(); x++)
+            //{
+            //    rooms[x] = new room();
+            //}
         }
 
 

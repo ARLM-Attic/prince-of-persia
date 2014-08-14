@@ -25,7 +25,7 @@ namespace PrinceOfPersia
         {
             _player = player;
             graphicsDevice = GraphicsDevice;
-            spriteRoom = room;
+            myRoom = room;
             LoadContent();
 
             //TAKE PLAYER Position
@@ -102,7 +102,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in spriteSequence)
             {
-                s.Initialize(SpriteRoom.content);
+                s.Initialize(myRoom.content);
             }
 
             // Calculate bounds within texture size.         

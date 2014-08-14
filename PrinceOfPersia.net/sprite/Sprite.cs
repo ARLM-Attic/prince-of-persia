@@ -43,7 +43,8 @@ namespace PrinceOfPersia
         protected Vector2 velocity;
         protected bool isOnGround;
         protected Rectangle localBounds;
-        protected Room spriteRoom = null;
+        protected Room myRoom = null;
+        //protected Level spriteLevel= null;
 
         private bool alert = false; //set true when there is a enemy in the room or near
 
@@ -66,7 +67,7 @@ namespace PrinceOfPersia
         {
             get
             {
-                return spriteRoom.maze;
+                return myRoom.maze;
             }
         }
 
@@ -83,18 +84,27 @@ namespace PrinceOfPersia
             }
         }
 
-        // Physics state
-        public Room SpriteRoom
+        public Room MyRoom
         {
             get
             {
-                return spriteRoom;
+                return myRoom;
             }
             set
             {
-                spriteRoom = value;
+                myRoom = value;
             }
         }
+
+        public Level MyLevel
+        {
+            get
+            {
+                return myRoom.level;
+            }
+        }
+
+
 
         // Physics state, used by calculate falldrop distance
         public Vector2 PositionFall
@@ -209,14 +219,14 @@ namespace PrinceOfPersia
 
             Room room = null;
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = SpriteRoom.getCenterTile(playerBounds);
-            Rectangle tileBounds = SpriteRoom.GetBounds((int)v2.X, (int)v2.Y);
+            Vector2 v2 = myRoom.getCenterTile(playerBounds);
+            Rectangle tileBounds = myRoom.GetBounds((int)v2.X, (int)v2.Y);
 
             //Check if kid outside Room 
             if (v2.X < 0)
-                room = Maze.LeftRoom(SpriteRoom);
+                room = myRoom.Left;
             else
-                room = SpriteRoom;
+                room = myRoom;
 
             if (v2.Y > 2)
             {
@@ -253,9 +263,10 @@ namespace PrinceOfPersia
                             if (spriteState.Value().state != Enumeration.State.freefall)
                                 spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
                     }
-                    //SpriteRoom.LooseShake();
+                    //myRoom.LooseShake();
                     //and for upper room...
-                    SpriteRoom.maze.UpRoom(SpriteRoom).LooseShake();
+                    //myRoom.Up(myRoom).LooseShake();
+                    myRoom.Up.LooseShake();
                 }
                 return;
             }
@@ -286,7 +297,7 @@ namespace PrinceOfPersia
                 }
                 Energy = Energy - Rem;
                 spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
-                SpriteRoom.LooseShake();
+                myRoom.LooseShake();
             }
 
         }
@@ -342,8 +353,8 @@ namespace PrinceOfPersia
         public void Splash(bool player, GameTime gametime)
         {
             
-            Splash splash = new Splash(Maze.player.SpriteRoom, Position.Value, graphicsDevice, SpriteEffects.None, player);
-            Maze.sprites.Add(splash);
+            Splash splash = new Splash(Maze.player.myRoom, Position.Value, graphicsDevice, SpriteEffects.None, player);
+            Maze.player.MyLevel.sprites.Add(splash);
 
         }
         

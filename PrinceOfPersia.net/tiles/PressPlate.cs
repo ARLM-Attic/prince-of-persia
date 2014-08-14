@@ -96,10 +96,9 @@ namespace PrinceOfPersia
             List<Tile> list = room.maze.GetTiles(Enumeration.TileType.gate);
             foreach(Tile t in list)
             {
-                int[] switchButtons = ((Gate)t).GetSwitchButtons();
-                for (int x = 0; x < switchButtons.Count(); x++)
+                foreach (int button in ((Gate)t).switchButtons)
                 {
-                    if (switchButtons[x] == this.switchButton)
+                    if (button == this.switchButton)
                         ((Gate)t).Open();
                 }
             }

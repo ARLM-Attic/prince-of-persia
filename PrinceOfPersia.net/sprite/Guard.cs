@@ -23,7 +23,7 @@ namespace PrinceOfPersia
         public Guard(Room room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect)
         {
             graphicsDevice = GraphicsDevice;
-            spriteRoom = room;
+            myRoom = room;
             LoadContent();
             
 
@@ -51,7 +51,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in spriteSequence)
             {
-                s.Initialize(SpriteRoom.content);
+                s.Initialize(myRoom.content);
             }
 
             // Calculate bounds within texture size.         
@@ -101,7 +101,7 @@ namespace PrinceOfPersia
 
 
             //bool thereIsKid = false;
-            foreach (Sprite s in SpriteRoom.SpritesInRoom())
+            foreach (Sprite s in myRoom.SpritesInRoom())
             {
                 switch (s.GetType().Name)
                 {
@@ -122,7 +122,7 @@ namespace PrinceOfPersia
                                         {
                                             spriteState.Value().Name = string.Empty;
                                             s.Splash(true, gameTime);
-                                            //Splash splash = new Splash(SpriteRoom, Position.Value, graphicsDevice, SpriteEffects.None, true);
+                                            //Splash splash = new Splash(myRoom, Position.Value, graphicsDevice, SpriteEffects.None, true);
                                             //Maze.sprites.Add(splash);
 
                                             s.Energy = s.Energy - 1;
@@ -303,45 +303,43 @@ namespace PrinceOfPersia
         {
             isGround();
 
-           
-
             Rectangle playerBounds = _position.Bounding;
             //Find how many tiles are near on the left
-            Vector4 v4 = SpriteRoom.getBoundTiles(playerBounds);
+            Vector4 v4 = myRoom.getBoundTiles(playerBounds);
 
             // For each potentially colliding Tile, warning the for check only the player row ground..W
             for (int y = (int)v4.Z; y <= (int)v4.W; ++y)
             {
                 for (int x = (int)v4.X; x <= (int)v4.Y; ++x)
                 {
-                    Rectangle tileBounds = SpriteRoom.GetBounds(x, y);
+                    Rectangle tileBounds = myRoom.GetBounds(x, y);
                     Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-                    Enumeration.TileCollision tileCollision = SpriteRoom.GetCollision(x, y);
-                    Enumeration.TileType tileType = SpriteRoom.GetType(x, y);
+                    Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y);
+                    Enumeration.TileType tileType = myRoom.GetType(x, y);
 
                     switch (tileType)
                     {
                         case Enumeration.TileType.spikes:
                             if (IsAlive == false)
                             {
-                                ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                                ((Spikes)myRoom.GetTile(x, y)).Open();
                                 return;
                             }
 
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
                                 if (depth.X < 10 & depth.Y >= Player.SPRITE_SIZE_Y)
-                                    ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                                    ((Spikes)myRoom.GetTile(x, y)).Open();
 
-                               // if (depth.X <= -30 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
+                               // if (depth.X <= -30 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)myRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                  //   Impale();
                             }
                             else
                             {
                                 if (depth.X > -10 & depth.Y >= Player.SPRITE_SIZE_Y)
-                                    ((Spikes)SpriteRoom.GetTile(x, y)).Open();
+                                    ((Spikes)myRoom.GetTile(x, y)).Open();
 
-                                //if (depth.X >= 60 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
+                                //if (depth.X >= 60 & depth.Y >= Player.SPRITE_SIZE_Y & ((Spikes)myRoom.GetTile(x, y)).State == Enumeration.StateTile.open)
                                   //  Impale();
                             }
 
@@ -351,26 +349,26 @@ namespace PrinceOfPersia
                             if (flip == SpriteEffects.FlipHorizontally)
                             {
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                    ((Loose)SpriteRoom.GetTile(x, y)).Press();
+                                    ((Loose)myRoom.GetTile(x, y)).Press();
                                 //else
                                     //isLoosable();
                             }
                             else
                             {
                                 if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                    ((Loose)SpriteRoom.GetTile(x, y)).Press();
+                                    ((Loose)myRoom.GetTile(x, y)).Press();
                                 //else
                                     //isLoosable();
                             }
                             break;
 
                         case Enumeration.TileType.pressplate:
-                            ((PressPlate)SpriteRoom.GetTile(x, y)).Press();
+                            ((PressPlate)myRoom.GetTile(x, y)).Press();
                             break;
                         case Enumeration.TileType.gate:
                         case Enumeration.TileType.block:
                             if (tileType == Enumeration.TileType.gate)
-                                if (((Gate)SpriteRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                                if (((Gate)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
                                     break;
                             //if player are raised then not collide..
 
@@ -454,30 +452,24 @@ namespace PrinceOfPersia
             //check if out room
             if (_position.Y > Room.BOTTOM_LIMIT + 10)
             {
-                Room room = Maze.DownRoom(SpriteRoom);
-                SpriteRoom = room;
+                myRoom = myRoom.Down;
                 _position.Y = Room.TOP_LIMIT + 27; // Y=77
                 //For calculate height fall from damage points calculations..
                 PositionFall = new Vector2(Position.X, (Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_LIMIT - PositionFall.Y));
-
-
             }
             else if (_position.X >= Room.RIGHT_LIMIT)
             {
-                Room room = Maze.RightRoom(SpriteRoom);
-                SpriteRoom = room;
+                myRoom = myRoom.Right;
                 _position.X = Room.LEFT_LIMIT + 10;
             }
             else if (_position.X <= Room.LEFT_LIMIT)
             {
-                Room room = Maze.LeftRoom(SpriteRoom);
-                SpriteRoom = room;
+                myRoom = myRoom.Left;
                 _position.X = Room.RIGHT_LIMIT - 10;
             }
             else if (_position.Y < Room.TOP_LIMIT - 10)
             {
-                Room room = Maze.UpRoom(SpriteRoom);
-                SpriteRoom = room;
+                myRoom = myRoom.Up;
                 _position.Y = Room.BOTTOM_LIMIT - 24;  //Y=270
             }
 

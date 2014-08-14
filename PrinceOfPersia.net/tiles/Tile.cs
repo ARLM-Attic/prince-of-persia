@@ -251,8 +251,7 @@ namespace PrinceOfPersia
                         room.tilesTemporaney.Remove(this);
                     }
                     //exit from DOWN room
-                    Room roomDown = room.maze.DownRoom(room);
-                    room = roomDown;
+                    room = room.Down;
                     _position.Y = Room.TOP_LIMIT - 10;
 
                     lock (room.tilesTemporaney)

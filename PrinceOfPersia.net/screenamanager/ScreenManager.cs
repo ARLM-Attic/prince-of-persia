@@ -141,7 +141,7 @@ namespace PrinceOfPersia
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             //AMF how can load content??
-            font = content.Load<SpriteFont>("Fonts/Pop");
+            font = content.Load<SpriteFont>("Fonts/PoP");
             //blankTexture = content.Load<Texture2D>("Backgrounds/main_background");
 
             // Tell each of the screens to load their content.

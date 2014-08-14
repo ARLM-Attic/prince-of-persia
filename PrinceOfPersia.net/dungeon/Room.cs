@@ -19,27 +19,34 @@ namespace PrinceOfPersia
     /// </summary>
     public class Room //: IDisposable
     {
-
+        //COORDINATE ROOM
+        private int _RoomRight = 0;
+        private int _RoomLeft = 0;
+        private int _RoomUp = 0;
+        private int _RoomDown= 0;
+        
+        
         public Maze maze;
-        public Map map;
-        //public Player player;
+        public Level level;
+        
+        public PopNet.Map map;
+        
+        //
         public bool roomStart = false;
+        public Vector2 roomStartPosition = new Vector2(0,0);
+        public SpriteEffects roomStartDirection = SpriteEffects.None;
 
-        //Coordinate system
+
         public string roomName;
-        public int roomIndex;
+        public int roomNumber;
+
         public int roomZ;
         public int roomX;
         public int roomY;
 
-        //Apoplext coordinate system
-        public Apoplexy.links link = null;
-        public Apoplexy.guard[] guard = null;
-        public Apoplexy.@event[] events = null;
 
-        // Physical structure of the level.
         public Tile[,] tiles;
-        //private Tile[,] tilesMask;
+        // Physical structure of the level.
 
         private const int pWidth = 10;
         private const int pHeight = 3;
@@ -56,44 +63,53 @@ namespace PrinceOfPersia
         public int heightInLevel = 0;
 
         public List<Sprite> elements = new List<Sprite>();
-        //private List<Tile> tilesTemporaney = new List<Tile>();
-        //public ArrayList tilesTemporaney = ArrayList.Synchronized(_tilesTemporaney);
-
-        //System.Collections.Concurrent. a = new System.Collections.Concurrent();
 
         public ArrayList tilesTemporaney = new ArrayList();
-        //public ArrayList tilesTemporaney;
-
-        // Key locations in the level.        
-
-        public List<Sprite> SpritesInRoom()
-        {
-            List<Sprite> list = new List<Sprite>();
-
-            foreach(Sprite s in maze.sprites)
-            {
-                if (s.SpriteRoom == this)
-                    list.Add(s);
-            }
-
-
-            if (maze.player.SpriteRoom.roomName == this.roomName)
-                list.Add(maze.player);
-
-            return list;
-        }
 
 
         public ContentManager content
         {
             get { return maze.content; }
         }
-        #region Loading
 
-        public Room(Maze maze, string filePath, int roomIndex)
+        public Room Left
         {
-            this.maze = maze;
-            this.roomIndex = roomIndex;
+            get 
+            {
+                return level.FindRoom(_RoomLeft);
+            }
+        }
+
+        public Room Right
+        {
+            get
+            {
+                return level.FindRoom(_RoomRight);
+            }
+        }
+
+        public Room Up
+        {
+            get
+            {
+                return level.FindRoom(_RoomUp);
+            }
+        }
+
+        public Room Down
+        {
+            get
+            {
+                return level.FindRoom(_RoomDown);
+            }
+        }
+
+
+        public Room(Maze Maze, Level Level, string filePath, int roomIndex)
+        {
+            this.maze = Maze;
+            this.level = Level;
+            this.roomNumber = roomIndex;
 
 
             //LOAD RES CONTENT
@@ -102,28 +118,67 @@ namespace PrinceOfPersia
             Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(filePath);
 
             //Stream astream = this.GetType().Assembly.GetManifestResourceStream(filePath);
-            ax = new System.Xml.Serialization.XmlSerializer(typeof(Map));
-            map = ((Map)ax.Deserialize(txtReader));
+            ax = new System.Xml.Serialization.XmlSerializer(typeof(PopNet.Map));
+            map = ((PopNet.Map)ax.Deserialize(txtReader));
 
-            LoadTiles();
+            LoadTilesPoPnet();
         }
 
 
-        Apoplexy.tile[] myTiles;
-        public Room(Maze maze, Apoplexy.tile[] tiles, string name, Apoplexy.links link, Apoplexy.guard[] guard, Apoplexy.@event[] events)
+        //Apoplexy.tile[] myTiles;
+        public Room(Maze Maze, Level Level, Apoplexy.level ApoplexyLevel, Apoplexy.tile[] ApoplexyTiles, string roomNumber, Apoplexy.links ApoplexyLink, Apoplexy.guard[] ApoplexyGuards, Apoplexy.@event[] ApoplexyEvents, Apoplexy.prince ApoplexyPrince)
         {
-            this.maze = maze;
-            roomName = name;
-            this.link = link;
-            this.events = events;
+            this.level = Level;
+            this.maze = Maze;
+            //this.roomName = name;
+            this.roomNumber = int.Parse(roomNumber);
 
-            this.guard = guard;
+            _RoomDown = int.Parse(ApoplexyLink.down);
+            _RoomUp = int.Parse(ApoplexyLink.up);
+            _RoomLeft = int.Parse(ApoplexyLink.left);
+            _RoomRight = int.Parse(ApoplexyLink.right);
+            
+            LoadTilesApoplexy(ApoplexyLevel, ApoplexyTiles, ApoplexyGuards, ApoplexyEvents);
 
-            myTiles = tiles;
-            LoadTilesApoplexy();
+            if (ApoplexyPrince.room == roomNumber)
+            {
+                if (ApoplexyPrince.direction == "1")
+                    roomStartDirection = SpriteEffects.FlipHorizontally;
+                else
+                    roomStartDirection = SpriteEffects.None;
+
+                int y = int.Parse(ApoplexyPrince.location) / 11;
+                int x = (int.Parse(ApoplexyPrince.location) % 11)-1;
+
+ 
+                int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
+                int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
+
+                roomStart = true;
+                roomStartPosition = new Vector2(xPlayer, yPlayer);
+            }
+
         }
 
-        public void LoadTilesApoplexy()
+        public List<Sprite> SpritesInRoom()
+        {
+            List<Sprite> list = new List<Sprite>();
+
+            foreach (Sprite s in level.sprites)
+            {
+                if (s.MyRoom == this)
+                    list.Add(s);
+            }
+
+
+            if (maze.player.MyRoom.roomName == this.roomName)
+                list.Add(maze.player);
+
+            return list;
+        }
+
+
+        public void LoadTilesApoplexy(Apoplexy.level Apoplexylevel, Apoplexy.tile[] ApoplexyTiles, Apoplexy.guard[] Apoplexyguards, Apoplexy.@event[] Apoplexyevents)
         {
             int ix = 0;
             int switchButton = 0;
@@ -140,9 +195,9 @@ namespace PrinceOfPersia
                     Enumeration.TileType myTileType = Enumeration.TileType.space;
                     Enumeration.StateTile myStateTile = Enumeration.StateTile.normal;
                     //convert TileType to 
-                    myTileType = Utils.ParseTileType(myTiles[ix].element);
-                    myStateTile = Utils.ParseStateType(myTileType , myTiles[ix].modifier);
-                    switchButton = Utils.ParseSwitchButton(myTileType, myTiles[ix].modifier);
+                    myTileType = Utils.ParseTileType(ApoplexyTiles[ix].element);
+                    myStateTile = Utils.ParseStateType(myTileType, ApoplexyTiles[ix].modifier);
+                    switchButton = Utils.ParseSwitchButton(myTileType, ApoplexyTiles[ix].modifier);
                  
 
                     if (myTileType == Enumeration.TileType.flask)
@@ -163,7 +218,6 @@ namespace PrinceOfPersia
 
                     tiles[x, y] = LoadTile(myTileType, myStateTile, switchButton, item, nextTileType);
 
-                    //*
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
                     Vector2 v = new Vector2(rect.X, rect.Y);
 
@@ -171,25 +225,10 @@ namespace PrinceOfPersia
                     tiles[x, y].Position.X = v.X;
                     tiles[x, y].Position.Y = v.Y;
 
-                    //x+1 for avoid base zero x array, WALL POSITION 0-29
-                    //tiles[x, y].panelInfo = newX + roomIndex;
-                    //*
-
-                    if (roomName == "1" & maze.player == null)
-                    {
-                        int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
-                        int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
-                        maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, SpriteEffects.None);
-                    }
-
-                   
-
-
-
                 }
             }
             //LOAD GUARD
-            foreach(Apoplexy.guard g in guard)
+            foreach(Apoplexy.guard g in Apoplexyguards)
             {
                 if (g.location != "0")
                 {
@@ -201,27 +240,9 @@ namespace PrinceOfPersia
                     xGuard = xGuard * Tile.WIDTH + Player.SPRITE_SIZE_X;
                     yGuard = (yGuard * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
                     Guard guardSprite = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, SpriteEffects.None); //to be fixed direction
-                    maze.sprites.Add(guardSprite);
+                    level.sprites.Add(guardSprite);
                 }
             }
-
-            ////ASSOCIATE EVENTS
-            //int switchButton = 0; //events
-            //foreach(Apoplexy.@event e in events)
-            //{
-            //    if (e.room == roomName)
-            //    {
-            //        foreach (Tile t in tiles)
-            //        {
-            //            float tileLocation = 10 *  t.Coordinates.Y + t.Coordinates.X ;
-            //            if (tileLocation == float.Parse(e.location))
-            //            {
-            //                switchButton = 1;
-            //            }
-            //        }
-            //    }
-            //}
-
         }
 
 
@@ -235,44 +256,13 @@ namespace PrinceOfPersia
         }
 
 
-        ////private void LoadTilesMask()
-        ////{
-        ////    tilesMask = new Tile[map.rows[0].columns.Length, map.rows.Length];
-        ////    int x = 0; int y = 0;
-
-        ////    foreach (Row r in map.rows)
-        ////    {
-        ////        foreach (Column c in r.columns)
-        ////        {
-        ////            if (c.tileType == Enumeration.TileType.gate || c.tileType == Enumeration.TileType.block || c.tileType == Enumeration.TileType.door)
-        ////            {
-        ////                tilesMask[x, y] = LoadTile(c.tileType, Enumeration.StateTile.mask, c.switchButton, c.item);
-        ////                Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
-        ////                Vector2 v = new Vector2(rect.X, rect.Y);
-
-        ////                tilesMask[x, y].Position = new Position(v, v);
-        ////                tilesMask[x, y].Position.X = v.X;
-        ////                tilesMask[x, y].Position.Y = v.Y;
-        ////            }
-
-        ////            x++;
-        ////        }
-        ////        x = 0;
-        ////        y++;
-        ////    }
-        ////}
-
-
-
-
-
-        private void LoadTiles()
+        private void LoadTilesPoPnet()
         {
             // Allocate the Tile grid.
             tiles = new Tile[map.rows[0].columns.Length, map.rows.Length];
             int x = 0; int y = 0; int newX = 0;
 
-            foreach (Row r in map.rows)
+            foreach (PopNet.Row r in map.rows)
             {
                 for (int ix = 0; ix < r.columns.Length; ix++ )
                 {
@@ -290,7 +280,7 @@ namespace PrinceOfPersia
                     tiles[x, y].Position.Y = v.Y;
 
                     //x+1 for avoid base zero x array, WALL POSITION 0-29
-                    tiles[x, y].panelInfo = newX + roomIndex;
+                    tiles[x, y].panelInfo = newX + roomNumber;
 
                     switch (r.columns[ix].spriteType)
                     {
@@ -305,7 +295,7 @@ namespace PrinceOfPersia
                             //int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
                             int yGuard = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
                             Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, r.columns[ix].spriteEffect);
-                            maze.sprites.Add(g);
+                            level.sprites.Add(g);
                             break;
 
 
@@ -390,7 +380,7 @@ namespace PrinceOfPersia
 
         }
 
-        #endregion
+    
 
         #region Bounds and collision
         /// <summary>
@@ -404,27 +394,27 @@ namespace PrinceOfPersia
             if (x < 0)
             {
                 if (y < 0)
-                    return maze.LeftRoom(this).tiles[Width - 1, Height - 1].collision;
+                    return Left.tiles[Width - 1, Height - 1].collision;
                 else
-                    return maze.LeftRoom(this).tiles[Width - 1, y].collision;
+                    return Left.tiles[Width - 1, y].collision;
             }
 
             if (x >= Width)
             {
                 if (y < 0)
-                    return maze.RightRoom(this).tiles[0, Height - 1].collision;
+                    return Right.tiles[0, Height - 1].collision;
                 else
-                    return maze.RightRoom(this).tiles[0, y].collision;
+                    return Right.tiles[0, y].collision;
             }
 
             if (y >= Height)
             {
-                return maze.DownRoom(this).tiles[x, 0].collision;
+                return Down.tiles[x, 0].collision;
             }
 
             if (y < 0)
             {
-                return maze.UpRoom(this).tiles[x, Height - 1].collision;
+                return Down.tiles[x, Height - 1].collision;
             }
 
             return tiles[x, y].collision;
@@ -435,27 +425,27 @@ namespace PrinceOfPersia
             if (x < 0)
             {
                 if (y < 0)
-                    return maze.LeftRoom(this).tiles[Width-1, Height - 1].Type;
+                    return Left.tiles[Width-1, Height - 1].Type;
                 else
-                    return maze.LeftRoom(this).tiles[Width-1, y].Type;
+                    return Left.tiles[Width - 1, y].Type;
             }
 
             if (x >= Width)
             {
                 if (y < 0)
-                    return maze.RightRoom(this).tiles[0, Height - 1].Type;
+                    return Right.tiles[0, Height - 1].Type;
                 else
-                    return maze.RightRoom(this).tiles[0, y].Type;
+                    return Right.tiles[0, y].Type;
             }
 
             if (y >= Height)
             {
-                return maze.DownRoom(this).tiles[x, 0].Type;
+                return Down.tiles[x, 0].Type;
             }
 
             if (y < 0)
             {
-                return maze.UpRoom(this).tiles[x, Height-1].Type;
+                return Up.tiles[x, Height-1].Type;
             }
             return tiles[x, y].Type;
         }
@@ -474,22 +464,22 @@ namespace PrinceOfPersia
         {
             if (x < 0)
             {
-                return maze.LeftRoom(this).tiles[Width - 1, y];
+                return Left.tiles[Width - 1, y];
             }
 
             if (x >= Width)
             {
-                return maze.RightRoom(this).tiles[0, y];
+                return Right.tiles[0, y];
             }
 
             if (y >= Height)
             {
-                return maze.DownRoom(this).tiles[x, 0];
+                return Down.tiles[x, 0];
             }
 
             if (y < 0)
             {
-                return maze.UpRoom(this).tiles[x, Height - 1];
+                return Up.tiles[x, Height - 1];
             }
             return tiles[x, y];
         }
@@ -837,7 +827,7 @@ namespace PrinceOfPersia
                 }
             }
 
-            maze.UpRoom(this).DrawTilesUp(gametime, spriteBatch);
+            Up.DrawTilesUp(gametime, spriteBatch);
         }
 
         private void DrawTilesMask(GameTime gametime, SpriteBatch spriteBatch)
@@ -879,7 +869,7 @@ namespace PrinceOfPersia
                 }
             }
             
-            maze.UpRoom(this).DrawTilesUp(gametime, spriteBatch);
+            Up.DrawTilesUp(gametime, spriteBatch);
         }
 
 
@@ -887,7 +877,7 @@ namespace PrinceOfPersia
         {
         
 
-           maze.LeftRoom(this).DrawTilesLeft(gametime, spriteBatch);
+           Left.DrawTilesLeft(gametime, spriteBatch);
             //RoomLeft().DrawTilesLeft(spriteBatch);
             
 
@@ -910,8 +900,7 @@ namespace PrinceOfPersia
 
                 }
             }
-            //RoomUp().DrawTilesUp(spriteBatch);
-            maze.DownRoom(this).DrawTilesDown(gametime, spriteBatch);
+            Down.DrawTilesDown(gametime, spriteBatch);
 
             lock (tilesTemporaney)
             {

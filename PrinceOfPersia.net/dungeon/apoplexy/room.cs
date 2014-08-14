@@ -10,10 +10,6 @@ namespace PrinceOfPersia.Apoplexy
     public class room
     {
         private int size = 30;
-        
-        
-       
-
         private string _number = "0";
 
         [XmlElement]

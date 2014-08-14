@@ -506,6 +506,9 @@ namespace PrinceOfPersia
             DrawShadowedString(hudFont, "ROOM NAME=" + maze.player.MyRoom.roomName, hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
 
+            DrawShadowedString(hudFont, "ROOM NUMBER=" + maze.player.MyRoom.roomNumber, hudLocation, Color.White);
+            hudLocation.Y = hudLocation.Y + 10;
+
             DrawShadowedString(hudFont, "POSTION X=" + maze.player.Position.X.ToString() + " Y=" + maze.player.Position.Y.ToString(), hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(hudFont, "FRAME RATE=" + AnimationSequence.frameRate.ToString(), hudLocation, Color.White);

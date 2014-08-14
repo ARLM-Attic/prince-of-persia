@@ -67,6 +67,7 @@ namespace PrinceOfPersia
         public ArrayList tilesTemporaney = new ArrayList();
 
 
+
         public ContentManager content
         {
             get { return maze.content; }
@@ -126,11 +127,11 @@ namespace PrinceOfPersia
 
 
         //Apoplexy.tile[] myTiles;
-        public Room(Maze Maze, Level Level, Apoplexy.level ApoplexyLevel, Apoplexy.tile[] ApoplexyTiles, string roomNumber, Apoplexy.links ApoplexyLink, Apoplexy.guard[] ApoplexyGuards, Apoplexy.@event[] ApoplexyEvents, Apoplexy.prince ApoplexyPrince)
+        public Room(Maze Maze, Level Level, Apoplexy.level ApoplexyLevel, Apoplexy.tile[] ApoplexyTiles, string roomNumber, Apoplexy.links ApoplexyLink, Apoplexy.guard[] ApoplexyGuards, Apoplexy.@event[] ApoplexyEvents, Apoplexy.prince ApoplexyPrince, string RoomName)
         {
             this.level = Level;
             this.maze = Maze;
-            //this.roomName = name;
+            this.roomName = RoomName;
             this.roomNumber = int.Parse(roomNumber);
 
             _RoomDown = int.Parse(ApoplexyLink.down);
@@ -171,7 +172,7 @@ namespace PrinceOfPersia
             }
 
 
-            if (maze.player.MyRoom.roomName == this.roomName)
+            if (maze.player.MyRoom.roomNumber== this.roomNumber)
                 list.Add(maze.player);
 
             return list;

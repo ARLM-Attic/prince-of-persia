@@ -56,7 +56,7 @@ namespace PrinceOfPersia
                 //int newX = 1;
                 for (int y = 0; y < levelsApoplexy[z].rooms.Count(); y++)
                 {
-                    Room room = new Room(this, level, levelsApoplexy[z], levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events, levelsApoplexy[z].prince);
+                    Room room = new Room(this, level, levelsApoplexy[z], levelsApoplexy[z].rooms[y].tile, levelsApoplexy[z].rooms[y].number, levelsApoplexy[z].rooms[y].links, levelsApoplexy[z].rooms[y].guard, levelsApoplexy[z].events, levelsApoplexy[z].prince, levelsApoplexy[z].userdata.field[5].value);
                     level.rooms.Add(room);
                 }
 
@@ -67,7 +67,7 @@ namespace PrinceOfPersia
                 {
                     foreach (Room r in level.rooms)
                     {
-                        if (r.roomName == e.room)
+                        if (r.roomNumber.ToString() == e.room)
                         {
                             foreach (Tile t in r.tiles)
                             {
@@ -164,6 +164,7 @@ namespace PrinceOfPersia
 
                         Room room = new Room(this, level, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levelsPopNet[z].rows[y].columns[x].FilePath, levelsPopNet[z].rows[y].columns[x].RoomIndex);
                         room.roomStart = levelsPopNet[z].rows[y].columns[x].RoomStart;
+                        room.roomNumber = y;
                         room.roomName = levelsPopNet[z].rows[y].columns[x].FilePath;
                         room.roomZ = z;
                         room.roomX = x;
@@ -210,19 +211,7 @@ namespace PrinceOfPersia
 
 
 
-        public List<Tile> GetTiles(Enumeration.TileType tileType)
-        {
-            List<Tile> list = new List<Tile>();
-            foreach (Room r in player.MyLevel.rooms)
-            {
-                foreach (Tile t in r.GetTiles(tileType))
-                {
-                    list.Add(t);
-                }
-                //list.Concat(r.GetTiles(tileType));
-            }
-            return list;
-        }
+      
 
         //public Room LeftRoom(Room room)
         //{

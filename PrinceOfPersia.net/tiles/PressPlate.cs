@@ -93,7 +93,7 @@ namespace PrinceOfPersia
             tileAnimation.PlayAnimation(tileSequence, tileState.Value());
 
             //i will open all door with the correct switchButton
-            List<Tile> list = room.maze.GetTiles(Enumeration.TileType.gate);
+            List<Tile> list = room.level.GetTiles(Enumeration.TileType.gate);
             foreach(Tile t in list)
             {
                 foreach (int button in ((Gate)t).switchButtons)

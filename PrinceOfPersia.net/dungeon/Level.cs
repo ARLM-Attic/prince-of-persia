@@ -41,6 +41,21 @@ namespace PrinceOfPersia
             return blockRoom;
         }
 
+        public List<Tile> GetTiles(Enumeration.TileType tileType)
+        {
+            List<Tile> list = new List<Tile>();
+            foreach (Room r in rooms)
+            {
+                foreach (Tile t in r.GetTiles(tileType))
+                {
+                    list.Add(t);
+                }
+                //list.Concat(r.GetTiles(tileType));
+            }
+            return list;
+        }
+
+
         public Room StartRoom()
         {
             foreach (Room r in rooms)

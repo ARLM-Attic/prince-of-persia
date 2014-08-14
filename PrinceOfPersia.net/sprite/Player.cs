@@ -92,6 +92,7 @@ namespace PrinceOfPersia
         public void Reset(Vector2 position, SpriteEffects spriteEffect)
         {
             startPosition = position;
+            myRoom = MyLevel.StartRoom();
 
             _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(Player.SPRITE_SIZE_X, Player.SPRITE_SIZE_Y));
             _position.X = position.X;

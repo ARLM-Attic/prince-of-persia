@@ -47,9 +47,13 @@ namespace PrinceOfPersia
 
         // Meta-level game state.
         private Level[] levels = new Level[30];
+       
+
         //private int levelIndex = 0;
         private bool wasContinuePressed;
         private Maze maze;
+
+        
 
 
         // When the time remaining is less than the warning time, it blinks on the hud
@@ -168,8 +172,8 @@ namespace PrinceOfPersia
                 maze = new Maze(GraphicsDevice, content);
                 
                 //NOW START FROM 1'LEVEL
-                maze.player = new Player(maze.levels[1].StartRoom(), maze.levels[1].StartRoom().roomStartPosition, this.GraphicsDevice, maze.levels[1].StartRoom().roomStartDirection);
-                maze.player.MyRoom.StartNewLife(ScreenManager.GraphicsDevice);
+                maze.player = new Player(this.GraphicsDevice, maze.CurrentLevel.StartRoom());
+                maze.player.MyRoom.StartNewLife();
                 
                 // once the load has finished, we use ResetElapsedTime to tell the game's
                 // timing mechanism that we have just finished a very long frame, and that
@@ -300,7 +304,7 @@ namespace PrinceOfPersia
             {
                 if (keyboardState.IsKeyDown(Keys.Space) || gamePadState.IsButtonDown(Buttons.A) || touchState.AnyTouch() == true)
                 {
-                    maze.StartRoom().StartNewLife(ScreenManager.GraphicsDevice);
+                    maze.StartRoom().StartNewLife();
                 }
             }
 
@@ -512,6 +516,9 @@ namespace PrinceOfPersia
 
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(hudFont, "PLAYER STATE=" + maze.player.spriteState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
+
+            hudLocation.Y = hudLocation.Y + 10;
+            DrawShadowedString(hudFont, "PLAYER SWORD=" + maze.player.Sword.ToString(), hudLocation, Color.White);
 
             // Get the player's bounding rectangle and find neighboring tiles.
             Rectangle playerBounds = maze.player.Position.Bounding;

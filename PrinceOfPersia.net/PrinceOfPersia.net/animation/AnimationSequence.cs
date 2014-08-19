@@ -536,8 +536,13 @@ namespace PrinceOfPersia
             // Calculate the source rectangle of the current frame.
                 Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Width, sequence.frames[frameIndex].texture.Height);
 
-            // Draw the current tile.
-            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+            //this can draw tiles with over height
+            if (source.Height > Tile.REALHEIGHT)
+            {
+                position.Y -= source.Height - Tile.REALHEIGHT;
+            }
+
+               spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
         }
 
 

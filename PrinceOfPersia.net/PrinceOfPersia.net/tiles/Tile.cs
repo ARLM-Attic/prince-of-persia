@@ -179,6 +179,14 @@ namespace PrinceOfPersia
                     ((Gate)this).Close(); 
             }
 
+            //REMAIN OPEN FOREVER!!!
+            //if (this.GetType() == typeof(Exit))
+            //{
+            //    ((Exit)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //    if (((Exit)this).elapsedTimeOpen > ((Exit)this).timeOpen)
+            //        ((Exit)this).Close();
+            //}
+
             if (this.GetType() == typeof(PressPlate))
             {
                 ((PressPlate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;

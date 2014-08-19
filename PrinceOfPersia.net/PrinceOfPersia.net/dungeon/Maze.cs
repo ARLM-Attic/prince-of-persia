@@ -19,7 +19,9 @@ namespace PrinceOfPersia
         public GraphicsDevice graphicsDevice;
         public ContentManager content;
         public List<Level> levels = new List<Level>();
+        public int levelIndex = 1;
         public Player player;
+
         
         //List for retain and load maze tiles textures
         public static Dictionary<string, object> dContentRes = null;
@@ -28,6 +30,29 @@ namespace PrinceOfPersia
         //test
         public static Effect dEffect = null;
 
+
+        public Level CurrentLevel
+        {
+            get 
+            {
+                Enumeration.LevelName levelName = (Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString());
+                foreach (Level l in levels)
+                { 
+                    if (l.levelName == levelName)
+                        return l; 
+                }
+                return null; 
+                
+            }
+        }
+
+        public void NextLevel()
+        {
+            levelIndex++;
+            //next level
+            player.StartLevel(CurrentLevel.StartRoom());
+            player.MyRoom.StartNewLife();
+        }
 
         private void Apoplexy()
         {
@@ -95,22 +120,22 @@ namespace PrinceOfPersia
                                     }
                                     else if (t.Type == Enumeration.TileType.exit)
                                     {
-                                        //if (eventPrec == null)
-                                        //{
-                                        //    ((Exit)t).switchButton = int.Parse(e.number);
-                                        //    if (e.next == "1")
-                                        //    {
-                                        //        eventPrec = e;
-                                        //    }
-                                        //}
-                                        //else
-                                        //{
-                                        //    ((Exit)t).switchButton = int.Parse(eventPrec.number);
-                                        //    if (e.next != "1")
-                                        //    {
-                                        //        eventPrec = null;
-                                        //    }
-                                        //}
+                                        if (eventPrec == null)
+                                        {
+                                            ((Exit)t).switchButtons.Add(int.Parse(e.number));
+                                            if (e.next == "1")
+                                            {
+                                                eventPrec = e;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            ((Exit)t).switchButtons.Add(int.Parse(eventPrec.number));
+                                            if (e.next != "1")
+                                            {
+                                                eventPrec = null;
+                                            }
+                                        }
                                     }
 
 

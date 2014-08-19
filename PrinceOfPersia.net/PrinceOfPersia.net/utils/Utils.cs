@@ -38,9 +38,6 @@ namespace PrinceOfPersia
             if (iElement == 15)
             { iElement = 6; }
 
-            //NOT IMPLEMENTED TEXTURE... EXIT2
-            if (iElement == 17)
-            { iElement = 16; }
             
             
             //NOT IMPLEMENTED TEXTURE... SLICER
@@ -78,7 +75,7 @@ namespace PrinceOfPersia
             return (Enumeration.TileType)Enum.Parse(typeof(Enumeration.TileType), iElement.ToString());
         }
 
-        public static Enumeration.StateTile ParseStateType(Enumeration.TileType tileType, string modifier)
+        public static Enumeration.StateTile ParseStateType(ref Enumeration.TileType tileType, string modifier)
         {
             int iModifier = int.Parse(modifier);
             Enumeration.StateTile stateTile = Enumeration.StateTile.normal;
@@ -128,10 +125,14 @@ namespace PrinceOfPersia
                     break;
 
                 case Enumeration.TileType.exit:
+                    if (iModifier == 0 | iModifier == 255)
+                        stateTile = Enumeration.StateTile.exit;
+                    break;
+
                 case Enumeration.TileType.exit2:
                     if (iModifier == 0 | iModifier == 255)
-                        stateTile = Enumeration.StateTile.exit_close_left;
-
+                        tileType = Enumeration.TileType.exit;
+                        stateTile = Enumeration.StateTile.exit2;
                     break;
 
                 case Enumeration.TileType.pressplate:

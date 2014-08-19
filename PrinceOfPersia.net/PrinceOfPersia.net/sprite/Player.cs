@@ -24,16 +24,19 @@ namespace PrinceOfPersia
         /// <summary>
         /// Constructors a new player.
         /// </summary>
-        public Player(Room room, Vector2 position, GraphicsDevice GraphicsDevice, SpriteEffects spriteEffect)
+        public Player(GraphicsDevice GraphicsDevice, Room room)
         {
             graphicsDevice = GraphicsDevice;
-            myRoom = room;
-            LoadContent();
-
-            //TAKE PLAYER Position
-            Reset(position, spriteEffect);
+            StartLevel(room);
         }
 
+
+        public void StartLevel(Room room)
+        {
+            myRoom = room;
+            LoadContent();
+            Reset(myRoom.roomStartPosition, myRoom.roomStartDirection);
+        }
 
 
 
@@ -78,6 +81,7 @@ namespace PrinceOfPersia
         }
 
 
+        
 
 
         public void Reset()
@@ -106,7 +110,7 @@ namespace PrinceOfPersia
             spriteState.Clear();
 
 
-            Stand();
+            Stand(Enumeration.PriorityState.Force);
 
         }
 
@@ -522,7 +526,7 @@ namespace PrinceOfPersia
                 }
                 if (keyboardState.IsKeyDown(Keys.NumPad0))
                 {
-                    Maze.StartRoom().StartNewLife(graphicsDevice);
+                    Maze.StartRoom().StartNewLife();
                     return Enumeration.Input.none;
                 }
                 if (keyboardState.IsKeyDown(Keys.OemMinus))
@@ -1090,6 +1094,27 @@ namespace PrinceOfPersia
                             //         ((PressPlate)myRoom.GetTile(x, y)).Press();
                             //}
                             break;
+
+                        case Enumeration.TileType.exit:
+                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                                if (((Exit)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                                {
+                                    ((Exit)myRoom.GetTile(x, y)).ExitLevel();
+                                    Maze.NextLevel();
+                                }
+                                else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
+                                {
+                                    if (((Exit)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
+                                    {
+                                        ((Exit)myRoom.GetTile(x, y)).ExitLevel();
+                                        Maze.NextLevel();
+                                    }
+                                }
+                          
+
+
+                            break;
+
                         case Enumeration.TileType.gate:
                         case Enumeration.TileType.block:
                             if (tileType == Enumeration.TileType.gate)

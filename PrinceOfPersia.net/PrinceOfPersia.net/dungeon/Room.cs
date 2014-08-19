@@ -197,7 +197,7 @@ namespace PrinceOfPersia
                     Enumeration.StateTile myStateTile = Enumeration.StateTile.normal;
                     //convert TileType to 
                     myTileType = Utils.ParseTileType(ApoplexyTiles[ix].element);
-                    myStateTile = Utils.ParseStateType(myTileType, ApoplexyTiles[ix].modifier);
+                    myStateTile = Utils.ParseStateType(ref myTileType, ApoplexyTiles[ix].modifier);
                     switchButton = Utils.ParseSwitchButton(myTileType, ApoplexyTiles[ix].modifier);
                  
 
@@ -288,7 +288,7 @@ namespace PrinceOfPersia
                         case Enumeration.SpriteType.kid :
                             int xPlayer = (x - 1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
                             int yPlayer = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
-                            maze.player = new Player(this, new Vector2(xPlayer, yPlayer), maze.graphicsDevice, r.columns[ix].spriteEffect);
+                            maze.player = new Player(maze.graphicsDevice, this);
                             break;
 
                         case Enumeration.SpriteType.guard :
@@ -355,6 +355,11 @@ namespace PrinceOfPersia
                     return new Block(this, content, tiletype, state, nextTileType);
                     break;
 
+                case Enumeration.TileType.exit:
+                    return new Exit(this, content, tiletype, state, switchButton, nextTileType);
+                    break;
+
+
                 default:
                     return new Tile(this, content, tiletype, state, item, nextTileType);
             }
@@ -372,7 +377,7 @@ namespace PrinceOfPersia
         /// <summary>
         /// Restores the player to the starting point to try the level again.
         /// </summary>
-        public void StartNewLife(GraphicsDevice graphicsDevice)
+        public void StartNewLife()
         {
             //Play Sound presentation
             ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + "presentation".ToUpper()]).Play();
@@ -842,6 +847,8 @@ namespace PrinceOfPersia
                 {
                     position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
 
+               
+
                     switch(tiles[x, y].Type)
                     {
                         case Enumeration.TileType.posts:
@@ -854,6 +861,11 @@ namespace PrinceOfPersia
                         case Enumeration.TileType.block :
                             rectangleMask = Tile.MASK_BLOCK;
                             break;
+                        case Enumeration.TileType.exit:
+                            //position.Y -= 100;
+                            //rectangleMask = Tile.MASK_FLOOR;
+                            return;
+
                         default:
                             position.Y = position.Y + 128;
                             rectangleMask = Tile.MASK_FLOOR;
@@ -879,7 +891,6 @@ namespace PrinceOfPersia
         
 
            Left.DrawTilesLeft(gametime, spriteBatch);
-            //RoomLeft().DrawTilesLeft(spriteBatch);
             
 
 
@@ -893,6 +904,7 @@ namespace PrinceOfPersia
                     texture = tiles[x, y].Texture;
 
                     position = new Vector2(tiles[x, y].Position.X, tiles[x, y].Position.Y);
+
                     tiles[x, y].tileAnimation.DrawTile(gametime, spriteBatch, position, SpriteEffects.None, 0.1f);
                 }
             }

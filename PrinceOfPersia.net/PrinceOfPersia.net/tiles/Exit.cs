@@ -101,6 +101,10 @@ namespace PrinceOfPersia
 
         public void Open()
         {
+            //anim only the exit2 the dx room's portion
+            if (tileState.Value().state == Enumeration.StateTile.exit)
+                return;
+
             elapsedTimeOpen = 0;
             if (tileState.Value().state == Enumeration.StateTile.open)
                 return;

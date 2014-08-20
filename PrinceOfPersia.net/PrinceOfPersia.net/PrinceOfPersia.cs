@@ -13,28 +13,17 @@ using Microsoft.Xna.Framework.Media;
 namespace PrinceOfPersia
 {
 
- 
-
     /// <summary>
     /// This is the main type for your game
     /// </summary>
     public class PrinceOfPersiaGame : GameScreen
     {
-
-       //private Texture2D[] playerTexture = new Texture2D[128];
-
-        // Resources for drawing.
-        //private GraphicsDeviceManager graphics;
-        //private SpriteBatch spriteBatch;
-
-        // Global content.
-        //[ContentSerializerIgnore] 
-        //List<Sequence> l ;
-        //[ContentSerializerIgnore] 
         private SpriteFont hudFont;
-        //[ContentSerializerIgnore]
         private SpriteFont PoPFont;
-        //[ContentSerializerIgnore] 
+
+        private Level[] levels = new Level[30];
+        private bool wasContinuePressed;
+        private Maze maze;
 
         public static Texture2D player_livePoints;
         public static Texture2D player_energy;
@@ -42,19 +31,7 @@ namespace PrinceOfPersia
         public static Texture2D enemy_livePoints;
         public static Texture2D enemy_energy;
 
-        //public static Texture2D player_splash;
-        //public static Texture2D enemy_splash;
-
-        // Meta-level game state.
-        private Level[] levels = new Level[30];
-       
-
-        //private int levelIndex = 0;
-        private bool wasContinuePressed;
-        private Maze maze;
-
-        
-
+        public ContentManager content;
 
         // When the time remaining is less than the warning time, it blinks on the hud
         private static readonly TimeSpan WarningTime = TimeSpan.FromSeconds(30);
@@ -91,14 +68,10 @@ namespace PrinceOfPersia
         public static string CONFIG_PATH_SEQUENCES = @"Sequences\";
 
         public static bool LEVEL_APOPLEXY = false;
-
         public static int CONFIG_KID_START_ENERGY = 3;
 
 
         
-        
-
-        ContentManager content;
 
         public SpriteBatch spriteBatch
         {
@@ -296,7 +269,6 @@ namespace PrinceOfPersia
         {
             //// get all of our input states
             keyboardState = Keyboard.GetState();
-            //gamePadState = GamePad.GetState(PlayerIndex.One);
             touchState = TouchPanel.GetState();
             accelerometerState = Accelerometer.GetState();
 
@@ -307,10 +279,6 @@ namespace PrinceOfPersia
                     maze.StartRoom().StartNewLife();
                 }
             }
-
-            // Exit the game when back is pressed.
-           ///// if (gamePadState.Buttons.Back == ButtonState.Pressed)
-               ////// Exit();
 
             bool continuePressed =
                 keyboardState.IsKeyDown(Keys.Space) ||
@@ -329,34 +297,20 @@ namespace PrinceOfPersia
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Draw(GameTime gameTime) 
         {
-            //graphics.GraphicsDevice.Clear(Color.Black);
-
-            ////spriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.NonPremultiplied);
             base.ScreenManager.SpriteBatch.Begin();
             
-            //base.ScreenManager.SpriteBatch.Begin(SpriteSortMode.FrontToBack, BlendState.AlphaBlend);
-
-
-
-
             maze.player.MyRoom.Draw(gameTime, spriteBatch);
             maze.player.Draw(gameTime, spriteBatch);
             
-
             //now drow sprites
             maze.player.MyRoom.DrawSprites(gameTime, spriteBatch);
-
 
             //now drow the mask
             maze.player.MyRoom.DrawMask(gameTime, spriteBatch);
 
-
-
             DrawBottom();
             DrawHud();
             DrawDebug(maze.player.MyRoom);
-
-            //spriteBatch.End();
 
             base.Draw(gameTime);
 
@@ -371,11 +325,8 @@ namespace PrinceOfPersia
             Rectangle r = new Rectangle(0,0, Game.CONFIG_SCREEN_WIDTH, Game.CONFIG_SCREEN_HEIGHT);
             Texture2D dummyTexture = new Texture2D(spriteBatch.GraphicsDevice, 1, 1);
             dummyTexture.SetData(new Color[] { Color.Black });
-            //Texture2D tx = new Texture2D(spriteBatch.GraphicsDevice, Game.CONFIG_SCREEN_WIDTH, Game.CONFIG_SCREEN_HEIGHT);
-            //Texture2D tx = livePoints;
             spriteBatch.Draw(dummyTexture, hudLocation, r, Color.White);
             
-
             //check if death
             hudLocation = new Vector2(Game.CONFIG_SCREEN_WIDTH / 3, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
             if (maze.player.IsAlive == false)
@@ -390,8 +341,6 @@ namespace PrinceOfPersia
             for (int x = 1; x <= maze.player.LivePoints; x++)
             {
                 hudLocation = new Vector2(0 + offset, Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_BORDER);
-                // Calculate the source rectangle of the current frame.
-                
 
                 if (x <= maze.player.Energy)
                     player_triangle = player_energy;
@@ -440,69 +389,11 @@ namespace PrinceOfPersia
 
         private void DrawDebug(Room room)
         {
-            //if (room.player.sprite.sequence == null)
-            //    return;
-
-            Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
-            Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
-
-
-            //END OF DEVELOPMENT???????
-            if (room.roomName == "MAP_dungeon_prison_9.xml")
-            {
-                string sMessage = string.Empty;
-                sMessage = "Congratulations! Did you finish the first level of Prince of Persia.net!";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "Today 7 May of 2013,";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "I ask for help to complete the development of this project!";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Red);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "It was my intention to complete all levels and complete the";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "features that are missing, it would also be nice to bring this game on";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "other device like : Linux, Android and Apple iOS.";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-                
-                sMessage = "Unfortunately for complete Prince of Persia.net and porting to other device";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "I need your help to buy the kit developed by Xamarin ($ 999 business lic)";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "So if you liked my work to make a donation, see on my blog at:";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.White);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "http://princeofpersiadotnet.blogspot.it";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                sMessage = "http://www.falappi.it";
-                DrawShadowedString(PoPFont, sMessage, hudLocation, Color.Yellow);
-                hudLocation.Y = hudLocation.Y + 30;
-
-                
-                return;
-            }
-
-
             if (CONFIG_DEBUG == false)
                 return;
 
+            Rectangle titleSafeArea = GraphicsDevice.Viewport.TitleSafeArea;
+            Vector2 hudLocation = new Vector2(titleSafeArea.X, titleSafeArea.Y);
 
             DrawShadowedString(hudFont, "LEVEL NAME=" + maze.player.MyLevel.levelName, hudLocation, Color.White);
             hudLocation.Y = hudLocation.Y + 10;

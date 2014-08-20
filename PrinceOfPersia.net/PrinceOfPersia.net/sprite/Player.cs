@@ -547,6 +547,14 @@ namespace PrinceOfPersia
                     Maze.player.Energy = 15;
                     return Enumeration.Input.none;
                 }
+                if (keyboardState.IsKeyDown(Keys.Add))
+                {
+                    Maze.NextLevel();
+                }
+                if (keyboardState.IsKeyDown(Keys.Subtract))
+                {
+                    Maze.PreviousLevel();
+                }
             }
 
 

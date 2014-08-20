@@ -32,7 +32,7 @@
       <Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
-        <value>ExitB</value>
+        <value>ExitB_10</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
@@ -56,7 +56,7 @@
       <Frame>
         <type>SPRITE</type>
         <name>LOOP</name>
-        <value>DoorA_1</value>
+        <value>ExitB_0</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
@@ -79,18 +79,10 @@
   <Sequence>
     <config_type>CONFIG_tiles</config_type>
     <frames>
-      <!--<Frame>
-        <type>SPRITE</type>
-        <name>OPEN</name>
-        <value>DoorA_13</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>-->
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_12</value>
+        <value>ExitB_9</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -99,7 +91,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_11</value>
+        <value>ExitB_8</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -108,7 +100,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_10</value>
+        <value>ExitB_7</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -117,7 +109,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_9</value>
+        <value>ExitB_6</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -126,7 +118,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_8</value>
+        <value>ExitB_5</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -135,7 +127,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_7</value>
+        <value>ExitB_4</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -144,7 +136,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_6</value>
+        <value>ExitB_3</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -153,7 +145,7 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_5</value>
+        <value>ExitB_2</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
@@ -162,38 +154,12 @@
       <Frame>
         <type>SPRITE</type>
         <name></name>
-        <value>DoorA_4</value>
+        <value>ExitB_1</value>
         <stoppable>false</stoppable>
         <sound>door gate opening 1</sound>
         <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>DoorA_3</value>
-        <stoppable>false</stoppable>
-        <sound>door gate opening 1</sound>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>DoorA_2</value>
-        <stoppable>false</stoppable>
-        <sound>door gate opening 1</sound>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>
-      <!--<Frame>
-        <type>SPRITE</type>
-        <name>LOOP</name>
-        <value>DoorA_1</value>
-        <stoppable>true</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>-->
       <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>

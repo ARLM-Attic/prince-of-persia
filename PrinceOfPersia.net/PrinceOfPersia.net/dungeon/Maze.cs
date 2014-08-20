@@ -50,18 +50,28 @@ namespace PrinceOfPersia
         {
             levelIndex++;
             //next level
+            Apoplexy((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
             player.StartLevel(CurrentLevel.StartRoom());
             player.MyRoom.StartNewLife();
         }
 
-        private void Apoplexy()
+        public void PreviousLevel()
+        {
+            levelIndex--;
+            //next level
+            Apoplexy((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
+            player.StartLevel(CurrentLevel.StartRoom());
+            player.MyRoom.StartNewLife();
+        }
+
+        private void Apoplexy(Enumeration.LevelName levelName)
         {
             List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
             levels = new List<Level>();
 
             var files = Directory
             .GetFiles(content.RootDirectory + "/" + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY+"/", "*.xml")
-                //.Where(file => file.ToLower().EndsWith("xnb") || file.ToLower().EndsWith("xml"))
+            .Where(file => file.ToLower().Contains("level"+ ((int)levelName).ToString()))
             .ToList();
 
             foreach (object f in files)
@@ -217,7 +227,7 @@ namespace PrinceOfPersia
             //dEffect = content.Load<Effect>(@"Effects\SwapColor");
 
             if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                Apoplexy();
+                Apoplexy(Enumeration.LevelName.dungeon_prison);
             else
                 PopNet();
 

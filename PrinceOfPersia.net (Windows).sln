@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersia.net (Windows)", "PrinceOfPersia.net\PrinceOfPersia.net\PrinceOfPersia.net (Windows).csproj", "{932C3D56-99F8-4A20-AD55-D46BE7DA09C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersia.net (Windows)", "PrinceOfPersia.net\PrinceOfPersia.net (Windows).csproj", "{932C3D56-99F8-4A20-AD55-D46BE7DA09C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrinceOfPersiaContentContent", "PrinceOfPersiaContent\PrinceOfPersiaContent\PrinceOfPersiaContentContent\PrinceOfPersiaContentContent.contentproj", "{84687DDF-FE54-48F9-B1C8-304CF0871BD0}"
 EndProject

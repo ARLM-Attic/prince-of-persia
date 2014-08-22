@@ -1,0 +1,21 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="PrinceOfPersia" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/home/polipo/projects/PrinceOfPersia_Linux/PrinceOfPersia_Linux/Game.cs" line="51" />
+      <Breakpoint file="/home/polipo/projects/PrinceOfPersia_Linux/PrinceOfPersia_Linux/screenmanager/ScreenManager.cs" line="143" />
+      <Breakpoint file="/home/polipo/projects/PrinceOfPersia_Linux/PrinceOfPersia_Linux/screens/GameplayScreen.cs" line="72" />
+      <Breakpoint file="/home/polipo/projects/PrinceOfPersia_Linux/PrinceOfPersia_Linux/Program.cs" line="49" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

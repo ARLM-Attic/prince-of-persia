@@ -20,7 +20,7 @@
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-    <name>NORMAL</name>
+    <name>normal</name>
     <raised>false</raised>
     <collision>Impassable</collision>
   </Sequence>

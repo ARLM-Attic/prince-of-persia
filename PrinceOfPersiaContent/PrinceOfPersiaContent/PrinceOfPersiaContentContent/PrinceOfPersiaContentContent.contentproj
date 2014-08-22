@@ -269,78 +269,78 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\BLOCK_sequence.xml">
-      <Name>BLOCK_sequence</Name>
+    <None Include="Sequences\dos\block_sequence.xml">
+      <Name>block_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Sequences\dos\GATE_sequence.xml">
-      <Name>GATE_sequence</Name>
+    <None Include="Sequences\dos\gate_sequence.xml">
+      <Name>gate_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Sequences\dos\FLOOR_sequence.xml">
-      <Name>FLOOR_sequence</Name>
+    <None Include="Sequences\dos\floor_sequence.xml">
+      <Name>floor_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\POSTS_sequence.xml">
-      <Name>POSTS_sequence</Name>
+    <None Include="Sequences\dos\posts_sequence.xml">
+      <Name>posts_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\KID_sequence.xml">
-      <Name>KID_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Sequences\dos\LEVEL_dungeon_prison.xml">
-      <Name>LEVEL_dungeon_prison</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Sequences\dos\LOOSE_sequence.xml">
-      <Name>LOOSE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Sequences\dos\PRESSPLATE_sequence.xml">
-      <Name>PRESSPLATE_sequence</Name>
+    <None Include="Sequences\dos\kid_sequence.xml">
+      <Name>kid_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Sequences\dos\RUBBLE_sequence.xml">
-      <Name>RUBBLE_sequence</Name>
+    <None Include="Sequences\dos\level_dungeon_prison.xml">
+      <Name>level_dungeon_prison</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\SPACE_sequence.xml">
-      <Name>SPACE_sequence</Name>
+    <None Include="Sequences\dos\loose_sequence.xml">
+      <Name>loose_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\SPIKES_sequence.xml">
-      <Name>SPIKES_sequence</Name>
+    <None Include="Sequences\dos\pressplate_sequence.xml">
+      <Name>pressplate_sequence</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Sequences\dos\rubble_sequence.xml">
+      <Name>rubble_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Sequences\dos\TORCH_sequence.xml">
-      <Name>TORCH_sequence</Name>
+    <None Include="Sequences\dos\space_sequence.xml">
+      <Name>space_sequence</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sequences\dos\spikes_sequence.xml">
+      <Name>spikes_sequence</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Sequences\dos\torch_sequence.xml">
+      <Name>torch_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1217,9 +1217,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\FLASK_sequence.xml">
+    <None Include="Sequences\dos\flask_sequence.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>FLASK_sequence</Name>
+      <Name>flask_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </None>
@@ -1269,9 +1269,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\SWORD_sequence.xml">
+    <None Include="Sequences\dos\sword_sequence.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>SWORD_sequence</Name>
+      <Name>sword_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </None>
@@ -1354,10 +1354,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\GUARD_sequence.xml">
+    <None Include="Sequences\dos\guard_sequence.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>GUARD_sequence</Name>
+      <Name>guard_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </None>
@@ -1620,10 +1620,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\EXIT_sequence.xml">
+    <None Include="Sequences\dos\exit_sequence.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>EXIT_sequence</Name>
+      <Name>exit_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </None>
@@ -2998,8 +2998,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Tiles\flash\space.png">
-      <Name>space</Name>
+    <Compile Include="Tiles\flash\Space.png">
+      <Name>Space</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -4416,9 +4416,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Sequences\dos\SPLASH_sequence.xml">
+    <None Include="Sequences\dos\splash_sequence.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>SPLASH_sequence</Name>
+      <Name>splash_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <SubType>Designer</SubType>

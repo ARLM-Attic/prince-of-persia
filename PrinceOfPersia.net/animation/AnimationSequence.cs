@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="AnimationSequence.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -90,32 +108,20 @@ namespace PrinceOfPersia
             return frameSprite;
         }
 
+
         /// <summary>
         /// Begins or continues playback of an animation.
         /// </summary>
-        public void PlayAnimation(List<Sequence> lsequence, StateElement stateElement)
-        {
-            StatePlayerElement statePlayerElement;
-            StateTileElement stateTileElement;
-            string stateName = string.Empty;
-            if (typeof(StatePlayerElement) == stateElement.GetType())
-            { 
-                statePlayerElement = (StatePlayerElement) stateElement;
-                stateName = statePlayerElement.state.ToString();
-            }
-            else if (typeof(StateTileElement) == stateElement.GetType())
-            {
-                stateTileElement = (StateTileElement)stateElement;
-                stateName = stateTileElement.state.ToString();
-            }
-            else
-            {
-                stateName = stateElement.state.ToString();
-            }
+        /// 
 
+        public void PlayAnimation(List<Sequence> lsequence, TileState tileState)
+        {
+            StateTileElement stateTileElement = tileState.Value();
+            string stateName = stateTileElement.state.ToString();
+            
 
             // Start the new animation.
-            if (stateElement.Priority == Enumeration.PriorityState.Normal & this.IsStoppable == false)
+            if (stateTileElement.Priority == Enumeration.PriorityState.Normal & this.IsStoppable == false)
                 return;
 
             //Check if the animation is already playing
@@ -139,27 +145,27 @@ namespace PrinceOfPersia
 
             //cloning for avoid reverse pemanently...
             sequence = result.DeepClone();
-  
-            if (stateElement.Stoppable != null)
-            { 
-                foreach(Frame f in sequence.frames)
+
+            if (stateTileElement.Stoppable != null)
+            {
+                foreach (Frame f in sequence.frames)
                 {
-                    f.stoppable = (bool)stateElement.Stoppable;
+                    f.stoppable = (bool)stateTileElement.Stoppable;
                 }
             }
 
             //For increase offset depend of the state previus; for example when running and fall the x offset will be increase.
-            if (stateElement.OffSet != Vector2.Zero)
+            if (stateTileElement.OffSet != Vector2.Zero)
             {
                 foreach (Frame f in sequence.frames)
                 {
-                    f.xOffSet = f.xOffSet + (int)stateElement.OffSet.X;
-                    f.yOffSet = f.yOffSet + (int)stateElement.OffSet.Y;
+                    f.xOffSet = f.xOffSet + (int)stateTileElement.OffSet.X;
+                    f.yOffSet = f.yOffSet + (int)stateTileElement.OffSet.Y;
                 }
             }
 
             //Check if reverse movement and reverse order and sign x,y
-            if (stateElement.Reverse == Enumeration.SequenceReverse.Reverse)
+            if (stateTileElement.Reverse == Enumeration.SequenceReverse.Reverse)
             {
                 List<Frame> newListFrame = new List<Frame>();
                 List<Frame> newListCommand = new List<Frame>();
@@ -188,120 +194,199 @@ namespace PrinceOfPersia
             }
 
 
-            if ( stateElement.Reverse == Enumeration.SequenceReverse.FixFrame)
-                this.frameIndex = this.FrameSpriteCount() - this.frameIndex;
+            if (stateTileElement.Reverse == Enumeration.SequenceReverse.FixFrame)
+            {
+                int newIndex = this.FrameSpriteCount() - this.frameIndex;
+                //fix bug result20140830
+                if (sequence.frames[newIndex].type == Enumeration.TypeFrame.COMMAND)
+                    frameIndex = newIndex - 1;
+                else
+                    frameIndex = newIndex;
+            }
             else
-                this.frameIndex = 0;
+            {
+                frameIndex = 0;
+            }
 
-            this.firstTime = true;
+            firstTime = true;
+
+            //Taking name of the frame usefull for hit combat..
+            stateTileElement.Name = sequence.frames[frameIndex].name;
+
+            //ASSIGN NOW THE RAISED
+            stateTileElement.Raised = sequence.frames[frameIndex].raised;
+
+            //ASSIGN FRAME only for debug purpose
+            stateTileElement.Frame = frameIndex;
+
+
         }
 
+        public void PlayAnimation(List<Sequence> lsequence, PlayerState playerState)
+        {
+            StatePlayerElement statePlayerElement = ((PlayerState)playerState).Value();
+            string stateName = statePlayerElement.state.ToString();
 
+            // Check if is stoppable
+            if (statePlayerElement.Priority == Enumeration.PriorityState.Normal & this.IsStoppable == false)
+                return;
+       
+
+            //Check if the animation is already playing
+            if (sequence != null && sequence.name.ToUpper() == stateName.ToUpper())
+                return;
+
+
+
+            this.lsequence = lsequence;
+            //Search in the sequence the right type
+            Sequence result = lsequence.Find(delegate(Sequence s)
+            {
+                return s.name.ToUpper() == stateName.ToUpper();
+            });
+
+            if (result == null)
+            {
+                //will be an error 
+                return;
+            }
+
+            //cloning for avoid reverse pemanently...
+            sequence = result.DeepClone();
+
+            if (statePlayerElement.Stoppable != null)
+            { 
+                foreach(Frame f in sequence.frames)
+                {
+                    f.stoppable = (bool)statePlayerElement.Stoppable;
+                }
+            }
+
+            //For increase offset depend of the state previus; for example when running and fall the x offset will be increase.
+            if (statePlayerElement.OffSet != Vector2.Zero)
+            {
+                foreach (Frame f in sequence.frames)
+                {
+                    f.xOffSet = f.xOffSet + (int)statePlayerElement.OffSet.X;
+                    f.yOffSet = f.yOffSet + (int)statePlayerElement.OffSet.Y;
+                }
+            }
+
+            //Check if reverse movement and reverse order and sign x,y
+            if (statePlayerElement.Reverse == Enumeration.SequenceReverse.Reverse)
+            {
+                List<Frame> newListFrame = new List<Frame>();
+                List<Frame> newListCommand = new List<Frame>();
+
+                foreach (Frame f in sequence.frames)
+                {
+                    if (f.type == Enumeration.TypeFrame.COMMAND)
+                    {
+                        newListCommand.Add(f);
+                    }
+                    else
+                    {
+                        f.xOffSet = -1 * f.xOffSet;
+                        f.yOffSet = -1 * f.yOffSet;
+                        newListFrame.Add(f);
+                    }
+                }
+                newListFrame.Reverse();
+                //add command
+                foreach (Frame f in newListCommand)
+                {
+                    newListFrame.Add(f);
+                }
+
+                sequence.frames = newListFrame;
+            }
+
+            //For dynamic offset during movement
+            if (statePlayerElement.OffSetTotal != Vector2.Zero)
+            {
+                int xCount = 0;
+                foreach (Frame f in sequence.frames)
+                {
+                    if (f.type == Enumeration.TypeFrame.SPRITE)
+                    {
+                        xCount++;
+                    }
+                }
+                int eachOffsetX = 0;
+                int eachOffsetXR = 0;
+                if (statePlayerElement.OffSetTotal.X != 0)
+                {
+                    eachOffsetX =  (int)statePlayerElement.OffSetTotal.X / xCount;
+                    eachOffsetXR = (int)statePlayerElement.OffSetTotal.X % xCount;
+                }
+                int eachOffsetY = 0;
+                int eachOffsetYR = 0;
+                if (statePlayerElement.OffSetTotal.Y != 0)
+                {
+                    eachOffsetY = (int)statePlayerElement.OffSetTotal.Y / xCount;
+                    eachOffsetYR = (int)statePlayerElement.OffSetTotal.Y % xCount;
+                }
+                int xCountNew = 0;
+                foreach (Frame f in sequence.frames)
+                {
+                    if (f.type == Enumeration.TypeFrame.SPRITE)
+                    {
+                        f.xOffSet = eachOffsetX;
+                        f.yOffSet = eachOffsetY;
+                        if (++xCountNew == xCount)
+                        {
+                            f.xOffSet = eachOffsetX + eachOffsetXR;
+                            f.yOffSet = eachOffsetY + eachOffsetYR;
+                        }
+                    }
+                }
+            }
+
+
+            if (statePlayerElement.Reverse == Enumeration.SequenceReverse.FixFrame)
+            {
+                int newIndex = this.FrameSpriteCount() - this.frameIndex;
+                //fix bug result20140830
+                if (sequence.frames[newIndex].type == Enumeration.TypeFrame.COMMAND)
+                    this.frameIndex = newIndex - 1;
+                else
+                    this.frameIndex = newIndex;
+            }
+            else
+            {
+                this.frameIndex = 0;
+            }
+
+            this.firstTime = true;
+
+            //Taking name of the frame usefull for hit combat..
+            statePlayerElement.Name = sequence.frames[frameIndex].name;
+
+            //ASSIGN NOW THE RAISED
+            statePlayerElement.Raised = sequence.frames[frameIndex].raised;
+
+            //ASSIGN FRAME only for debug purpose
+            statePlayerElement.Frame = frameIndex;
+
+
+        }
+
+        
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
+            int flip = 0;
+
             //Resetting Name
             float TimePerFrame = 0;
-            playerState.Value().Name = string.Empty;
 
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;
-     
-            if (TotalElapsed > TimePerFrame)
+
+            if (firstTime == true)
             {
                 //Play Sound
                 sequence.frames[frameIndex].PlaySound();
 
-
-                frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
-                TotalElapsed -= TimePerFrame;
-
-                //Taking name of the frame usefull for hit combat..
-                playerState.Value().Name = sequence.frames[frameIndex].name;
-
-                if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
-                {
-
-                    //COMMAND
-                    string[] aCommand = sequence.frames[frameIndex].name.Split('|');
-                    string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
-                    for (int x = 0; x < aCommand.Length; x++)
-                    {
-                        if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
-                        {
-                            if (spriteEffects == SpriteEffects.FlipHorizontally)
-                                spriteEffects = SpriteEffects.None;
-                            else
-                                spriteEffects = SpriteEffects.FlipHorizontally;
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
-                        {
-                            string par = aParameter[x].ToUpper();
-                            int result = sequence.frames.FindIndex(delegate(Frame f)
-                            {
-                                return f.name == par;
-                            });
-                            frameIndex = result;
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
-                        {
-                            string[] par = aParameter[x].Split(':');
-                            Sequence result = lsequence.Find(delegate(Sequence s)
-                            {
-                                return s.name.ToUpper() == par[0].ToUpper();
-                            });
-                            sequence = result;
-                            frameIndex = 0;
-
-                            if (par.Length > 1)
-                            {
-                                Vector2 v = new Vector2(float.Parse(par[1].Split(',')[0]), float.Parse(par[1].Split(',')[1]));
-                                playerState.Add(StatePlayerElement.Parse(par[0]), Enumeration.PriorityState.Normal, v);
-                            }
-                            else
-                                playerState.Add(StatePlayerElement.Parse(par[0]));
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
-                        {
-                            string par = string.Empty;
-                            if (playerState.Value().IfTrue == true)
-                                par = aParameter[0];
-                            else
-                                par = aParameter[1];
-
-                            Sequence result = lsequence.Find(delegate(Sequence s)
-                            {
-                                return s.name.ToUpper() == par.ToUpper();
-                            });
-                            sequence = result;
-                            frameIndex = 0;
-                            playerState.Add(StatePlayerElement.Parse(par));
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.DELETE.ToString())
-                        {
-                            playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
-                        }
-
-                    }
-                }
-
-                int flip;
-                if (spriteEffects == SpriteEffects.FlipHorizontally) //& TotalElapsed > TimePerFrame) skip first frame =!==!=?!?bug
-                    flip = 1;
-                else
-                    flip = -1;
-
-                position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
-
-
-             
-
-            }
-            else if (firstTime == true)
-            {
-                //Play Sound
-                sequence.frames[frameIndex].PlaySound();
-
-                int flip;
                 if (spriteEffects == SpriteEffects.FlipHorizontally)
                     flip = 1;
                 else
@@ -310,15 +395,145 @@ namespace PrinceOfPersia
                 position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
                 firstTime = false;
 
-            
+                //Taking name of the frame usefull for hit combat..
+                playerState.Value().Name = sequence.frames[frameIndex].name;
+
+                //ASSIGN NOW THE RAISED
+                playerState.Value().Raised = sequence.frames[frameIndex].raised;
+
+                //ASSIGN FRAME only for debug purpose
+                playerState.Value().Frame = frameIndex;
+
+                return;
             }
+
+
+            if (TotalElapsed < TimePerFrame)
+            { 
+                return; 
+            }
+
+            //reset values
+            playerState.Value().Raised = false;
+            playerState.Value().Name = string.Empty;
+            playerState.Value().Frame = 0;
+
+          
+
+            frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+            TotalElapsed -= TimePerFrame;
+            
+            
+          
+            if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
+            {
+
+                //COMMAND
+                string[] aCommand = sequence.frames[frameIndex].name.Split('|');
+                string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
+                for (int x = 0; x < aCommand.Length; x++)
+                {
+                    int result = 0;
+                    Sequence sresult = null;
+                    string par = string.Empty;
+                    string[] apar = null;
+
+                    Enumeration.TypeCommand aTypeCommand = (Enumeration.TypeCommand)Enum.Parse(typeof(Enumeration.TypeCommand), aCommand[x]);
+                        
+                    switch (aTypeCommand) 
+                    {
+                        case Enumeration.TypeCommand.ABOUTFACE :
+                            if (spriteEffects == SpriteEffects.FlipHorizontally)
+                                spriteEffects = SpriteEffects.None;
+                            else
+                                spriteEffects = SpriteEffects.FlipHorizontally;
+
+                            break;
+
+                        case Enumeration.TypeCommand.GOTOFRAME:
+                            par = aParameter[x].ToUpper();
+                            result = sequence.frames.FindIndex(delegate(Frame f)
+                            {
+                                return f.name == par;
+                            });
+                            frameIndex = result;
+                            break;
+
+                        case Enumeration.TypeCommand.GOTOSEQUENCE:
+                            apar = aParameter[x].Split(':');
+                            sresult = lsequence.Find(delegate(Sequence s)
+                            {
+                                return s.name.ToUpper() == apar[0].ToUpper();
+                            });
+                            sequence = sresult;
+                            frameIndex = 0;
+
+                            if (par.Length > 1)
+                            {
+                                Vector2 v = new Vector2(float.Parse(apar[1].Split(',')[0]), float.Parse(apar[1].Split(',')[1]));
+                                playerState.Add(StatePlayerElement.Parse(apar[0]), Enumeration.PriorityState.Normal, v);
+                            }
+                            else
+                                playerState.Add(StatePlayerElement.Parse(apar[0]));
+
+                                
+                                break;
+
+                        case Enumeration.TypeCommand.IFGOTOSEQUENCE:
+                                    par = string.Empty;
+                                    if (playerState.Value().IfTrue == true)
+                                        par = aParameter[0];
+                                    else
+                                        par = aParameter[1];
+
+                                    sresult = lsequence.Find(delegate(Sequence s)
+                                    {
+                                        return s.name.ToUpper() == par.ToUpper();
+                                    });
+                                    sequence = sresult;
+                                    frameIndex = 0;
+                                    playerState.Add(StatePlayerElement.Parse(par));
+                            break;
+                            
+                        case Enumeration.TypeCommand.DELETE:
+                            playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
+                            break;
+
+                        default: break;
+                    }
+                  
+                    
+
+                }
+            }
+
+            //Play Sound
+            sequence.frames[frameIndex].PlaySound();
+
+
+            if (spriteEffects == SpriteEffects.FlipHorizontally) //& TotalElapsed > TimePerFrame) skip first frame =!==!=?!?bug
+                flip = 1;
+            else
+                flip = -1;
+
+            position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
+         
+            //Taking name of the frame usefull for hit combat..
+            playerState.Value().Name = sequence.frames[frameIndex].name;
+
+            //ASSIGN NOW THE RAISED
+            playerState.Value().Raised = sequence.frames[frameIndex].raised;
+
+            //ASSIGN FRAME only for debug purpose
+            playerState.Value().Frame = frameIndex;
+
        }
 
         public void UpdateFrameTile(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref TileState tileState)
         {
             float TimePerFrame = 0;
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
-            //TimePerFrame = 0.9f + sequence.frames[frameIndex].delay; //0.1
+            tileState.Value().Name = string.Empty;
             TotalElapsed += elapsed;
 
             if (TotalElapsed > TimePerFrame)
@@ -330,7 +545,8 @@ namespace PrinceOfPersia
                 frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
                 TotalElapsed -= TimePerFrame;
 
-              
+                //Taking name of the frame usefull for kill or other interactions..
+                tileState.Value().Name = sequence.frames[frameIndex].name;
 
 
                 if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
@@ -557,8 +773,9 @@ namespace PrinceOfPersia
             //Rectangle source = new Rectangle(0, 128, 62, 20);
             //position.Y = position.Y + 128;
             //Rectangle source = new Rectangle(62, 20, sequence.frames[frameIndex].texture.Width, sequence.frames[frameIndex].texture.Height);
-
+            Rectangle source = new Rectangle((int)position.X, (int)position.Y, rectangleMask.Width, rectangleMask.Height);
             // Draw the current tile.
+            //spriteBatch.Draw(sequence.frames[frameIndex].texture, null, source, rectangleMask, null, 0f, null, Color.White, spriteEffects, depth);
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, rectangleMask, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
         }
 
@@ -580,13 +797,7 @@ namespace PrinceOfPersia
             Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
 
             position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
-            //position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y );
 
-            //Maze.dEffect.Parameters["FromColor"].SetValue(Color.White);
-            //Maze.dEffect.Parameters["ToColor"].SetValue(Color.Red);
-
-            //spriteBatch.Begin(0, BlendState.Opaque, SamplerState.PointWrap, DepthStencilState.Default, RasterizerState.CullNone, Maze.dEffect);
-       
             // Draw the current frame.
             spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
@@ -601,13 +812,10 @@ namespace PrinceOfPersia
 
             position = new Vector2(position.X + Tile.PERSPECTIVE + (texture.Width/2), position.Y - Tile.GROUND + (texture.Height/2));
 
-            //Begin
-            //spriteBatch.Begin();
-
             // Draw 
             spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
-            //spriteBatch.End();
+        
 
         }
 

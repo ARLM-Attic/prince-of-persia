@@ -1,11 +1,20 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// MenuEntry.cs
-//
-// XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="MenuEntry.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
 
 #region Using Statements
 using System;
@@ -117,9 +126,7 @@ namespace PrinceOfPersia
         {
             // there is no such thing as a selected item on Windows Phone, so we always
             // force isSelected to be false
-#if WINDOWS_PHONE
-            isSelected = false;
-#endif
+
 
             // When the menu selection changes, entries gradually fade between
             // their selected and deselected appearance, rather than instantly
@@ -140,9 +147,7 @@ namespace PrinceOfPersia
         {
             // there is no such thing as a selected item on Windows Phone, so we always
             // force isSelected to be false
-#if WINDOWS_PHONE
-            isSelected = false;
-#endif
+
 
             // Draw the selected entry in yellow, otherwise white.
             Color color = isSelected ? Color.Yellow : Color.White;
@@ -160,10 +165,17 @@ namespace PrinceOfPersia
             // Draw text, centered on the middle of each line.
             ScreenManager screenManager = screen.ScreenManager;
             SpriteBatch spriteBatch = screenManager.SpriteBatch;
-            SpriteFont font = screenManager.Font;
-            Vector2 origin = new Vector2(0, font.LineSpacing / 2);
             
-            spriteBatch.DrawString(font, text, position, color, 0, origin, scale, SpriteEffects.None, 0);
+            
+            //SpriteFont font = screenManager.Font;
+
+            //Vector2 origin = new Vector2(0, font.LineSpacing / 2);
+            
+            //spriteBatch.DrawString(font, text, position, color, 0, origin, scale, SpriteEffects.None, 0);
+
+
+            FontRenderer fontRender = new FontRenderer(screenManager.FontFile, screenManager.FontTexture);
+            fontRender.DrawString(spriteBatch, position, text);
         }
 
 
@@ -172,7 +184,8 @@ namespace PrinceOfPersia
         /// </summary>
         public virtual int GetHeight(MenuScreen screen)
         {
-                return screen.ScreenManager.Font.LineSpacing;
+                //return screen.ScreenManager.Font.LineSpacing;
+            return screen.ScreenManager.FontFile.Common.LineHeight;
         }
 
 
@@ -181,7 +194,8 @@ namespace PrinceOfPersia
         /// </summary>
         public virtual int GetWidth(MenuScreen screen)
         {
-                return (int)screen.ScreenManager.Font.MeasureString(Text).X;
+                //return (int)screen.ScreenManager.Font.MeasureString(Text).X;
+            return 25;
         }
 
 

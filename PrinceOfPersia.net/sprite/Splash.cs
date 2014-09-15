@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Splash.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +65,7 @@ namespace PrinceOfPersia
             Velocity = Vector2.Zero;
             Energy = 0;
 
-            flip = spriteEffect;
+            face = spriteEffect;
 
             spriteState.Clear();
 
@@ -79,7 +97,7 @@ namespace PrinceOfPersia
             else
                 spriteState.Add(Enumeration.State.splash_enemy, priority);
 
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
 
         /// Loads the player sprite sheet and sounds.
@@ -102,7 +120,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in spriteSequence)
             {
-                s.Initialize(myRoom.content);
+                s.Initialize();
             }
 
             // Calculate bounds within texture size.         
@@ -116,9 +134,9 @@ namespace PrinceOfPersia
             localBounds = new Rectangle(left, top, width, height);
 
             // Load sounds.            
-            //killedSound = _room.content.Load<SoundEffect>("Sounds/PlayerKilled");
-            //jumpSound = _room.content.Load<SoundEffect>("Sounds/PlayerJump");
-            //fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
+            //killedSound = _room.content.Load<SoundEffect>("sounds/PlayerKilled");
+            //jumpSound = _room.content.Load<SoundEffect>("sounds/PlayerJump");
+            //fallSound = _room.content.Load<SoundEffect>("sounds/PlayerFall");
         }
 
         /// <summary>
@@ -142,7 +160,7 @@ namespace PrinceOfPersia
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your game logic here.
-            sprite.UpdateFrame(elapsed, ref _position, ref flip, ref spriteState);
+            sprite.UpdateFrame(elapsed, ref _position, ref face, ref spriteState);
 
         }
 
@@ -151,7 +169,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, face, 0.5f);
         }
 
    

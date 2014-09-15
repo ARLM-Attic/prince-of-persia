@@ -1,11 +1,15 @@
-﻿#region File Description
-//-----------------------------------------------------------------------------
-// ScreenFactory.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="ScreenFactory.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+    // * NOTICE:  This file and all PrinceOfPersia.net sources are under 
+    // * the Apache 2.0 license for details see :
+    // * Version 2.0, January 2004
+    // * http://www.apache.org/licenses/
+    //-----------------------------------------------------------------------//
 
 using System;
 

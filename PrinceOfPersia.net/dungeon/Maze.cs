@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Maze.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,16 +33,18 @@ namespace PrinceOfPersia
 
     public class Maze
     {
-        // Level content.        
+        public static Dictionary<string, object> Content = null;
+
         public GraphicsDevice graphicsDevice;
-        public ContentManager content;
         public List<Level> levels = new List<Level>();
         public int levelIndex = 1;
         public Player player;
 
-        
+
+        private List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
+
         //List for retain and load maze tiles textures
-        public static Dictionary<string, object> dContentRes = null;
+        
         public Vector2 positionArrive;
 
         //test
@@ -50,7 +70,7 @@ namespace PrinceOfPersia
         {
             levelIndex++;
             //next level
-            Apoplexy((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
+            StartLevel((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
             player.StartLevel(CurrentLevel.StartRoom());
             player.MyRoom.StartNewLife();
         }
@@ -59,33 +79,48 @@ namespace PrinceOfPersia
         {
             levelIndex--;
             //next level
-            Apoplexy((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
+            StartLevel((Enumeration.LevelName)Enum.Parse(typeof(Enumeration.LevelName), levelIndex.ToString()));
             player.StartLevel(CurrentLevel.StartRoom());
             player.MyRoom.StartNewLife();
         }
 
-        private void Apoplexy(Enumeration.LevelName levelName)
+        private void LoadLevels()
         {
-            List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
-            levels = new List<Level>();
 
             var files = Directory
-				.GetFiles(content.RootDirectory + "/" + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY+"/", "*.xml")
-            .Where(file => file.ToLower().Contains("level"+ ((int)levelName).ToString()))
+                .GetFiles(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + "/" + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY + "/", "*.xml")
+            //.Where(file => file.ToLower().Contains("level" + ((int)levelName).ToString()))
             .ToList();
+
 
             foreach (object f in files)
             {
                 Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(f.ToString());
-                
+
                 System.Xml.Serialization.XmlSerializer ax = null;
                 ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
                 levelsApoplexy.Add((Apoplexy.level)ax.Deserialize(txtReader));
             }
 
+        }
+
+
+        private void StartLevel(Enumeration.LevelName levelName)
+        {
+            levels = new List<Level>();
+
+            if ((int)levelName >= levelsApoplexy.Count)
+            { 
+                levelName = Enumeration.LevelName.dungeon_demo;
+                levelIndex = (int)levelName;
+            }
+
             //load all room
             for (int z = 0; z < levelsApoplexy.Count(); z++)
             {
+                if ((int)levelName != int.Parse( levelsApoplexy[z].number))
+                    continue;
+
                 Level level = new Level(this, levelsApoplexy[z].number);
                 
                 //int newX = 1;
@@ -170,7 +205,7 @@ namespace PrinceOfPersia
             levels = new List<Level>();
 
             var files = Directory
-				.GetFiles(content.RootDirectory + "/" + PrinceOfPersiaGame.CONFIG_PATH_LEVELS+ "/", "*.xml")
+                .GetFiles(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + "/" + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "/", "*.xml")
             .ToList();
 
             foreach (object f in files)
@@ -217,201 +252,18 @@ namespace PrinceOfPersia
 
 
 
-        public Maze(GraphicsDevice GraphicsDevice, ContentManager contentmanager)
+        public Maze(GraphicsDevice GraphicsDevice)
         {
-            content = contentmanager;
             graphicsDevice = GraphicsDevice;
 
-            LoadContent();
-
-            //dEffect = content.Load<Effect>(@"Effects\SwapColor");
-
             if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-                Apoplexy(Enumeration.LevelName.dungeon_prison);
+                LoadLevels();
             else
                 PopNet();
 
-
+            StartLevel(Enumeration.LevelName.dungeon_prison);
       
         }
-
-        //Load all texture in a dictiornary
-        private void LoadContent()
-        {
-            //dSoundEffect = Program.LoadContent<SoundEffect>(content, string.Empty);
-            dContentRes= Program.LoadContent<object>(content, string.Empty);
-
-
-        }
-
-
-
-      
-
-        //public Room LeftRoom(Room room)
-        //{
-        //    int x = room.roomX;
-        //    int y = room.roomY;
-        //    int z = room.roomZ;
-
-        //    string roomNext = string.Empty;
-
-        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //    {
-        //        if (room.link == null)
-        //            return blockRoom;
-
-        //        roomNext = room.link.left ;
-        //    }
-        //    else
-        //    {
-        //        if (x != 0)
-        //            x = --x;
-        //        else
-        //            return blockRoom;
-        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //    }
-        //    foreach (Room r in player.SpriteLevel.rooms)
-        //    {
-        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //        {
-        //            if (r.roomName == roomNext)
-        //                return r;
-        //        }
-        //        else
-        //        {
-        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
-        //                return r;
-        //        }
-        //    }
-        //    return blockRoom;
-        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //}
-
-        //public Room DownRoom(Room room)
-        //{
-        //    int x = room.roomX;
-        //    int y = room.roomY;
-        //    int z = room.roomZ;
-
-        //    string roomNext = string.Empty;
-
-        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //    {
-        //        if (room.link == null)
-        //            return blockRoom;
-
-        //        roomNext = room.link.down;
-        //    }
-        //    else
-        //    {
-        //        if (y != levels[z].rooms.Count() - 1)
-        //            y = ++y;
-        //        else
-        //            return blockRoom;
-        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //    }
-
-        //    foreach (Room r in player.SpriteLevel.rooms)
-        //    {
-        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //        {
-        //            if (room.link == null)
-        //                return blockRoom;
-
-        //            if (r.roomName == roomNext)
-        //                return r;
-        //        }
-        //        else
-        //        {
-        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
-        //                return r;
-        //        }
-        //    }
-        //    return blockRoom;
-        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //}
-
-        //public Room RightRoom(Room room)
-        //{
-        //    int x = room.roomX;
-        //    int y = room.roomY;
-        //    int z = room.roomZ;
-
-        //    string roomNext = string.Empty;
-
-        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //    {
-        //        if (room.link == null)
-        //            return blockRoom;
-
-        //        roomNext = room.link.right;
-        //    }
-        //    else
-        //    {
-        //        //AAAHAHAHA TO BE CHANGERSSSS
-        //        //if (x != levels[z].rows[y].columns.Count() - 1)
-        //        //    x = ++x;
-        //        //else
-        //        //    return blockRoom;
-        //    }
-        //    foreach (Room r in player.SpriteLevel.rooms)
-        //    {
-        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //        {
-        //            if (r.roomName == roomNext)
-        //                return r;
-        //        }
-        //        else
-        //        {
-        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
-        //                return r;
-        //        }
-        //    }
-        //    return blockRoom;
-        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //}
-
-        //public Room UpRoom(Room room)
-        //{
-        //    int x = room.roomX;
-        //    int y = room.roomY;
-        //    int z = room.roomZ;
-
-        //    string roomNext = string.Empty;
-
-        //    if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //    {
-        //        if (room.link == null)
-        //            return blockRoom;
-
-        //        roomNext = room.link.up;
-        //    }
-        //    else
-        //    {
-        //        if (y != levels[z].rooms.Count() - 1)
-        //            y = --y;
-        //        else
-        //            return blockRoom;
-        //        //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //    }
-        //    foreach (Room r in player.SpriteLevel.rooms)
-        //    {
-        //        if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
-        //        {
-        //            if (r.roomName == roomNext)
-        //                return r;
-        //        }
-        //        else
-        //        {
-
-        //            if (r.roomX == x & r.roomY == y & r.roomZ == z)
-        //                return r;
-        //        }
-        //    }
-        //    return blockRoom;
-        //    //return new RoomNew(this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml");
-        //}
 
         public Room StartRoom()
         {

@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="StateElement.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,22 +31,37 @@ namespace PrinceOfPersia
         private Enumeration.PriorityState _priorityState;
         private bool? _stoppable;
         private Enumeration.SequenceReverse _reverse;
-        private Vector2 _offset;
+        private Vector2 _offset = Vector2.Zero;
+        private Vector2 _offsetTotal = Vector2.Zero;
+        private bool _raised = false;
         private bool _ifTrue = false;
         private string _name = string.Empty;
+        private int _frame;
 
         public string Name
         {
-            get { return _name; }
+            get { return _name.ToLower(); }
             set 
             { 
                 if (value == null)
                     _name = string.Empty; 
                 else
-                    _name = value; 
+                    _name = value.ToLower(); 
             }
         }
 
+        public bool Raised
+        {
+            get { return _raised; }
+            set {_raised = value;}
+        }
+
+
+        public int Frame
+        {
+            get { return _frame; }
+            set { _frame = value; }
+        }
 
         public bool IfTrue
         {
@@ -40,6 +73,12 @@ namespace PrinceOfPersia
         {
             get { return _offset; }
             set { _offset = value; }
+        }
+
+        public Vector2 OffSetTotal
+        {
+            get { return _offsetTotal; }
+            set { _offsetTotal = value; }
         }
 
         public Enumeration.SequenceReverse Reverse

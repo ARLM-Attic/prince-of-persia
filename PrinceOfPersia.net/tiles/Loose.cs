@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Loose.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.IO;
 using System.Reflection;
 using System.Collections.Generic;
@@ -28,7 +46,7 @@ namespace PrinceOfPersia
         }
 
 
-        public Loose(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
+        public Loose(Room room, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.TileType NextTileType)
         {
             base.room = room;
             nextTileType = NextTileType;
@@ -43,7 +61,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in tileSequence)
             {
-                s.Initialize(Content);
+                s.Initialize();
             }
 
             //Search in the sequence the right type
@@ -56,7 +74,8 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
+                result.frames[0].SetTexture((Texture2D)Maze.Content[PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value]); 
+                //result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
 
                 collision = result.collision;
                 Texture = result.frames[0].texture;
@@ -66,7 +85,7 @@ namespace PrinceOfPersia
 
             //change statetile element
             tileState.Value().state = state;
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
         }
 
         public void Normal()
@@ -75,7 +94,7 @@ namespace PrinceOfPersia
                 return;
 
             tileState.Add(Enumeration.StateTile.normal);
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
         }
 
 
@@ -85,7 +104,7 @@ namespace PrinceOfPersia
                 return;
 
             tileState.Add(Enumeration.StateTile.loose);
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
             //Fall();
         }
 
@@ -102,7 +121,7 @@ namespace PrinceOfPersia
                     return;
 
             tileState.Add(Enumeration.StateTile.loosefall);
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
 
             lock (room.tilesTemporaney)
             {
@@ -125,7 +144,7 @@ namespace PrinceOfPersia
                 return;
 
             tileState.Add(Enumeration.StateTile.looseshake);
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
         }
 
     }

@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Sprite.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +31,6 @@ using Microsoft.Xna.Framework.Input.Touch;
 
 namespace PrinceOfPersia
 {
-
-
     public class Sprite
     {
         private bool sword = false;
@@ -28,23 +44,21 @@ namespace PrinceOfPersia
         public const int PLAYER_STAND_BORDER_FRAME = 47; //47+20player+47=114
         public const int PLAYER_STAND_FRAME = 20;
         public const int PLAYER_STAND_WALL_PEN = 30; //wall penetration
-        public const int PLAYER_STAND_FLOOR_PEN = 26; //floor border penetration
+        public const int PLAYER_STAND_FLOOR_PEN = 26; //floor border penetration is PERSPECTIVE??!?
         public const int PLAYER_STAND_HANG_PEN = 46; //floor border penetration for hangup
 
         public Vector2 startPosition = Vector2.Zero; //where the sprite begins
-        public SpriteEffects startFlip = SpriteEffects.None;
+        public SpriteEffects startFace = SpriteEffects.None;
 
 
         protected List<Sequence> spriteSequence = null;
         protected GraphicsDevice graphicsDevice;
-        public SpriteEffects flip = SpriteEffects.None;
+        public SpriteEffects face = SpriteEffects.None;
         protected Position _position = null;
-        //protected Maze _maze;
         protected Vector2 velocity;
         protected bool isOnGround;
         protected Rectangle localBounds;
         protected Room myRoom = null;
-        //protected Level spriteLevel= null;
 
         private bool alert = false; //set true when there is a enemy in the room or near
 
@@ -210,7 +224,7 @@ namespace PrinceOfPersia
         }
 
 
-        public void isGround()
+        public void CheckGround()
         {
             if (IsAlive == false)
                 return;
@@ -219,7 +233,7 @@ namespace PrinceOfPersia
 
             Room room = null;
             Rectangle playerBounds = _position.Bounding;
-            Vector2 v2 = myRoom.getCenterTile(playerBounds);
+            Vector2 v2 = myRoom.getCenterTilePosition(playerBounds);
             Rectangle tileBounds = myRoom.GetBounds((int)v2.X, (int)v2.Y);
 
             //Check if kid outside Room 
@@ -242,20 +256,35 @@ namespace PrinceOfPersia
                 {
                     if (playerBounds.Bottom >= tileBounds.Bottom)
                         isOnGround = true;
+                    else
+                    { }
                 }
+                else
+                { }
             }
 
 
             if (isOnGround == false)
             {
-                if (sprite.sequence.raised == false)
+                if (spriteState.Value().Raised == false)
                 {
-                    if (spriteState.Value().state == Enumeration.State.runjump)
+                    switch (spriteState.Value().state)
                     {
-                        spriteState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
-                        sprite.PlayAnimation(spriteSequence, spriteState.Value());
+                        case Enumeration.State.hangdrop: 
+                            return; 
+                            break;
+                             
+                        default:
+                            break;
                     }
-                    else
+
+
+                    //if (spriteState.Value().state == Enumeration.State.runjump)
+                    //{
+                    //    spriteState.Add(Enumeration.State.rjumpfall, Enumeration.PriorityState.Force);
+                    //    sprite.PlayAnimation(spriteSequence, spriteState.Value());
+                    //}
+                    //else
                     {
                         if (spriteState.Previous().state == Enumeration.State.runjump)
                             spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20, 15));
@@ -283,21 +312,29 @@ namespace PrinceOfPersia
 
                 if (Rem == 0)
                 {
-                    ((SoundEffect)Maze.dContentRes["Sounds/dos/falling echo"]).Play();
+                    //Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + "falling echo").Play();
+                    ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "falling echo"]).Play();
                 }
                 else if (Rem >= 1 & Rem < 3)
                 {
-                    ((SoundEffect)Maze.dContentRes["Sounds/dos/loosing a life falling"]).Play();
+                    //Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + "loosing a life falling").Play();
+                    ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "loosing a life falling"]).Play();
                 }
                 else
                 {
-                    ((SoundEffect)Maze.dContentRes["Sounds/dos/falling"]).Play();
+                    //Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + "falling").Play();
+                    ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "falling"]).Play();
                     //you should dead!!!
-                    DeadFall();                    
+                    Energy = 0;            
                 }
                 Energy = Energy - Rem;
                 spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Force, false);
                 myRoom.LooseShake();
+
+                if (Energy <= 0)
+                {
+                    DeadFall();
+                }
             }
 
         }
@@ -305,47 +342,48 @@ namespace PrinceOfPersia
         public void DeadFall()
         {
             spriteState.Add(Enumeration.State.deadfall, Enumeration.PriorityState.Force);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            energy = 0;
         }
 
         public void DropDead()
         {
+            energy = 0;
             if (spriteState.Value().state != Enumeration.State.dropdead)
             {
                 spriteState.Add(Enumeration.State.dropdead, Enumeration.PriorityState.Force);
-                sprite.PlayAnimation(spriteSequence, spriteState.Value());
+                sprite.PlayAnimation(spriteSequence, spriteState);
             }
         }
 
         public void Resheathe()
         {
             spriteState.Add(Enumeration.State.resheathe, Enumeration.PriorityState.Normal);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
-        
+
+        public void Fastheathe(Enumeration.PriorityState state)
+        {
+            spriteState.Add(Enumeration.State.fastsheathe, state);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
 
         public void Fastheathe()
         {
             spriteState.Add(Enumeration.State.fastsheathe, Enumeration.PriorityState.Normal);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
-        }
-
-        public void Strike()
-        {
-            spriteState.Add(Enumeration.State.strike, Enumeration.PriorityState.Normal);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
 
         public void Retreat()
         {
             spriteState.Add(Enumeration.State.retreat, Enumeration.PriorityState.Normal);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
 
         public void StrikeRetreat()
         {
             spriteState.Add(Enumeration.State.strikeret, Enumeration.PriorityState.Force);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
 
 
@@ -357,11 +395,881 @@ namespace PrinceOfPersia
             Maze.player.MyLevel.sprites.Add(splash);
 
         }
-        
-        public Sprite()
-        { 
-        
-        
+
+        public void RunJump()
+        {
+            SetAlignEdge();
+            spriteState.Add(Enumeration.State.runjump);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void PutOffSword()
+        {
+            spriteState.Add(Enumeration.State.resheathe);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            //Sword = true;
+        }
+
+
+        public void PickupSword()
+        {
+            spriteState.Add(Enumeration.State.pickupsword);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            Sword = true;
+            //Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + "presentation").Play();
+            ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "presentation"]).Play();
+        }
+
+        public void DrinkPotion()
+        {
+            spriteState.Add(Enumeration.State.drinkpotion);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            this.Energy = this.LivePoints;
+        }
+
+        public void Advance()
+        {
+            spriteState.Add(Enumeration.State.advance, Enumeration.PriorityState.Normal);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+
+        }
+
+
+        public void Strike()
+        {
+            Strike(Enumeration.PriorityState.Normal);
+        }
+        public void Strike(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.strike, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void Hang()
+        {
+            //chek what kind of hang or hangstraight
+            if (spriteState.Value().state == Enumeration.State.hang | spriteState.Value().state == Enumeration.State.hangstraight)
+                return;
+
+            if (TypeFrontOfBlock(this.face) == Enumeration.RETURN_COLLISION_WALL.FAR)
+                spriteState.Add(Enumeration.State.hangstraight); //oscilla...
+            else
+                spriteState.Add(Enumeration.State.hang);
+
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void Bump()
+        {
+            Bump(Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void Bump(Enumeration.PriorityState priority)
+        {
+            Bump(priority, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void Bump(Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
+        {
+            spriteState.Add(Enumeration.State.bump, priority, false, reverse);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void RJumpFall()
+        {
+            RJumpFall(Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void RJumpFall(Enumeration.PriorityState priority)
+        {
+            RJumpFall(priority, Enumeration.SequenceReverse.Normal);
+        }
+
+        public void RJumpFall(Enumeration.PriorityState priority, Enumeration.SequenceReverse reverse)
+        {
+            spriteState.Add(Enumeration.State.rjumpfall, priority, false, reverse);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        private void SetAlignEdge()
+        {
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = myRoom.getCenterTilePosition(playerBounds);
+
+            Rectangle tileBounds = myRoom.GetBounds((int)v2.X, (int)v2.Y);
+            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            //Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y);
+            Enumeration.TileType tileType = myRoom.GetType((int)v2.X, (int)v2.Y);
+
+            if (face == SpriteEffects.FlipHorizontally)
+            {
+                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                {
+
+                }
+            }
+        }
+
+        public void Question()
+        {
+            if (spriteState.Value().state == Enumeration.State.hang | spriteState.Value().state == Enumeration.State.hangstraight)
+            {
+                Hang();
+            }
+        }
+
+
+
+        public void JumpHangMed()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            spriteState.Add(Enumeration.State.jumphangMed);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void JumpHangLong()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            spriteState.Add(Enumeration.State.jumphangLong);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void ClimbUp()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            spriteState.Add(Enumeration.State.climbup);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        private bool? IsDownOfBlock(bool isForClimbDown)
+        {
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector4 v4 = myRoom.getBoundTiles(playerBounds);
+
+            int x, y = 0;
+
+            if (face == SpriteEffects.FlipHorizontally)
+            { x = (int)v4.Y - 1; y = (int)v4.Z + 1; }
+            else
+            { x = (int)v4.X; y = (int)v4.W + 1; }
+
+            Rectangle tileBounds = myRoom.GetBounds(x, y);
+            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y);
+            Enumeration.TileType tileType = myRoom.GetType(x, y);
+
+
+
+            if (tileType != Enumeration.TileType.block)
+                return false;
+
+            if (isForClimbDown == true)
+                return true;
+
+            if (face == SpriteEffects.FlipHorizontally)
+            {
+                if (depth.X <= -18 & depth.X > (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)) //18*3 = 54 step forward....
+                    return true;
+                else if (depth.X <= (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
+                    return false;
+                else
+                    return null;
+            }
+            else
+            {
+                //if (depth.X >= 18 & depth.X <= 27) //18*3 = 54 step forward....
+                if (depth.X >= 18 & depth.X < (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //18*3 = 54 step forward....
+                    return true;
+                else if (depth.X >= (Tile.PERSPECTIVE + PLAYER_L_PENETRATION))
+                    return false;
+                else
+                    return null;
+            }
+        }
+
+
+        //WARNING routine buggedddd
+        private bool isBehind(Rectangle tileBounds, Rectangle playerBounds)
+        {
+            if (face == SpriteEffects.FlipHorizontally)
+            {
+                //if (playerBounds.X > tileBounds.X - PLAYER_R_PENETRATION - Tile.PERSPECTIVE)
+                if (playerBounds.X > tileBounds.X)
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                if (playerBounds.X < tileBounds.X)
+                    return true;
+                else
+                    return false;
+
+            }
+
+        }
+
+
+        public void Reset()
+        {
+            Reset(startPosition, startFace);
+        }
+
+        /// <summary>
+        /// Resets the player to life.
+        /// </summary>
+        /// <param name="position">The position to come to life at.</param>
+        public void Reset(Vector2 position, SpriteEffects spriteEffect)
+        {
+            startPosition = position;
+            myRoom = MyLevel.StartRoom();
+
+            _position = new Position(new Vector2(graphicsDevice.Viewport.Width, graphicsDevice.Viewport.Height), new Vector2(Player.SPRITE_SIZE_X, Player.SPRITE_SIZE_Y));
+            _position.X = position.X;
+            _position.Y = position.Y;
+
+            Velocity = Vector2.Zero;
+            Energy = PrinceOfPersiaGame.CONFIG_KID_START_ENERGY;
+
+            face = spriteEffect;
+
+            spriteState.Clear();
+
+
+            Stand(Enumeration.PriorityState.Force);
+
+        }
+
+        public void CheckItemOnFloor()
+        {
+            //Rectangle playerBounds = ;
+            Vector2 v2 = myRoom.getCenterTilePosition(_position.Bounding);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+            Tile t = myRoom.GetTile(x, y);
+
+            if (t.item != null)
+            {
+                if (t.item.GetType() == typeof(Flask))
+                {
+                    DrinkPotion();
+                }
+                if (t.item.GetType() == typeof(Sword))
+                {
+                    PickupSword();
+                }
+
+                myRoom.SubsTile(v2, Enumeration.TileType.floor);
+            }
+
+        }
+
+        public void ClimbDown()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            bool isDownOfBlock = false;
+
+            if (IsDownOfBlock(true) == true)
+                isDownOfBlock = true;
+
+            spriteState.Add(Enumeration.State.climbdown, isDownOfBlock);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void StandUp()
+        { StandUp(Enumeration.PriorityState.Normal); }
+        public void StandUp(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.standup, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.stand, priority);
+        }
+
+        public void Stoop()
+        { Stoop(Enumeration.PriorityState.Normal); }
+        public void Stoop(Vector2 offSet)
+        { Stoop(Enumeration.PriorityState.Normal, offSet); }
+        public void Stoop(Enumeration.PriorityState priority)
+        { Stoop(Enumeration.PriorityState.Normal, Vector2.Zero); }
+        public void Stoop(Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            if (TypeFrontOfBlock(face) == Enumeration.RETURN_COLLISION_WALL.TOUCH)
+            {
+                Bump();
+                return;
+            }
+
+            if (isClimbableDown() == true)
+            {
+                ClimbDown();
+                return;
+            }
+            spriteState.Add(Enumeration.State.stoop, priority, null, Enumeration.SequenceReverse.Normal, offSet);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.crouch, priority);
+        }
+
+
+        public void GoDown()
+        { GoDown(Enumeration.PriorityState.Normal); }
+        public void GoDown(Vector2 offSet)
+        { GoDown(Enumeration.PriorityState.Normal, offSet); }
+        public void GoDown(Enumeration.PriorityState priority)
+        { GoDown(Enumeration.PriorityState.Normal, Vector2.Zero); }
+        public void GoDown(Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            if (isClimbableDown() == true)
+            {
+                ClimbDown();
+                return;
+            }
+            spriteState.Add(Enumeration.State.godown, priority, null, Enumeration.SequenceReverse.Normal, offSet);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.crouch, priority);
+        }
+
+        public void Stand()
+        { Stand(Enumeration.PriorityState.Normal, null); }
+
+        public void Stand(bool stoppable)
+        {
+            Stand(Enumeration.PriorityState.Normal, stoppable);
+        }
+
+        public void Stand(Enumeration.PriorityState priority)
+        {
+            Stand(priority, null);
+        }
+
+        public void Stand(Enumeration.PriorityState priority, bool? stoppable)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == stoppable)
+                return;
+
+            switch (spriteState.Previous().state)
+            {
+                case Enumeration.State.freefall:
+                    Crouch(Enumeration.PriorityState.Force);
+                    return;
+
+                case Enumeration.State.crouch:
+                    StandUp();
+                    return;
+                case Enumeration.State.startrun:
+                    RunStop();
+                    return;
+
+                default:
+                    break;
+            }
+
+
+            spriteState.Add(Enumeration.State.stand, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.stand, Enumeration.PriorityState.Normal);
+
+        }
+
+
+        public void StandJump()
+        { StandJump(Enumeration.PriorityState.Normal); }
+        public void StandJump(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.standjump, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void StepFall()
+        { StepFall(Enumeration.PriorityState.Normal); }
+        public void StepFall(Enumeration.PriorityState priority)
+        {
+            Vector2 offSet = Vector2.Zero;
+            StepFall(priority, offSet);
+        }
+        public void StepFall(Enumeration.PriorityState priority, Vector2 offSet)
+        {
+            PositionFall = Position.Value;
+            spriteState.Add(Enumeration.State.stepfall, priority, offSet);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.freefall, priority);
+        }
+
+        public void HighJump()
+        {
+            switch (isClimbable())
+            {
+                case Enumeration.State.jumphangMed:
+                    JumpHangMed();
+                    return;
+                case Enumeration.State.jumphangLong:
+                    JumpHangLong();
+                    return;
+            }
+
+            spriteState.Add(Enumeration.State.highjump);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+
+            //isPressable();
+        }
+
+        public void ClimbFail()
+        {
+            spriteState.Add(Enumeration.State.climbfail);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void HangDrop()
+        {
+            spriteState.Add(Enumeration.State.hangdrop);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+
+        public void RunTurn()
+        {
+            if (face != SpriteEffects.FlipHorizontally)
+                face = SpriteEffects.None;
+            else
+                face = SpriteEffects.FlipHorizontally;
+
+            spriteState.Add(Enumeration.State.runturn);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void Impale(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.impale, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            Energy = 0;
+        }
+
+        public void Impale()
+        {
+            Impale(Enumeration.PriorityState.Normal);
+        }
+
+        public void Turn()
+        {
+            if (face == SpriteEffects.FlipHorizontally)
+                face = SpriteEffects.None;
+            else
+                face = SpriteEffects.FlipHorizontally;
+
+            spriteState.Add(Enumeration.State.turn);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.stand);
+
+        }
+
+        public void RunStop()
+        {
+            RunStop(Enumeration.PriorityState.Normal);
+        }
+
+        public void RunStop(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.runstop);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.stand);
+        }
+
+
+        private Enumeration.RETURN_COLLISION_WALL TypeFrontOfBlock(SpriteEffects flip)
+        {
+            int x, y = 0;
+            Enumeration.RETURN_COLLISION_WALL bReturn = Enumeration.RETURN_COLLISION_WALL.FAR;
+            int player_penetration = 0;
+            Rectangle playerBounds = _position.Bounding;
+            Vector4 v4 = myRoom.getBoundTiles(playerBounds);
+
+            if (flip == SpriteEffects.FlipHorizontally)
+            { x = (int)v4.Y; y = (int)v4.Z; }
+            else
+            { x = (int)v4.X; y = (int)v4.W; }
+
+            Rectangle tileBounds = myRoom.GetBounds(x, y);
+            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y);
+            Enumeration.TileType tileType = myRoom.GetType(x, y);
+
+            if (tileType != Enumeration.TileType.block)
+            {
+                return bReturn = Enumeration.RETURN_COLLISION_WALL.FAR;
+            }
+
+            if (flip == SpriteEffects.FlipHorizontally)
+                player_penetration = -PLAYER_R_PENETRATION;
+            else
+                player_penetration = +PLAYER_L_PENETRATION;
+
+            if (flip == SpriteEffects.FlipHorizontally)
+            {
+                if (depth.X <= -18 & depth.X > (-Tile.PERSPECTIVE + player_penetration)) //18*3 = 54 step forward....
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.NEAR;
+                else if (depth.X <= (-Tile.PERSPECTIVE + player_penetration))
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.TOUCH;
+                else
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.FAR;
+            }
+            else
+            {
+                if (depth.X >= -18 & depth.X < (+Tile.PERSPECTIVE + player_penetration)) //18*3 = 54 step forward....
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.NEAR;
+                else if (depth.X >= (-Tile.PERSPECTIVE + player_penetration))
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.TOUCH;
+                else
+                    bReturn = Enumeration.RETURN_COLLISION_WALL.FAR;
+            }
+
+            return bReturn;
+        }
+
+        private int GetTileEdgeDistance()
+        {
+            int distance = 0;
+            Rectangle playerBounds = _position.Bounding;
+            Tile tile = myRoom.getCenterTile(playerBounds);
+            Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tile.Position.Bounding);
+            if (face == SpriteEffects.FlipHorizontally)
+            {
+                distance = (tile.Position.Bounding.X + Tile.WIDTH) - (playerBounds.Center.X - Tile.PERSPECTIVE + PLAYER_STAND_FLOOR_PEN + 1); //Right isnt correct for bound tile
+            }
+            else
+            {
+                distance = (playerBounds.Center.X + Tile.PERSPECTIVE + PLAYER_STAND_FLOOR_PEN) - (tile.Position.Bounding.X + Tile.WIDTH); //Right isnt correct for bound tile
+            }
+
+            return distance;
+        }
+
+
+        public void StartRunning()
+        {
+            //TODO: i will check if there a wall and do a BUMP...
+            Enumeration.RETURN_COLLISION_WALL isFront = TypeFrontOfBlock(this.face);
+            if (isFront == Enumeration.RETURN_COLLISION_WALL.NEAR)
+            {
+                //step to the limit
+                int distance = GetTileEdgeDistance();
+                StepForward(distance);
+                return;
+            }
+            else if (isFront == Enumeration.RETURN_COLLISION_WALL.TOUCH)
+            {
+                //int x = GetTileEdgeDistance();
+                Bump(Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Normal);
+                return;
+            }
+
+
+            spriteState.Add(Enumeration.State.startrun);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void StepForward(int lenghtStep)
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            Vector2 vDistance = new Vector2(lenghtStep, 0);
+            spriteState.Add(Enumeration.State.fullstep, Enumeration.PriorityState.Normal, Vector2.Zero, vDistance);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void StepForward()
+        {
+            if (sprite.IsStoppable == false)
+                return;
+
+            //TODO: i will check if there a wall and do a BUMP...
+            Enumeration.RETURN_COLLISION_WALL isFront = TypeFrontOfBlock(this.face);
+            if (isFront == Enumeration.RETURN_COLLISION_WALL.NEAR)
+            {
+                int lenght = GetTileEdgeDistance();
+                StepForward(lenght);
+                return;
+            }
+            else if (isFront == Enumeration.RETURN_COLLISION_WALL.TOUCH)
+            {
+                Bump(Enumeration.PriorityState.Normal, Enumeration.SequenceReverse.Normal);
+                return;
+            }
+            else
+                spriteState.Add(Enumeration.State.fullstep);
+
+
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            //spriteState.Add(Enumeration.State.stand);
+        }
+
+
+        public void Engarde()
+        { Engarde(Enumeration.PriorityState.Normal, null); }
+
+        public void Engarde(bool? stoppable)
+        { Engarde(Enumeration.PriorityState.Normal, stoppable); }
+
+        public void Engarde(Enumeration.PriorityState priority, bool? stoppable)
+        { Engarde(priority, stoppable, Vector2.Zero); }
+
+        public void Engarde(Enumeration.PriorityState priority, bool? stoppable, Vector2 offset)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == false)
+                return;
+            //TODO: ??? to be moved on calling routine??
+            if (spriteState.Value().state == Enumeration.State.ready)
+            { return; }
+            //if (spriteState.Value().state == Enumeration.State.engarde)
+            //{ return; }
+            //if (spriteState.Value().state == Enumeration.State.advance)
+            //{ return; }
+
+            spriteState.Add(Enumeration.State.engarde, priority, stoppable, offset);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void Crouch()
+        { Crouch(Enumeration.PriorityState.Normal, null); }
+
+        public void Crouch(Enumeration.PriorityState priority)
+        { Crouch(priority, null); }
+
+        public void Crouch(bool? stoppable)
+        { Crouch(Enumeration.PriorityState.Normal, stoppable); }
+
+        public void Crouch(Enumeration.PriorityState priority, bool? stoppable)
+        { Crouch(Enumeration.PriorityState.Normal, stoppable, Vector2.Zero); }
+
+        public void Crouch(Enumeration.PriorityState priority, bool? stoppable, Vector2 offset)
+        {
+            if (priority == Enumeration.PriorityState.Normal & sprite.IsStoppable == false)
+                return;
+
+            spriteState.Add(Enumeration.State.crouch, priority, stoppable, offset);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+
+        public void CrawlAndCrouch(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.bump, priority, false);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+            spriteState.Add(Enumeration.State.crouch, Enumeration.PriorityState.Normal);
+        }
+
+        public void Crawl(Enumeration.PriorityState priority)
+        {
+            spriteState.Add(Enumeration.State.crawl, priority);
+            sprite.PlayAnimation(spriteSequence, spriteState);
+        }
+
+        public void Crawl()
+        {
+            Crawl(Enumeration.PriorityState.Normal);
+        }
+
+        /// Remnber: for example the top gate is x=3 y=1
+        /// first row bottom = 2 the top row = 0..
+        /// </summary>
+        /// <returns>
+        /// true = climbable floor
+        /// false = no climb
+        /// 
+        /// </returns>
+        private bool isClimbableDown()
+        {
+
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = myRoom.getCenterTilePosition(playerBounds);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+
+            //Rectangle tileBounds = _room.GetBounds(x, y);
+            //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision; // = _room.GetCollision(x, y);
+            //Enumeration.TileType tileType;
+
+            if (face == SpriteEffects.FlipHorizontally)
+                //tileType = _room.GetType(x-1, y);
+                tileCollision = myRoom.GetCollision(x - 1, y);
+            else
+                //tileType = _room.GetType(x+1, y);
+                tileCollision = myRoom.GetCollision(x + 1, y);
+
+
+            //if (tileType != Enumeration.TileType.space)
+            if (tileCollision != Enumeration.TileCollision.Passable)
+            {
+                return false;
+            }
+
+            //check is platform or gate forward up
+            int xOffSet = 0;
+            if (face == SpriteEffects.FlipHorizontally)
+            { xOffSet = -Tile.REALWIDTH + (Tile.PERSPECTIVE * 2); }
+            else
+            { xOffSet = -Tile.PERSPECTIVE; }
+
+            Rectangle tileBounds = myRoom.GetBounds(x, y + 1);
+            _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
+            return true;
+
+        }
+
+        /// <summary>
+        /// Remnber: for example the top gate is x=3 y=1
+        /// first row bottom = 2 the top row = 0..
+        /// </summary>
+        /// <returns>
+        /// true = climbable floor
+        /// false = no climb
+        /// 
+        /// </returns>
+        private Enumeration.State isClimbable()
+        {
+
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = myRoom.getCenterTilePosition(playerBounds);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+
+            //Rectangle tileBounds = _room.GetBounds(x, y);
+            //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y - 1);
+            Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
+
+
+            //if (tileType == Enumeration.TileType.floor | tileType == Enumeration.TileType.gate)
+            if (tileCollision == Enumeration.TileCollision.Platform)
+            {
+                //CHECK KID IS UNDER THE FLOOR CHECK NEXT TILE
+                if (face == SpriteEffects.FlipHorizontally)
+                { x = x - 1; }
+                else
+                { x = x + 1; }
+                tileCollision = myRoom.GetCollision(x, y - 1);
+                //tileType = _room.GetType(x, y - 1);
+                //if (tileType != Enumeration.TileType.space)
+                if (tileCollision != Enumeration.TileCollision.Passable)
+                    return Enumeration.State.none;
+                x = ((int)v2.X); //THE FLOOR FOR CLIMB UP
+
+                Tile t = myRoom.GetTile(new Vector2(x, y));
+                if (t.Type == Enumeration.TileType.gate)
+                    if (t.tileState.Value().state != Enumeration.StateTile.opened)
+                        return Enumeration.State.none;
+
+            }
+            //else if (tileType == Enumeration.TileType.space)
+            else if (tileCollision == Enumeration.TileCollision.Passable)
+            {
+                if (face == SpriteEffects.FlipHorizontally)
+                { x = x + 1; }
+                else
+                { x = x - 1; }
+                tileCollision = myRoom.GetCollision(x, y - 1);
+                //tileType = _room.GetType(x, y - 1);
+                //if (tileType != Enumeration.TileType.floor & tileType != Enumeration.TileType.gate)
+                if (tileCollision != Enumeration.TileCollision.Platform)
+                    return Enumeration.State.none;
+
+                Tile t = myRoom.GetTile(new Vector2(x, y - 1));
+                if (t.Type == Enumeration.TileType.gate)
+                    if (t.tileState.Value().state != Enumeration.StateTile.opened)
+                        return Enumeration.State.none;
+
+            }
+            else
+                return Enumeration.State.none;
+
+            //If is a door close isnt climbable
+
+
+            //check is platform or gate forward up
+            int xOffSet = 0;
+            if (face == SpriteEffects.FlipHorizontally)
+            { xOffSet = -Tile.REALWIDTH + Tile.PERSPECTIVE; }
+
+            Rectangle tileBounds;
+            //if under kid there's not a platform change the point to climbup..
+
+            if (face == SpriteEffects.FlipHorizontally)
+                tileCollision = myRoom.GetCollision(x - 1, y);
+            else
+                tileCollision = myRoom.GetCollision(x + 1, y);
+
+
+            if (tileCollision == Enumeration.TileCollision.Passable & face != SpriteEffects.FlipHorizontally)
+            {
+                tileBounds = myRoom.GetBounds(x, y);
+                xOffSet = -26;
+                _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
+                return Enumeration.State.jumphangMed;
+            }
+
+            tileBounds = myRoom.GetBounds(x, y - 1);
+            _position.Value = new Vector2(tileBounds.Center.X + xOffSet, _position.Y);
+            return Enumeration.State.jumphangLong;
+
+        }
+
+        protected bool isLoosable()
+        {
+
+            // Get the player's bounding rectangle and find neighboring tiles.
+            Rectangle playerBounds = _position.Bounding;
+            Vector2 v2 = myRoom.getCenterTilePosition(playerBounds);
+
+            int x = (int)v2.X;
+            int y = (int)v2.Y;
+
+
+            //Rectangle tileBounds = _room.GetBounds(x, y);
+            //Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
+            Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y - 1);
+            Enumeration.TileType tileType; // = _room.GetType(x, y - 1);
+
+
+            //if (tileType == Enumeration.TileType.floor | tileType == Enumeration.TileType.gate)
+            if (tileCollision == Enumeration.TileCollision.Platform)
+            {
+                //CHECK KID IS UNDER THE FLOOR CHECK NEXT TILE
+                Tile t = myRoom.GetTile(x, y - 1);
+                if (t.Type != Enumeration.TileType.loose)
+                {
+                    return false;
+                }
+                ((Loose)t).Press();
+
+
+            }
+            return false;
         }
     }
 }

@@ -1,11 +1,20 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// LoadingScreen.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="LoadingScreen.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
 
 #region Using Statements
 using System;
@@ -14,6 +23,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
+using System.Threading;
 #endregion
 
 namespace PrinceOfPersia
@@ -39,6 +49,9 @@ namespace PrinceOfPersia
         bool loadingIsSlow;
         bool otherScreensAreGone;
 
+        public Thread threadLoading;
+
+
         GameScreen[] screensToLoad;
 
         #endregion
@@ -57,6 +70,10 @@ namespace PrinceOfPersia
             this.screensToLoad = screensToLoad;
 
             TransitionOnTime = TimeSpan.FromSeconds(0.5);
+
+            threadLoading = new Thread(this.LoadContent);
+            threadLoading.Start();
+
         }
 
 
@@ -72,11 +89,16 @@ namespace PrinceOfPersia
                 screen.ExitScreen();
 
             // Create and activate the loading screen.
-            LoadingScreen loadingScreen = new LoadingScreen(screenManager,
-                                                            loadingIsSlow,
-                                                            screensToLoad);
+            LoadingScreen loadingScreen = new LoadingScreen(screenManager, loadingIsSlow, screensToLoad);
 
             screenManager.AddScreen(loadingScreen, controllingPlayer);
+
+        }
+
+        public  void LoadContent()
+        {
+            Maze.Content = Program.LoadContent<object>(ScreenManager.content);
+            Program.LoaderFinish = true;
         }
 
 
@@ -95,6 +117,13 @@ namespace PrinceOfPersia
 
             // If all the previous screens have finished transitioning
             // off, it is time to actually perform the load.
+
+            if (Program.LoaderFinish == false)
+            {
+                //wait loading content 100%
+                return;
+            }
+
             if (otherScreensAreGone)
             {
                 ScreenManager.RemoveScreen(this);
@@ -142,19 +171,29 @@ namespace PrinceOfPersia
                 SpriteBatch spriteBatch = ScreenManager.SpriteBatch;
                 SpriteFont font = ScreenManager.Font;
 
-                const string message = "Loading...";
+                string message = "LOADING... ";
+                string LoaderCount = Program.LoaderCount.ToString() + " %";
+                message += LoaderCount;
+
 
                 // Center the text in the viewport.
                 Viewport viewport = ScreenManager.GraphicsDevice.Viewport;
                 Vector2 viewportSize = new Vector2(viewport.Width, viewport.Height);
-                Vector2 textSize = font.MeasureString(message);
-                Vector2 textPosition = (viewportSize - textSize) / 2;
+                
+                
 
 				Color color = Color.White * TransitionAlpha;
 
                 // Draw the text.
                 spriteBatch.Begin();
-                spriteBatch.DrawString(font, message, textPosition, color);
+
+                FontRenderer fontRender = new FontRenderer(ScreenManager.FontFile, ScreenManager.FontTexture);
+                Vector2 textSize = fontRender.MeasureString(message);
+                Vector2 textPosition = (viewportSize - textSize) / 2;
+                fontRender.DrawString(spriteBatch, textPosition, message);
+
+
+                //spriteBatch.DrawString(font, message, textPosition, color);
                 spriteBatch.End();
 
 

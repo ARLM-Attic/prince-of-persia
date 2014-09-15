@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Enumeration.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,7 +60,9 @@ namespace PrinceOfPersia
             left,
             right,
             down,
+            downshift,
             up,
+            upshift,
             leftshift,
             rightshift,
             shift,
@@ -105,7 +125,7 @@ namespace PrinceOfPersia
             upressplate = 15,
             exit = 16, //left door portion
             exit2 = 17, //right door portion
-            slicer = 18,
+            chomper = 18,  //original name slicer
             torch = 19,
             block = 20,
             bones = 21,
@@ -283,8 +303,16 @@ namespace PrinceOfPersia
             ,stuck
             ,palace_pattern
             ,empty //flask
+            ,kill //this is generic state for tell to kill player if touch it
         }
 
+        //For understand if sprite is near, touch or not the wall in front of him
+        public enum RETURN_COLLISION_WALL
+        { 
+            FAR,
+            NEAR,
+            TOUCH
+        }
 
         public enum State
         {

@@ -1,4 +1,22 @@
-﻿/**/
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Tile.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+/**/
 
 using System;
 using System.Reflection;
@@ -41,11 +59,11 @@ namespace PrinceOfPersia
         public static int PERSPECTIVE = 26; //26 isometric shift x right
         public static readonly Vector2 Size = new Vector2(WIDTH, HEIGHT);
 
-        public static Rectangle MASK_FLOOR = new Rectangle(0, 128, 62, 20); //floor 
-        public static Rectangle MASK_POSTS = new Rectangle(0, 0, 54, 148); //gate
-        public static Rectangle MASK_BLOCK = new Rectangle(0, 0, 64, 148); //block 
-        public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, 148); //door
-        
+        public static Rectangle MASK_FLOOR = new Rectangle(0, REALWIDTH, 62, GROUND); //floor 
+        public static Rectangle MASK_POSTS = new Rectangle(0, 0, 54, REALHEIGHT); //gate
+        public static Rectangle MASK_BLOCK = new Rectangle(0, 0, 64, REALHEIGHT); //block 
+        public static Rectangle MASK_DOOR = new Rectangle(50, 0, 13, REALHEIGHT); //door
+        public static Rectangle MASK_CHOMPER = new Rectangle(0, 0, PERSPECTIVE, REALHEIGHT); //chomper
 
         private SpriteEffects flip = SpriteEffects.None;
 
@@ -92,7 +110,7 @@ namespace PrinceOfPersia
         public Tile()
         {}
 
-        public Tile(Room room, ContentManager Content, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
+        public Tile(Room room, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
         {
             this.room = room;
             nextTileType = NextTileType;
@@ -107,7 +125,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in tileSequence)
             {
-                s.Initialize(Content);
+                s.Initialize();
             }
 
             //Search in the sequence the right type
@@ -119,7 +137,8 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
+                result.frames[0].SetTexture((Texture2D)Maze.Content[PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value]); 
+                //result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
 
                 collision = result.collision;
                 Texture = result.frames[0].texture;
@@ -131,16 +150,16 @@ namespace PrinceOfPersia
             StateTileElement stateTileElement = new StateTileElement();
             stateTileElement.state = state;
             tileState.Add(stateTileElement);
-            tileAnimation.PlayAnimation(tileSequence, tileState.Value());
+            tileAnimation.PlayAnimation(tileSequence, tileState);
 
             //load item
             switch (eitem)
             { 
                 case Enumeration.Items.flask:
-                    item = new Flask(Content);
+                    item = new Flask();
                     break;
                 case Enumeration.Items.sword:
-                    item = new Sword(Content);
+                    item = new Sword();
                     break;
             }
 
@@ -164,6 +183,14 @@ namespace PrinceOfPersia
         {
             HandleCollision();
 
+
+            if (this.GetType() == typeof(Chomper))
+            {
+                ((Chomper)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (((Chomper)this).elapsedTimeOpen > ((Chomper)this).timeOpen)
+                    ((Chomper)this).Close();
+            }
+
             if (this.GetType() == typeof(Spikes))
             {
                 ((Spikes)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -174,6 +201,9 @@ namespace PrinceOfPersia
 
             if (this.GetType() == typeof(Gate))
             {
+                if (((Gate)this).infiniteOpen == true)
+                    return;
+
                 ((Gate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (((Gate)this).elapsedTimeOpen > ((Gate)this).timeOpen)
                     ((Gate)this).Close(); 
@@ -189,6 +219,9 @@ namespace PrinceOfPersia
 
             if (this.GetType() == typeof(PressPlate))
             {
+                if (((PressPlate)this).infinitePress == true)
+                    return;
+
                 ((PressPlate)this).elapsedTimeOpen += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (((PressPlate)this).elapsedTimeOpen > ((PressPlate)this).timeOpen & ((PressPlate)this).State == Enumeration.StateTile.dpressplate)
                     ((PressPlate)this).DePress();
@@ -234,15 +267,21 @@ namespace PrinceOfPersia
                         {
                             room.tilesTemporaney.Remove(this);
                         }
-                        //Vector2 vs = new Vector2(this.Position.X, this.Position.Y);
+                        //THE LOOSE FALL INTO FLOOR
                         if (tileType == Enumeration.TileType.loose)
                         {
                             Loose l = (Loose)room.GetTile((int)v.X, (int)v.W);
                             l.Fall(true);
                         }
+                        else if (tileType == Enumeration.TileType.pressplate)
+                        {
+                            ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "tile crashing into the floor"]).Play();
+                            PressPlate pressPlate = (PressPlate)room.GetTile((int)v.X, (int)v.Y);
+                            pressPlate.Press();
+                        }
                         else
                         {
-                            ((SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS +"tile crashing into the floor"]).Play();
+                            ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS +"tile crashing into the floor"]).Play();
                             room.SubsTile(Coordinates, Enumeration.TileType.rubble);
                         }
                     }

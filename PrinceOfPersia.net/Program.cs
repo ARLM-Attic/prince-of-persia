@@ -1,3 +1,21 @@
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Program.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +33,9 @@ namespace PrinceOfPersia
     static class Program
     {
 
+        public static int LoaderCount = 0;
+        public static bool LoaderFinish = false;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -28,21 +49,14 @@ namespace PrinceOfPersia
 
 
 
-        public static Dictionary<String, T> LoadContent<T>(this ContentManager contentManager, string contentFolder)
+
+
+        public static Dictionary<String, T> LoadContent<T>(this ContentManager contentManager)
         {
             Dictionary<String, T> result = new Dictionary<String, T>();
             string key = string.Empty;
-#if ANDROID
-            key = "Tiles/BlockA";
-            result[key] = contentManager.Load<T>(key);
-            key = "Tiles/GateA";
-            result[key] = contentManager.Load<T>(key);
-            key = "Tiles/SpaceA";
-            result[key] = contentManager.Load<T>(key);
-            key = "Tiles/SpaceB";
-            result[key] = contentManager.Load<T>(key);
-            return result;
-#else
+            string extension = string.Empty;
+
             //Load directory info, abort if none
 			System.Console.WriteLine("---------------------------------------------");
 			System.Console.WriteLine(contentManager.RootDirectory);
@@ -54,45 +68,55 @@ namespace PrinceOfPersia
 
 
             var files = Directory
-				.GetFiles(contentManager.RootDirectory + "/" + contentFolder, "*.xnb", SearchOption.AllDirectories)
-            //.Where(file => file.ToLower().EndsWith("xnb") || file.ToLower().EndsWith("xml"))
+				.GetFiles(contentManager.RootDirectory, "*.*", SearchOption.AllDirectories)
+            .Where(file => file.ToLower().EndsWith("xnb") || file.ToLower().EndsWith("fnt"))
             .ToList();
 
 
+            int xCount = 0;
             foreach (object f in files)
             {
+                LoaderCount = (int)Math.Round((double)(100 * ++xCount) / files.Count);
+
                 key = string.Empty;
                 string fileName = f.ToString().Replace('\\','/');
+                extension = fileName.Substring(fileName.Length - 4);
+
                 int fileExtPos = fileName.LastIndexOf(".");
                 if (fileExtPos >= 0)
                     fileName = fileName.Substring(0, fileExtPos);
                 //remove contentManager.RootDirectory
 
                 fileExtPos = fileName.LastIndexOf(contentManager.RootDirectory) + (contentManager.RootDirectory + "/").Length;
-                if (fileExtPos >= 0)
+                if (fileExtPos > 1)
                     key = fileName.Substring(fileExtPos);
 
-      
 
                 try
                 {
                     //bug in the monogame load song, i will add the wav extension??!?!?
-                    if (key.Contains("Songs/") == true)
+                    if (extension.Contains(".wav") == true)
+                        result[key] = (T)(object)contentManager.Load<Song>(key + extension);
+                    else if (extension.Contains(".fnt") == true)
                     {
-                        result[key] = (T)(object)contentManager.Load<Song>(key+".wav");
+                        result[key] = (T)(object)FontLoader.Load(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + key + extension);
                     }
                     else
                         result[key] = contentManager.Load<T>(key);
                 }
                 catch(Exception ex)
-                {}
+                {
+                    System.Console.WriteLine(ex.ToString());
+                }
                 //result[f.N] = contentManager.Load<T>(sFolder + key); 
             }
  
-            return result;
-#endif
-        }
+            
 
+            
+            return result;
+        }
+        
     }
 }
 

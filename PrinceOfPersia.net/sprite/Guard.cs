@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Guard.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
@@ -51,7 +69,7 @@ namespace PrinceOfPersia
 
             foreach (Sequence s in spriteSequence)
             {
-                s.Initialize(myRoom.content);
+                s.Initialize();
             }
 
             // Calculate bounds within texture size.         
@@ -65,9 +83,9 @@ namespace PrinceOfPersia
             localBounds = new Rectangle(left, top, width, height);
 
             // Load sounds.            
-            //killedSound = _room.content.Load<SoundEffect>("Sounds/PlayerKilled");
-            //jumpSound = _room.content.Load<SoundEffect>("Sounds/PlayerJump");
-            //fallSound = _room.content.Load<SoundEffect>("Sounds/PlayerFall");
+            //killedSound = _room.content.Load<SoundEffect>("sounds/PlayerKilled");
+            //jumpSound = _room.content.Load<SoundEffect>("sounds/PlayerJump");
+            //fallSound = _room.content.Load<SoundEffect>("sounds/PlayerFall");
         }
 
         /// <summary>
@@ -91,7 +109,7 @@ namespace PrinceOfPersia
 
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             // TODO: Add your game logic here.
-            sprite.UpdateFrame(elapsed, ref _position, ref flip, ref spriteState);
+            sprite.UpdateFrame(elapsed, ref _position, ref face, ref spriteState);
 
             if (IsAlive == false)
             {
@@ -107,9 +125,11 @@ namespace PrinceOfPersia
                 {
                     case "Player":
                         {
-                            if(s.IsAlive == false)
+                            if (s.IsAlive == false)
+                            {
+                                s.DeadFall();
                                 break;
-
+                            }
                             //thereIsKid = true;
                             if (s.Position.CheckOnRow(Position))
                             {
@@ -143,11 +163,11 @@ namespace PrinceOfPersia
 
                                 //Chenge Flip player..
                                 if (Position.X < s.Position.X)
-                                    flip = SpriteEffects.None;
+                                    face = SpriteEffects.None;
                                 else
-                                    flip = SpriteEffects.FlipHorizontally;
+                                    face = SpriteEffects.FlipHorizontally;
 
-                                Advance(s.Position, flip);
+                                Advance(s.Position, face);
 
                                 
 
@@ -179,7 +199,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, flip, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, face, 0.5f);
         }
 
         /// <summary>
@@ -194,7 +214,7 @@ namespace PrinceOfPersia
             Velocity = Vector2.Zero;
             Energy = PrinceOfPersiaGame.CONFIG_KID_START_ENERGY;
 
-            flip = spriteEffect;
+            face = spriteEffect;
 
             spriteState.Clear();
 
@@ -221,7 +241,7 @@ namespace PrinceOfPersia
                 return;
 
             spriteState.Add(Enumeration.State.stand, priority);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
         }
 
 
@@ -236,7 +256,7 @@ namespace PrinceOfPersia
                 return;
 
             spriteState.Add(Enumeration.State.engarde, priority);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
 
         }
 
@@ -251,7 +271,7 @@ namespace PrinceOfPersia
                 return;
 
             spriteState.Add(Enumeration.State.guardengarde, priority);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
 
         }
 
@@ -265,16 +285,16 @@ namespace PrinceOfPersia
                 return;
 
             spriteState.Add(Enumeration.State.ready, priority);
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
 
         }
 
         public void Advance(Position position, SpriteEffects flip)
         {
             if (flip == SpriteEffects.FlipHorizontally)
-                this.flip = SpriteEffects.None;
+                this.face = SpriteEffects.None;
             else
-                this.flip = SpriteEffects.FlipHorizontally;
+                this.face = SpriteEffects.FlipHorizontally;
 
 
             if (position.X + Sprite.SPRITE_SIZE_X - 30  <= Position.X)
@@ -294,14 +314,14 @@ namespace PrinceOfPersia
                 //spriteState.Add(Enumeration.State.ready, Enumeration.PriorityState.Normal);
             }
             
-            sprite.PlayAnimation(spriteSequence, spriteState.Value());
+            sprite.PlayAnimation(spriteSequence, spriteState);
 
         }
 
 
         public void HandleCollisionsNew()
         {
-            isGround();
+            CheckGround();
 
             Rectangle playerBounds = _position.Bounding;
             //Find how many tiles are near on the left
@@ -326,7 +346,7 @@ namespace PrinceOfPersia
                                 return;
                             }
 
-                            if (flip == SpriteEffects.FlipHorizontally)
+                            if (face == SpriteEffects.FlipHorizontally)
                             {
                                 if (depth.X < 10 & depth.Y >= Player.SPRITE_SIZE_Y)
                                     ((Spikes)myRoom.GetTile(x, y)).Open();
@@ -346,7 +366,7 @@ namespace PrinceOfPersia
                             break;
 
                         case Enumeration.TileType.loose:
-                            if (flip == SpriteEffects.FlipHorizontally)
+                            if (face == SpriteEffects.FlipHorizontally)
                             {
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
                                     ((Loose)myRoom.GetTile(x, y)).Press();
@@ -374,7 +394,7 @@ namespace PrinceOfPersia
 
 
                             //if sx wall i will penetrate..for perspective design
-                            if (flip == SpriteEffects.FlipHorizontally)
+                            if (face == SpriteEffects.FlipHorizontally)
                             {
                                 //only for x pixel 
                                 if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
@@ -401,7 +421,7 @@ namespace PrinceOfPersia
                                 }
                                 else
                                 {
-                                    if (sprite.sequence.raised == true)
+                                    if (spriteState.Value().Raised == true)
                                         _position.Value = new Vector2(_position.X, _position.Y);
                                     else
                                         _position.Value = new Vector2(_position.X, _position.Y);
@@ -431,7 +451,7 @@ namespace PrinceOfPersia
                                     }
                                 }
                                 else
-                                    if (sprite.sequence.raised == true)
+                                    if (spriteState.Value().Raised == true)
                                         _position.Value = new Vector2(_position.X, _position.Y);
                                     else
                                         _position.Value = new Vector2(_position.X, _position.Y);
@@ -455,7 +475,7 @@ namespace PrinceOfPersia
                 myRoom = myRoom.Down;
                 _position.Y = Room.TOP_LIMIT + 27; // Y=77
                 //For calculate height fall from damage points calculations..
-                PositionFall = new Vector2(Position.X, (Game.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_LIMIT - PositionFall.Y));
+                PositionFall = new Vector2(Position.X, (PrinceOfPersiaGame.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_LIMIT - PositionFall.Y));
             }
             else if (_position.X >= Room.RIGHT_LIMIT)
             {

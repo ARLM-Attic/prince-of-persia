@@ -1,4 +1,22 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Sequence.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,7 +38,7 @@ namespace PrinceOfPersia
 
         public List<Frame> frames = new List<Frame>();
         public string name;
-        public bool raised = false;
+        //public bool raised = false;
         public Enumeration.TileType tileType;
         public Enumeration.TileCollision collision;
 
@@ -49,7 +67,7 @@ namespace PrinceOfPersia
 
         
         
-        public void Initialize(ContentManager Content)
+        public void Initialize()
         {
             foreach (Frame f in frames)
             {
@@ -59,10 +77,10 @@ namespace PrinceOfPersia
                     if (f.value != null)
                     {
 						Texture2D t = null;
-#if ANDROID
-#else
-                        t = (Texture2D)Maze.dContentRes[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString() + f.value];
-#endif
+
+                        //t = (Texture2D) Maze.content.Load<Texture2D>(System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString() + f.value);
+                        t = (Texture2D)Maze.Content[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString() + f.value];
+
                         if (t == null)
                             f.SetTexture(null);
                         else
@@ -71,7 +89,8 @@ namespace PrinceOfPersia
                     //loading sound
                     if (f.sound != null)
                     {
-                        SoundEffect s = (SoundEffect)Maze.dContentRes[PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound];
+                        //SoundEffect s = (SoundEffect) Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound);
+                        SoundEffect s = (SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound];
                         f.SetSound(s);
                     }
                 }
@@ -87,7 +106,7 @@ namespace PrinceOfPersia
         {
             Sequence newSequence = new Sequence();
             newSequence.name = this.name;
-            newSequence.raised = this.raised;
+            //newSequence.raised = this.raised;
             newSequence.collision = this.collision;
             newSequence.tileType = this.tileType;
 

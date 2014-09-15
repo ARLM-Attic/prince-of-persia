@@ -1,4 +1,23 @@
-﻿using System;
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="Utils.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -13,6 +32,15 @@ namespace PrinceOfPersia
 {
     public class Utils
     {
+
+        public static string StreamToString(Stream stream)
+        {
+            //stream.Position = 0;
+            using (StreamReader reader = new StreamReader(stream, System.Text.Encoding.UTF8))
+            {
+                return reader.ReadToEnd();
+            }
+        }
 
         public static Enumeration.TileType ParseTileType(string element)
         {
@@ -39,9 +67,9 @@ namespace PrinceOfPersia
 
             
             
-            //NOT IMPLEMENTED TEXTURE... SLICER
-            if (iElement == 18)
-            { iElement = 1; }
+            //NOT IMPLEMENTED TEXTURE... SLICER or CHOMPER
+            //if (iElement == 18)
+            //{ iElement = 1; }
 
             //NOT IMPLEMENTED TEXTURE... PILLARTOP
             if (iElement == 9)

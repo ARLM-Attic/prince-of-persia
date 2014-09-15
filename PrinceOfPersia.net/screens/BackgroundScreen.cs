@@ -1,11 +1,21 @@
-#region File Description
-//-----------------------------------------------------------------------------
-// BackgroundScreen.cs
-//
-// Microsoft XNA Community Game Platform
-// Copyright (C) Microsoft Corporation. All rights reserved.
-//-----------------------------------------------------------------------------
-#endregion
+﻿	//-----------------------------------------------------------------------//
+	// <copyright file="BackgroundScreen.cs" company="A.D.F.Software">
+	// Copyright "A.D.F.Software" (c) 2014 All Rights Reserved
+	// <author>Andrea M. Falappi</author>
+	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
+	// </copyright>
+	//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
+
 
 #region Using Statements
 using System;
@@ -78,26 +88,25 @@ namespace PrinceOfPersia
             {
                 if (content == null)
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
-#if ANDROID   
-#else
-                music = content.Load<Song>(System.Configuration.ConfigurationSettings.AppSettings["CONFIG_songs"].ToString() + "main theme");
+
+                music = content.Load<Song>(PrinceOfPersiaGame.CONFIG_SONGS + "main theme");
 
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Volume = 1.0f;
                 MediaPlayer.Play(music);
 
-#endif
 
-                backgroundTexture = content.Load<Texture2D>("Backgrounds/main_background");
-                presentsTexture = content.Load<Texture2D>("Backgrounds/presents");
-                authorsTexture = content.Load<Texture2D>("Backgrounds/author");
-                titleTexture = content.Load<Texture2D>("Backgrounds/main_title");
-                copyrightTexture = content.Load<Texture2D>("Backgrounds/copyright");
+
+                backgroundTexture = content.Load<Texture2D>("backgrounds/main_background");
+                presentsTexture = content.Load<Texture2D>("backgrounds/presents");
+                authorsTexture = content.Load<Texture2D>("backgrounds/author");
+                titleTexture = content.Load<Texture2D>("backgrounds/main_title");
+                copyrightTexture = content.Load<Texture2D>("backgrounds/copyright");
 
                 //now for the text and other background like story etc
-                text0BackgroudTexture = content.Load<Texture2D>("Backgrounds/text_0_background");
-                text1BackgroudTexture = content.Load<Texture2D>("Backgrounds/text_1_background");
-                text2BackgroudTexture = content.Load<Texture2D>("Backgrounds/text_2_background");
+                text0BackgroudTexture = content.Load<Texture2D>("backgrounds/text_0_background");
+                text1BackgroudTexture = content.Load<Texture2D>("backgrounds/text_1_background");
+                text2BackgroudTexture = content.Load<Texture2D>("backgrounds/text_2_background");
 
                 backgroundToDisplayTexture = backgroundTexture;
 

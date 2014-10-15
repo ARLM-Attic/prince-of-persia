@@ -21,6 +21,13 @@ using Microsoft.Xna.Framework;
 
 namespace PrinceOfPersia
 {
+
+    /**
+     * This is useful for distinguish the draw coordinate and
+     * the grid coordinate
+     *
+     */
+
     public class Position
     {
         public Vector2 _screenRealSize;
@@ -36,18 +43,19 @@ namespace PrinceOfPersia
             _vector2 = Vector2.Zero;
         }
 
-        /// <summary>
-        /// The DrawValue is differtent coordinate position because the drawing routing
-        /// draw sprite on the left upper corner and the real screen room screen begin to BOTTOM_BORDER
-        /// 
-        /// </summary>
-        /// <returns></returns>
+        //
+        //This is the draw position with correct perspective and tile ground
+        //is only applied for sprite
+        //
+        public Vector2 ValueDraw
+        {
+            get
+            {
+                //return _vector2;
+                return new Vector2(_vector2.X + Tile.PERSPECTIVE, _vector2.Y - Tile.GROUND);
+            }
 
-        //public Vector2 DrawValue()
-        //{ return new Vector2(_vector2.X, _vector2.Y); }
-
-
-
+        }
 
         public Vector2 Value
         {
@@ -145,26 +153,9 @@ namespace PrinceOfPersia
             get
             {
                 return new Rectangle((int)_vector2.X, (int)_vector2.Y, (int)_spriteRealSize.X, (int)_spriteRealSize.Y);
-                //return new Rectangle((int)_vector2.X + Player.PLAYER_STAND_BORDER_FRAME, (int)_vector2.Y, (int)Player.PLAYER_STAND_FRAME, (int)_spriteRealSize.Y);
             }
         }
 
-
-        
-  
-
-
-        ////example to mask a method of Vector2 structure 
-        //public static float Dot(Position value1, Position value2)
-        //{
-        //    return Vector2.Dot(value1, value2);
-        //}
-
-        ////override the cast to Vector2
-        //public static implicit operator Vector2(Position value) 
-        //{
-        //    return new Vector2(value.X, value.Y);
-        //}
 
     }
 }

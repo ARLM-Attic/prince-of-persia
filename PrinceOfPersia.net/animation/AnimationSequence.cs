@@ -213,8 +213,11 @@ namespace PrinceOfPersia
             //Taking name of the frame usefull for hit combat..
             stateTileElement.Name = sequence.frames[frameIndex].name;
 
-            //ASSIGN NOW THE RAISED
-            stateTileElement.Raised = sequence.frames[frameIndex].raised;
+            if (sequence.raised == true)
+                stateTileElement.Raised = true;
+            else
+                stateTileElement.Raised = sequence.frames[frameIndex].raised;
+
 
             //ASSIGN FRAME only for debug purpose
             stateTileElement.Frame = frameIndex;
@@ -362,8 +365,13 @@ namespace PrinceOfPersia
             //Taking name of the frame usefull for hit combat..
             statePlayerElement.Name = sequence.frames[frameIndex].name;
 
+
             //ASSIGN NOW THE RAISED
-            statePlayerElement.Raised = sequence.frames[frameIndex].raised;
+            if (sequence.raised == true)
+                statePlayerElement.Raised = true;
+            else
+                statePlayerElement.Raised = sequence.frames[frameIndex].raised;
+
 
             //ASSIGN FRAME only for debug purpose
             statePlayerElement.Frame = frameIndex;
@@ -399,7 +407,15 @@ namespace PrinceOfPersia
                 playerState.Value().Name = sequence.frames[frameIndex].name;
 
                 //ASSIGN NOW THE RAISED
-                playerState.Value().Raised = sequence.frames[frameIndex].raised;
+                if (sequence.raised == true)
+                {
+                    playerState.Value().Raised = true;
+                }
+                else
+                { 
+                    //get single raised values from frameindex
+                    playerState.Value().Raised = sequence.frames[frameIndex].raised; 
+                }
 
                 //ASSIGN FRAME only for debug purpose
                 playerState.Value().Frame = frameIndex;
@@ -522,7 +538,11 @@ namespace PrinceOfPersia
             playerState.Value().Name = sequence.frames[frameIndex].name;
 
             //ASSIGN NOW THE RAISED
-            playerState.Value().Raised = sequence.frames[frameIndex].raised;
+            if (sequence.raised == true)
+                playerState.Value().Raised = true;
+            else
+                playerState.Value().Raised = sequence.frames[frameIndex].raised;
+
 
             //ASSIGN FRAME only for debug purpose
             playerState.Value().Frame = frameIndex;
@@ -790,16 +810,16 @@ namespace PrinceOfPersia
         }
 
 
-        public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth)
+        public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Position position, SpriteEffects spriteEffects, float depth)
         {
 
             // Calculate the source rectangle of the current frame.
             Rectangle source = new Rectangle(0, 0, sequence.frames[frameIndex].texture.Height, sequence.frames[frameIndex].texture.Height);
 
-            position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
+            //position = new Vector2(position.X + Tile.PERSPECTIVE, position.Y - Tile.GROUND);
 
             // Draw the current frame.
-            spriteBatch.Draw(sequence.frames[frameIndex].texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
+            spriteBatch.Draw(sequence.frames[frameIndex].texture, position.ValueDraw, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
 
 
         }

@@ -38,7 +38,7 @@ namespace PrinceOfPersia
 
         public List<Frame> frames = new List<Frame>();
         public string name;
-        //public bool raised = false;
+        public bool raised = false;
         public Enumeration.TileType tileType;
         public Enumeration.TileCollision collision;
 
@@ -77,10 +77,34 @@ namespace PrinceOfPersia
                     if (f.value != null)
                     {
 						Texture2D t = null;
+#if ANDROID
+                        switch (config_type)
+                        {
+                            case "CONFIG_tiles" :
+                                t = (Texture2D)Maze.Content[PoP.CONFIG_TILES + f.value];
+                                break;
+                            case "CONFIG_sprite_kid" :
+                                t = (Texture2D)Maze.Content[PoP.CONFIG_SPRITE_KID + f.value];
+                                break;
+                            case "CONFIG_sprite_guard":
+                                t = (Texture2D)Maze.Content[PoP.CONFIG_SPRITE_GUARD + f.value];
+                                break;
+                            case "CONFIG_items":
+                                t = (Texture2D)Maze.Content[PoP.CONFIG_ITEMS + f.value];
+                                break;
 
+                            case "CONFIG_sprite_effects":
+                                t = (Texture2D)Maze.Content[PoP.CONFIG_SPRITE_EFFECTS + f.value];
+                                break;
+                            default:
+                                break;
+                        
+                        }
+                        
+#else
                         //t = (Texture2D) Maze.content.Load<Texture2D>(System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString() + f.value);
                         t = (Texture2D)Maze.Content[System.Configuration.ConfigurationSettings.AppSettings[config_type].ToString() + f.value];
-
+#endif
                         if (t == null)
                             f.SetTexture(null);
                         else
@@ -90,7 +114,7 @@ namespace PrinceOfPersia
                     if (f.sound != null)
                     {
                         //SoundEffect s = (SoundEffect) Maze.content.Load<SoundEffect>(PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound);
-                        SoundEffect s = (SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + f.sound];
+                        SoundEffect s = (SoundEffect)Maze.Content[PoP.CONFIG_SOUNDS + f.sound];
                         f.SetSound(s);
                     }
                 }
@@ -106,7 +130,7 @@ namespace PrinceOfPersia
         {
             Sequence newSequence = new Sequence();
             newSequence.name = this.name;
-            //newSequence.raised = this.raised;
+            newSequence.raised = this.raised;
             newSequence.collision = this.collision;
             newSequence.tileType = this.tileType;
 

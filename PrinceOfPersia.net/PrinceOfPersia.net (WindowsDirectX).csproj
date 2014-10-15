@@ -126,9 +126,7 @@
     <Compile Include="dungeon\popnet\Row.cs" />
     <Compile Include="dungeon\Room.cs" />
     <Compile Include="items\Sword.cs" />
-    <Compile Include="PoPGame.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="PoP.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ScreenFactory.cs" />
     <Compile Include="dungeon\Level.cs" />

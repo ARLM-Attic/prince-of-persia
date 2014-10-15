@@ -35,17 +35,26 @@ namespace PrinceOfPersia
 
         public static int LoaderCount = 0;
         public static bool LoaderFinish = false;
+        //public static Game game = null;
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        static void Main(string[] args)
+        /// 
+        [STAThread]
+        static void Main()
         {
-            using (Game game = new Game())
+            try
             {
+            using (var game = new Game())
                 game.Run();
             }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.ToString());
+            }
         }
+
 
 
 
@@ -56,7 +65,43 @@ namespace PrinceOfPersia
             Dictionary<String, T> result = new Dictionary<String, T>();
             string key = string.Empty;
             string extension = string.Empty;
+#if ANDROID
 
+            string sResults = string.Empty;
+            var filePath = Path.Combine("", "results.txt");
+            using (var stream = TitleContainer.OpenStream(filePath))
+            {
+                sResults =  Utils.StreamToString(stream);
+                stream.Close();
+            }
+            
+            string[] sArray =  sResults.Split('\r');
+
+            int xCount = 0;
+            for (int x = 0; x < sArray.Count(); x++ )
+            {
+                LoaderCount = (int)Math.Round((double)(100 * ++xCount) / sArray.Count());
+                int a = sArray[x].IndexOf("Content\\");
+                if (a == -1)
+                    continue;
+                extension = sArray[x].Substring(sArray[x].Length - 4, 4);
+
+                sArray[x] = sArray[x].Remove(0, a + "Content\\".Length);
+                if (extension != ".xnb")
+                    if (extension != ".fnt")
+                        continue;
+
+                sArray[x]  = sArray[x].Replace('\\', '/');
+                key = sArray[x].Substring(0, sArray[x].Length - 4);
+                
+                if (extension == ".xnb")
+                    result[key] = contentManager.Load<T>(key);
+                else
+                    result[key] = (T)(object)FontLoader.Load(PoP.CONFIG_PATH_CONTENT + key + extension);
+                
+            }
+             
+#else
             //Load directory info, abort if none
 			System.Console.WriteLine("---------------------------------------------");
 			System.Console.WriteLine(contentManager.RootDirectory);
@@ -99,7 +144,7 @@ namespace PrinceOfPersia
                         result[key] = (T)(object)contentManager.Load<Song>(key + extension);
                     else if (extension.Contains(".fnt") == true)
                     {
-                        result[key] = (T)(object)FontLoader.Load(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + key + extension);
+                        result[key] = (T)(object)FontLoader.Load(PoP.CONFIG_PATH_CONTENT + key + extension);
                     }
                     else
                         result[key] = contentManager.Load<T>(key);
@@ -112,7 +157,7 @@ namespace PrinceOfPersia
             }
  
             
-
+#endif
             
             return result;
         }

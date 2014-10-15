@@ -111,7 +111,7 @@ namespace PrinceOfPersia
             spriteSequence = new List<Sequence>();
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(spriteSequence.GetType());
 
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + this.GetType().Name.ToString().ToLower() +"_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_SEQUENCES + this.GetType().Name.ToString().ToLower() +"_sequence.xml");
 
 
             //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + "KID_sequence.xml");
@@ -169,7 +169,7 @@ namespace PrinceOfPersia
         /// </summary>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, face, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position, face, 0.5f);
         }
 
    

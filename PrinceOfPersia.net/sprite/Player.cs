@@ -76,7 +76,7 @@ namespace PrinceOfPersia
             spriteSequence = new List<Sequence>();
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(spriteSequence.GetType());
 
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + "kid_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_SEQUENCES + "kid_sequence.xml");
 
             spriteSequence = (List<Sequence>)ax.Deserialize(txtReader);
 
@@ -511,12 +511,12 @@ namespace PrinceOfPersia
             //////////
             //RIGHT 
             //////////
-            if (keyboardState.IsKeyDown(Keys.Up) & keyboardState.IsKeyDown(Keys.Right))
+            if (keyboardState.IsKeyDown(Keys.Up) & keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.E))
             {
                 return Enumeration.Input.rightup;
             }
-            
-            if (keyboardState.IsKeyDown(Keys.Down) & keyboardState.IsKeyDown(Keys.Right))
+
+            if (keyboardState.IsKeyDown(Keys.Down) & keyboardState.IsKeyDown(Keys.Right) || keyboardState.IsKeyDown(Keys.C))
             {
                 return Enumeration.Input.righdown;
             }
@@ -561,9 +561,12 @@ namespace PrinceOfPersia
             bool shiftInput = false;
             int pixelToX = 0;
             int pixelToY = 0;
-
+#if ANDROID 
             pixelToX = 50;
-
+            pixelToY = 50;
+#elif WINDOWS
+            pixelToX = 50;
+#endif
 
             Vector2 touchDepth = Vector2.Zero;
 
@@ -577,7 +580,7 @@ namespace PrinceOfPersia
             {
                 touchPositionRect = new Rectangle((int)touchState[x].Position.X - pixelToX, (int)touchState[x].Position.Y - pixelToY, 60, 60);
 
-                touchDepth = PrinceOfPersiaGame.CntShiftZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntShiftZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 { 
                     shiftInput = true;
@@ -585,56 +588,56 @@ namespace PrinceOfPersia
                     continue;
                 }
 
-                touchDepth = PrinceOfPersiaGame.CntUpZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntUpZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.up;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntUpLeftZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntUpLeftZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.leftup;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntUpRightZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntUpRightZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.rightup;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntLeftZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntLeftZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.left;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntLeftZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntLeftZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
-                if (PrinceOfPersiaGame.CntCenterZone.Contains((int)touchState[x].Position.X, (int)touchState[x].Position.Y))
+                if (PoP.CntCenterZone.Contains((int)touchState[x].Position.X, (int)touchState[x].Position.Y))
                 {
                     //lastInput = Enumeration.Input.none;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntRightZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntRightZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.right;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntDownLeftZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntDownLeftZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.leftdown;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntDownZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntDownZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.down;
                     continue;
                 }
-                touchDepth = PrinceOfPersiaGame.CntDownRightZone.GetIntersectionDepth(touchPositionRect);
+                touchDepth = PoP.CntDownRightZone.GetIntersectionDepth(touchPositionRect);
                 if (touchDepth.X > 0 | touchDepth.Y > 0)
                 {
                     lastInput = Enumeration.Input.righdown;
@@ -680,7 +683,7 @@ namespace PrinceOfPersia
             ////////
             // CHEAT DEBUG
             /////////
-            if (PrinceOfPersia.PrinceOfPersiaGame.CONFIG_DEBUG == true)
+            if (PoP.CONFIG_DEBUG == true)
             {
                 if (keyboardState.IsKeyDown(Keys.NumPad8))
                 {
@@ -752,375 +755,7 @@ namespace PrinceOfPersia
     
      
 
-        private void HandleCollisionSprite()
-        {
-
-            //Check opposite sprite like guards..
-            bool thereAreEnemy = false;
-            foreach (Sprite s in myRoom.SpritesInRoom())
-            {
-                switch (s.GetType().Name)
-                {
-                    case "Guard" :
-                    {
-                            if (s.IsAlive == false)
-                                break;
-
-                            thereAreEnemy = true;
-                            if (s.Position.CheckOnRow(Position))
-                            {
-
-                                //ENGARDE
-                                if (s.Position.CheckOnRowDistance(Position) >= 0 & s.Position.CheckOnRowDistance(Position) <= 3 & Alert == false)
-                                {
-                                    if (Sword == true)
-                                    {
-                                        Engarde(Enumeration.PriorityState.Force, true);
-                                        Alert = true;
-                                    }
-                                    else
-                                    {
-                                        if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == false)
-                                        {
-                                            Energy = 0;
-                                            return;
-                                        }
-                                    }
-                                }
-
-                                //STRIKE/HIT
-                                if (s.Position.CheckOnRowDistancePixel(Position) >= 0 & s.Position.CheckOnRowDistancePixel(Position) <= 70 & Alert == true)
-                                {
-                                    //Change Flip player..
-                                    if (Position.X > s.Position.X)
-                                        face = SpriteEffects.None;
-                                    else
-                                        face = SpriteEffects.FlipHorizontally;
-
-                                    if (spriteState.Value().Name == Enumeration.State.strike.ToString())
-                                    {
-                                        if (s.spriteState.Value().Name != Enumeration.State.readyblock.ToString())
-                                        {
-                                            //RESET STRIKE
-                                            spriteState.Value().Name = string.Empty;
-                                            GameTime g = null;
-                                            s.Splash(false, g);
-                                            s.Energy = s.Energy - 1;
-                                            s.StrikeRetreat();
-                                        }
-                                        else
-                                        {
-                                            System.Console.WriteLine("G->" + Enumeration.State.readyblock.ToString());
-                                        }
-                                    }
-
-                                    if (s.Energy == 0)
-                                    { Fastheathe(); }
-
-                                }
-                            }
-                            else
-                            {
-                                Alert = false;
-                            }
-                            break;
-                        }
-                    default:
-                        break;
-                }
-
-            }
-            if (thereAreEnemy == false & Alert == true)
-            {
-                Alert = false;
-                Stand();
-            }
-
-        }
-
-        private void HandleCollisionTile()
-        {
-            Rectangle playerBounds = _position.Bounding;
-            //Find how many tiles are near on the left
-            Vector4 v4 = myRoom.getBoundTiles(playerBounds);
-
-            // For each potentially colliding Tile, warning the for check only the player row ground..W
-            for (int y = (int)v4.Z; y <= (int)v4.W; ++y)
-            {
-                for (int x = (int)v4.X; x <= (int)v4.Y; ++x)
-                {
-                    Rectangle tileBounds = myRoom.GetBounds(x, y);
-                    Vector2 depth = RectangleExtensions.GetIntersectionDepth(playerBounds, tileBounds);
-                    Enumeration.TileCollision tileCollision = myRoom.GetCollision(x, y);
-                    Enumeration.TileType tileType = myRoom.GetType(x, y);
-                    Tile tileCenter = myRoom.getCenterTile(playerBounds);
-
-
-                    switch (tileType)
-                    {
-                        case Enumeration.TileType.chomper:
-                            if (IsAlive == false)
-                            {
-                                ((Chomper)myRoom.GetTile(x, y)).Open();
-                                return;
-                            }
-
-                            if (face == SpriteEffects.None)
-                            {
-                                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_STAND_WALL_PEN)) //-58
-                                    if (myRoom.GetTile(x, y).tileState.Value().Name == Enumeration.StateTile.kill.ToString())
-                                    {
-                                        DeadFall();
-                                    }
-                            }
-                            else
-                            {
-                                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_STAND_FRAME))  //-50...-46
-                                    if (myRoom.GetTile(x, y).tileState.Value().Name == Enumeration.StateTile.kill.ToString())
-                                    {
-                                        DeadFall();
-                                    }
-                            }
-
-                            break;
-
-                        case Enumeration.TileType.spikes:
-                            if (IsAlive == false)
-                            {
-                                ((Spikes)myRoom.GetTile(x, y)).Open();
-                                return;
-                            }
-
-                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
-                                ((Spikes)myRoom.GetTile(x, y)).Open();
-                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION - Player.PLAYER_STAND_FRAME)) //45
-                                ((Spikes)myRoom.GetTile(x, y)).Open();
-
-                            if (depth.Y >= 0)
-                            {
-                                if (myRoom.GetTile(x, y).tileState.Value().state == Enumeration.StateTile.open)
-                                {
-                                    if (this.spriteState.Value().state == Enumeration.State.stand & this.spriteState.Previous().state == Enumeration.State.bump)
-                                    {
-                                        Impale(Enumeration.PriorityState.Force);
-                                        return;
-                                    }
-                                }
-                                if (myRoom.GetTile(x, y).tileState.Value().state == Enumeration.StateTile.opened)
-                                {
-                                    if (this.spriteState.Value().state == Enumeration.State.stand & this.spriteState.Previous().state == Enumeration.State.bump)
-                                    {
-                                        Impale(Enumeration.PriorityState.Force);
-                                        return;
-                                    }
-                                    if (this.spriteState.Value().state == Enumeration.State.startrun)
-                                    {
-                                        Impale(Enumeration.PriorityState.Force);
-                                        return;
-                                    }
-                                }
-                            }
-
-                            break;
-
-                        case Enumeration.TileType.loose:
-                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
-                                ((Loose)myRoom.GetTile(x, y)).Press();
-                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION - Player.PLAYER_STAND_FRAME)) //45
-                                ((Loose)myRoom.GetTile(x, y)).Press();
-                            else
-                                isLoosable();
-                            //if (flip == SpriteEffects.FlipHorizontally)
-                            //{
-
-                            //    if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION + Player.PLAYER_STAND_FRAME))
-                            //        ((Loose)myRoom.GetTile(x, y)).Press();
-                            //    else
-                            //        isLoosable();
-                            //}
-                            //else
-                            //{
-                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                            //        ((Loose)myRoom.GetTile(x, y)).Press();
-                            //    else
-                            //        isLoosable();
-                            //}
-                            break;
-
-                        case Enumeration.TileType.pressplate:
-                            //if (flip == SpriteEffects.FlipHorizontally)
-                            //{
-                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                ((PressPlate)myRoom.GetTile(x, y)).Press();
-                            else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                ((PressPlate)myRoom.GetTile(x, y)).Press();
-                            //}
-                            //else
-                            //{
-                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                            //        ((PressPlate)myRoom.GetTile(x, y)).Press();
-                            //    if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                            //         ((PressPlate)myRoom.GetTile(x, y)).Press();
-                            //}
-                            break;
-
-                        case Enumeration.TileType.exit:
-                            if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                if (((Exit)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
-                                {
-                                    ((Exit)myRoom.GetTile(x, y)).ExitLevel();
-                                    Maze.NextLevel();
-                                }
-                                else if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                {
-                                    if (((Exit)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
-                                    {
-                                        ((Exit)myRoom.GetTile(x, y)).ExitLevel();
-                                        Maze.NextLevel();
-                                    }
-                                }
-
-
-
-                            break;
-
-                        case Enumeration.TileType.gate:
-                        case Enumeration.TileType.block:
-                            if (tileType == Enumeration.TileType.gate)
-                                if (((Gate)myRoom.GetTile(x, y)).State == Enumeration.StateTile.opened)
-                                    break;
-
-
-
-                            //if sx wall i will penetrate..for perspective design
-                            if (face == SpriteEffects.FlipHorizontally)
-                            {
-                                //only for x pixel 
-                                if (depth.X < (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION))
-                                {
-                                    //if (spriteState.Value().Raised == false)
-                                    if (spriteState.Value().state != Enumeration.State.freefall &
-                                        spriteState.Value().state != Enumeration.State.highjump &
-                                        spriteState.Value().state != Enumeration.State.hang &
-                                        spriteState.Value().state != Enumeration.State.hangstraight &
-                                        spriteState.Value().state != Enumeration.State.hangdrop &
-                                        spriteState.Value().state != Enumeration.State.hangfall &
-                                        spriteState.Value().state != Enumeration.State.jumphangMed &
-                                        spriteState.Value().state != Enumeration.State.jumphangLong &
-                                        spriteState.Value().state != Enumeration.State.climbup &
-                                        spriteState.Value().state != Enumeration.State.climbdown
-                                        )
-                                    {
-                                        _position.Value = new Vector2(_position.X + (depth.X - (-Tile.PERSPECTIVE - PLAYER_R_PENETRATION)), _position.Y); //WALLTOUCH
-                                        if (spriteState.Value().Raised == false)
-                                            Bump(Enumeration.PriorityState.Force);
-                                        else
-                                        {
-                                            CrawlAndCrouch(Enumeration.PriorityState.Force);
-                                        }
-                                        return;
-                                    }
-                                }
-                                else
-                                {
-                                    if (spriteState.Value().Raised == true)
-                                        _position.Value = new Vector2(_position.X, _position.Y);
-                                    //else
-                                      //  _position.Value = new Vector2(_position.X, _position.Y);
-                                }
-                            }
-                            else
-                            {
-                                if (depth.X > (Tile.PERSPECTIVE + PLAYER_L_PENETRATION)) //45
-                                {
-                                    //if (spriteState.Value().Raised == false)
-                                    if (
-                                        spriteState.Value().state != Enumeration.State.freefall &
-                                        spriteState.Value().state != Enumeration.State.highjump &
-                                        spriteState.Value().state != Enumeration.State.hang &
-                                        spriteState.Value().state != Enumeration.State.hangstraight &
-                                        spriteState.Value().state != Enumeration.State.hangdrop &
-                                        spriteState.Value().state != Enumeration.State.hangfall &
-                                        spriteState.Value().state != Enumeration.State.jumphangMed &
-                                        spriteState.Value().state != Enumeration.State.jumphangLong &
-                                        spriteState.Value().state != Enumeration.State.climbup &
-                                        spriteState.Value().state != Enumeration.State.climbdown
-
-                                        )
-                                    {
-                                        _position.Value = new Vector2(_position.X + (depth.X - (+Tile.PERSPECTIVE + PLAYER_L_PENETRATION)), _position.Y); //WALLTOUCH
-                                        if (spriteState.Value().Raised == false)
-                                        {
-                                            Bump(Enumeration.PriorityState.Force);
-                                        }
-                                        else
-                                        {
-                                            //i must check if under me there's a floor
-                                            if (tileCenter.collision == Enumeration.TileCollision.Passable)
-                                                RJumpFall(Enumeration.PriorityState.Force);
-                                            else
-                                            {
-                                                CrawlAndCrouch(Enumeration.PriorityState.Force);
-                                            }
-
-                                        }
-                                    }
-                                }
-                                else
-                                    if (spriteState.Value().Raised == true)
-                                        _position.Value = new Vector2(_position.X, _position.Y);
-                                    else
-                                        _position.Value = new Vector2(_position.X, _position.Y);
-                            }
-                            playerBounds = BoundingRectangle;
-                            break;
-
-                        //default:
-                        //    _position.Value = new Vector2(_position.X, tileBounds.Bottom);
-                        //    playerBounds = BoundingRectangle;
-                        //    break;
-                    }
-
-                }
-            }
-            //???
-            //previousBottom = playerBounds.Bottom;
-            //check if out room
-            if (_position.Y > Room.BOTTOM_LIMIT + 10)
-            {
-                myRoom = myRoom.Down;
-                _position.Y = Room.TOP_LIMIT + 27; // Y=77
-                //For calculate height fall from damage points calculations..
-                PositionFall = new Vector2(Position.X, (PrinceOfPersiaGame.CONFIG_SCREEN_HEIGHT - Room.BOTTOM_LIMIT - PositionFall.Y));
-
-
-            }
-            else if (_position.X >= Room.RIGHT_LIMIT)
-            {
-                myRoom = myRoom.Right;
-                _position.X = Room.LEFT_LIMIT + 10;
-            }
-            else if (_position.X <= Room.LEFT_LIMIT)
-            {
-                myRoom = myRoom.Left;
-                _position.X = Room.RIGHT_LIMIT - 10;
-            }
-            else if (_position.Y < Room.TOP_LIMIT - 10)
-            {
-                myRoom = myRoom.Up;
-                _position.Y = Room.BOTTOM_LIMIT - 24;  //Y=270
-            }
-        }
-
-        public void HandleCollisions()
-        {
-            CheckGround();
-
-            HandleCollisionSprite();
-
-            HandleCollisionTile();
-
-        }
+     
 
 
         /// <summary>
@@ -1129,7 +764,7 @@ namespace PrinceOfPersia
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             //DRAW SPRITE
-            sprite.DrawSprite(gameTime, spriteBatch, _position.Value, face, 0.5f);
+            sprite.DrawSprite(gameTime, spriteBatch, _position, face, 0.5f);
         }
 
 

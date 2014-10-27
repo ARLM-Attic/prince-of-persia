@@ -89,12 +89,18 @@ namespace PrinceOfPersia
                 if (content == null)
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-                music = content.Load<Song>(PrinceOfPersiaGame.CONFIG_SONGS + "main theme");
+                music = content.Load<Song>(PoP.CONFIG_SONGS + "main theme");
 
                 MediaPlayer.IsRepeating = true;
                 MediaPlayer.Volume = 1.0f;
-                MediaPlayer.Play(music);
-
+                try
+                {
+                    //MediaPlayer.Play(music);
+                }
+                catch (Exception ex)
+                {
+                    System.Console.WriteLine(ex.ToString()+"Bug on mediaplayer in monogame 3.2 on some win7.. music off");
+                }
 
 
                 backgroundTexture = content.Load<Texture2D>("backgrounds/main_background");

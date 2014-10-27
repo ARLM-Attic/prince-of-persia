@@ -747,17 +747,6 @@ namespace PrinceOfPersia
             return GetKeyboardInput(keyboardState);
         }
 
-
-
-
-
-
-    
-     
-
-     
-
-
         /// <summary>
         /// Draws the animated player.
         /// </summary>

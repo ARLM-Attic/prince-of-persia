@@ -63,7 +63,7 @@ namespace PrinceOfPersia
         /// </summary>
         void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new PrinceOfPersiaGame());
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new PoP());
         }
 
 

@@ -40,10 +40,10 @@ namespace PrinceOfPersia
         public static string CONFIG_TILES = "tiles/dos/";
         public static string CONFIG_ITEMS = "items/";
         public static string CONFIG_FONTS = "fonts/";
-        public static string CONFIG_PATH_APOPLEXY = "apoplexy/";
+        public static string CONFIG_PATH_APOPLEXY = "levels/apoplexy/";
         public static string CONFIG_PATH_LEVELS = "levels/";
         public static string CONFIG_PATH_ROOMS = "rooms/";
-        public static string CONFIG_PATH_SEQUENCES = "sequences/dos";
+        public static string CONFIG_PATH_SEQUENCES = "sequences/dos/";
         public static bool LEVEL_APOPLEXY = true;
         public static int CONFIG_KID_START_ENERGY = 3;
         public static string CONFIG_PATH_CONTENT = "Content/";
@@ -125,12 +125,12 @@ namespace PrinceOfPersia
             CONFIG_PATH_SEQUENCES = ConfigurationSettings.AppSettings["CONFIG_path_Sequences"].ToString();
             CONFIG_SPRITE_EFFECTS = ConfigurationSettings.AppSettings["CONFIG_sprite_effects"].ToString();
             CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
-            CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_PATH_APOPLEXY"].ToString();
+            CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_path_APOPLEXY"].ToString();
             LEVEL_APOPLEXY = bool.Parse(ConfigurationSettings.AppSettings["LEVEL_APOPLEXY"].ToString());
+            //CONFIG_PATH_PON = ConfigurationSettings.AppSettings["CONFIG_PATH_PON"].ToString();
+
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_TOUCHSCREEN_VISIBLE"], out CONFIG_TOUCHSCREEN_VISIBLE);
-
         
-
 
 
         }

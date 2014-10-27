@@ -46,7 +46,7 @@ namespace PrinceOfPersia
         void playButton_Tapped(object sender, EventArgs e)
         {
             // When the "Play" button is tapped, we load the GameplayScreen
-            LoadingScreen.Load(ScreenManager, true, PlayerIndex.One, new PrinceOfPersiaGame());
+            LoadingScreen.Load(ScreenManager, true, PlayerIndex.One, new PoP());
         }
 
         void sfxButton_Tapped(object sender, EventArgs e)

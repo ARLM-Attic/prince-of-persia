@@ -53,11 +53,17 @@ namespace PrinceOfPersia
 
         public static int GROUND = 20; //20;//18; //Height of the floor ground
         public static int WIDTH = 64; //used for build the grid of room
-        public static int HEIGHT= 126; //used for build the grid of room 
+        public static int HEIGHT = 126; //used for build the grid of room 
         public static int REALHEIGHT = 148; //used for build view of romm
         public static int REALWIDTH = 128; //used for build view of romm
         public static int PERSPECTIVE = 26; //26 isometric shift x right
+
+        public static int CHOMPER_DISTANCE_PENETRATION_L = 14; //max distance of kid penetration on tile edge
+
         public static readonly Vector2 Size = new Vector2(WIDTH, HEIGHT);
+        public static readonly int HEIGHT_VISIBLE = REALHEIGHT - HEIGHT - Room.TOP_BORDER; //is the real visible coordinate for the tile
+
+
 
         public static Rectangle MASK_FLOOR = new Rectangle(0, REALWIDTH, 62, GROUND); //floor 
         public static Rectangle MASK_POSTS = new Rectangle(0, 0, 54, REALHEIGHT); //gate
@@ -69,6 +75,10 @@ namespace PrinceOfPersia
 
         //private Maze maze;
         protected Room room;
+        public Room Room
+        {
+            get { return room; }
+        }
 
         private Position _position;
         public Position Position
@@ -76,6 +86,7 @@ namespace PrinceOfPersia
             get { return _position; }
             set { _position = value; }
         }
+
 
         //to determine how to draw walls, calculate in room construction algorithm
         private int _panelInfo;
@@ -117,7 +128,7 @@ namespace PrinceOfPersia
 
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
 
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
             //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
 
 
@@ -137,7 +148,7 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture((Texture2D)Maze.Content[PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value]); 
+                result.frames[0].SetTexture((Texture2D)Maze.Content[PoP.CONFIG_TILES + result.frames[0].value]); 
                 //result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
 
                 collision = result.collision;
@@ -252,9 +263,10 @@ namespace PrinceOfPersia
 
                 Rectangle r = new Rectangle((int)Position.X, (int) Position.Y, Tile.WIDTH, Tile.HEIGHT);
                 Vector4 v = room.getBoundTiles(r);
-                Rectangle tileBounds = room.GetBounds((int)v.X, (int)v.W);
+                Tile myTile = room.GetTile((int)v.X, (int)v.W);
+                //Rectangle tileBounds = room.GetBounds((int)v.X, (int)v.W);
 
-                Vector2 depth = RectangleExtensions.GetIntersectionDepth(tileBounds, r);
+                Vector2 depth = RectangleExtensions.GetIntersectionDepth(myTile.Position.Bounding, r);
                 Enumeration.TileType tileType = room.GetType((int)v.X, (int)v.W);
                 Enumeration.TileCollision tileCollision = room.GetCollision((int)v.X, (int)v.W);
                 //Tile tile = room.GetTile(new Vector2((int)v.X, (int)v.W));
@@ -275,13 +287,13 @@ namespace PrinceOfPersia
                         }
                         else if (tileType == Enumeration.TileType.pressplate)
                         {
-                            ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS + "tile crashing into the floor"]).Play();
+                            ((SoundEffect)Maze.Content[PoP.CONFIG_SOUNDS + "tile crashing into the floor"]).Play();
                             PressPlate pressPlate = (PressPlate)room.GetTile((int)v.X, (int)v.Y);
                             pressPlate.Press();
                         }
                         else
                         {
-                            ((SoundEffect)Maze.Content[PrinceOfPersiaGame.CONFIG_SOUNDS +"tile crashing into the floor"]).Play();
+                            ((SoundEffect)Maze.Content[PoP.CONFIG_SOUNDS +"tile crashing into the floor"]).Play();
                             room.SubsTile(Coordinates, Enumeration.TileType.rubble);
                         }
                     }

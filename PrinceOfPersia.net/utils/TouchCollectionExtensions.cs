@@ -5,11 +5,16 @@
 	// <date>Wednesday, September 24, 2014 11:36:49 AM</date>
 	// </copyright>
 	//
-    // * NOTICE:  This file and all PrinceOfPersia.net sources are under 
-    // * the Apache 2.0 license for details see :
-    // * Version 2.0, January 2004
-    // * http://www.apache.org/licenses/
-    //-----------------------------------------------------------------------//
+	// * NOTICE:  All information contained herein is, and remains
+	// * the property of Andrea M. Falappi and its suppliers,
+	// * if any.  The intellectual and technical concepts contained
+	// * herein are proprietary to A.D.F.Software
+	// * and its suppliers and may be covered by World Wide and Foreign Patents,
+	// * patents in process, and are protected by trade secret or copyright law.
+	// * Dissemination of this information or reproduction of this material
+	// * is strictly forbidden unless prior written permission is obtained
+	// * from Andrea M. Falappi.
+	//-----------------------------------------------------------------------//
 
 using Microsoft.Xna.Framework.Input.Touch;
 

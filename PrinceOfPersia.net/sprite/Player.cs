@@ -230,6 +230,7 @@ namespace PrinceOfPersia
                             break;
                     }
                     break;
+            
                 //SHIFTLEFT//////////////////////
                 case Enumeration.Input.leftshift:
                     switch (spriteState.Value().state)
@@ -256,6 +257,7 @@ namespace PrinceOfPersia
                             break;
                     }
                     break;
+
                 //LEFTDOWN//////////////////////
                 case Enumeration.Input.leftdown:
                     switch (spriteState.Value().state)
@@ -444,6 +446,12 @@ namespace PrinceOfPersia
                         case Enumeration.State.ready:
                             Strike(spriteState.Value().Priority);
                             break;
+                        case Enumeration.State.stepfall:
+                        case Enumeration.State.freefall:
+                            if (isHangable() == true)
+                                Hang();
+                            break;
+
                         default:
                             CheckItemOnFloor();
                             break;

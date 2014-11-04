@@ -378,13 +378,29 @@ namespace PrinceOfPersia
     {
         public static FontFile Load(String filename)
         {
+#if ANDROID
+            FontFile file;
+            XmlSerializer deserializer = new XmlSerializer(typeof(FontFile));
+            using (Stream stream = Game.Activity.Assets.Open(filename))
+            {
+                //TextReader tr = new StreamReader(stream);
+                file = (FontFile)deserializer.Deserialize(stream);
+            }
+            return file;
 
+            using (var stream = TitleContainer.OpenStream(filename))
+            {
+                System.Runtime.Serialization.Formatters.Binary.BinaryFormatter formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                file = (FontFile)formatter.Deserialize(stream);
+            }
+            return file;
+#else
             XmlSerializer deserializer = new XmlSerializer(typeof(FontFile));
             TextReader textReader = new StreamReader(filename);
             FontFile file = (FontFile)deserializer.Deserialize(textReader);
             textReader.Close();
             return file;
-
+#endif
         }
     }
 

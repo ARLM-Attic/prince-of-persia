@@ -602,37 +602,37 @@
         <name></name>
         <value>Kid_45</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>2</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_46</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>2</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_47</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>2</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_48</value>
         <stoppable>false</stoppable>
-        <xOffSet>4</xOffSet>
+        <xOffSet>2</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_49</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>2</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_50</value>
         <stoppable>false</stoppable>
-        <xOffSet>6</xOffSet>
+        <xOffSet>0</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -645,7 +645,7 @@
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
       </Frame>
-      <Frame>
+    <Frame>
         <type>COMMAND</type>
         <name>GOTOSEQUENCE</name>
         <parameter>STAND</parameter>
@@ -653,6 +653,7 @@
       </Frame>
     </frames>
     <name>TURN</name>
+    <raised>true</raised>
   </Sequence>
 
   <!-- RUNSTOP -->
@@ -896,7 +897,7 @@
         <value>Kid_76</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>7</xOffSet>
+        <xOffSet>0</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -911,7 +912,7 @@
         <name></name>
         <value>Kid_78</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>7</xOffSet>
         <yOffSet>-6</yOffSet>
         <raised>true</raised>
       </Frame>
@@ -969,7 +970,7 @@
     <raised>true</raised>
   </Sequence>
 
-  <!-- HANGDROP 22px y -->
+  <!-- HANGDROP 22px y  9px x-->
   <Sequence>
     <config_type>CONFIG_sprite_kid</config_type>
     <frames>
@@ -988,7 +989,7 @@
         <value>Kid_81</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>0</xOffSet>
+        <xOffSet>5</xOffSet>
         <yOffSet>6</yOffSet>
       </Frame>
       <Frame>
@@ -997,7 +998,7 @@
         <value>Kid_82</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>0</xOffSet>
+        <xOffSet>4</xOffSet>
         <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
@@ -1363,7 +1364,7 @@
         <name>SJLAND</name>
         <value>Kid_76</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>-4</xOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1687,7 +1688,7 @@
         <value>Kid_135</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>6</yOffSet>
+        <yOffSet>-4</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1695,7 +1696,7 @@
         <value>Kid_136</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>26</yOffSet>
+        <yOffSet>-18</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1703,7 +1704,7 @@
         <value>Kid_137</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>-5</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1711,7 +1712,15 @@
         <value>Kid_137</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>-5</yOffSet>
+      </Frame>
+      <Frame>
+        <type>SPRITE</type>
+        <name></name>
+        <value>Kid_138</value>
+        <stoppable>false</stoppable>
+        <xOffSet>0</xOffSet>
+        <yOffSet>-12</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1735,15 +1744,7 @@
         <value>Kid_138</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
-      </Frame>
-      <Frame>
-        <type>SPRITE</type>
-        <name></name>
-        <value>Kid_138</value>
-        <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>12</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1751,7 +1752,7 @@
         <value>Kid_137</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1759,7 +1760,7 @@
         <value>Kid_136</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>4</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1767,7 +1768,7 @@
         <value>Kid_135</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>18</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
@@ -1776,6 +1777,7 @@
         <stoppable>false</stoppable>
       </Frame>
     </frames>
+    <raised>true</raised>
     <name>CLIMBFAIL</name>
   </Sequence>
 
@@ -1793,7 +1795,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>2</name>
         <value>Kid_145</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
@@ -1801,24 +1803,24 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>3</name>
         <value>Kid_144</value>
         <stoppable>false</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>5</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>4</name>
         <value>Kid_143</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
         <xOffSet>0</xOffSet>
-        <yOffSet>10</yOffSet>
+        <yOffSet>5</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>5</name>
         <value>Kid_142</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -1827,7 +1829,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>6</name>
         <value>Kid_141</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -1836,16 +1838,16 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>7</name>
         <value>Kid_140</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
         <xOffSet>0</xOffSet>
-        <yOffSet>30</yOffSet>
+        <yOffSet>15</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>8</name>
         <value>Kid_137</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -1854,16 +1856,16 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>9</name>
         <value>Kid_138</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
         <xOffSet>0</xOffSet>
-        <yOffSet>11</yOffSet>
+        <yOffSet>6</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>10</name>
         <value>Kid_136</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -1872,12 +1874,12 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>11</name>
         <value>Kid_91</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
         <xOffSet>-4</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>20</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
@@ -1900,7 +1902,7 @@
         <value>Kid_106</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>5</yOffSet>
+        <yOffSet>20</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1908,7 +1910,7 @@
         <value>Kid_106</value>
         <stoppable>true</stoppable>
         <xOffSet>0</xOffSet>
-        <yOffSet>15</yOffSet>
+        <yOffSet>25</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -1916,7 +1918,7 @@
         <value>Kid_106</value>
         <stoppable>true</stoppable>
         <xOffSet>3</xOffSet>
-        <yOffSet>25</yOffSet>
+        <yOffSet>30</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
@@ -1929,7 +1931,7 @@
     <raised>true</raised>
   </Sequence>
 
-  <!-- STEPFALL x 8 8 4 4 -->
+  <!-- STEPFALL x 8 8 4 4  y = 0-->
   <Sequence>
     <config_type>CONFIG_sprite_kid</config_type>
     <frames>
@@ -1939,28 +1941,31 @@
         <value>Kid_102</value>
         <stoppable>false</stoppable>
         <xOffSet>8</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>2</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
+        <name>2</name>
         <value>Kid_103</value>
         <stoppable>false</stoppable>
         <xOffSet>8</xOffSet>
-        <yOffSet>0</yOffSet>
+        <yOffSet>5</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
+        <name>3</name>
         <value>Kid_104</value>
         <stoppable>false</stoppable>
-        <xOffSet>4</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>16</xOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
+        <name>4</name>
         <value>Kid_105</value>
         <stoppable>false</stoppable>
-        <xOffSet>4</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>16</xOffSet>
+        <yOffSet>15</yOffSet>
       </Frame>
       <Frame>
         <type>COMMAND</type>
@@ -2350,7 +2355,7 @@
     <raised>true</raised>
   </Sequence>
 
-  <!-- standjump-->
+  <!-- standjump 39px original = 178 real -->
   <Sequence>
     <config_type>CONFIG_sprite_kid</config_type>
     <frames>
@@ -2367,7 +2372,7 @@
         <name></name>
         <value>Kid_17</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>3</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2375,7 +2380,7 @@
         <name></name>
         <value>Kid_18</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>3</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2383,7 +2388,7 @@
         <name></name>
         <value>Kid_19</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>3</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2391,7 +2396,7 @@
         <name>STANDJUMP</name>
         <value>Kid_20</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>3</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2399,7 +2404,7 @@
         <name></name>
         <value>Kid_21</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>3</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2407,7 +2412,7 @@
         <name></name>
         <value>Kid_22</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>35</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2415,7 +2420,7 @@
         <name></name>
         <value>Kid_23</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>45</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2423,22 +2428,38 @@
         <name></name>
         <value>Kid_24</value>
         <stoppable>false</stoppable>
-        <xOffSet>20</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>25</xOffSet>
+        <yOffSet>-10</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name>SJLAND</name>
         <value>Kid_25</value>
         <stoppable>false</stoppable>
-        <xOffSet>30</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>7</xOffSet>
+        <yOffSet>10</yOffSet>
       </Frame>
+      <Frame>
+        <type>COMMAND</type>
+        <name>FUNCTION_BOOL</name>
+        <parameter>IsNextTileGround|SJLAND|STEPFALL</parameter>
+        <stoppable>false</stoppable>
+      </Frame>
+    </frames>
+    <name>STANDJUMP</name>
+    <raised>true</raised>
+  </Sequence>
+
+  <!-- SJLAND -->
+  <!-- If there's floor land on it -->
+  <Sequence>
+    <config_type>CONFIG_sprite_kid</config_type>
+    <frames>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_26</value>
+        <name>SJLAND</name>
         <stoppable>false</stoppable>
-        <xOffSet>35</xOffSet>
+        <xOffSet>20</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2446,14 +2467,14 @@
         <value>Kid_27</value>
         <stoppable>false</stoppable>
         <sound>running 2</sound>
-        <xOffSet>35</xOffSet>
+        <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_28</value>
         <stoppable>false</stoppable>
-        <xOffSet>30</xOffSet>
+        <xOffSet>15</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2461,14 +2482,14 @@
         <value>Kid_29</value>
         <stoppable>false</stoppable>
         <sound>running 2</sound>
-        <xOffSet>10</xOffSet>
+        <xOffSet>11</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_30</value>
         <stoppable>false</stoppable>
-        <xOffSet>5</xOffSet>
+        <xOffSet>0</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2489,7 +2510,7 @@
         <type>SPRITE</type>
         <value>Kid_33</value>
         <stoppable>false</stoppable>
-        <xOffSet>0</xOffSet>
+        <xOffSet>5</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2499,10 +2520,14 @@
         <stoppable>false</stoppable>
       </Frame>
     </frames>
-    <name>STANDJUMP</name>
+    <name>SJLAND</name>
     <raised>true</raised>
-  </Sequence>
-
+  </Sequence> qq    
+  
+    
+    
+      
+        
   <!-- RUNJUMP-->
   <Sequence>
     <config_type>CONFIG_sprite_kid</config_type>
@@ -2513,7 +2538,7 @@
         <value>Kid_34</value>
         <sound>running 2</sound>
         <stoppable>false</stoppable>
-        <xOffSet>15</xOffSet>
+        <xOffSet>23</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2521,7 +2546,7 @@
         <name></name>
         <value>Kid_35</value>
         <stoppable>false</stoppable>
-        <xOffSet>20</xOffSet>
+        <xOffSet>27</xOffSet>
         <yOffSet>0</yOffSet>
         <raised>true</raised>
       </Frame>
@@ -2530,7 +2555,7 @@
         <name></name>
         <value>Kid_36</value>
         <stoppable>false</stoppable>
-        <xOffSet>25</xOffSet>
+        <xOffSet>14</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2538,7 +2563,7 @@
         <name></name>
         <value>Kid_37</value>
         <stoppable>false</stoppable>
-        <xOffSet>25</xOffSet>
+        <xOffSet>23</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2548,7 +2573,7 @@
         <sound>running 2</sound>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>30</xOffSet>
+        <xOffSet>32</xOffSet>
         <yOffSet>0</yOffSet>
       </Frame>
       <Frame>
@@ -2557,8 +2582,8 @@
         <value>Kid_39</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>25</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>55</xOffSet>
+        <yOffSet>-4</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
@@ -2566,15 +2591,15 @@
         <value>Kid_40</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
-        <xOffSet>20</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>37</xOffSet>
+        <yOffSet>-8</yOffSet>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <name></name>
         <value>Kid_41</value>
         <stoppable>false</stoppable>
-        <xOffSet>20</xOffSet>
+        <xOffSet>37</xOffSet>
         <yOffSet>0</yOffSet>
         <raised>true</raised>
       </Frame>
@@ -2583,16 +2608,16 @@
         <name></name>
         <value>Kid_42</value>
         <stoppable>false</stoppable>
-        <xOffSet>20</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>18</xOffSet>
+        <yOffSet>8</yOffSet>
         <raised>true</raised>
       </Frame>
       <Frame>
         <type>SPRITE</type>
         <value>Kid_43</value>
         <stoppable>false</stoppable>
-        <xOffSet>20</xOffSet>
-        <yOffSet>0</yOffSet>
+        <xOffSet>18</xOffSet>
+        <yOffSet>4</yOffSet>
         <raised>true</raised>
       </Frame>
       <Frame>
@@ -2601,7 +2626,7 @@
         <value>Kid_44</value>
         <sound>running 2</sound>
         <stoppable>false</stoppable>
-        <xOffSet>15</xOffSet>
+        <xOffSet>23</xOffSet>
         <yOffSet>0</yOffSet>
         <raised>true</raised>
       </Frame>
@@ -2699,7 +2724,7 @@
     <frames>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>RJUMPFALL</name>
         <value>Kid_102</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -2708,7 +2733,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>2</name>
         <value>Kid_103</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -2717,7 +2742,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>3</name>
         <value>Kid_104</value>
         <stoppable>false</stoppable>
         <raised>true</raised>
@@ -2726,7 +2751,7 @@
       </Frame>
       <Frame>
         <type>SPRITE</type>
-        <name></name>
+        <name>4</name>
         <value>Kid_105</value>
         <stoppable>false</stoppable>
         <raised>true</raised>

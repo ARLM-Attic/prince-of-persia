@@ -44,7 +44,7 @@ namespace PrinceOfPersia
         //private float Depth = 0.1f;
         public Enumeration.TileCollision collision;
         public Enumeration.TileType Type;
-        public AnimationSequence tileAnimation = new AnimationSequence();
+        public AnimationSequence tileAnimation;
         //private StateTileElement stateTileElement = new StateTileElement();
         public TileState tileState = new TileState();
         //contains object like sword, potion...
@@ -119,10 +119,13 @@ namespace PrinceOfPersia
 
 
         public Tile()
-        {}
+        {
+         tileAnimation = new AnimationSequence(this);
+        }
 
         public Tile(Room room, Enumeration.TileType tileType, Enumeration.StateTile state, Enumeration.Items eitem, Enumeration.TileType NextTileType)
         {
+            tileAnimation = new AnimationSequence(this);
             this.room = room;
             nextTileType = NextTileType;
 

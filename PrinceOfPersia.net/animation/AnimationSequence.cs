@@ -17,6 +17,7 @@
 	//-----------------------------------------------------------------------//
 
 using System;
+using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
@@ -28,16 +29,47 @@ namespace PrinceOfPersia
     /// <summary>
     /// Controls playback of an Animation
     /// </summary>
-    public struct AnimationSequence
+    public class AnimationSequence
     {
         bool firstTime;
         public Sequence sequence;
         public List<Sequence> lsequence;
         private float TotalElapsed;
         //private float time;
-       
-
+        private Sprite sprite;
+        private Item item;
+        private Tile tile;
         public static float frameRate = 0.09f;
+
+        public AnimationSequence(Sprite sprite)
+        {
+            this.sprite = sprite;
+        }
+
+        public AnimationSequence(Item item)
+        {
+            this.item = item;
+        }
+
+        public AnimationSequence(Tile tile)
+        {
+            this.tile = tile;
+        }
+
+        public object source
+        {
+            get 
+            {
+                if (sprite != null)
+                    return sprite;
+                if (item != null)
+                    return item;
+                if (tile != null)
+                    return tile;
+                return null;
+
+            }
+        }
 
 
         /// <summary>
@@ -380,6 +412,235 @@ namespace PrinceOfPersia
         }
 
         
+       // public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
+       // {
+       //     int flip = 0;
+
+       //     //Resetting Name
+       //     float TimePerFrame = 0;
+
+       //     TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
+       //     TotalElapsed += elapsed;
+
+       //     if (firstTime == true)
+       //     {
+       //         //Play Sound
+       //         sequence.frames[frameIndex].PlaySound();
+
+       //         if (spriteEffects == SpriteEffects.FlipHorizontally)
+       //             flip = 1;
+       //         else
+       //             flip = -1;
+
+       //         position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
+       //         firstTime = false;
+
+       //         //Taking name of the frame usefull for hit combat..
+       //         playerState.Value().Name = sequence.frames[frameIndex].name;
+
+       //         //ASSIGN NOW THE RAISED
+       //         if (sequence.raised == true)
+       //         {
+       //             playerState.Value().Raised = true;
+       //         }
+       //         else
+       //         { 
+       //             //get single raised values from frameindex
+       //             playerState.Value().Raised = sequence.frames[frameIndex].raised; 
+       //         }
+
+       //         //ASSIGN FRAME only for debug purpose
+       //         playerState.Value().Frame = frameIndex;
+
+       //         return;
+       //     }
+
+
+       //     if (TotalElapsed < TimePerFrame)
+       //     { 
+       //         return; 
+       //     }
+
+       //     //reset values
+       //     playerState.Value().Raised = false;
+       //     playerState.Value().Name = string.Empty;
+       //     playerState.Value().Frame = 0;
+
+          
+
+       //     frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+       //     TotalElapsed -= TimePerFrame;
+            
+            
+          
+       //     if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
+       //     {
+
+       //         //COMMAND
+       //         // SEPARATOR :
+       //         // "|" for each command
+       //         // ":" for command parameter
+       //         // "," for comma the parameter
+
+                
+
+       //         for (int c = frameIndex; c < (Frames.Count); c++)
+       //         {
+       //             if (sequence.frames[c].type != Enumeration.TypeFrame.COMMAND)
+       //             {
+       //                 break;
+       //             }
+
+
+       //             string[] aCommand = sequence.frames[c].name.Split('|');
+       //             string[] aParameter = sequence.frames[c].parameter.Split('|');
+                    
+       //             for (int x = 0; x < aCommand.Length; x++)
+       //             {
+       //                 int result = 0;
+       //                 Sequence sresult = null;
+       //                 string par = string.Empty;
+       //                 string[] apar = null;
+
+       //                 Enumeration.TypeCommand aTypeCommand = (Enumeration.TypeCommand)Enum.Parse(typeof(Enumeration.TypeCommand), aCommand[x]);
+
+       //                 switch (aTypeCommand)
+       //                 {
+       //                     case Enumeration.TypeCommand.ABOUTFACE:
+       //                         if (spriteEffects == SpriteEffects.FlipHorizontally)
+       //                             spriteEffects = SpriteEffects.None;
+       //                         else
+       //                             spriteEffects = SpriteEffects.FlipHorizontally;
+
+       //                         break;
+                                
+
+       //                     case Enumeration.TypeCommand.GOTOFRAME:
+       //                         par = aParameter[x].ToUpper();
+       //                         result = sequence.frames.FindIndex(delegate(Frame f)
+       //                         {
+       //                             return f.name == par;
+       //                         });
+       //                         frameIndex = result;
+       //                         break;
+
+       //                     case Enumeration.TypeCommand.GOTOSEQUENCE:
+       //                         apar = aParameter[x].Split(':');
+       //                         sresult = lsequence.Find(delegate(Sequence s)
+       //                         {
+       //                             return s.name.ToUpper() == apar[0].ToUpper();
+       //                         });
+       //                         sequence = sresult;
+       //                         frameIndex = 0;
+
+       //                         if (par.Length > 1)
+       //                         {
+       //                             Vector2 v = new Vector2(float.Parse(apar[1].Split(',')[0]), float.Parse(apar[1].Split(',')[1]));
+       //                             playerState.Add(StatePlayerElement.Parse(apar[0]), Enumeration.PriorityState.Normal, v);
+       //                         }
+       //                         else
+       //                             playerState.Add(StatePlayerElement.Parse(apar[0]));
+       //                         break;
+
+       //                     case Enumeration.TypeCommand.IFGOTOSEQUENCE:
+       //                         par = string.Empty;
+       //                         if (playerState.Value().IfTrue == true)
+       //                             par = aParameter[0];
+       //                         else
+       //                             par = aParameter[1];
+
+       //                         sresult = lsequence.Find(delegate(Sequence s)
+       //                         {
+       //                             return s.name.ToUpper() == par.ToUpper();
+       //                         });
+       //                         sequence = sresult;
+       //                         frameIndex = 0;
+       //                         playerState.Add(StatePlayerElement.Parse(par));
+       //                         break;
+
+       //                     case Enumeration.TypeCommand.DELETE:
+       //                         playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
+       //                         break;
+
+       //                     //Call sprite function by reflection
+       //                     case Enumeration.TypeCommand.FUNCTION_BOOL:
+       //                         string methodName = aParameter[0];
+       //                         string[] methodParam = { aParameter[1], aParameter[2] };
+       //                         int iMethodParam = 0;
+
+       //                         Type thisType = source.GetType();
+       //                         PropertyInfo theProperty = null;
+       //                         MethodInfo theMethod = null;
+       //                         bool isMethod = false;
+       //                         theProperty = thisType.GetProperty(methodName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.IgnoreReturn);
+       //                         theMethod = thisType.GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.IgnoreReturn);
+       //                         if (theProperty == null & theMethod != null)
+       //                         {
+       //                             isMethod = true;
+       //                         }
+
+       //                         bool methodReturn;
+
+       //                         if (isMethod == false)
+       //                             methodReturn = (bool)theProperty.GetValue(sprite, null);
+       //                         else
+       //                             methodReturn = (bool)theMethod.Invoke(sprite, null);
+
+       //                         if (methodReturn == true)
+       //                             iMethodParam = 0;
+       //                         else
+       //                             iMethodParam = 1;
+
+       //                         //FIND THE SEQUENCE
+       //                         sresult = lsequence.Find(delegate(Sequence s)
+       //                         {
+       //                             return s.name.ToUpper() == methodParam[iMethodParam].ToUpper();
+       //                         });
+       //                         sequence = sresult;
+       //                         frameIndex = 0;
+       //                         playerState.Add(StatePlayerElement.Parse(methodParam[iMethodParam]));
+
+       //                         break;
+
+
+       //                     default: break;
+       //                 }
+
+       //             }                    
+
+       //         }
+       //     }
+
+       //     //Play Sound
+       //     sequence.frames[frameIndex].PlaySound();
+
+
+       //     if (spriteEffects == SpriteEffects.FlipHorizontally) 
+       //         flip = 1;
+       //     else
+       //         flip = -1;
+
+       //     position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
+         
+       //     //Taking name of the frame usefull for hit combat..
+       //     playerState.Value().Name = sequence.frames[frameIndex].name;
+
+       //     //ASSIGN NOW THE RAISED
+       //     if (sequence.raised == true)
+       //         playerState.Value().Raised = true;
+       //     else
+       //         playerState.Value().Raised = sequence.frames[frameIndex].raised;
+
+
+       //     //ASSIGN FRAME only for debug purpose
+       //     playerState.Value().Frame = frameIndex;
+
+       //}
+
+
+        
+
+
         public void UpdateFrame(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref PlayerState playerState)
         {
             int flip = 0;
@@ -390,135 +651,163 @@ namespace PrinceOfPersia
             TimePerFrame = frameRate + sequence.frames[frameIndex].delay; //0.1
             TotalElapsed += elapsed;
 
-            if (firstTime == true)
+            if (firstTime == false)
             {
-                //Play Sound
-                sequence.frames[frameIndex].PlaySound();
-
-                if (spriteEffects == SpriteEffects.FlipHorizontally)
-                    flip = 1;
-                else
-                    flip = -1;
-
-                position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
-                firstTime = false;
-
-                //Taking name of the frame usefull for hit combat..
-                playerState.Value().Name = sequence.frames[frameIndex].name;
-
-                //ASSIGN NOW THE RAISED
-                if (sequence.raised == true)
+                if (TotalElapsed < TimePerFrame)
                 {
-                    playerState.Value().Raised = true;
+                    return;
                 }
-                else
-                { 
-                    //get single raised values from frameindex
-                    playerState.Value().Raised = sequence.frames[frameIndex].raised; 
+                else 
+                {
+                    frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
+                    TotalElapsed -= TimePerFrame;
                 }
 
-                //ASSIGN FRAME only for debug purpose
-                playerState.Value().Frame = frameIndex;
-
-                return;
             }
-
-
-            if (TotalElapsed < TimePerFrame)
-            { 
-                return; 
+            else
+            {
+                firstTime = false;
             }
-
             //reset values
             playerState.Value().Raised = false;
             playerState.Value().Name = string.Empty;
             playerState.Value().Frame = 0;
 
-          
 
-            frameIndex = Math.Min(frameIndex + 1, Frames.Count - 1);
-            TotalElapsed -= TimePerFrame;
-            
-            
-          
             if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
             {
 
                 //COMMAND
-                string[] aCommand = sequence.frames[frameIndex].name.Split('|');
-                string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
-                for (int x = 0; x < aCommand.Length; x++)
+                // SEPARATOR :
+                // "|" for each command
+                // ":" for command parameter
+                // "," for comma the parameter
+
+
+
+                for (int c = frameIndex; c < (Frames.Count); c++)
                 {
-                    int result = 0;
-                    Sequence sresult = null;
-                    string par = string.Empty;
-                    string[] apar = null;
-
-                    Enumeration.TypeCommand aTypeCommand = (Enumeration.TypeCommand)Enum.Parse(typeof(Enumeration.TypeCommand), aCommand[x]);
-                        
-                    switch (aTypeCommand) 
+                    if (sequence.frames[c].type != Enumeration.TypeFrame.COMMAND)
                     {
-                        case Enumeration.TypeCommand.ABOUTFACE :
-                            if (spriteEffects == SpriteEffects.FlipHorizontally)
-                                spriteEffects = SpriteEffects.None;
-                            else
-                                spriteEffects = SpriteEffects.FlipHorizontally;
+                        break;
+                    }
 
-                            break;
 
-                        case Enumeration.TypeCommand.GOTOFRAME:
-                            par = aParameter[x].ToUpper();
-                            result = sequence.frames.FindIndex(delegate(Frame f)
-                            {
-                                return f.name == par;
-                            });
-                            frameIndex = result;
-                            break;
+                    string[] aCommand = sequence.frames[c].name.Split('|');
+                    string[] aParameter = sequence.frames[c].parameter.Split('|');
 
-                        case Enumeration.TypeCommand.GOTOSEQUENCE:
-                            apar = aParameter[x].Split(':');
-                            sresult = lsequence.Find(delegate(Sequence s)
-                            {
-                                return s.name.ToUpper() == apar[0].ToUpper();
-                            });
-                            sequence = sresult;
-                            frameIndex = 0;
+                    for (int x = 0; x < aCommand.Length; x++)
+                    {
+                        int result = 0;
+                        Sequence sresult = null;
+                        string par = string.Empty;
+                        string[] apar = null;
 
-                            if (par.Length > 1)
-                            {
-                                Vector2 v = new Vector2(float.Parse(apar[1].Split(',')[0]), float.Parse(apar[1].Split(',')[1]));
-                                playerState.Add(StatePlayerElement.Parse(apar[0]), Enumeration.PriorityState.Normal, v);
-                            }
-                            else
-                                playerState.Add(StatePlayerElement.Parse(apar[0]));
+                        Enumeration.TypeCommand aTypeCommand = (Enumeration.TypeCommand)Enum.Parse(typeof(Enumeration.TypeCommand), aCommand[x]);
 
-                                
+                        switch (aTypeCommand)
+                        {
+                            case Enumeration.TypeCommand.ABOUTFACE:
+                                if (spriteEffects == SpriteEffects.FlipHorizontally)
+                                    spriteEffects = SpriteEffects.None;
+                                else
+                                    spriteEffects = SpriteEffects.FlipHorizontally;
+
                                 break;
 
-                        case Enumeration.TypeCommand.IFGOTOSEQUENCE:
-                                    par = string.Empty;
-                                    if (playerState.Value().IfTrue == true)
-                                        par = aParameter[0];
-                                    else
-                                        par = aParameter[1];
 
-                                    sresult = lsequence.Find(delegate(Sequence s)
-                                    {
-                                        return s.name.ToUpper() == par.ToUpper();
-                                    });
-                                    sequence = sresult;
-                                    frameIndex = 0;
-                                    playerState.Add(StatePlayerElement.Parse(par));
-                            break;
-                            
-                        case Enumeration.TypeCommand.DELETE:
-                            playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
-                            break;
+                            case Enumeration.TypeCommand.GOTOFRAME:
+                                par = aParameter[x].ToUpper();
+                                result = sequence.frames.FindIndex(delegate(Frame f)
+                                {
+                                    return f.name == par;
+                                });
+                                frameIndex = result;
+                                break;
 
-                        default: break;
+                            case Enumeration.TypeCommand.GOTOSEQUENCE:
+                                apar = aParameter[x].Split(':');
+                                sresult = lsequence.Find(delegate(Sequence s)
+                                {
+                                    return s.name.ToUpper() == apar[0].ToUpper();
+                                });
+                                sequence = sresult;
+                                frameIndex = 0;
+
+                                if (par.Length > 1)
+                                {
+                                    Vector2 v = new Vector2(float.Parse(apar[1].Split(',')[0]), float.Parse(apar[1].Split(',')[1]));
+                                    playerState.Add(StatePlayerElement.Parse(apar[0]), Enumeration.PriorityState.Normal, v);
+                                }
+                                else
+                                    playerState.Add(StatePlayerElement.Parse(apar[0]));
+                                break;
+
+                            case Enumeration.TypeCommand.IFGOTOSEQUENCE:
+                                par = string.Empty;
+                                if (playerState.Value().IfTrue == true)
+                                    par = aParameter[0];
+                                else
+                                    par = aParameter[1];
+
+                                sresult = lsequence.Find(delegate(Sequence s)
+                                {
+                                    return s.name.ToUpper() == par.ToUpper();
+                                });
+                                sequence = sresult;
+                                frameIndex = 0;
+                                playerState.Add(StatePlayerElement.Parse(par));
+                                break;
+
+                            case Enumeration.TypeCommand.DELETE:
+                                playerState.Add(Enumeration.State.delete, Enumeration.PriorityState.Force);
+                                break;
+
+                            //Call sprite function by reflection
+                            case Enumeration.TypeCommand.FUNCTION_BOOL:
+                                string methodName = aParameter[0];
+                                string[] methodParam = { aParameter[1], aParameter[2] };
+                                int iMethodParam = 0;
+
+                                Type thisType = source.GetType();
+                                PropertyInfo theProperty = null;
+                                MethodInfo theMethod = null;
+                                bool isMethod = false;
+                                theProperty = thisType.GetProperty(methodName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.IgnoreReturn);
+                                theMethod = thisType.GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.IgnoreReturn);
+                                if (theProperty == null & theMethod != null)
+                                {
+                                    isMethod = true;
+                                }
+
+                                bool methodReturn;
+
+                                if (isMethod == false)
+                                    methodReturn = (bool)theProperty.GetValue(sprite, null);
+                                else
+                                    methodReturn = (bool)theMethod.Invoke(sprite, null);
+
+                                if (methodReturn == true)
+                                    iMethodParam = 0;
+                                else
+                                    iMethodParam = 1;
+
+                                //FIND THE SEQUENCE
+                                sresult = lsequence.Find(delegate(Sequence s)
+                                {
+                                    return s.name.ToUpper() == methodParam[iMethodParam].ToUpper();
+                                });
+                                sequence = sresult;
+                                frameIndex = 0;
+                                playerState.Add(StatePlayerElement.Parse(methodParam[iMethodParam]));
+
+                                break;
+
+
+                            default: break;
+                        }
+
                     }
-                  
-                    
 
                 }
             }
@@ -527,13 +816,13 @@ namespace PrinceOfPersia
             sequence.frames[frameIndex].PlaySound();
 
 
-            if (spriteEffects == SpriteEffects.FlipHorizontally) //& TotalElapsed > TimePerFrame) skip first frame =!==!=?!?bug
+            if (spriteEffects == SpriteEffects.FlipHorizontally)
                 flip = 1;
             else
                 flip = -1;
 
             position.Value = new Vector2(position.X + (sequence.frames[frameIndex].xOffSet * flip), position.Y + sequence.frames[frameIndex].yOffSet);
-         
+
             //Taking name of the frame usefull for hit combat..
             playerState.Value().Name = sequence.frames[frameIndex].name;
 
@@ -546,8 +835,10 @@ namespace PrinceOfPersia
 
             //ASSIGN FRAME only for debug purpose
             playerState.Value().Frame = frameIndex;
+        }
 
-       }
+
+
 
         public void UpdateFrameTile(float elapsed, ref Position position, ref SpriteEffects spriteEffects, ref TileState tileState)
         {
@@ -568,58 +859,56 @@ namespace PrinceOfPersia
                 //Taking name of the frame usefull for kill or other interactions..
                 tileState.Value().Name = sequence.frames[frameIndex].name;
 
-
-                if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
-                {
-                    //COMMAND
-                    string[] aCommand = sequence.frames[frameIndex].name.Split('|');
-                    string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
-                    for (int x = 0; x < aCommand.Length; x++)
+                    if (sequence.frames[frameIndex].type != Enumeration.TypeFrame.SPRITE)
                     {
-                        if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
+                        //COMMAND
+                        string[] aCommand = sequence.frames[frameIndex].name.Split('|');
+                        string[] aParameter = sequence.frames[frameIndex].parameter.Split('|');
+                        for (int x = 0; x < aCommand.Length; x++)
                         {
-                            if (spriteEffects == SpriteEffects.FlipHorizontally)
-                                spriteEffects = SpriteEffects.None;
-                            else
-                                spriteEffects = SpriteEffects.FlipHorizontally;
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
-                        {
-                            string par = aParameter[x];
-                            int result = sequence.frames.FindIndex(delegate(Frame f)
+                            if (aCommand[x] == Enumeration.TypeCommand.ABOUTFACE.ToString())
                             {
-                                return f.name.ToUpper() == par.ToUpper();
-                            });
-                            frameIndex = result;
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
-                        {
-                            string par = aParameter[x];
-                            Sequence result = lsequence.Find(delegate(Sequence s)
+                                if (spriteEffects == SpriteEffects.FlipHorizontally)
+                                    spriteEffects = SpriteEffects.None;
+                                else
+                                    spriteEffects = SpriteEffects.FlipHorizontally;
+                            }
+                            else if (aCommand[x] == Enumeration.TypeCommand.GOTOFRAME.ToString())
                             {
-                                return s.name.ToUpper() == par.ToUpper();
-                            });
-                            sequence = result;
-                            frameIndex = 0;
-                            tileState.Add(StateTileElement.Parse(par));
-                        }
-                        else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
-                        {
-                            string par = string.Empty;
-                            if (tileState.Value().IfTrue == true)
-                                par = aParameter[0];
-                            else
-                                par = aParameter[1];
+                                string par = aParameter[x];
+                                int result = sequence.frames.FindIndex(delegate(Frame f)
+                                {
+                                    return f.name.ToUpper() == par.ToUpper();
+                                });
+                                frameIndex = result;
+                            }
+                            else if (aCommand[x] == Enumeration.TypeCommand.GOTOSEQUENCE.ToString())
+                            {
+                                string par = aParameter[x];
+                                Sequence result = lsequence.Find(delegate(Sequence s)
+                                {
+                                    return s.name.ToUpper() == par.ToUpper();
+                                });
+                                sequence = result;
+                                frameIndex = 0;
+                                tileState.Add(StateTileElement.Parse(par));
+                            }
+                            else if (aCommand[x] == Enumeration.TypeCommand.IFGOTOSEQUENCE.ToString())
+                            {
+                                string par = string.Empty;
+                                if (tileState.Value().IfTrue == true)
+                                    par = aParameter[0];
+                                else
+                                    par = aParameter[1];
 
-                            Sequence result = lsequence.Find(delegate(Sequence s)
-                            {
-                                return s.name.ToUpper() == par.ToUpper();
-                            });
-                            sequence = result;
-                            frameIndex = 0;
-                            tileState.Add(StateTileElement.Parse(par));
-                        }
-
+                                Sequence result = lsequence.Find(delegate(Sequence s)
+                                {
+                                    return s.name.ToUpper() == par.ToUpper();
+                                });
+                                sequence = result;
+                                frameIndex = 0;
+                                tileState.Add(StateTileElement.Parse(par));
+                            }
                     }
                 }
 
@@ -823,23 +1112,7 @@ namespace PrinceOfPersia
 
 
         }
-
-
-        public void DrawSprite(GameTime gameTime, SpriteBatch spriteBatch, Vector2 position, SpriteEffects spriteEffects, float depth, Texture2D texture)
-        {
-            // Calculate the source rectangle of the current frame.
-            Rectangle source = new Rectangle(0, 0, texture.Width, texture.Height);
-
-            position = new Vector2(position.X + Tile.PERSPECTIVE + (texture.Width/2), position.Y - Tile.GROUND + (texture.Height/2));
-
-            // Draw 
-            spriteBatch.Draw(texture, position, source, Color.White, 0.0f, Vector2.Zero, 1.0f, spriteEffects, depth);
-
-        
-
-        }
-
-
+     
     }
 
 

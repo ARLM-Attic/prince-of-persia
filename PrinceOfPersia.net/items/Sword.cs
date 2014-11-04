@@ -40,7 +40,7 @@ namespace PrinceOfPersia
 
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(ItemSequence.GetType());
 
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + Enumeration.Items.sword.ToString() + "_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_SEQUENCES + Enumeration.Items.sword.ToString() + "_sequence.xml");
             //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
 
 
@@ -60,7 +60,7 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture((Texture2D)Maze.Content[PrinceOfPersiaGame.CONFIG_ITEMS + result.frames[0].value]); 
+                result.frames[0].SetTexture((Texture2D)Maze.Content[PoP.CONFIG_ITEMS + result.frames[0].value]); 
 
                 Texture = result.frames[0].texture;
             }

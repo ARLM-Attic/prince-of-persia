@@ -54,7 +54,7 @@ namespace PrinceOfPersia
             //this.switchButton = switchButton;
             System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(tileSequence.GetType());
 
-            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
+            Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
 
             //TextReader txtReader = File.OpenText(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_SEQUENCES + tileType.ToString() + "_sequence.xml");
             tileSequence = (List<Sequence>)ax.Deserialize(txtReader);
@@ -74,7 +74,7 @@ namespace PrinceOfPersia
             if (result != null)
             {
                 //AMF to be adjust....
-                result.frames[0].SetTexture((Texture2D)Maze.Content[PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value]); 
+                result.frames[0].SetTexture((Texture2D)Maze.Content[PoP.CONFIG_TILES + result.frames[0].value]); 
                 //result.frames[0].SetTexture(Content.Load<Texture2D>(PrinceOfPersiaGame.CONFIG_TILES + result.frames[0].value));
 
                 collision = result.collision;

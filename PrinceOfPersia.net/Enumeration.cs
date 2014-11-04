@@ -321,14 +321,15 @@ namespace PrinceOfPersia
             ,crouch //my state
             ,godown //my state invert standup
             ,ready //my state guard ready 
+            ,sjland //my state for land over floor
             ,startrun,
             stand,
-            standjump,
+            standjump, //normal jump over the floor and land on floor
             runjump,
             turn,
             runturn,
             stepfall,
-            jumphangMed,
+            jumphangMed,  //for climb
             hang,
             climbup,
             hangdrop,
@@ -344,7 +345,7 @@ namespace PrinceOfPersia
             rjumpfall,
             hardland,
             hangfall,
-            jumphangLong,
+            jumphangLong, //for climb
             hangstraight,
             rdiveroll,
             sdiveroll,
@@ -453,6 +454,7 @@ namespace PrinceOfPersia
             ABOUTFACE,
             IFGOTOSEQUENCE,
             IFGOTOFRAME,
+            FUNCTION_BOOL, //call sprite bool return function 
             DELETE //delete the sprite.. future implementation..??!?
         }
 

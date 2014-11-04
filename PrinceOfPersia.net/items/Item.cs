@@ -35,7 +35,7 @@ namespace PrinceOfPersia
     public abstract class Item
     {
         public Texture2D Texture;
-        public AnimationSequence itemAnimation = new AnimationSequence();
+        public AnimationSequence itemAnimation;
         public TileState itemState = new TileState();
         private SpriteEffects flip = SpriteEffects.None;
         private Position position = new Position(new Vector2(0, 0), new Vector2(0, 0));
@@ -45,6 +45,11 @@ namespace PrinceOfPersia
         {
             get { return itemSequence; }
             set { itemSequence = value; }
+        }
+
+        public Item()
+        { 
+         itemAnimation = new AnimationSequence(this);
         }
 
         public void Update(GameTime gameTime, KeyboardState keyboardState, GamePadState gamePadState, TouchCollection touchState, AccelerometerState accelState, DisplayOrientation orientation)

@@ -13,12 +13,10 @@
           <tileType>space</tileType>
         </Column>
         <Column>
-          <tileType>exit</tileType>
-          <state>exit_close_left_up</state>
+          <tileType>block</tileType>
         </Column>
         <Column>
-          <tileType>exit</tileType>
-          <state>exit_close_right_up</state>
+          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>space</tileType>
@@ -52,11 +50,10 @@
         </Column>
         <Column>
           <tileType>exit</tileType>
-          <state>exit_close_left</state>
+          <state>exit</state>
         </Column>
         <Column>
-          <tileType>exit</tileType>
-          <state>exit_close_right</state>
+          <tileType>block</tileType>
         </Column>
         <Column>
           <tileType>torch</tileType>

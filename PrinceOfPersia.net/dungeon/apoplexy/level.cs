@@ -32,8 +32,6 @@ using PrinceOfPersia.Apoplexy;
 
 namespace PrinceOfPersia.Apoplexy
 {
-
-
     public class level
     {
         public room[] rooms;
@@ -42,14 +40,11 @@ namespace PrinceOfPersia.Apoplexy
 
         public @event[] events;
 
-
         [XmlElement]
         public userdata userdata;
 
-
         [XmlElement]
         public prince prince;
-
 
         [XmlAttribute("number")]
         public string number

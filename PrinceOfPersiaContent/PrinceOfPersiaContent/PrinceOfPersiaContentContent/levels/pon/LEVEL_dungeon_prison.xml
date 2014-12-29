@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<level name="dungeon_prison" description="bla" index ="1">
+
+    <room index="1">
+      <!-- first row-->
+      <block>
+        <sprite type="kid" direction="FlipHorizontally" skill="3" energy="3" color="000000"/>
+        <tile state="normal" type="space"/>
+      </block>
+      <block>
+        <tile state="normal" type="space"/>      
+      </block>
+      <block>
+        <tile state="normal" type="space"/>
+      </block>
+      <block>
+        <tile state="brick" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="floor"/>
+      </block>
+      <block>
+        <tile state="brick" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="floor"/>
+      </block>
+      <block>
+        <tile state="brick" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+<!-- second row-->
+      <block>
+        <tile state="normal" type="torch"/>
+      </block>
+      <block>
+        <tile state="normal" type="torch"/>
+      </block>
+      <block>
+        <tile state="brick" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="posts"/>
+      </block>
+      <block>
+        <tile state="normal" type="space"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+<!-- third row -->
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+      <block>
+        <tile state="rubble" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="posts"/>
+      </block>
+      <block>
+        <tile state="normal" type="loose"/>
+      </block>
+      <block>
+        <tile state="brick" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="floor"/>
+      </block>
+      <block>
+        <tile state="normal" type="block"/>
+      </block>
+
+
+
+      <links down="2" up="0" right="0" left="5"/>
+    </room>
+
+</level>
+

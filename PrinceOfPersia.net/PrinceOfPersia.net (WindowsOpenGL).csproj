@@ -126,7 +126,9 @@
     <Compile Include="dungeon\popnet\Row.cs" />
     <Compile Include="dungeon\Room.cs" />
     <Compile Include="items\Sword.cs" />
-    <Compile Include="PoP.cs" />
+    <Compile Include="PoPGame.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="ScreenFactory.cs" />
     <Compile Include="dungeon\Level.cs" />
@@ -192,7 +194,7 @@
     </Compile>
     <Compile Include="animation\Frame.cs" />
     <Compile Include="animation\Position.cs" />
-    <Compile Include="PrinceOfPersia.cs" />
+    <Compile Include="PoP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="animation\Sequence.cs" />
@@ -231,7 +233,7 @@
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files\MonoGame\v3.0\Assemblies\WindowsGL\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <Private>True</Private>

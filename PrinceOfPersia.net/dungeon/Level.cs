@@ -45,7 +45,8 @@ namespace PrinceOfPersia
             this.maze = Maze;
             this.levelName = (Enumeration.LevelName) Enum.Parse(typeof(Enumeration.LevelName), LevelNumber.ToString());
             rooms = new List<Room>();
-            blockRoom = new Room(maze, this, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 1);
+            blockRoom = new Room(maze, this, PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_ROOMS + "MAP_blockroom.xml", 0);
+            blockRoom.roomName = "MAP_blockroom.xml";
         }
 
         public Room FindRoom(int roomNumber)

@@ -52,6 +52,7 @@ namespace PrinceOfPersia
             kid,
             sultan,
             guard,
+            guard2,
             skeleton
         }
 

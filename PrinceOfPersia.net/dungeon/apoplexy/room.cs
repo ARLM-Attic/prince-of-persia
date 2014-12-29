@@ -17,9 +17,11 @@
 	//-----------------------------------------------------------------------//
 
 using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Xml.Serialization;
 using PrinceOfPersia.Apoplexy;
 
@@ -57,14 +59,13 @@ namespace PrinceOfPersia.Apoplexy
 
         }
 
-        //public RoomApoplexy(int sizeX)
-        //{
-        //    columns = new Column[sizeX];
-        //    for(int x = 0; x < columns.Length; x++)
-        //    {
-        //        columns[x] = new Column();
-        //    }
-        //}
+        public void Serialize()
+        {
+            System.Xml.Serialization.XmlSerializer ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.room));
+            //TextWriter writer = new StreamWriter(@"C:\temp\LEVEL_"+ levelName.ToString() +".xml");
+            TextWriter writer = new StreamWriter(@"C:\temp\room_apo.xml");
+            ax.Serialize(writer, this);
+        }
 
     }
 }

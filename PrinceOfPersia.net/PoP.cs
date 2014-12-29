@@ -45,6 +45,7 @@ namespace PrinceOfPersia
         public static string CONFIG_ITEMS = "items/";
         public static string CONFIG_FONTS = "fonts/";
         public static string CONFIG_PATH_APOPLEXY = "apoplexy/";
+        public static string CONFIG_PATH_PON = "pon/";
         public static string CONFIG_PATH_LEVELS = "levels/";
         public static string CONFIG_PATH_ROOMS = "rooms/";
         public static string CONFIG_PATH_SEQUENCES = "sequences/dos";
@@ -137,8 +138,12 @@ namespace PrinceOfPersia
             CONFIG_PATH_SEQUENCES = ConfigurationSettings.AppSettings["CONFIG_path_Sequences"].ToString();
             CONFIG_SPRITE_EFFECTS = ConfigurationSettings.AppSettings["CONFIG_sprite_effects"].ToString();
             CONFIG_KID_START_ENERGY = int.Parse(ConfigurationSettings.AppSettings["CONFIG_kid_start_energy"].ToString());
-            CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_PATH_APOPLEXY"].ToString();
             LEVEL_APOPLEXY = bool.Parse(ConfigurationSettings.AppSettings["LEVEL_APOPLEXY"].ToString());
+            CONFIG_PATH_APOPLEXY = ConfigurationSettings.AppSettings["CONFIG_path_Apoplexy"].ToString();
+            CONFIG_PATH_PON = ConfigurationSettings.AppSettings["CONFIG_path_PoN"].ToString();
+            CONFIG_PATH_LEVELS = ConfigurationSettings.AppSettings["CONFIG_path_Levels"].ToString();
+            
+
             bool.TryParse(ConfigurationSettings.AppSettings["CONFIG_TOUCHSCREEN_VISIBLE"], out CONFIG_TOUCHSCREEN_VISIBLE);
 #endif 
         
@@ -411,6 +416,9 @@ namespace PrinceOfPersia
 
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(fontPrinceOfPersia_bigger, "PLAYER STATE=" + maze.player.spriteState.Value().state + " SEQUENCE CountOffset=" + maze.player.sprite.sequence.CountOffSet, hudLocation, Color.White);
+
+            hudLocation.Y = hudLocation.Y + 10;
+            DrawShadowedString(fontPrinceOfPersia_bigger, "PLAYER FRAME=" + maze.player.spriteState.Value().Frame + " NAME=" + maze.player.spriteState.Value().Name , hudLocation, Color.White);
 
             hudLocation.Y = hudLocation.Y + 10;
             DrawShadowedString(fontPrinceOfPersia_bigger, "PLAYER SWORD=" + maze.player.Sword.ToString(), hudLocation, Color.White);

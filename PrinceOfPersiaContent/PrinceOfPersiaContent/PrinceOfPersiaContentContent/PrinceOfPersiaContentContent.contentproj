@@ -127,6 +127,1095 @@
       <Name>princeofpersia_small</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="sprites\player\kid_pon\Kid_1.png">
+      <Name>Kid_1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_10.png">
+      <Name>Kid_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_102.png">
+      <Name>Kid_102</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_103.png">
+      <Name>Kid_103</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_104.png">
+      <Name>Kid_104</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_105.png">
+      <Name>Kid_105</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_106.png">
+      <Name>Kid_106</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_107.png">
+      <Name>Kid_107</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_108.png">
+      <Name>Kid_108</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_109.png">
+      <Name>Kid_109</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_11.png">
+      <Name>Kid_11</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_110.png">
+      <Name>Kid_110</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_111.png">
+      <Name>Kid_111</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_112.png">
+      <Name>Kid_112</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_113.png">
+      <Name>Kid_113</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_114.png">
+      <Name>Kid_114</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_115.png">
+      <Name>Kid_115</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_116.png">
+      <Name>Kid_116</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_117.png">
+      <Name>Kid_117</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_118.png">
+      <Name>Kid_118</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_119.png">
+      <Name>Kid_119</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_12.png">
+      <Name>Kid_12</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_121.png">
+      <Name>Kid_121</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_122.png">
+      <Name>Kid_122</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_123.png">
+      <Name>Kid_123</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_124.png">
+      <Name>Kid_124</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_125.png">
+      <Name>Kid_125</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_126.png">
+      <Name>Kid_126</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_127.png">
+      <Name>Kid_127</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_128.png">
+      <Name>Kid_128</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_129.png">
+      <Name>Kid_129</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_13.png">
+      <Name>Kid_13</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_130.png">
+      <Name>Kid_130</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_131.png">
+      <Name>Kid_131</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_132.png">
+      <Name>Kid_132</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_135.png">
+      <Name>Kid_135</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_136.png">
+      <Name>Kid_136</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_137.png">
+      <Name>Kid_137</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_138.png">
+      <Name>Kid_138</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_139.png">
+      <Name>Kid_139</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_14.png">
+      <Name>Kid_14</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_140.png">
+      <Name>Kid_140</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_141.png">
+      <Name>Kid_141</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_142.png">
+      <Name>Kid_142</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_143.png">
+      <Name>Kid_143</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_144.png">
+      <Name>Kid_144</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_145.png">
+      <Name>Kid_145</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_146.png">
+      <Name>Kid_146</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_147.png">
+      <Name>Kid_147</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_148.png">
+      <Name>Kid_148</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_149.png">
+      <Name>Kid_149</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_15.png">
+      <Name>Kid_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_151.png">
+      <Name>Kid_151</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_152.png">
+      <Name>Kid_152</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_153.png">
+      <Name>Kid_153</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_154.png">
+      <Name>Kid_154</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_155.png">
+      <Name>Kid_155</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_156.png">
+      <Name>Kid_156</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_157.png">
+      <Name>Kid_157</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_158.png">
+      <Name>Kid_158</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_16.png">
+      <Name>Kid_16</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_160.png">
+      <Name>Kid_160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_163.png">
+      <Name>Kid_163</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_164.png">
+      <Name>Kid_164</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_165.png">
+      <Name>Kid_165</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_17.png">
+      <Name>Kid_17</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_170.png">
+      <Name>Kid_170</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_171.png">
+      <Name>Kid_171</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_177.png">
+      <Name>Kid_177</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_178.png">
+      <Name>Kid_178</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_18.png">
+      <Name>Kid_18</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_185.png">
+      <Name>Kid_185</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_19.png">
+      <Name>Kid_19</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_191.png">
+      <Name>Kid_191</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_192.png">
+      <Name>Kid_192</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_193.png">
+      <Name>Kid_193</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_194.png">
+      <Name>Kid_194</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_195.png">
+      <Name>Kid_195</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_196.png">
+      <Name>Kid_196</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_197.png">
+      <Name>Kid_197</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_198.png">
+      <Name>Kid_198</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_199.png">
+      <Name>Kid_199</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_2.png">
+      <Name>Kid_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_20.png">
+      <Name>Kid_20</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_200.png">
+      <Name>Kid_200</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_201.png">
+      <Name>Kid_201</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_202.png">
+      <Name>Kid_202</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_203.png">
+      <Name>Kid_203</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_204.png">
+      <Name>Kid_204</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_205.png">
+      <Name>Kid_205</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_207.png">
+      <Name>Kid_207</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_208.png">
+      <Name>Kid_208</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_209.png">
+      <Name>Kid_209</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_21.png">
+      <Name>Kid_21</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_210.png">
+      <Name>Kid_210</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_22.png">
+      <Name>Kid_22</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_229.png">
+      <Name>Kid_229</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_23.png">
+      <Name>Kid_23</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_230.png">
+      <Name>Kid_230</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_231.png">
+      <Name>Kid_231</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_232.png">
+      <Name>Kid_232</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_233.png">
+      <Name>Kid_233</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_234.png">
+      <Name>Kid_234</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_235.png">
+      <Name>Kid_235</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_236.png">
+      <Name>Kid_236</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_237.png">
+      <Name>Kid_237</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_238.png">
+      <Name>Kid_238</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_239.png">
+      <Name>Kid_239</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_24.png">
+      <Name>Kid_24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_240.png">
+      <Name>Kid_240</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_241.png">
+      <Name>Kid_241</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_242.png">
+      <Name>Kid_242</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_25.png">
+      <Name>Kid_25</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_26.png">
+      <Name>Kid_26</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_27.png">
+      <Name>Kid_27</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_28.png">
+      <Name>Kid_28</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_29.png">
+      <Name>Kid_29</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_3.png">
+      <Name>Kid_3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_30.png">
+      <Name>Kid_30</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_31.png">
+      <Name>Kid_31</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_32.png">
+      <Name>Kid_32</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_33.png">
+      <Name>Kid_33</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_34.png">
+      <Name>Kid_34</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_35.png">
+      <Name>Kid_35</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_36.png">
+      <Name>Kid_36</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_37.png">
+      <Name>Kid_37</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_38.png">
+      <Name>Kid_38</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_39.png">
+      <Name>Kid_39</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_4.png">
+      <Name>Kid_4</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_40.png">
+      <Name>Kid_40</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_41.png">
+      <Name>Kid_41</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_42.png">
+      <Name>Kid_42</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_43.png">
+      <Name>Kid_43</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_44.png">
+      <Name>Kid_44</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_45.png">
+      <Name>Kid_45</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_46.png">
+      <Name>Kid_46</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_47.png">
+      <Name>Kid_47</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_48.png">
+      <Name>Kid_48</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_49.png">
+      <Name>Kid_49</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_5.png">
+      <Name>Kid_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_50.png">
+      <Name>Kid_50</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_51.png">
+      <Name>Kid_51</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_52.png">
+      <Name>Kid_52</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_53.png">
+      <Name>Kid_53</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_54.png">
+      <Name>Kid_54</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_55.png">
+      <Name>Kid_55</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_56.png">
+      <Name>Kid_56</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_57.png">
+      <Name>Kid_57</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_58.png">
+      <Name>Kid_58</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_59.png">
+      <Name>Kid_59</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_6.png">
+      <Name>Kid_6</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_60.png">
+      <Name>Kid_60</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_61.png">
+      <Name>Kid_61</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_62.png">
+      <Name>Kid_62</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_63.png">
+      <Name>Kid_63</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_64.png">
+      <Name>Kid_64</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_65.png">
+      <Name>Kid_65</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_67.png">
+      <Name>Kid_67</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_68.png">
+      <Name>Kid_68</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_69.png">
+      <Name>Kid_69</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_7.png">
+      <Name>Kid_7</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_70.png">
+      <Name>Kid_70</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_71.png">
+      <Name>Kid_71</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_72.png">
+      <Name>Kid_72</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_73.png">
+      <Name>Kid_73</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_74.png">
+      <Name>Kid_74</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_75.png">
+      <Name>Kid_75</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_76.png">
+      <Name>Kid_76</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_77.png">
+      <Name>Kid_77</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_78.png">
+      <Name>Kid_78</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_79.png">
+      <Name>Kid_79</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_8.png">
+      <Name>Kid_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_80.png">
+      <Name>Kid_80</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_81.png">
+      <Name>Kid_81</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_82.png">
+      <Name>Kid_82</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_83.png">
+      <Name>Kid_83</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_84.png">
+      <Name>Kid_84</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_87.png">
+      <Name>Kid_87</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_88.png">
+      <Name>Kid_88</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_89.png">
+      <Name>Kid_89</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_9.png">
+      <Name>Kid_9</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_90.png">
+      <Name>Kid_90</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_91.png">
+      <Name>Kid_91</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_92.png">
+      <Name>Kid_92</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_93.png">
+      <Name>Kid_93</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_94.png">
+      <Name>Kid_94</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_95.png">
+      <Name>Kid_95</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_96.png">
+      <Name>Kid_96</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_97.png">
+      <Name>Kid_97</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_98.png">
+      <Name>Kid_98</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\player\kid_pon\Kid_99.png">
+      <Name>Kid_99</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_121.png">
+      <Name>Guard_121</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_151.png">
+      <Name>Guard_151</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_152.png">
+      <Name>Guard_152</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_153.png">
+      <Name>Guard_153</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_154.png">
+      <Name>Guard_154</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_155.png">
+      <Name>Guard_155</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_156.png">
+      <Name>Guard_156</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_157.png">
+      <Name>Guard_157</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_158.png">
+      <Name>Guard_158</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_160.png">
+      <Name>Guard_160</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_163.png">
+      <Name>Guard_163</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_164.png">
+      <Name>Guard_164</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_165.png">
+      <Name>Guard_165</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_166.png">
+      <Name>Guard_166</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_168.png">
+      <Name>Guard_168</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_170.png">
+      <Name>Guard_170</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_171.png">
+      <Name>Guard_171</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_172.png">
+      <Name>Guard_172</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_179.png">
+      <Name>Guard_179</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_180.png">
+      <Name>Guard_180</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_181.png">
+      <Name>Guard_181</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_182.png">
+      <Name>Guard_182</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_183.png">
+      <Name>Guard_183</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="sprites\guard\guard_flash\Guard_185.png">
+      <Name>Guard_185</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <None Include="sequences\dos\guard2_sequence.xml">
+      <SubType>Designer</SubType>
+      <Name>guard2_sequence</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="levels\pon\LEVEL_dungeon_prison.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Name>LEVEL_dungeon_prison</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="rooms\MAP_blockroom.xml">
       <Name>MAP_blockroom</Name>
       <Importer>XmlImporter</Importer>
@@ -269,71 +1358,71 @@
       <Name>block_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
     <None Include="sequences\dos\gate_sequence.xml">
       <Name>gate_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
     <None Include="sequences\dos\floor_sequence.xml">
       <Name>floor_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\posts_sequence.xml">
       <Name>posts_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\kid_sequence.xml">
       <Name>kid_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
     <None Include="sequences\dos\loose_sequence.xml">
       <Name>loose_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\pressplate_sequence.xml">
       <Name>pressplate_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
     <None Include="sequences\dos\rubble_sequence.xml">
       <Name>rubble_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\space_sequence.xml">
       <Name>space_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\spikes_sequence.xml">
       <Name>spikes_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="sequences\dos\torch_sequence.xml">
       <Name>torch_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -352,7 +1441,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="sequences\dos\flask_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>flask_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -404,7 +1493,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="sequences\dos\sword_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>sword_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -413,7 +1502,7 @@
   <ItemGroup>
     <None Include="sequences\dos\guard_sequence.xml">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>guard_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -422,7 +1511,7 @@
   <ItemGroup>
     <None Include="sequences\dos\exit_sequence.xml">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>exit_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -646,143 +1735,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="sequences\lion\KID_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>KID_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\BLOCK_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>BLOCK_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\DOOR_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>DOOR_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\EXIT_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>EXIT_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\FLASK_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>FLASK_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\FLOOR_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>FLOOR_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\GATE_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>GATE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\GUARD_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>GUARD_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\LEVEL_dungeon_prison.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>LEVEL_dungeon_prison</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\LOOSE_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>LOOSE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\PRESSPLATE_sequence.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>PRESSPLATE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\RUBBLE_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>RUBBLE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\SPACE_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>SPACE_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\SPIKES_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>SPIKES_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\SWORD_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>SWORD_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="sequences\lion\TORCH_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Name>TORCH_sequence</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>PassThroughProcessor</Processor>
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="sequences\dos\splash_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>splash_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
@@ -1131,6 +2085,7 @@
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -2392,7 +3347,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="sequences\dos\chomper_sequence.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <Name>chomper_sequence</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>

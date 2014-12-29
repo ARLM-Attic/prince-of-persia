@@ -95,7 +95,23 @@ namespace PrinceOfPersia
                 if (
                     spriteState.Value().state == Enumeration.State.climbdown ||
                     spriteState.Value().state == Enumeration.State.climbfail ||
-                    spriteState.Value().state == Enumeration.State.climbup
+                    spriteState.Value().state == Enumeration.State.climbup ||
+                    spriteState.Value().state == Enumeration.State.hang
+                    )
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+
+        public bool isFalling
+        {
+            get
+            {
+                if (
+                    spriteState.Value().state == Enumeration.State.freefall ||
+                    spriteState.Value().state == Enumeration.State.stepfall 
                     )
                     return true;
                 else
@@ -282,12 +298,18 @@ namespace PrinceOfPersia
             {
                 if (myRoom.GetCollision((int)v2.X, (int)v2.Y) == Enumeration.TileCollision.Platform)
                 {
-                    if (playerBounds.Bottom >= myTile.Position.Bounding.Bottom)
+                    if (playerBounds.Bottom == myTile.Position.Bounding.Bottom)
                     {
                         isOnGround = true;
                     }
                     else
-                    { }
+                    {
+                        if (playerBounds.Bottom > myTile.Position.Bounding.Bottom & isFalling)
+                        {
+                            _position.Y = myTile.Position.Bounding.Bottom - Sprite.SPRITE_SIZE_Y + Tile.GROUND; //align on the edge
+                            isOnGround = true;
+                        }
+                    }
                 }
                 else
                 { }
@@ -298,21 +320,23 @@ namespace PrinceOfPersia
             {
                 if (spriteState.Value().Raised == false)
                 {
-                    switch (spriteState.Value().state)
-                    {
-                        case Enumeration.State.hangdrop: 
-                            return; 
-                            break;
+                    //switch (spriteState.Value().state)
+                    //{
+                    //    case Enumeration.State.hangdrop: 
+                    //        return; 
+                    //        break;
                              
-                        default:
-                            break;
-                    }
+                    //    default:
+                    //        break;
+                    //}
 
                     if (spriteState.Previous().state == Enumeration.State.runjump)
                         spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force, new Vector2(20, 15));
                     else
-                        if (spriteState.Value().state != Enumeration.State.freefall)
+                        if (spriteState.Value().state != Enumeration.State.freefall & spriteState.Value().state != Enumeration.State.stepfall) 
+                        {
                             spriteState.Add(Enumeration.State.stepfall, Enumeration.PriorityState.Force);
+                        }
                     
                     myRoom.Up.LooseShake();
                 }
@@ -1939,9 +1963,9 @@ namespace PrinceOfPersia
                                 //if (depth.Y >= Tile.GROUND)
                                 {
                                     //touchceiling
-                                    return;
+                                    break;
                                 }
-                                return;
+                                break;
                             }
 
                             //if sx wall i will penetrate..for perspective design
@@ -1968,7 +1992,7 @@ namespace PrinceOfPersia
                                             else
                                             {
                                                 if (isClimbing == false)
-                                                    if (spriteState.Value().state != Enumeration.State.freefall)
+                                                    if (isFalling == false)
                                                     {
                                                         if (spriteState.Value().state == Enumeration.State.runjump)
                                                         {
@@ -2016,7 +2040,7 @@ namespace PrinceOfPersia
                                             else
                                             {
                                                 if (isClimbing == false)
-                                                    if (spriteState.Value().state != Enumeration.State.freefall)
+                                                    if (isFalling == false)
                                                     {
                                                         if (spriteState.Value().state == Enumeration.State.runjump)
                                                         {

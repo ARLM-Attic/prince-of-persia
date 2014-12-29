@@ -30,7 +30,6 @@ using Microsoft.Xna.Framework.Input;
 
 namespace PrinceOfPersia
 {
-
     public class Maze
     {
         public static Dictionary<string, object> Content = null;
@@ -42,6 +41,7 @@ namespace PrinceOfPersia
 
 
         private List<Apoplexy.level> levelsApoplexy = new List<Apoplexy.level>();
+        private List<PoN.level> levelsPoN = new List<PoN.level>();
 
         //List for retain and load maze tiles textures
         
@@ -86,12 +86,41 @@ namespace PrinceOfPersia
 
         private void LoadLevels()
         {
+#if ANDROID
+            List<string> files = new List<string>();
+            string sResults = string.Empty;
+            var filePath = Path.Combine("", "results.txt");
+            using (var stream = TitleContainer.OpenStream(filePath))
+            {
+                sResults =  Utils.StreamToString(stream);
+                stream.Close();
+            }
+            
+            string[] sArray =  sResults.Split('\r');
 
+            for (int x = 0; x < sArray.Count(); x++ )
+            {
+                int a = sArray[x].IndexOf("Content\\");
+                if (a == -1)
+                    continue;
+                sArray[x] = sArray[x].Remove(0, a);
+
+                a = sArray[x].IndexOf("apoplexy\\");
+                if (a == -1)
+                    continue;
+
+                //string sLevelNumber = ((int)levelName).ToString();
+
+                if (sArray[x].Substring(sArray[x].Length - 4) != ".xml")
+                    continue;
+                files.Add(sArray[x]);
+            }
+#else
             var files = Directory
-                .GetFiles(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + "/" + PrinceOfPersiaGame.CONFIG_PATH_APOPLEXY + "/", "*.xml")
+                .GetFiles(PoP.CONFIG_PATH_CONTENT + "/" + PoP.CONFIG_PATH_APOPLEXY + "/", "*.xml")
             //.Where(file => file.ToLower().Contains("level" + ((int)levelName).ToString()))
             .ToList();
-
+#endif
 
             foreach (object f in files)
             {
@@ -103,6 +132,88 @@ namespace PrinceOfPersia
             }
 
         }
+
+
+        private void LoadLevelsPoN()
+        {
+#if ANDROID
+            List<string> files = new List<string>();
+            string sResults = string.Empty;
+            var filePath = Path.Combine("", "results.txt");
+            using (var stream = TitleContainer.OpenStream(filePath))
+            {
+                sResults =  Utils.StreamToString(stream);
+                stream.Close();
+            }
+            
+            string[] sArray =  sResults.Split('\r');
+
+            for (int x = 0; x < sArray.Count(); x++ )
+            {
+                int a = sArray[x].IndexOf("Content\\");
+                if (a == -1)
+                    continue;
+                sArray[x] = sArray[x].Remove(0, a);
+
+                a = sArray[x].IndexOf("apoplexy\\");
+                if (a == -1)
+                    continue;
+
+                //string sLevelNumber = ((int)levelName).ToString();
+
+                if (sArray[x].Substring(sArray[x].Length - 4) != ".xml")
+                    continue;
+                files.Add(sArray[x]);
+            }
+#else
+            var files = Directory
+                .GetFiles(PoP.CONFIG_PATH_CONTENT + "/" + PoP.CONFIG_PATH_PON + "/", "*.xml")
+                //.Where(file => file.ToLower().Contains("level" + ((int)levelName).ToString()))
+            .ToList();
+#endif
+            //PoN.room myRoom = new PoN.room();
+            //myRoom.index = 1;
+            //PoN.block[] bs = new PoN.block[10];
+            //PoN.block b = new PoN.block();
+            //PoN.item[] itms = new PoN.item[1];
+            //PoN.item i = new PoN.item();
+
+            //i.state = Enumeration.StateTile.normal;
+            //i.type = Enumeration.TileType.sword;
+            //itms[0] = i;
+            //b.item = itms;
+            //bs[0] = b;
+
+            //myRoom.block = bs;
+            //b.tile = new PoN.tile();
+            //myRoom.Serialize();
+
+
+            //PoN.level l = new PoN.level();
+            //l.description = "desc";
+            //l.index = 1;
+            //PoN.room[] r = new PoN.room[30];
+            //r[0] = myRoom;
+            //r[1] = new PoN.room();
+            //l.room = r;
+
+            //l.name = Enumeration.LevelName.dungeon_guards;
+
+            ////l.rooms = myRooms;
+            //l.Serialize();
+
+            foreach (object f in files)
+            {
+                Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(f.ToString());
+
+                System.Xml.Serialization.XmlSerializer ax = null;
+                ax = new System.Xml.Serialization.XmlSerializer(typeof(PoN.level));
+                levelsPoN.Add((PoN.level)ax.Deserialize(txtReader));
+            }
+
+        
+        }
+
 
 
         private void StartLevel(Enumeration.LevelName levelName)
@@ -199,13 +310,22 @@ namespace PrinceOfPersia
         }
         
 
-        private void PopNet()
+        private void StartLevelPoP(Enumeration.LevelName levelName)
         {
-            List<PopNet.Level> levelsPopNet = new List<PopNet.Level>();
+
             levels = new List<Level>();
 
+            //DISABLED POP HAVE ONLY 1 LEVEL.... someone can be draw all levels?!?
+            //if ((int)levelName >= levelsPoN.Count)
+            //{
+            //    levelName = Enumeration.LevelName.dungeon_demo;
+            //    levelIndex = (int)levelName;
+            //}
+
+            List<PopNet.Level> levelsPopNet = new List<PopNet.Level>();
+
             var files = Directory
-                .GetFiles(PrinceOfPersiaGame.CONFIG_PATH_CONTENT + "/" + PrinceOfPersiaGame.CONFIG_PATH_LEVELS + "/", "*.xml")
+                .GetFiles(PoP.CONFIG_PATH_CONTENT + "/" + PoP.CONFIG_PATH_LEVELS + "/", "*.xml")
             .ToList();
 
             foreach (object f in files)
@@ -214,13 +334,13 @@ namespace PrinceOfPersia
                 Stream txtReader = Microsoft.Xna.Framework.TitleContainer.OpenStream(f.ToString());
 
                 System.Xml.Serialization.XmlSerializer ax = null;
-                ax = new System.Xml.Serialization.XmlSerializer(typeof(Apoplexy.level));
+                ax = new System.Xml.Serialization.XmlSerializer(typeof(PopNet.Level));
                 levelsPopNet.Add((PopNet.Level)ax.Deserialize(txtReader));
 
 
             }
 
-
+            
             //load all room
             for (int z = 0; z < levelsPopNet.Count(); z++)
             {
@@ -232,23 +352,39 @@ namespace PrinceOfPersia
                         if (levelsPopNet[z].rows[y].columns[x].FilePath == string.Empty)
                             levelsPopNet[z].rows[y].columns[x].FilePath = "MAP_blockroom.xml";
 
-                        Room room = new Room(this, level, PrinceOfPersiaGame.CONFIG_PATH_CONTENT + PrinceOfPersiaGame.CONFIG_PATH_ROOMS + levelsPopNet[z].rows[y].columns[x].FilePath, levelsPopNet[z].rows[y].columns[x].RoomIndex);
+                        Room room = new Room(this, level, PoP.CONFIG_PATH_CONTENT + PoP.CONFIG_PATH_ROOMS + levelsPopNet[z].rows[y].columns[x].FilePath, levelsPopNet[z].rows[y].columns[x].RoomIndex);
                         room.roomStart = levelsPopNet[z].rows[y].columns[x].RoomStart;
-                        room.roomNumber = y;
+                        room.roomNumber = levelsPopNet[z].rows[y].columns[x].RoomIndex;
                         room.roomName = levelsPopNet[z].rows[y].columns[x].FilePath;
                         room.roomZ = z;
                         room.roomX = x;
                         room.roomY = y;
                         level.rooms.Add(room);
 
+
+                        //Allocate room shortcut
+                        if (x - 1 >= 0)
+                            room._RoomLeft = levelsPopNet[z].rows[y].columns[x - 1].RoomIndex;
+                        if (x + 1 < levelsPopNet[z].rows[y].columns.Count())
+                            room._RoomRight = levelsPopNet[z].rows[y].columns[x + 1].RoomIndex;
+
+                        if(y + 1 < levelsPopNet[z].rows.Count())
+                            room._RoomDown = levelsPopNet[z].rows[y+1].columns[x].RoomIndex;
+
+                        if (y - 1 >= 0)
+                            room._RoomUp = levelsPopNet[z].rows[y-1].columns[x].RoomIndex;
+                        
+
+
                     }
                 }
+                levels.Add(level);
             }
 
 
             //
-
-        }
+           
+            }
 
 
 
@@ -256,12 +392,18 @@ namespace PrinceOfPersia
         {
             graphicsDevice = GraphicsDevice;
 
-            if (PrinceOfPersiaGame.LEVEL_APOPLEXY == true)
+            if (PoP.LEVEL_APOPLEXY == true)
+            {
                 LoadLevels();
+                StartLevel(Enumeration.LevelName.dungeon_prison);
+            }
             else
-                PopNet();
+            {
+                LoadLevelsPoN();
+                StartLevelPoP(Enumeration.LevelName.dungeon_prison);
+            }
 
-            StartLevel(Enumeration.LevelName.dungeon_prison);
+            
       
         }
 

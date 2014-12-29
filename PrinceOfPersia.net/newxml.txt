@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Level xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<levelName>dungeon_prison</levelName>
+<description>bla bla</description>
+<index>1</index>
+
+<room number="1">
+
+<Block>
+<sprite Type="guard" direction="FlipHorizontally" skill="5" energy="3" color="00FF00">
+<tile Type="space">
+</Block>
+
+<Block>
+<sprite Type="sword" direction="FlipHorizontally" color="000000"> #000000 default
+<tile Type="space">
+</Block>
+
+<links down="2" up="0" right="0" left="5"/>
+</room>
+
+
+
+<prince direction="2" location="1" room="1"/>
+
+</Level>
+
+location = room.number

@@ -38,10 +38,10 @@ namespace PrinceOfPersia
     public class Room //: IDisposable
     {
         //COORDINATE ROOM
-        private int _RoomRight = 0;
-        private int _RoomLeft = 0;
-        private int _RoomUp = 0;
-        private int _RoomDown= 0;
+        public int _RoomRight = 0;
+        public int _RoomLeft = 0;
+        public int _RoomUp = 0;
+        public int _RoomDown= 0;
         
         
         public Maze maze;
@@ -294,6 +294,8 @@ namespace PrinceOfPersia
 
         private void LoadTilesPoPnet()
         {
+
+
             // Allocate the Tile grid.
             tiles = new Tile[map.rows[0].columns.Length, map.rows.Length];
             int x = 0; int y = 0; int newX = 0;
@@ -307,13 +309,18 @@ namespace PrinceOfPersia
                         nextTileType = r.columns[ix+1].tileType;
 
                     tiles[x, y] = LoadTile(r.columns[ix].tileType, r.columns[ix].state, r.columns[ix].switchButton, r.columns[ix].item, nextTileType);
-                    //tiles[x, y].tileAnimation.fra = maze.player.sprite.frameRate_background;
                     Rectangle rect = new Rectangle(x * (int)Tile.Size.X, y * (int)Tile.Size.Y - BOTTOM_BORDER, (int)tiles[x, y].Texture.Width, (int)tiles[x, y].Texture.Height);
-                    Vector2 v = new Vector2(rect.X, rect.Y);
+                    //Vector2 v = new Vector2(rect.X, rect.Y);
 
-                    tiles[x, y].Position = new Position(v, v);
+                    Vector2 v = new Vector2(x * Tile.WIDTH, (y * Tile.HEIGHT) - Tile.HEIGHT_VISIBLE);
+
+                    tiles[x, y].Position = new Position(Vector2.Zero, new Vector2(Tile.WIDTH, Tile.REALHEIGHT));
                     tiles[x, y].Position.X = v.X;
                     tiles[x, y].Position.Y = v.Y;
+
+                    //tiles[x, y].Position = new Position(v, v);
+                    //tiles[x, y].Position.X = v.X;
+                    //tiles[x, y].Position.Y = v.Y;
 
                     //x+1 for avoid base zero x array, WALL POSITION 0-29
                     tiles[x, y].panelInfo = newX + roomNumber;
@@ -327,13 +334,13 @@ namespace PrinceOfPersia
                             break;
 
                         case Enumeration.SpriteType.guard :
+                        case Enumeration.SpriteType.guard2:
                             int xGuard = (x-1) * Tile.WIDTH + Player.SPRITE_SIZE_X;
                             //int yGuard = (y + 1) * (Tile.HEIGHT - Sprite.PLAYER_STAND_FLOOR_PEN - RoomNew.BOTTOM_BORDER + RoomNew.TOP_BORDER);
                             int yGuard = ((y + 1) * (Tile.HEIGHT)) - Sprite.SPRITE_SIZE_Y + Room.TOP_BORDER;
                             Guard g = new Guard(this, new Vector2(xGuard, yGuard), maze.graphicsDevice, r.columns[ix].spriteEffect);
                             level.sprites.Add(g);
                             break;
-
 
                         default:
                             break;
